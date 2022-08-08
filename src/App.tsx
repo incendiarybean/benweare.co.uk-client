@@ -1,14 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { Navbar, Info, Dashboard } from "./components";
+import { BrowserRouter as Router } from "react-router-dom";
+import { Navbar, Body } from "./components";
 import RenderProps from "./TS/props";
 
 let welcomeCheck = false;
 
 function App() {
     const props = RenderProps().props;
+    const [mobileMenu, setMobileMenu] = useState(false);
 
     if (!welcomeCheck) {
         props.Notifications.custom("👋 Welcome!", "bottom-left");
@@ -19,14 +20,12 @@ function App() {
         <Router>
             <div className="absolute flex flex-col xl:flex-row xl:justify-between w-full h-max">
                 <ToastContainer />
-                <Navbar {...props} />
-                <Routes>
-                    <Route
-                        path="/dashboard"
-                        element={<Dashboard {...props} />}
-                    />
-                    <Route path="*" element={<Info {...props} />} />
-                </Routes>
+                <Navbar
+                    {...props}
+                    mobileMenu={mobileMenu}
+                    setMobileMenu={setMobileMenu}
+                />
+                <Body {...props} mobileMenu={mobileMenu} />
             </div>
         </Router>
     );

@@ -13,11 +13,11 @@ function Component({ Icon }: IconProps) {
     };
 
     return (
-        <div className="select-none bg-slate-100 flex flex-col h-full w-full items-center p-2 xl:p-10 shadow-inner">
+        <div className="select-none bg-gray-200 flex flex-col w-full items-center p-2 xl:p-10 shadow-inner">
             <div className="flex flex-col w-full min-w-fit lg:w-1/3 lg:min-w-0 bg-white rounded-xl shadow-xl p-10 mt-28 self-center">
                 <div className="flex justify-center items-center mb-5">
                     <img
-                        className="w-64 h-64 min-w-fit -mt-28 rounded-full shadow-xl border-8 border-white"
+                        className=" min-w-fit -mt-28 rounded-full shadow-xl border-8 border-white"
                         src={profile_image}
                         alt="Ben Weare, Benjamin Weare's mugshot"
                         loading="eager"
@@ -44,9 +44,9 @@ function Component({ Icon }: IconProps) {
                     className="group hover:text-blue-500 mt-10"
                     onClick={() => setShow(!show)}
                 >
-                    <hr />
+                    <hr className="z-0" />
                     <div className="group-hover:text-blue-500 flex justify-center">
-                        <div className="-mt-3 bg-white min-w-fit px-2 text-xs uppercase flex flex-row items-center">
+                        <div className="z-10 -mt-3 bg-white min-w-fit px-2 text-xs uppercase flex flex-row items-center">
                             <p>Languages &amp; Experience</p> <Expand />
                         </div>
                     </div>
@@ -54,9 +54,9 @@ function Component({ Icon }: IconProps) {
             </div>
             <div
                 hidden={!show}
-                className="w-full min-w-fit lg:w-1/3 lg:min-w-0 bg-white rounded-xl shadow-xl overflow-auto h-96 self-center mt-4 mb-20"
+                className="w-full min-w-fit lg:w-1/3 lg:min-w-0 bg-white rounded-xl shadow-xl overflow-auto h-96 self-center mt-4 mb-20 z-10"
             >
-                <p className="sticky top-0 bg-white text-left pl-8 p-3 text-sm text-blue-600 font-bold uppercase border-t border-b">
+                <p className="z-0 sticky top-0 bg-white text-left pl-8 p-3 text-sm text-blue-600 font-bold uppercase border-b">
                     Services/Environments
                 </p>
                 <div className="w-full flex flex-col items-center overflow-hidden text-sm mb-4">
@@ -102,7 +102,7 @@ function Component({ Icon }: IconProps) {
                         NodeJS
                     </a>
                 </div>
-                <p className="sticky top-0 bg-white w-full text-left pl-8 p-3 text-sm text-blue-600 font-bold uppercase border-t border-b">
+                <p className="z-0 sticky top-0 bg-white w-full text-left pl-8 p-3 text-sm text-blue-600 font-bold uppercase border-t border-b">
                     Proficient Languages
                 </p>
                 <div className="w-full flex flex-col items-center overflow-hidden text-sm mb-4">
@@ -128,7 +128,7 @@ function Component({ Icon }: IconProps) {
                     </a>
                 </div>
 
-                <p className="sticky top-0 bg-white w-full text-left pl-8 p-3 text-sm text-blue-600 font-bold uppercase border-t border-b">
+                <p className="z-0 sticky top-0 bg-white w-full text-left pl-8 p-3 text-sm text-blue-600 font-bold uppercase border-t border-b">
                     Minor Language Experience
                 </p>
                 <div className="w-full flex flex-col items-center overflow-hidden text-sm mb-4">
@@ -154,7 +154,7 @@ function Component({ Icon }: IconProps) {
                     </a>
                 </div>
 
-                <p className="sticky top-0 bg-white w-full text-left pl-8 p-3 text-sm text-blue-600 font-bold uppercase border-t border-b">
+                <p className="z-0 sticky top-0 bg-white w-full text-left pl-8 p-3 text-sm text-blue-600 font-bold uppercase border-t border-b">
                     Databases
                 </p>
                 <div className="w-full flex flex-col items-center overflow-hidden text-sm mb-4">
@@ -180,7 +180,7 @@ function Component({ Icon }: IconProps) {
                     </a>
                 </div>
 
-                <p className="sticky top-0 bg-white w-full text-left pl-8 p-3 text-sm text-blue-600 font-bold uppercase border-t border-b">
+                <p className="z-0 sticky top-0 bg-white w-full text-left pl-8 p-3 text-sm text-blue-600 font-bold uppercase border-t border-b">
                     JS Frameworks
                 </p>
                 <div className="w-full flex flex-col items-center overflow-hidden text-sm mb-4">

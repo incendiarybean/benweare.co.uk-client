@@ -8,9 +8,13 @@ module.exports = {
                 width: "width",
             },
             height: {
+                92: "23rem",
                 128: "32rem",
                 120: "30rem",
                 112: "28rem",
+            },
+            width: {
+                "2xl": "42rem",
             },
             maxHeight: {
                 128: "32rem",

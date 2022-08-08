@@ -3,9 +3,15 @@ import { Link } from "react-router-dom";
 import { NavbarProps } from "@lib/types";
 import { ExternalClickHandler } from "src/hooks/externalClickHandler";
 
-function Component({ Icon }: NavbarProps) {
+function Component({ Icon, mobileMenu, setMobileMenu }: NavbarProps) {
     const [activePageNumber, setActivePageNumber] = useState(0);
-    const [mobileMenu, setMobileMenu] = useState(false);
+
+    const handlePageNavigation = (pageNumber: number) => {
+        setActivePageNumber(pageNumber);
+        if (mobileMenu) {
+            setMobileMenu(false);
+        }
+    };
 
     useEffect(() => {
         const currentPage = window.location.pathname;
@@ -39,18 +45,18 @@ function Component({ Icon }: NavbarProps) {
                 </p>
             </button>
             <div
-                className={`absolute xl:relative text-left bg-white xl:transition-width ease-in-out duration-150 w-full xl:w-12 xl:group-hover:w-52 ${
-                    mobileMenu ? " " : "hidden"
-                } xl:grid grid-cols-1 grid-rows-5 divide-y shadow xl:shadow-none`}
+                className={`z-20 absolute xl:relative text-left bg-white xl:transition-width ease-in-out duration-150 w-full xl:w-12 xl:group-hover:w-52 ${
+                    mobileMenu ? "" : "hidden"
+                } xl:grid grid-cols-1 grid-rows-5 divide-y shadow-lg xl:shadow-none`}
             >
                 <Link
                     to="/dashboard"
                     className={`${
                         activePageNumber === 0
-                            ? "bg-gradient-to-r from-blue-600 to-blue-400 hover:from-blue-700 hover:to-blue-500 shadow-inner text-slate-100 hover:text-white"
+                            ? "bg-gradient-to-r from-blue-700 to-blue-500 hover:from-blue-800 hover:to-blue-600 text-slate-100 hover:text-white"
                             : "hover:bg-slate-100"
                     } hover:shadow-inner w-full h-12 flex items-center`}
-                    onClick={() => setActivePageNumber(0)}
+                    onClick={() => handlePageNavigation(0)}
                 >
                     <div className="p-3">
                         <Icon.Home />
@@ -65,10 +71,10 @@ function Component({ Icon }: NavbarProps) {
                     to="/"
                     className={`${
                         activePageNumber === 1
-                            ? "bg-gradient-to-r from-blue-600 to-blue-400 hover:from-blue-700 hover:to-blue-500 shadow-inner text-slate-100 hover:text-white"
+                            ? "bg-gradient-to-r from-blue-700 to-blue-500 hover:from-blue-800 hover:to-blue-600 text-slate-100 hover:text-white"
                             : "hover:bg-slate-100"
                     } hover:shadow-inner w-full h-12 flex items-center`}
-                    onClick={() => setActivePageNumber(1)}
+                    onClick={() => handlePageNavigation(1)}
                 >
                     <div className="p-3">
                         <Icon.Info />
@@ -80,6 +86,8 @@ function Component({ Icon }: NavbarProps) {
                 </Link>
 
                 <a
+                    target="_blank"
+                    rel="noreferrer"
                     href="https://www.npmjs.com/~incendiarybean"
                     className="hover:bg-slate-100 hover:shadow-inner w-full h-12 flex items-center"
                 >
@@ -93,6 +101,8 @@ function Component({ Icon }: NavbarProps) {
                 </a>
 
                 <a
+                    target="_blank"
+                    rel="noreferrer"
                     href="https://github.com/incendiarybean"
                     className="hover:bg-slate-100 hover:shadow-inner w-full h-12 flex items-center"
                 >
@@ -106,6 +116,8 @@ function Component({ Icon }: NavbarProps) {
                 </a>
 
                 <a
+                    target="_blank"
+                    rel="noreferrer"
                     href="https://hub.docker.com/u/incendiarybean"
                     className="hover:bg-slate-100 hover:shadow-inner w-full h-12 flex items-center"
                 >

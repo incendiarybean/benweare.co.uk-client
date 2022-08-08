@@ -1,6 +1,11 @@
+import React from "react";
+
 export interface Icons {
     Home: React.FunctionComponent;
     Info: React.FunctionComponent;
+    RightArrow: React.FunctionComponent;
+    RightCornerArrow: React.FunctionComponent;
+    LeftArrow: React.FunctionComponent;
     DownArrow: React.FunctionComponent;
     UpArrow: React.FunctionComponent;
     Burger: React.FunctionComponent;
@@ -24,6 +29,28 @@ export interface NasaArticle {
     service_version: string;
     title: string;
     url: string;
+}
+
+export interface NewsArticle {
+    title: string;
+    link: string;
+    img: string;
+    date: string;
+    site: string;
+}
+
+export interface GamingNewsArticle {
+    title: string;
+    link: string;
+    img: string;
+    date: string;
+    site: string;
+}
+
+export interface NewsResponse {
+    nasa: NasaArticle;
+    gaming: GamingNewsArticle[];
+    news: NewsArticle[];
 }
 
 export interface News {
@@ -99,22 +126,21 @@ export interface UI {
 
 export interface Props {
     Icon: Icons;
-    isLoaded?: boolean;
-    Notifications?: Notification;
-    News?: News;
-    Weather?: Weather;
-    UI?: UI;
-    Failed?: Function;
-    Loading?: Function;
-    Loaded?: Function;
 }
 
 export interface NavbarProps {
     Icon: Icons;
+    mobileMenu: boolean;
+    setMobileMenu: React.Dispatch<boolean>;
 }
 
 export interface IconProps {
     Icon: Icons;
+}
+
+export interface BodyProps {
+    Icon: Icons;
+    mobileMenu: boolean;
 }
 
 export interface InfoProps {}

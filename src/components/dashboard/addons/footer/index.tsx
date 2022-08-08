@@ -8,7 +8,10 @@ function Component({ Icon }: IconProps) {
                 <div className="px-2">
                     <Icon.Info />
                 </div>
-                <p className="mt-1 ml-2 pr-3"> Built by Benjamin Weare</p>
+                <p className="mt-1 ml-2 pr-3">
+                    {process.env.REACT_APP_NAME} @{" "}
+                    {process.env.REACT_APP_VERSION}
+                </p>
             </footer>
         </div>
     );
