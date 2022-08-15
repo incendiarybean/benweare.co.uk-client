@@ -13,6 +13,7 @@ export const ExternalClickHandler = (
 ) => {
     useEffect(() => {
         const handleClickOutside = ({ target }: MouseEvent) => {
+            console.log(ref.current!.contains(target as Node));
             if (ref && ref.current && !ref.current.contains(target as Node)) {
                 focusContained(false);
             }

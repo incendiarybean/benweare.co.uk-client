@@ -1,4 +1,4 @@
-import { NasaArticle, NewsArticle, GamingNewsArticle } from "@lib/types";
+import { NasaArticle, NewsArticle } from "@lib/types";
 import { useEffect, useState } from "react";
 import { toast, ToastPosition } from "react-toastify";
 import * as Icon from "./icons";
@@ -11,9 +11,7 @@ const NEWS_ENDPOINT = process.env.REACT_APP_NEWS_ENDPOINT || "";
 
 function Functions() {
     /* News state and content */
-    const [GamingArticles, setGamingArticles] = useState<GamingNewsArticle[]>(
-        []
-    );
+    const [GamingArticles, setGamingArticles] = useState<NewsArticle[]>([]);
     const [NewsArticles, setNewsArticles] = useState<NewsArticle[]>([]);
     const [NasaArticles, setNasaArticles] = useState<NasaArticle>();
     const [NewsLoaded, setNewsLoaded] = useState<boolean | string>(false);
@@ -21,8 +19,8 @@ function Functions() {
     const props = {
         Icon,
         Notifications: {
-            custom: (info: string, position: ToastPosition) => {
-                toast.info(info, {
+            default: (text: string, position: ToastPosition) => {
+                toast(text, {
                     position: position,
                     autoClose: 5000,
                     hideProgressBar: false,

@@ -31,15 +31,14 @@ export interface NasaArticle {
     url: string;
 }
 
-export interface NewsArticle {
-    title: string;
-    link: string;
-    img: string;
-    date: string;
-    site: string;
+export interface NewsCarousel {
+    Icon: Icons;
+    Endpoint: string;
+    MockData: NewsArticle[];
+    SiteName: string;
 }
 
-export interface GamingNewsArticle {
+export interface NewsArticle {
     title: string;
     link: string;
     img: string;
@@ -49,7 +48,7 @@ export interface GamingNewsArticle {
 
 export interface NewsResponse {
     nasa: NasaArticle;
-    gaming: GamingNewsArticle[];
+    gaming: NewsArticle[];
     news: NewsArticle[];
 }
 

@@ -412,9 +412,9 @@ export const RightCornerArrow = () => (
 
 export const RightArrow = () => (
     <svg
-        height="30"
+        height="22"
         viewBox="0 0 21 21"
-        width="30"
+        width="22"
         xmlns="http://www.w3.org/2000/svg"
     >
         <g
@@ -433,9 +433,9 @@ export const RightArrow = () => (
 
 export const LeftArrow = () => (
     <svg
-        height="30"
+        height="22"
         viewBox="0 0 21 21"
-        width="30"
+        width="22"
         xmlns="http://www.w3.org/2000/svg"
     >
         <g
