@@ -36,6 +36,7 @@ export interface NewsCarousel {
     Endpoint: string;
     MockData: NewsArticle[];
     SiteName: string;
+    Disabled: boolean;
 }
 
 export interface NewsArticle {

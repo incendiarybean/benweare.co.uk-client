@@ -1,4 +1,4 @@
-import { IconProps } from "@lib/types";
+import { BodyProps } from "@lib/types";
 import React from "react";
 import {
     MOCK_BBC_NEWS_RESPONSE,
@@ -6,7 +6,7 @@ import {
 } from "src/TS/resource-data";
 import { NewsCarousel, Footer } from "../..";
 
-function Component({ Icon }: IconProps) {
+function Component({ Icon, mobileMenu }: BodyProps) {
     return (
         <div className="select-none bg-gray-200 items-center flex flex-col">
             <NewsCarousel
@@ -14,6 +14,7 @@ function Component({ Icon }: IconProps) {
                 Endpoint={"/game-news"}
                 MockData={MOCK_GAMING_NEWS_RESPONSE}
                 SiteName="PCGamer"
+                Disabled={mobileMenu}
             />
             <hr className="border-b border-slate-300 w-1/2 self-center lg:border-none" />
             <NewsCarousel
@@ -21,6 +22,7 @@ function Component({ Icon }: IconProps) {
                 Endpoint={"/bbc-news"}
                 MockData={MOCK_BBC_NEWS_RESPONSE}
                 SiteName="BBC"
+                Disabled={mobileMenu}
             />
             <hr className="border-b border-slate-300 w-1/2 self-center lg:border-none" />
             <Footer Icon={Icon} />

@@ -2,7 +2,13 @@ import { NewsArticle, NewsCarousel } from "@lib/types";
 import React, { useEffect, useState } from "react";
 import { sleep } from "src/TS/utils";
 
-function Component({ Icon, Endpoint, MockData, SiteName }: NewsCarousel) {
+function Component({
+    Icon,
+    Endpoint,
+    MockData,
+    SiteName,
+    Disabled,
+}: NewsCarousel) {
     const [articles, setArticles] = useState<NewsArticle[]>([]);
     const [loaded, setLoaded] = useState<boolean | string>(false);
     const [articlePage, setArticlePage] = useState<number>(0);
@@ -60,9 +66,11 @@ function Component({ Icon, Endpoint, MockData, SiteName }: NewsCarousel) {
                             href={data.link}
                             rel="noreferrer"
                             target="_blank"
-                            className={` w-full lg:w-auto rounded-xl ${
-                                index === articlePage ? "flex" : "hidden"
-                            } flex-col xl:flex-row bg-white shadow-md transition-all duration-100 hover:scale-95 hover:bg-slate-100`}
+                            className={`
+                                ${index === articlePage ? "flex" : "hidden"} 
+                                ${Disabled && "pointer-events-none"} 
+                                w-full lg:w-auto rounded-xl flex-col xl:flex-row bg-white shadow-md transition-all duration-100 hover:scale-95 hover:bg-slate-100
+                            `}
                         >
                             <div className="p-2">
                                 <img
