@@ -12,6 +12,7 @@ export interface Icons {
     Packages: React.FunctionComponent;
     OpenBox: React.FunctionComponent;
     Box: React.FunctionComponent;
+    Sun: React.FunctionComponent;
 }
 
 export interface Notification {
@@ -82,7 +83,7 @@ export interface WeatherDay {
     dayMaxFeelsLikeTemp: number;
     daySignificantWeatherCode: number;
     WeatherIcon: JSX.Element;
-    Description: string | { message: string; code: string };
+    Description: string;
 }
 
 export interface WeatherFeatures {

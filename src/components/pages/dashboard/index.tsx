@@ -4,7 +4,7 @@ import {
     MOCK_BBC_NEWS_RESPONSE,
     MOCK_GAMING_NEWS_RESPONSE,
 } from "src/TS/resource-data";
-import { NewsCarousel, Footer } from "../..";
+import { NewsCarousel, Footer, WeatherDay } from "../..";
 
 function Component({ Icon, mobileMenu }: BodyProps) {
     return (
@@ -16,6 +16,8 @@ function Component({ Icon, mobileMenu }: BodyProps) {
                 SiteName="PCGamer"
                 Disabled={mobileMenu}
             />
+            <hr className="border-b border-slate-300 w-1/2 self-center lg:border-none" />
+            <WeatherDay Icon={Icon} Endpoint={"/weather"} />
             <hr className="border-b border-slate-300 w-1/2 self-center lg:border-none" />
             <NewsCarousel
                 Icon={Icon}

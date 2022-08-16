@@ -2,6 +2,7 @@
     "name": "benweare.com",
     "version": "0.1.0",
     "private": true,
+    "main": "./dist/index.js",
     "dependencies": {
         "@fortawesome/free-brands-svg-icons": "^6.1.2",
         "@fortawesome/react-fontawesome": "^0.2.0",
@@ -14,7 +15,10 @@
         "@types/react-dom": "^18.0.6",
         "animate.css": "^4.1.1",
         "autoprefixer": "^10.4.7",
+        "axios": "^0.27.2",
         "cors": "^2.8.5",
+        "dotenv": "^16.0.1",
+        "express": "^4.18.1",
         "postcss": "^8.4.14",
         "react": "^18.2.0",
         "react-dom": "^18.2.0",
@@ -26,10 +30,15 @@
         "web-vitals": "^2.1.4"
     },
     "scripts": {
-        "start": "react-scripts start",
-        "build": "react-scripts build",
-        "test": "react-scripts test",
-        "eject": "react-scripts eject"
+        "start-server": "set NODE_ENV=production&& node .",
+        "start-client": "react-scripts start",
+        "start-dev": "nodemon ./server/index.ts",
+        "build-server": "tsc --p ./server && node ./dist/build.js",
+        "build-server-o": "tsc --p ./server",
+        "build-windows": "react-scripts build && move build ./dist/app",
+        "build-linux": "react-scripts build && mv build ./dist/app",
+        "build-client": "react-scripts build",
+        "test": "react-scripts test"
     },
     "eslintConfig": {
         "extends": [
@@ -48,5 +57,9 @@
             "last 1 firefox version",
             "last 1 safari version"
         ]
+    },
+    "devDependencies": {
+        "nodemon": "^2.0.19",
+        "ts-node": "^10.9.1"
     }
 }
