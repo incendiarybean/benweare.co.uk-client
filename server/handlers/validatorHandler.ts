@@ -1,13 +1,12 @@
-const routeValidator = (app: any) => {
-    const routes = [
-        "/",
-        "/api/pc-articles",
-        "/api/weather",
-        "/api/discord",
-        "/info",
-        "/favicon.ico",
-    ];
-    app.use((req: any, res: any, next: any) => {
+import { Application, NextFunction, Request, Response } from "express";
+
+/**
+ * This is to block requests to pages that don't exist, stop API abuse
+ * @param app Application - Express app to send response
+ */
+const routeValidator = (app: Application) => {
+    const routes = ["/", "/api/news", "/api/weather", "/info", "/favicon.ico"];
+    app.use((req: Request, res: Response, next: NextFunction) => {
         if (routes.includes(req.path)) {
             return next();
         }

@@ -13,6 +13,7 @@ export interface Icons {
     OpenBox: React.FunctionComponent;
     Box: React.FunctionComponent;
     Sun: React.FunctionComponent;
+    LoaderSmall: React.FunctionComponent;
 }
 
 export interface Notification {
@@ -30,6 +31,11 @@ export interface NasaArticle {
     service_version: string;
     title: string;
     url: string;
+}
+
+export interface NewsCard {
+    SiteName: string;
+    Endpoint: string;
 }
 
 export interface NewsCarousel {
@@ -61,6 +67,46 @@ export interface News {
     Loaded: boolean;
 }
 
+export interface WeatherFeatures {
+    type: string;
+    geometry: { type: string; coordinates: number[] };
+    properties: {
+        location: { name: string };
+        requestPointDistance: number;
+        modelRunDate: string;
+        timeSeries: WeatherTimeSeries[];
+    };
+}
+
+export interface WeatherTimeSeries {
+    time: string;
+    midnight10MWindSpeed: number;
+    midnight10MWindDirection: number;
+    midnight10MWindGust: number;
+    midnightVisibility: number;
+    midnightRelativeHumidity: number;
+    midnightMslp: number;
+    nightSignificantWeatherCode: number;
+    nightMinScreenTemperature: number;
+    nightUpperBoundMinTemp: number;
+    nightLowerBoundMinTemp: number;
+    nightMinFeelsLikeTemp: number;
+    nightUpperBoundMinFeelsLikeTemp: number;
+    nightLowerBoundMinFeelsLikeTemp: number;
+    nightProbabilityOfPrecipitation: number;
+    nightProbabilityOfSnow: number;
+    nightProbabilityOfHeavySnow: number;
+    nightProbabilityOfRain: number;
+    nightProbabilityOfHeavyRain: number;
+    nightProbabilityOfHail: number;
+    nightProbabilityOfSferics: number;
+}
+
+export interface WeatherResponse {
+    type: string;
+    features: WeatherFeatures[];
+}
+
 export interface WeatherDay {
     midnight10MWindDirection: number;
     midnight10MWindGust: number;
@@ -84,22 +130,6 @@ export interface WeatherDay {
     daySignificantWeatherCode: number;
     WeatherIcon: JSX.Element;
     Description: string;
-}
-
-export interface WeatherFeatures {
-    geometry: {
-        type: string;
-        coordinates: number[];
-    };
-    properties: {
-        location: {
-            name: string;
-        };
-        requestPointDistance: number;
-        modelRunDate: string;
-        timeSeries: WeatherDay[];
-    };
-    type: string;
 }
 
 export interface WeatherRequest {

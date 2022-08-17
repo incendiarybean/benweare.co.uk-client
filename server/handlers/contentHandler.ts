@@ -1,8 +1,16 @@
-const cors = require("cors"),
-    express = require("express"),
-    path = require("path");
+import { Application } from "express";
 
-const routeContent = (app: any) => {
+const cors = require("cors");
+const express = require("express");
+const path = require("path");
+const swaggerUi = require("swagger-ui-express");
+const swaggerDocument = require("./schema/swagger.json");
+
+/**
+ * This is purely to configure the static paths and CORS
+ * @param app Application - for configuring static files and CORS
+ */
+const routeContent = (app: Application) => {
     console.log(`[${new Date()}] Configuring CORS...`);
 
     const indexLocation: string =
@@ -23,6 +31,7 @@ const routeContent = (app: any) => {
         "/favicon.ico",
         express.static(path.join(__dirname, `${indexLocation}/favicon.ico`))
     );
+    app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 };
 
 export default routeContent;
