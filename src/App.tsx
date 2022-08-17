@@ -4,6 +4,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { BrowserRouter as Router } from "react-router-dom";
 import { Navbar, Routes } from "./components";
 import RenderProps from "./TS/props";
+import "animate.css";
 
 let welcomeCheck = false;
 

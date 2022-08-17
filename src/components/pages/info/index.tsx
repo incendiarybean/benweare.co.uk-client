@@ -14,10 +14,10 @@ function Component({ Icon }: IconProps) {
 
     return (
         <div className="select-none bg-gray-200 flex flex-col w-full items-center p-4">
-            <div className="flex flex-col w-full min-w-fit lg:min-w-0 bg-white rounded-xl shadow-md p-10 mt-28 self-center">
+            <div className="animate__animated animate__fadeIn animate__faster flex flex-col w-full min-w-fit lg:min-w-0 bg-white rounded-xl shadow-md p-10 mt-28 self-center">
                 <div className="flex justify-center items-center mb-5">
                     <img
-                        className="min-w-fit -mt-32 rounded-full shadow-xl border-8 border-white"
+                        className="animate__animated animate__fadeIn animate__faster min-w-fit -mt-32 rounded-full shadow-xl border-8 border-white"
                         src={profile_image}
                         alt="Ben Weare, Benjamin Weare's mugshot"
                         loading="eager"
