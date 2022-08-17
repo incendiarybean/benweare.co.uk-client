@@ -61,29 +61,30 @@ function Component({
     }, [Endpoint, MockData]);
 
     return (
-        <div className="my-3 px-6 w-full lg:w-auto">
-            <div className="text-left flex flex-col w-full items-center justify-center xl:p-4 xl:border border-gray-300 rounded-xl">
+        <div className="my-3 px-6 w-full">
+            <div className="text-left flex flex-col w-full items-center justify-center md:p-4 md:border border-gray-300 rounded-xl">
                 {loaded ? (
                     articles.map((data, index) => (
                         <a
+                            key={`${data.site}-${index}`}
                             href={data.link}
                             rel="noreferrer"
                             target="_blank"
                             className={`
                                 ${index === articlePage ? "flex" : "hidden"} 
                                 ${Disabled && "pointer-events-none"} 
-                                w-full lg:w-auto rounded-xl flex-col xl:flex-row bg-white shadow-md transition-all duration-100 hover:scale-95 hover:bg-slate-100
+                                w-full rounded-xl flex-col xl:flex-row bg-white shadow-md transition-all duration-100 hover:scale-95 hover:bg-slate-100
                             `}
                         >
                             <div className="p-2">
                                 <img
                                     src={data.img}
                                     alt={data.title}
-                                    className="rounded-t-xl w-full h-52 lg:w-96 shadow-inner rounded-lg"
+                                    className="rounded-t-xl w-full h-52 md:w-full xl:w-96 shadow-inner rounded-lg"
                                 />
                             </div>
-                            <div className="w-full xl:w-1/3 p-3 flex flex-col justify-between max-h-56 overflow-auto lg:h-auto">
-                                <h1 className="text-left text-sm xl:text-lg text-slate-700 font-bold leading-normal min-w-fit">
+                            <div className="w-full xl:w-1/2 p-3 flex flex-col justify-between max-h-56 overflow-auto lg:h-auto">
+                                <h1 className="text-left text-sm xl:text-lg text-slate-700 font-bold leading-normal ">
                                     {data.title}
                                 </h1>
                                 <div className="flex flex-col">
@@ -112,6 +113,7 @@ function Component({
                             {loaded &&
                                 articles.map((data, index) => (
                                     <button
+                                        key={`${data.site}-${index}-navigator`}
                                         onClick={() => handleRotation(index)}
                                         className={`transition-all w-3 self-center duration-150 hover:scale-150 active:scale-125 ease-in-out rounded-md xl:p-1 ${
                                             index === articlePage

@@ -28,35 +28,35 @@ function Component({ Icon, mobileMenu, setMobileMenu }: NavbarProps) {
     ExternalClickHandler(navigationElement, setMobileMenu);
 
     return (
-        <div className="flex justify-end lg:mr-4 lg:mt-28">
+        <div className="flex justify-end md:mr-4 md:mt-28">
             <div
                 ref={navigationElement}
-                className="bg-white lg:bg-slate-200 shadow lg:shadow-none select-none group relative lg:sticky top-0 w-full lg:w-48"
+                className="bg-white md:bg-slate-200 shadow md:shadow-none select-none group relative md:sticky top-0 w-full md:w-48"
             >
                 <button
                     onClick={() => setMobileMenu(!mobileMenu)}
-                    className="lg:hidden hover:shadow-inner w-full h-12 flex items-center border-b"
+                    className="md:hidden hover:shadow-inner w-full h-12 flex items-center border-b"
                 >
                     <div className="p-3">
                         <Icon.Burger />
                     </div>
 
-                    <p className="lg:w-0 overflow-hidden ml-2 text-sm font-normal uppercase">
+                    <p className="md:w-0 overflow-hidden ml-2 text-sm font-normal uppercase">
                         Menu
                     </p>
                 </button>
                 <div
-                    className={`z-10 absolute w-full lg:min-w-fit ${
+                    className={`z-10 absolute w-full md:min-w-fit ${
                         mobileMenu ? "bg-white shadow-md" : "hidden"
-                    } lg:grid lg:gap-2 `}
+                    } md:grid md:gap-2 `}
                 >
                     <Link
                         to="/dashboard"
-                        className={` transition-all ease-in-out duration-100 ${
+                        className={`transition-all ease-in-out duration-100 ${
                             activePageNumber === 0
-                                ? "text-white bg-gradient-to-r from-blue-500 to-blue-700 shadow-inner font-semibold leading-tight"
+                                ? "text-white bg-gradient-to-r from-blue-500 to-blue-700 font-semibold leading-tight shadow-md"
                                 : "hover:bg-slate-100"
-                        } hover:shadow-inner w-full lg:w-48 h-12 flex items-center lg:rounded-lg`}
+                        } hover:shadow-sm w-full md:w-48 h-12 flex items-center md:rounded-md`}
                         onClick={() => handlePageNavigation(0)}
                     >
                         <div className="p-3">
@@ -72,9 +72,9 @@ function Component({ Icon, mobileMenu, setMobileMenu }: NavbarProps) {
                         to="/"
                         className={`transition-all ease-in-out duration-100 ${
                             activePageNumber === 1
-                                ? "text-white bg-gradient-to-r from-blue-500 to-blue-700 shadow-inner font-semibold leading-tight"
+                                ? "text-white bg-gradient-to-r from-blue-500 to-blue-700 font-semibold leading-tight shadow-md"
                                 : "hover:bg-slate-100"
-                        } hover:shadow-inner w-full lg:w-48 h-12 flex items-center lg:rounded-lg`}
+                        } hover:shadow-sm w-full md:w-48 h-12 flex items-center md:rounded-md`}
                         onClick={() => handlePageNavigation(1)}
                     >
                         <div className="p-3">
@@ -90,7 +90,7 @@ function Component({ Icon, mobileMenu, setMobileMenu }: NavbarProps) {
                         target="_blank"
                         rel="noreferrer"
                         href="https://www.npmjs.com/~incendiarybean"
-                        className="transition-all ease-in-out duration-100 hover:bg-slate-100 hover:shadow-inner w-full lg:w-48 h-12 flex items-center lg:rounded-lg"
+                        className="transition-all ease-in-out duration-100 hover:bg-slate-100 hover:shadow-inner w-full md:w-48 h-12 flex items-center md:rounded-md"
                     >
                         <div className="p-3">
                             <Icon.Packages />
@@ -105,7 +105,7 @@ function Component({ Icon, mobileMenu, setMobileMenu }: NavbarProps) {
                         target="_blank"
                         rel="noreferrer"
                         href="https://github.com/incendiarybean"
-                        className="transition-all ease-in-out duration-100 hover:bg-slate-100 hover:shadow-inner w-full lg:w-48 h-12 flex items-center lg:rounded-lg"
+                        className="transition-all ease-in-out duration-100 hover:bg-slate-100 hover:shadow-inner w-full md:w-48 h-12 flex items-center md:rounded-md"
                     >
                         <div className="p-3">
                             <Icon.OpenBox />
@@ -120,7 +120,7 @@ function Component({ Icon, mobileMenu, setMobileMenu }: NavbarProps) {
                         target="_blank"
                         rel="noreferrer"
                         href="https://hub.docker.com/u/incendiarybean"
-                        className="transition-all ease-in-out duration-100 hover:bg-slate-100 hover:shadow-inner w-full lg:w-48 h-12 flex items-center lg:rounded-lg"
+                        className="transition-all ease-in-out duration-100 hover:bg-slate-100 hover:shadow-inner w-full md:w-48 h-12 flex items-center md:rounded-md"
                     >
                         <div className="p-3">
                             <Icon.Box />

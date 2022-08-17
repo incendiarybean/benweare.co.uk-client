@@ -56,7 +56,7 @@ function Component({ Icon, Endpoint, MockData }: any) {
 
         getNews();
     }, [Endpoint, MockData, Icon.Sun, Icon]);
-
+    console.log(weather, loaded);
     return <div></div>;
 }
 

@@ -16,9 +16,8 @@ function Component({ Icon, mobileMenu }: BodyProps) {
                 SiteName="PCGamer"
                 Disabled={mobileMenu}
             />
-            <hr className="border-b border-slate-300 w-1/2 self-center lg:border-none" />
+            <hr className="border-b border-slate-300 w-2/3 self-center lg:border-none" />
             <WeatherDay Icon={Icon} Endpoint={"/weather"} />
-            <hr className="border-b border-slate-300 w-1/2 self-center lg:border-none" />
             <NewsCarousel
                 Icon={Icon}
                 Endpoint={"/bbc-news"}
@@ -26,7 +25,7 @@ function Component({ Icon, mobileMenu }: BodyProps) {
                 SiteName="BBC"
                 Disabled={mobileMenu}
             />
-            <hr className="border-b border-slate-300 w-1/2 self-center lg:border-none" />
+            <hr className="border-b border-slate-300 w-2/3 self-center lg:border-none" />
             <Footer Icon={Icon} />
         </div>
     );
