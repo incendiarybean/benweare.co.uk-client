@@ -1,3 +1,76 @@
+/* TYPES FOR CLIENT */
+
+export interface Icons {
+    Home: React.FunctionComponent;
+    Info: React.FunctionComponent;
+    RightArrow: React.FunctionComponent;
+    RightCornerArrow: React.FunctionComponent;
+    LeftArrow: React.FunctionComponent;
+    DownArrow: React.FunctionComponent;
+    UpArrow: React.FunctionComponent;
+    Burger: React.FunctionComponent;
+    Packages: React.FunctionComponent;
+    OpenBox: React.FunctionComponent;
+    Box: React.FunctionComponent;
+    Sun: React.FunctionComponent;
+    LoaderSmall: React.FunctionComponent;
+    Newspaper: React.FunctionComponent;
+}
+
+export interface NewsArticle {
+    title: string;
+    link: string;
+    img: string;
+    date: string;
+    site: string;
+}
+
+export interface NasaArticle {
+    copyright: string;
+    date: string;
+    explanation: string;
+    hdurl: string;
+    media_type: string;
+    service_version: string;
+    title: string;
+    url: string;
+}
+
+export interface NewsResponse {
+    nasa: NasaArticle;
+    gaming: NewsArticle[];
+    news: NewsArticle[];
+}
+
+export interface NewsCarousel {
+    Icon: Icons;
+    Endpoint: string;
+    MockData: NewsArticle[];
+    SiteName: string;
+    Disabled: boolean;
+}
+
+export interface NewsCard {
+    SiteName: string;
+    Endpoint: string;
+}
+
+export interface NavbarProps {
+    Icon: Icons;
+    mobileMenu: boolean;
+    setMobileMenu: React.Dispatch<boolean>;
+}
+
+export interface IconProps {
+    Icon: Icons;
+}
+
+export interface BodyProps {
+    Icon: Icons;
+    mobileMenu: boolean;
+}
+
+/* TYPES FOR SERVER */
 export interface WeatherFeatures {
     type: string;
     geometry: { type: string; coordinates: number[] };
