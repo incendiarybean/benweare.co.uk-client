@@ -3,7 +3,7 @@ import { Application } from "express";
 const cors = require("cors");
 const express = require("express");
 const path = require("path");
-const swaggerUi = require("swagger-ui-express");
+const swaggerUi = require("swagger-ui-slim");
 const swaggerDocument = require("./schema/swagger.json");
 
 /**
@@ -31,7 +31,14 @@ const routeContent = (app: Application) => {
         "/favicon.ico",
         express.static(path.join(__dirname, `${indexLocation}/favicon.ico`))
     );
-    app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+    app.use(
+        "/api/docs",
+        swaggerUi.serve,
+        swaggerUi.build(swaggerDocument, {
+            customSiteTitle: "Ben's API Docs",
+            faviconUrl: `/favicon.ico`,
+        })
+    );
 };
 
 export default routeContent;
