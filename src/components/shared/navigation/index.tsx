@@ -28,20 +28,20 @@ function Component({ Icon, mobileMenu, setMobileMenu }: NavbarProps) {
     ExternalClickHandler(navigationElement, setMobileMenu);
 
     return (
-        <div className="flex justify-end md:mr-4 md:mt-28">
+        <div className="flex justify-end md:mr-4 md:mt-28 w-full">
             <div
                 ref={navigationElement}
-                className="bg-white md:bg-slate-200 shadow md:shadow-none select-none group relative md:sticky top-0 w-full md:w-48"
+                className="bg-white md:bg-gray-200 shadow md:shadow-none select-none group relative md:sticky top-0 w-full md:w-48"
             >
                 <button
                     onClick={() => setMobileMenu(!mobileMenu)}
-                    className="md:hidden hover:shadow-inner w-full h-12 flex items-center border-b"
+                    className="md:hidden hover:shadow-inner w-full h-12 flex items-center"
                 >
                     <div className="p-3">
                         <Icon.Burger />
                     </div>
 
-                    <p className="md:w-0 overflow-hidden ml-2 text-sm font-normal uppercase">
+                    <p className="md:w-0 overflow-hidden md:ml-2 text-sm font-normal uppercase">
                         Menu
                     </p>
                 </button>
@@ -63,7 +63,7 @@ function Component({ Icon, mobileMenu, setMobileMenu }: NavbarProps) {
                             <Icon.Home />
                         </div>
 
-                        <p className="overflow-hidden ml-2 mt-1 text-sm">
+                        <p className="overflow-hidden md:ml-2 mt-1 text-sm">
                             Dashboard
                         </p>
                     </Link>
@@ -81,7 +81,7 @@ function Component({ Icon, mobileMenu, setMobileMenu }: NavbarProps) {
                             <Icon.Info />
                         </div>
 
-                        <p className="overflow-hidden ml-2 mt-1 text-sm">
+                        <p className="overflow-hidden md:ml-2 mt-1 text-sm">
                             About
                         </p>
                     </Link>
@@ -96,7 +96,7 @@ function Component({ Icon, mobileMenu, setMobileMenu }: NavbarProps) {
                             <Icon.Packages />
                         </div>
 
-                        <p className="overflow-hidden ml-2 mt-1 text-sm font-medium">
+                        <p className="overflow-hidden md:ml-2 mt-1 text-sm font-medium">
                             Packages
                         </p>
                     </a>
@@ -111,7 +111,7 @@ function Component({ Icon, mobileMenu, setMobileMenu }: NavbarProps) {
                             <Icon.OpenBox />
                         </div>
 
-                        <p className="overflow-hidden ml-2 mt-1 text-sm font-medium">
+                        <p className="overflow-hidden md:ml-2 mt-1 text-sm font-medium">
                             GitHub
                         </p>
                     </a>
@@ -126,8 +126,22 @@ function Component({ Icon, mobileMenu, setMobileMenu }: NavbarProps) {
                             <Icon.Box />
                         </div>
 
-                        <p className="overflow-hidden ml-2 mt-1 text-sm font-medium">
+                        <p className="overflow-hidden md:ml-2 mt-1 text-sm font-medium">
                             Docker
+                        </p>
+                    </a>
+                    <a
+                        target="_blank"
+                        rel="noreferrer"
+                        href="/api/docs"
+                        className="transition-colors ease-in-out duration-100 hover:bg-slate-100 hover:shadow-inner w-full md:w-48 h-12 flex items-center md:rounded-md"
+                    >
+                        <div className="p-3">
+                            <Icon.Newspaper />
+                        </div>
+
+                        <p className="overflow-hidden md:ml-2 mt-1 text-sm font-medium">
+                            Docs
                         </p>
                     </a>
                 </div>

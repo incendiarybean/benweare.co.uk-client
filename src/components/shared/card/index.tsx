@@ -32,14 +32,12 @@ function Component({ Endpoint, SiteName }: NewsCard) {
                         <div
                             className={`animate__animated animate__fadeIn animate__faster w-full rounded-xl flex-col xl:flex-row bg-white shadow-md`}
                         >
-                            <div>
-                                <div
-                                    className="p-2 flex justify-center h-52 rounded-t-xl bg-fixed bg-center"
-                                    style={{
-                                        backgroundImage: `url(${article.url})`,
-                                    }}
-                                />
-                            </div>
+                            <div
+                                className="rounded-t-xl w-full h-52 shadow-sm bg-cover"
+                                style={{
+                                    backgroundImage: `url(${article.url})`,
+                                }}
+                            />
 
                             <div className="w-full p-3 flex flex-col justify-between h-auto md:h-28 overflow-auto lg:h-auto">
                                 <h1 className="text-left text-sm xl:text-lg text-slate-700 font-bold leading-normal ">
@@ -48,15 +46,15 @@ function Component({ Endpoint, SiteName }: NewsCard) {
                                 <p className="text-sm">{article.explanation}</p>
 
                                 <div className="flex mt-4">
-                                    <a
-                                        className="transition-all duration-100 text-center p-2 rounded-md text-white w-48 bg-gradient-to-r from-blue-700 to-blue-500 hover:shadow-md hover:from-blue-800 hover:to-blue-600"
-                                        href={article.url}
-                                        rel={"noreferrer"}
-                                        target="_blank"
+                                    <button
+                                        onClick={() =>
+                                            window.open(article.url, "_blank")
+                                        }
+                                        className="transition-all duration-100 text-center p-2 rounded-md text-white w-1/2 bg-gradient-to-r from-blue-700 to-blue-500 hover:shadow-md hover:from-blue-800 hover:to-blue-600"
                                     >
                                         View Full-Size
-                                    </a>
-                                    <div className="flex flex-col ml-4">
+                                    </button>
+                                    <div className="flex flex-col ml-4 w-1/2">
                                         <h2 className="text-center text-xs mt-1 mb-2 text-blue-600 font-bold uppercase">
                                             {SiteName} Article
                                         </h2>

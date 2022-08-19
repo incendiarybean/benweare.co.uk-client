@@ -370,10 +370,11 @@ export const Info = () => (
 
 export const Burger = () => (
     <svg
-        height="21"
+        height="22"
         viewBox="0 0 21 21"
-        width="21"
+        width="22"
         xmlns="http://www.w3.org/2000/svg"
+        strokeWidth="1.3"
     >
         <g
             fill="none"
