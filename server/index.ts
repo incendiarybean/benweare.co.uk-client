@@ -2,14 +2,15 @@ import { Server } from "http";
 
 const express = require("express");
 const app = express();
+
+require("dotenv").config();
+
 const {
     contentHandler,
     headerHandler,
     routeHandler,
     validatorHandler,
 } = require("./handlers");
-
-require("dotenv").config();
 
 process.env.NODE_ENV = process.env.NODE_ENV
     ? process.env.NODE_ENV
