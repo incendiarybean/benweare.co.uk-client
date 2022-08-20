@@ -40,7 +40,7 @@
         "build-server": "tsc --p ./server && node ./dist/build.js",
         "build-windows": "react-scripts build && move ./build ./dist/app",
         "build-linux": "react-scripts build && mv build ./dist/app",
-        "build-client": "react-scripts build"
+        "build-client": "react-scripts build",
     },
     "eslintConfig": {
         "extends": [
