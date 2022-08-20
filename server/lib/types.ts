@@ -1,5 +1,6 @@
-/* TYPES FOR CLIENT */
+import React = require("react");
 
+/* TYPES FOR CLIENT */
 export interface Icons {
     Home: React.FunctionComponent;
     Info: React.FunctionComponent;
