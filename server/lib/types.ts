@@ -1,7 +1,6 @@
 import React from "react";
 
 /* TYPES FOR CLIENT */
-
 export interface Icons {
     Home: React.FunctionComponent;
     Info: React.FunctionComponent;
