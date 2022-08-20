@@ -1,8 +1,4 @@
 import { BodyProps } from "@lib/types";
-import {
-    MOCK_BBC_NEWS_RESPONSE,
-    MOCK_GAMING_NEWS_RESPONSE,
-} from "src/TS/resource-data";
 import { NewsCarousel, Footer, Card } from "../..";
 
 function Component({ Icon, mobileMenu }: BodyProps) {
@@ -11,7 +7,6 @@ function Component({ Icon, mobileMenu }: BodyProps) {
             <NewsCarousel
                 Icon={Icon}
                 Endpoint={"/api/news?outlet=pc"}
-                MockData={MOCK_GAMING_NEWS_RESPONSE}
                 SiteName="PCGamer"
                 Disabled={mobileMenu}
             />
@@ -21,7 +16,6 @@ function Component({ Icon, mobileMenu }: BodyProps) {
             <NewsCarousel
                 Icon={Icon}
                 Endpoint={"/api/news?outlet=bbc"}
-                MockData={MOCK_BBC_NEWS_RESPONSE}
                 SiteName="BBC"
                 Disabled={mobileMenu}
             />

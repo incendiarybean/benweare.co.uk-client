@@ -12,10 +12,11 @@ const routeValidator = (app: Application) => {
         }
 
         if (req.path.includes("/api/")) {
-            return res.json({
-                code: 404,
-                message: `${req.method} is not defined on ${req.path}`,
-            });
+            return res
+                .status(404)
+                .json({
+                    message: `${req.method} is not defined on ${req.path}`,
+                });
         }
         return next();
     });
