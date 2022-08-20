@@ -1,10 +1,10 @@
 import { Application } from "express";
+import schema from "./schema";
 
 const cors = require("cors");
 const express = require("express");
 const path = require("path");
 const swaggerUi = require("swagger-ui-slim");
-const swaggerDocument = require("./schema/swagger.json");
 
 /**
  * This is purely to configure the static paths and CORS
@@ -34,7 +34,7 @@ const routeContent = (app: Application) => {
     app.use(
         "/api/docs",
         swaggerUi.serve,
-        swaggerUi.build(swaggerDocument, {
+        swaggerUi.build(schema, {
             customSiteTitle: "Ben's API Docs",
             faviconUrl: `/favicon.ico`,
         })

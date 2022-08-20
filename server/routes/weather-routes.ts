@@ -6,7 +6,7 @@ import {
     WeatherAxiosResponse,
     WeatherResponse,
     WeatherConfig,
-} from "lib/types";
+} from "../lib/types";
 const axios = require("axios");
 
 const weather_routes = (app: Application) => {

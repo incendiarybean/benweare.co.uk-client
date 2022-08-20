@@ -12,16 +12,14 @@ const forceHTTPS = (req: Request, res: Response, next: NextFunction) => {
         req.secure ||
         ((req.headers["x-forwarded-proto"] as string) || "").includes("https");
 
-    console.log(isSecure);
-
     if (!isSecure) {
         if (req.method === "GET" || req.method === "HEAD") {
             const host = req.headers["x-forwarded-host"] || req.headers.host;
-            res.redirect(301, "https://" + host + req.originalUrl);
+            return res.redirect(301, "https://" + host + req.originalUrl);
         } else {
-            res.status(403).send(
-                "Please use HTTPS when submitting data to this server."
-            );
+            return res
+                .status(403)
+                .send("Please use HTTPS when submitting data to this server.");
         }
     }
 
