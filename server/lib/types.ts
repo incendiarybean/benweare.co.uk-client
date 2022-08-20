@@ -1,4 +1,4 @@
-import React = require("react");
+import React from "react";
 
 /* TYPES FOR CLIENT */
 export interface Icons {
