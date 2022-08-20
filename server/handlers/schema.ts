@@ -5,20 +5,16 @@ const getServers = () => {
                 url: "https://benweare.co.uk/",
                 description: "Production Build",
             },
-            {
-                url: "https://benweare-dev.herokuapp.com/",
-                description: "Heroku-Dev",
-            },
         ];
     }
     return [
         {
-            url: "http://localhost:8080/",
-            description: "Local build",
+            url: "https://benweare-dev.herokuapp.com/",
+            description: "Heroku-Dev",
         },
         {
-            url: "https://benweare.co.uk/",
-            description: "Production Build",
+            url: "http://localhost:8080/",
+            description: "Local build",
         },
     ];
 };
