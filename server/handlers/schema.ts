@@ -1,19 +1,31 @@
+const getServers = () => {
+    if (process.env.NODE_ENV === "production") {
+        return [
+            {
+                url: "https://benweare.co.uk/",
+                description: "Production Build",
+            },
+        ];
+    }
+    return [
+        {
+            url: "https://benweare-dev.herokuapp.com/",
+            description: "Heroku-Dev",
+        },
+        {
+            url: "http://localhost:8080/",
+            description: "Local build",
+        },
+    ];
+};
+
 const OpenApiSchema = {
     openapi: "3.0.0",
     info: {
         title: "benweare.co.uk's base API",
         version: "0.1.0",
     },
-    servers: [
-        {
-            url: "http://localhost:8080/",
-            description: "Local build",
-        },
-        {
-            url: "https://benweare.co.uk/",
-            description: "Production Build",
-        },
-    ],
+    servers: getServers(),
     tags: [
         {
             name: "News",

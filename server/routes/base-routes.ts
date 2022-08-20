@@ -6,14 +6,11 @@ const path = require("path");
 /*--------------*/
 
 const base_route = (app: Application) => {
-    const indexLocation: string =
-        process.env.NODE_ENV === "production"
-            ? "../app/index.html"
-            : "../../build/index.html";
+    const index = `${process.env.APP_PATH}/index.html`;
 
     app.route("/")
         .get((req: Request, res: Response) => {
-            return res.sendFile(path.join(__dirname, indexLocation));
+            return res.sendFile(path.join(__dirname, index));
         })
         .post((req: Request, res: Response) => {
             return res.json({
@@ -24,7 +21,7 @@ const base_route = (app: Application) => {
 
     app.route("*")
         .get((req: Request, res: Response) => {
-            return res.sendFile(path.join(__dirname, indexLocation));
+            return res.sendFile(path.join(__dirname, index));
         })
         .post((req: Request, res: Response) => {
             return res.json({
