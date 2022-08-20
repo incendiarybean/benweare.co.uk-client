@@ -6,6 +6,7 @@ module.exports = {
         extend: {
             transitionProperty: {
                 width: "width",
+                bg: "background-color",
             },
             height: {
                 92: "23rem",

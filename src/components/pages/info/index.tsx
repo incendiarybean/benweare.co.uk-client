@@ -1,6 +1,6 @@
 import { IconProps } from "@lib/types";
 import React, { useState } from "react";
-import profile_image from "../../IMG/profile-sm.webp";
+import profile_image from "../../../IMG/profile-sm.webp";
 
 function Component({ Icon }: IconProps) {
     const [show, setShow] = useState(false);
@@ -13,11 +13,11 @@ function Component({ Icon }: IconProps) {
     };
 
     return (
-        <div className="select-none bg-gray-200 flex flex-col w-full items-center p-2 xl:p-10 shadow-inner">
-            <div className="flex flex-col w-full min-w-fit lg:w-1/3 lg:min-w-0 bg-white rounded-xl shadow-xl p-10 mt-28 self-center">
+        <div className="select-none bg-gray-200 flex flex-col w-full items-center p-4">
+            <div className="animate__animated animate__fadeIn animate__faster flex flex-col w-full min-w-fit lg:min-w-0 bg-white rounded-xl shadow-md p-10 mt-28 self-center">
                 <div className="flex justify-center items-center mb-5">
                     <img
-                        className=" min-w-fit -mt-28 rounded-full shadow-xl border-8 border-white"
+                        className="animate__animated animate__fadeIn animate__faster min-w-fit -mt-32 rounded-full shadow-xl border-8 border-white"
                         src={profile_image}
                         alt="Ben Weare, Benjamin Weare's mugshot"
                         loading="eager"
@@ -54,7 +54,7 @@ function Component({ Icon }: IconProps) {
             </div>
             <div
                 hidden={!show}
-                className="w-full min-w-fit lg:w-1/3 lg:min-w-0 bg-white rounded-xl shadow-xl overflow-auto h-96 self-center mt-4 mb-20 z-10"
+                className="text-left w-full min-w-fit lg:min-w-0 bg-white rounded-xl shadow-xl overflow-auto h-96 self-center mt-4 mb-20 z-10"
             >
                 <p className="z-0 sticky top-0 bg-white text-left pl-8 p-3 text-sm text-blue-600 font-bold uppercase border-b">
                     Services/Environments

@@ -5,16 +5,16 @@ import React, { useEffect } from "react";
  * On loss of focus, e.g. another element is interacted with
  * it will return a boolean
  * @param ref The HTML element you're expecting to keep focus
- * @param focusContained useState function to set focus as false when focus is lost
+ * @param action The callback function to return a value
  */
 export const ExternalClickHandler = (
     ref: React.RefObject<HTMLDivElement>,
-    focusContained: React.Dispatch<boolean>
+    action: Function
 ) => {
     useEffect(() => {
         const handleClickOutside = ({ target }: MouseEvent) => {
             if (ref && ref.current && !ref.current.contains(target as Node)) {
-                focusContained(false);
+                action(false);
             }
         };
 
@@ -22,5 +22,5 @@ export const ExternalClickHandler = (
         return () => {
             document.removeEventListener("mousedown", handleClickOutside);
         };
-    }, [ref, focusContained]);
+    }, [ref, action]);
 };
