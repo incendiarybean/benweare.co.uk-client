@@ -2,10 +2,10 @@
     "compilerOptions": {
         "target": "es2022",
         "module": "commonjs",
-        "rootDir": "./",
+        "rootDir": ".",
         "moduleResolution": "node",
-        "baseUrl": "./",
-        "outDir": "./dist",
+        "baseUrl": ".",
+        "outDir": "../dist",
         "esModuleInterop": true,
         "checkJs": true,
         "allowJs": true,
@@ -21,6 +21,7 @@
         "noImplicitReturns": true,
         "allowUnusedLabels": false,
         "allowUnreachableCode": false,
-        "skipLibCheck": true
+        "skipLibCheck": true,
+        "resolveJsonModule": true
     }
 }

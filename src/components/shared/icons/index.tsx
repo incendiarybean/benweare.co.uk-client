@@ -509,6 +509,7 @@ export const Newspaper = () => (
         viewBox="0 0 21 21"
         width="21"
         xmlns="http://www.w3.org/2000/svg"
+        strokeWidth="1.3"
     >
         <g
             fill="none"

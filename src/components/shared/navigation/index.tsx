@@ -52,7 +52,7 @@ function Component({ Icon, mobileMenu, setMobileMenu }: NavbarProps) {
                 >
                     <Link
                         to="/dashboard"
-                        className={`transition-colors ease-in-out duration-100 ${
+                        className={`transition-bg ease-in-out duration-100 ${
                             activePageNumber === 0
                                 ? "text-white bg-gradient-to-r from-blue-500 to-blue-700 font-semibold leading-tight shadow-md"
                                 : "hover:bg-slate-100"
@@ -70,7 +70,7 @@ function Component({ Icon, mobileMenu, setMobileMenu }: NavbarProps) {
 
                     <Link
                         to="/"
-                        className={`transition-colors ease-in-out duration-100 ${
+                        className={`transition-bg ease-in-out duration-100 ${
                             activePageNumber === 1
                                 ? "text-white bg-gradient-to-r from-blue-500 to-blue-700 font-semibold leading-tight shadow-md"
                                 : "hover:bg-slate-100"
@@ -90,7 +90,7 @@ function Component({ Icon, mobileMenu, setMobileMenu }: NavbarProps) {
                         target="_blank"
                         rel="noreferrer"
                         href="https://www.npmjs.com/~incendiarybean"
-                        className="transition-colors ease-in-out duration-100 hover:bg-slate-100 hover:shadow-inner w-full md:w-48 h-12 flex items-center md:rounded-md"
+                        className="transition-colors ease-in-out duration-100 hover:bg-slate-100 hover:shadow-sm w-full md:w-48 h-12 flex items-center md:rounded-md"
                     >
                         <div className="p-3">
                             <Icon.Packages />
@@ -105,7 +105,7 @@ function Component({ Icon, mobileMenu, setMobileMenu }: NavbarProps) {
                         target="_blank"
                         rel="noreferrer"
                         href="https://github.com/incendiarybean"
-                        className="transition-colors ease-in-out duration-100 hover:bg-slate-100 hover:shadow-inner w-full md:w-48 h-12 flex items-center md:rounded-md"
+                        className="transition-colors ease-in-out duration-100 hover:bg-slate-100 hover:shadow-sm w-full md:w-48 h-12 flex items-center md:rounded-md"
                     >
                         <div className="p-3">
                             <Icon.OpenBox />
@@ -120,7 +120,7 @@ function Component({ Icon, mobileMenu, setMobileMenu }: NavbarProps) {
                         target="_blank"
                         rel="noreferrer"
                         href="https://hub.docker.com/u/incendiarybean"
-                        className="transition-colors ease-in-out duration-100 hover:bg-slate-100 hover:shadow-inner w-full md:w-48 h-12 flex items-center md:rounded-md"
+                        className="transition-colors ease-in-out duration-100 hover:bg-slate-100 hover:shadow-sm w-full md:w-48 h-12 flex items-center md:rounded-md"
                     >
                         <div className="p-3">
                             <Icon.Box />
@@ -134,7 +134,7 @@ function Component({ Icon, mobileMenu, setMobileMenu }: NavbarProps) {
                         target="_blank"
                         rel="noreferrer"
                         href="/api/docs"
-                        className="transition-colors ease-in-out duration-100 hover:bg-slate-100 hover:shadow-inner w-full md:w-48 h-12 flex items-center md:rounded-md"
+                        className="transition-colors ease-in-out duration-100 hover:bg-slate-100 hover:shadow-sm w-full md:w-48 h-12 flex items-center md:rounded-md"
                     >
                         <div className="p-3">
                             <Icon.Newspaper />
