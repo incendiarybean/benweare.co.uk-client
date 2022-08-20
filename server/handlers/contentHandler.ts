@@ -13,9 +13,6 @@ const swaggerUi = require("swagger-ui-slim");
 const routeContent = (app: Application) => {
     console.log(`[${new Date()}] Configuring CORS...`);
 
-    const indexLocation: string =
-        process.env.NODE_ENV === "production" ? "../app" : "../../build";
-
     app.use(
         cors({
             origin:
@@ -26,10 +23,12 @@ const routeContent = (app: Application) => {
         })
     );
     app.use(express.json());
-    app.use(express.static(path.join(__dirname, indexLocation)));
+    app.use(express.static(path.join(__dirname, process.env.APP_PATH)));
     app.use(
         "/favicon.ico",
-        express.static(path.join(__dirname, `${indexLocation}/favicon.ico`))
+        express.static(
+            path.join(__dirname, `${process.env.APP_PATH}/favicon.ico`)
+        )
     );
     app.use(
         "/api/docs",

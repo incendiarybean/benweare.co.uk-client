@@ -23,5 +23,6 @@
         "allowUnreachableCode": false,
         "skipLibCheck": true,
         "resolveJsonModule": true
-    }
+    },
+    "exclude": ["tests/**"]
 }

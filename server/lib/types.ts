@@ -38,14 +38,13 @@ export interface NasaArticle {
 
 export interface NewsResponse {
     nasa: NasaArticle;
-    gaming: NewsArticle[];
-    news: NewsArticle[];
+    pc: NewsArticle[];
+    bbc: NewsArticle[];
 }
 
 export interface NewsCarousel {
     Icon: Icons;
     Endpoint: string;
-    MockData: NewsArticle[];
     SiteName: string;
     Disabled: boolean;
 }

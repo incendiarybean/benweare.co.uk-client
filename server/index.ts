@@ -2,6 +2,9 @@ import { Server } from "http";
 
 const express = require("express");
 const app = express();
+
+require("dotenv").config();
+
 const {
     contentHandler,
     headerHandler,
@@ -9,15 +12,10 @@ const {
     validatorHandler,
 } = require("./handlers");
 
-require("dotenv").config();
-
-process.env.NODE_ENV = process.env.NODE_ENV
-    ? process.env.NODE_ENV
-    : "development";
 console.log(`[${new Date()}] ENV: ${process.env.NODE_ENV}`);
-if (process.env.NODE_ENV !== "development") app.use(headerHandler);
+if (process.env.NODE_ENV === "production") app.use(headerHandler);
 
-const server: Server = require("http")
+export const server: Server = require("http")
     .createServer(app)
     .listen(process.env.PORT || process.env.HTTPS || 8080, (err: any) => {
         if (err) throw err;
@@ -35,4 +33,4 @@ contentHandler(app);
 validatorHandler(app);
 
 // USE ROUTES \\
-routeHandler(app, server);
+routeHandler(app);
