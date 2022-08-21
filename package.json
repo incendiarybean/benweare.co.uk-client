@@ -24,7 +24,7 @@
     },
     "scripts": {
         "prestart": "react-scripts build && npm run build-server",
-        "start": "NODE_ENV=production node .",
+        "start": "node .",
         "start-w": "react-scripts build && npm run build-server && node .",
         "start-client": "react-scripts start",
         "start-dev": "nodemon ./server/index.ts",
