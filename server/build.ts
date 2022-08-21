@@ -7,5 +7,3 @@ if (os.type() === "Linux") {
 } else if (os.type() === "Windows_NT") {
     exec("move build ./dist/app");
 }
-<<<<<<< HEAD
-=======
