@@ -23,7 +23,7 @@
         "web-vitals": "^2.1.4"
     },
     "scripts": {
-        "pre-start": "react-scripts build && npm run build-server",
+        "prestart": "react-scripts build && npm run build-server",
         "start": "NODE_ENV=production node .",
         "start-w": "react-scripts build && npm run build-server && node .",
         "start-client": "react-scripts start",
