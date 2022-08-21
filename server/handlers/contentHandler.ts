@@ -23,7 +23,7 @@ const routeContent = (app: Application) => {
         })
     );
     app.use(express.json());
-    app.use(express.static(path.join(__dirname, process.env.APP_PATH)));
+    app.use(express.static(path.join(__dirname, process.env.APP_PATH || "")));
     app.use(
         "/favicon.ico",
         express.static(
