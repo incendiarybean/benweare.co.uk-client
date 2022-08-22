@@ -76,11 +76,11 @@ function Component({ Icon, Endpoint, SiteName, Disabled }: NewsCarousel) {
                                 target="_blank"
                                 className={`${generateClassName(
                                     index
-                                )}w-full rounded-xl flex-col xl:flex-row flex-wrap bg-white shadow-md transition-all duration-100 md:hover:scale-95 hover:bg-slate-100`}
+                                )}w-full rounded-xl flex-col xl:flex-row bg-white shadow-md transition-all duration-100 md:hover:scale-95 hover:bg-slate-100`}
                             >
                                 <div className="p-2 flex-grow">
                                     <div
-                                        className="rounded-t-xl w-full h-52 shadow-sm rounded-lg bg-cover"
+                                        className="rounded-t-xl w-full md:w-full xl:w-96 h-52 shadow-sm rounded-lg bg-cover"
                                         style={{
                                             backgroundImage: `url(${data.img})`,
                                         }}
