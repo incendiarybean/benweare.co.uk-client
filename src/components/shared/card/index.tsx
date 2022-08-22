@@ -13,7 +13,7 @@ function Component({ Endpoint, SiteName }: NewsCard) {
                 .then((data) => data.json())
                 .then((data) => {
                     setArticle(data);
-                    setLoaded("Failed");
+                    setLoaded(true);
                 })
                 .catch((e) => {
                     setLoaded("Failed");

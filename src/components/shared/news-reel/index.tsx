@@ -45,7 +45,7 @@ function Component({ Icon, Endpoint, SiteName, Disabled }: NewsCarousel) {
                 .then((data) => data.json())
                 .then((data) => {
                     setArticles(data);
-                    setLoaded("Failed");
+                    setLoaded(true);
                 })
                 .catch((e) => {
                     setLoaded("Failed");
