@@ -2,7 +2,6 @@ import { toast, ToastPosition } from "react-toastify";
 import * as Icon from "../components/shared/icons";
 
 if (process.env.NODE_ENV === "development") console.log(process.env);
-console.log(process.env.REACT_APP_HOST);
 
 function Functions() {
     const props = {
