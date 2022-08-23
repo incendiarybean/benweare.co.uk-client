@@ -16,7 +16,7 @@ function App() {
         <Router>
             <div className="">
                 <ToastContainer />
-                <div className="w-full flex flex-col md:flex-row text-center">
+                <div className="w-full flex flex-col md:flex-row text-center justify-center overflow-hidden">
                     <Navbar
                         Icon={Icon}
                         setMobileMenu={setMobileMenu}
@@ -29,7 +29,7 @@ function App() {
                     >
                         <Routes Icon={Icon} mobileMenu={mobileMenu} />
                     </div>
-                    <div className="hidden lg:block w-auto transition-all duration-150"></div>
+                    <div className="hidden lg:block w-1/4 transition-all duration-150 min-h-screen"></div>
                 </div>
             </div>
         </Router>
