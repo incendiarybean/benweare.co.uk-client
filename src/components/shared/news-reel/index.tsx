@@ -87,7 +87,7 @@ function Component({ Icon, Endpoint, SiteName, Disabled }: NewsCarousel) {
                             >
                                 <div className="p-2 flex-grow">
                                     <div
-                                        className="rounded-t-xl w-full md:w-full xl:w-96 h-52 shadow-sm rounded-lg bg-cover"
+                                        className="rounded-t-xl w-full md:w-full xl:w-1xl h-64 shadow-sm rounded-lg bg-cover"
                                         style={{
                                             backgroundImage: `url(${data.img})`,
                                         }}
