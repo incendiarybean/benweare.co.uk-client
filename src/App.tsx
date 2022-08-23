@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { BrowserRouter as Router } from "react-router-dom";
-import { Navbar, Routes, Icon } from "./components";
+import { Navbar, Routes, Icon, Sidebar } from "./components";
 import "animate.css";
 
 function App() {
@@ -29,7 +29,7 @@ function App() {
                     >
                         <Routes Icon={Icon} mobileMenu={mobileMenu} />
                     </div>
-                    <div className="hidden lg:block w-1/4 transition-all duration-150 min-h-screen"></div>
+                    <Sidebar />
                 </div>
             </div>
         </Router>
