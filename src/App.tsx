@@ -16,7 +16,7 @@ function App() {
         <Router>
             <div className="">
                 <ToastContainer />
-                <div className="w-full flex flex-col md:flex-row text-center justify-center overflow-hidden">
+                <div className="w-full flex flex-col md:flex-row text-center justify-center">
                     <Navbar
                         Icon={Icon}
                         setMobileMenu={setMobileMenu}
