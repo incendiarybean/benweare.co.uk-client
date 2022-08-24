@@ -9,13 +9,23 @@ function App() {
     const [mobileMenu, setMobileMenu] = useState<boolean>(false);
 
     useEffect(() => {
-        toast("👋 Welcome!", { position: "bottom-left" });
+        if (
+            window.matchMedia &&
+            window.matchMedia("(prefers-color-scheme: dark)").matches
+        ) {
+            toast.dark("👋 Welcome!", {
+                position: "bottom-left",
+                draggable: true,
+            });
+        } else {
+            toast("👋 Welcome!", { position: "bottom-left", draggable: true });
+        }
     }, []);
 
     return (
         <Router>
+            <ToastContainer />
             <div className="text-slate-700 dark:text-white bg-gray-200 dark:bg-slate-700">
-                <ToastContainer />
                 <div className="w-full flex flex-col md:flex-row text-center justify-center">
                     <Navbar
                         Icon={Icon}
