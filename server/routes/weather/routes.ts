@@ -1,33 +1,31 @@
-import type { NextFunction, Response } from "express";
-import type { ApiRequest } from "../../lib/types";
+import * as Fetch from "./collector";
 
-const express = require("express"),
-    router = express.Router(),
-    Fetch = require("./collector"),
-    storage = Fetch.storage;
+import type { NextFunction, Response } from "express";
+
+import express from "express";
+import { storage } from "./collector";
+
+const router = express.Router();
 
 /*--------------*/
 /*    HANDLER   */
 /*--------------*/
 
-router.use(
-    "/api/forecast",
-    (req: ApiRequest, res: Response, next: NextFunction) => {
-        const { date } = req.query;
+router.use("/api/forecast", (req: any, res: Response, next: NextFunction) => {
+    const { date } = req.query;
 
-        if (!date) {
-            req.query = {};
-        }
-
-        if (date && !Fetch.isCorrectDateFormat(date)) {
-            req.message = "Date should be in format: YYYY-MM-DD";
-        }
-
-        return next();
+    if (!date) {
+        req.query = {};
     }
-);
 
-router.get("/api/forecast", (req: ApiRequest, res: Response) => {
+    if (date && !Fetch.isCorrectDateFormat(date)) {
+        req.message = "Date should be in format: YYYY-MM-DD";
+    }
+
+    return next();
+});
+
+router.get("/api/forecast", (req: any, res: Response) => {
     try {
         const { timeseries, location } = storage.data;
         const { date } = req.query;
@@ -62,4 +60,4 @@ router.get("/api/forecast", (req: ApiRequest, res: Response) => {
     }
 });
 
-module.exports = router;
+export default router;

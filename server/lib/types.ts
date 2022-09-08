@@ -1,5 +1,5 @@
-import { Request } from "express";
 import React from "react";
+import { Request } from "express";
 
 /* TYPES FOR CLIENT */
 export interface Icons {
@@ -41,6 +41,7 @@ export interface NasaArticle {
     service_version: string;
     title: string;
     url: string;
+    site: string;
 }
 
 export interface NewsResponse {

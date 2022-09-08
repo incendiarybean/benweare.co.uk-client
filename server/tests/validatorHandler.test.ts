@@ -1,5 +1,5 @@
+import request from "supertest";
 import server from "./server.configuration";
-const request = require("supertest");
 
 describe("Server should accept/reject paths as defied in validatorHandler.", () => {
     test.each([

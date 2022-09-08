@@ -1,13 +1,13 @@
 import { Request, Response } from "express";
 
-const path = require("path");
-const express = require("express");
+import express from "express";
+import path from "path";
+
 const router = express.Router();
 
 /*--------------*/
 /*    HANDLER   */
 /*--------------*/
-
 const index = `../${process.env.APP_PATH}/index.html`;
 
 router
@@ -34,4 +34,4 @@ router
         });
     });
 
-module.exports = router;
+export default router;

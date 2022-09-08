@@ -1,5 +1,5 @@
+import request from "supertest";
 import server from "./server.configuration";
-const request = require("supertest");
 
 describe("Server should redirect to HTTPS when HTTP is used", () => {
     test("Status code matches the redirect", async () => {
