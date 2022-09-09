@@ -1,4 +1,4 @@
-import type { NextFunction, Response } from "express";
+import type { NextFunction, Request, Response } from "express";
 import express from "express";
 import { storage } from "./collector";
 
@@ -8,7 +8,7 @@ const router = express.Router();
 /*    HANDLER   */
 /*--------------*/
 
-router.use("/api/news", (req: any, res: Response, next: NextFunction) => {
+router.use("/api/news", (req: Request, res: Response, next: NextFunction) => {
     const { outlet } = req.query;
     const possibleOutlets = ["bbc", "nasa", "pcgamer"];
 
@@ -23,7 +23,7 @@ router.use("/api/news", (req: any, res: Response, next: NextFunction) => {
     return next();
 });
 
-router.get("/api/news", (req: any, res: Response) => {
+router.get("/api/news", (req: Request, res: Response) => {
     try {
         const { bbc, pc, nasa } = storage.data;
         const { outlet } = req.query;

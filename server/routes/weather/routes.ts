@@ -1,8 +1,6 @@
-import * as Fetch from "./collector";
-
-import type { NextFunction, Response } from "express";
-
+import type { NextFunction, Request, Response } from "express";
 import express from "express";
+import * as Fetch from "./collector";
 import { storage } from "./collector";
 
 const router = express.Router();
@@ -11,21 +9,24 @@ const router = express.Router();
 /*    HANDLER   */
 /*--------------*/
 
-router.use("/api/forecast", (req: any, res: Response, next: NextFunction) => {
-    const { date } = req.query;
+router.use(
+    "/api/forecast",
+    (req: Request, res: Response, next: NextFunction) => {
+        const { date } = req.query;
 
-    if (!date) {
-        req.query = {};
+        if (!date) {
+            req.query = {};
+        }
+
+        if (date && !Fetch.isCorrectDateFormat(date as string)) {
+            req.message = "Date should be in format: YYYY-MM-DD";
+        }
+
+        return next();
     }
+);
 
-    if (date && !Fetch.isCorrectDateFormat(date)) {
-        req.message = "Date should be in format: YYYY-MM-DD";
-    }
-
-    return next();
-});
-
-router.get("/api/forecast", (req: any, res: Response) => {
+router.get("/api/forecast", (req: Request, res: Response) => {
     try {
         const { timeseries, location } = storage.data;
         const { date } = req.query;

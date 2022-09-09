@@ -1,5 +1,4 @@
 import React from "react";
-import { Request } from "express";
 
 /* TYPES FOR CLIENT */
 export interface Icons {
@@ -200,7 +199,3 @@ export interface NewsStorage {
         nasa: NasaArticle | null;
     };
 }
-
-export type ApiRequest = {
-    message: string;
-} & Request;
