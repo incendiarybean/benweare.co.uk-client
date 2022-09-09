@@ -1,3 +1,5 @@
+import "./discordHandler";
+
 export { default as contentHandler } from "./contentHandler";
 export { default as headerHandler } from "./headerHandler";
 export { default as validatorHandler } from "./validatorHandler";
