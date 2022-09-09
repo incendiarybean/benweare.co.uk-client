@@ -27,7 +27,7 @@
         "start-dev": "nodemon -r dotenv/config ./server/index.ts",
         "build": "react-scripts build && tsc --p ./server && node ./dist/build.js",
         "build-client": "react-scripts build",
-        "test": "react-scripts test --watchAll=false && jest ./server/* --silent"
+        "test": "react-scripts test --watchAll=false --silent && jest ./server/* --silent --runInBand"
     },
     "eslintConfig": {
         "extends": [
