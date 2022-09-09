@@ -14,7 +14,6 @@ const socketHandler = () => {
             }
             next();
         });
-        console.log("USER_CONNECTED");
     });
 };
 
