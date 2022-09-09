@@ -1,6 +1,6 @@
 import { IO } from "..";
 
-const setupSocket = () => {
+const socketHandler = () => {
     IO.on("connection", () => {
         IO.use((socket, next) => {
             if (
@@ -18,4 +18,4 @@ const setupSocket = () => {
     });
 };
 
-export default setupSocket;
+export default socketHandler;

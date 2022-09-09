@@ -9,9 +9,9 @@ import {
     validatorHandler,
 } from "./handlers";
 
-const app = express();
+export const app = express();
 
-const HTTPServer = http
+export const HTTPServer = http
     .createServer(app)
     .listen(process.env.PORT || process.env.HTTPS || 8080, () => {
         console.log(`[${new Date()}] ENV: ${process.env.NODE_ENV}`);
@@ -33,11 +33,11 @@ export const IO = new Server(HTTPServer, {
     },
 });
 
-// SET CORS RULES \\
-if (process.env.NODE_ENV === "production") app.use(headerHandler);
-
 // SET SOCKET \\
 socketHandler();
+
+// SET CORS RULES \\
+app.use(headerHandler);
 
 // SET CONTENT RULES \\
 app.use(contentHandler);

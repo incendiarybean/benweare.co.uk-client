@@ -14,7 +14,7 @@ const forceHTTPS = (req: Request, res: Response, next: NextFunction) => {
         req.secure ||
         ((req.headers["x-forwarded-proto"] as string) || "").includes("https");
 
-    if (!isSecure) {
+    if (!isSecure && process.env.NODE_ENV !== "development") {
         if (req.method === "GET" || req.method === "HEAD") {
             const host = req.headers["x-forwarded-host"] || req.headers.host;
             return res.redirect(301, "https://" + host + req.originalUrl);
