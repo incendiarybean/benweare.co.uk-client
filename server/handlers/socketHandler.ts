@@ -8,7 +8,7 @@ const socketHandler = () => {
                 socket.handshake.auth.token !== process.env.SOCKET_TOKEN
             ) {
                 console.log(
-                    `[${new Date()}] Request received without SOCKET_KEY.`
+                    `[${new Date()}] Request received without SOCKET_TOKEN.`
                 );
                 return next(new Error("Missing Authentication Token"));
             }
