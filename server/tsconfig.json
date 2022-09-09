@@ -22,8 +22,10 @@
         "allowUnusedLabels": false,
         "allowUnreachableCode": false,
         "skipLibCheck": true,
-        "resolveJsonModule": true,
-        "typeRoots": ["./lib/*"]
+        "resolveJsonModule": true
+    },
+    "ts-node": {
+        "files": true
     },
     "exclude": ["tests/**"]
 }
