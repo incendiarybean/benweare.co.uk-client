@@ -1,8 +1,9 @@
-import { NewsArticle, NewsCarousel } from "@lib/types";
 import React, { createRef, useEffect, useState } from "react";
+import IO from "src/TS/socket";
 import { sleep } from "src/TS/utils";
-import { Loader, Error } from "../..";
 import { SwipeHandler } from "src/hooks/swipeHandler";
+import { NewsArticle, NewsCarousel } from "@lib/types";
+import { Error, Loader } from "../..";
 
 function Component({ Icon, Endpoint, SiteName, Disabled }: NewsCarousel) {
     const [articles, setArticles] = useState<NewsArticle[]>([]);
@@ -48,6 +49,7 @@ function Component({ Icon, Endpoint, SiteName, Disabled }: NewsCarousel) {
 
     useEffect(() => {
         const getNews = async () => {
+            console.log("REQUESTING_NEWS");
             fetch(Endpoint)
                 .then((data) => data.json())
                 .then(({ items }) => {
@@ -59,6 +61,8 @@ function Component({ Icon, Endpoint, SiteName, Disabled }: NewsCarousel) {
                     sleep(5000).then(getNews);
                 });
         };
+
+        IO.on("RELOAD_NEWS", () => getNews());
 
         getNews();
     }, [Endpoint, SiteName]);
