@@ -1,13 +1,13 @@
-import { Request, Response } from "express";
-
-import express from "express";
 import path from "path";
+import { Request, Response } from "express";
+import express from "express";
 
 const router = express.Router();
 
 /*--------------*/
 /*    HANDLER   */
 /*--------------*/
+
 const index = `../${process.env.APP_PATH}/index.html`;
 
 router
