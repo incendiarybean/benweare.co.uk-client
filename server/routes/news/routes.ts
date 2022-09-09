@@ -30,7 +30,7 @@ router.get("/api/news", (req: Request, res: Response) => {
         const { message } = req;
 
         if (!bbc || !pc || !nasa) {
-            throw Error("Feed is missing!");
+            throw Error();
         }
 
         let news_feed = [...bbc, ...pc, nasa];
@@ -48,7 +48,6 @@ router.get("/api/news", (req: Request, res: Response) => {
             message,
         });
     } catch (e: any) {
-        console.log(e);
         return res.status(502).json({
             message: `News feed isn't working!`,
         });
