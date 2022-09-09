@@ -8,8 +8,6 @@ import { NextFunction, Request, Response } from "express";
  * @param next NextFunction - to continue after check
  */
 const forceHTTPS = (req: Request, res: Response, next: NextFunction) => {
-    console.log(`[${new Date()}] Server is enforcing HTTPS.`);
-
     const isSecure =
         req.secure ||
         ((req.headers["x-forwarded-proto"] as string) || "").includes("https");
