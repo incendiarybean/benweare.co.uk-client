@@ -49,7 +49,6 @@ function Component({ Icon, Endpoint, SiteName, Disabled }: NewsCarousel) {
 
     useEffect(() => {
         const getNews = async () => {
-            console.log("REQUESTING_NEWS");
             fetch(Endpoint)
                 .then((data) => data.json())
                 .then(({ items }) => {
