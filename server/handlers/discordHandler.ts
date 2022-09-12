@@ -1,7 +1,7 @@
 import { ActivityType, Client, GatewayIntentBits } from "discord.js";
 import { DiscordUsernameOptions } from "lib/types";
 
-const DISCORD_TOKEN = process.env.DISCORD_KEY;
+const { DISCORD_KEY } = process.env;
 
 const client = new Client({
     intents: [
@@ -20,39 +20,55 @@ client.on("ready", () => {
         `[${new Date()}] Discord Bot ${client.user?.tag} has logged in!`
     );
 
-    client.user!.setActivity("in sitting here and taking it...", {
+    client.user!.setActivity("sitting here and taking it...", {
         type: ActivityType.Competing,
     });
 });
 
 client.on("interactionCreate", async (interaction) => {
     if (!interaction.isChatInputCommand()) return;
-    if (interaction.commandName === "ping") {
-        await interaction.reply("Pong!");
-    }
 
-    if (interaction.commandName === "assist") {
-        await interaction.reply("https://www.youtube.com/watch?v=CRzfZu0GH14");
-    }
-
-    if (interaction.commandName === "cry") {
-        const message = interaction.options.data[0] as DiscordUsernameOptions;
-        if (message && message.user) {
-            interaction.reply({
-                content: `${message.user}`,
-                embeds: [
-                    {
-                        image: {
-                            url: "https://media3.giphy.com/media/8JZxZgr39TLczSJQoS/giphy.gif",
+    switch (interaction.commandName) {
+        case "assist": {
+            await interaction.reply(
+                "https://www.youtube.com/watch?v=CRzfZu0GH14"
+            );
+            break;
+        }
+        case "cry": {
+            const message = interaction.options
+                .data[0] as DiscordUsernameOptions;
+            if (message && message.user) {
+                interaction.reply({
+                    content: `${message.user}`,
+                    embeds: [
+                        {
+                            image: {
+                                url: "https://media3.giphy.com/media/8JZxZgr39TLczSJQoS/giphy.gif",
+                            },
                         },
-                    },
-                ],
-                allowedMentions: { parse: ["everyone"] },
-            });
+                    ],
+                    allowedMentions: { parse: ["everyone"] },
+                });
+            }
+            break;
+        }
+        case "roll": {
+            const diceFaces = [
+                `\u2680`,
+                `\u2681`,
+                `\u2682`,
+                `\u2683`,
+                `\u2684`,
+                `\u2685`,
+            ];
+            interaction.reply(
+                `${diceFaces[Math.floor(Math.random() * 6) + 1]}`
+            );
         }
     }
 });
 
-client.login(DISCORD_TOKEN).catch((e) => {
+client.login(DISCORD_KEY as string).catch((e) => {
     console.log(`ERROR: ${e.toString()}`);
 });

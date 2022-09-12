@@ -1,26 +1,21 @@
 import { REST, Routes, SlashCommandBuilder } from "discord.js";
 
 const commands = [
-    {
-        name: "ping",
-        description: "Replies with Pong!",
-    },
     new SlashCommandBuilder()
         .setName("cry")
         .setDescription("Gonna cry?")
         .addUserOption((option) =>
             option.setName("username").setDescription("who?").setRequired(true)
         ),
-
-    {
-        name: "assist",
-        description: "You following to assist?",
-    },
+    new SlashCommandBuilder()
+        .setName("assist")
+        .setDescription("You following to assist?"),
+    new SlashCommandBuilder().setName("roll").setDescription("Roll a dice!"),
 ];
 
-const DISCORD_TOKEN = process.env.DISCORD_KEY;
+const { DISCORD_KEY } = process.env;
 
-const rest = new REST({ version: "10" }).setToken(DISCORD_TOKEN as string);
+const rest = new REST({ version: "10" }).setToken(DISCORD_KEY as string);
 
 const setupBot = async (): Promise<void> => {
     try {
