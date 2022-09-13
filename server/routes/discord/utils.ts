@@ -66,11 +66,11 @@ const commands = [
     new SlashCommandBuilder().setName("rpg").setDescription("Oh no..."),
 ];
 
-const { DISCORD_KEY } = process.env;
+const { DISCORD_TOKEN, DISCORD_CLIENT_ID } = process.env;
 
-const rest = new REST({ version: "10" }).setToken(DISCORD_KEY as string);
+const rest = new REST({ version: "10" }).setToken(DISCORD_TOKEN as string);
 
-rest.put(Routes.applicationCommands("816335957686091876"), {
+rest.put(Routes.applicationCommands(DISCORD_CLIENT_ID as string), {
     body: commands,
 })
     .then(() => {

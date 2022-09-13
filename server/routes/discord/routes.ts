@@ -5,7 +5,7 @@ import { assist, client, cry, roll, rpg } from "./utils";
 /*    EVENTS    */
 /*--------------*/
 
-const { DISCORD_KEY } = process.env;
+const { DISCORD_TOKEN } = process.env;
 
 client.on("ready", () => {
     console.log(
@@ -47,6 +47,6 @@ client.on("interactionCreate", async (interaction) => {
     }
 });
 
-client.login(DISCORD_KEY as string).catch((e) => {
+client.login(DISCORD_TOKEN as string).catch((e) => {
     console.log(`ERROR: ${e.toString()}`);
 });
