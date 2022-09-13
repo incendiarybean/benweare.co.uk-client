@@ -66,19 +66,21 @@ const commands = [
     new SlashCommandBuilder().setName("rpg").setDescription("Oh no..."),
 ];
 
-const { DISCORD_TOKEN, DISCORD_CLIENT_ID } = process.env;
+const { DISCORD_TOKEN, DISCORD_CLIENT_ID, DISCORD_ENABLED } = process.env;
 
 const rest = new REST({ version: "10" }).setToken(DISCORD_TOKEN as string);
 
-rest.put(Routes.applicationCommands(DISCORD_CLIENT_ID as string), {
-    body: commands,
-})
-    .then(() => {
-        console.log(`[${new Date()}] Discord Bot commands loaded!`);
+if (DISCORD_ENABLED) {
+    rest.put(Routes.applicationCommands(DISCORD_CLIENT_ID as string), {
+        body: commands,
     })
-    .catch((e) => {
-        console.log(`[${new Date()}] ERROR: ${e.message}`);
-    });
+        .then(() => {
+            console.log(`[${new Date()}] Discord Bot commands loaded!`);
+        })
+        .catch((e) => {
+            console.log(`[${new Date()}] ERROR: ${e.message}`);
+        });
+}
 
 /*--------------*/
 /* INTERACTIONS */
