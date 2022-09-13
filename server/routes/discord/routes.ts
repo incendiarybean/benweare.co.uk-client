@@ -1,32 +1,52 @@
-import { REST, Routes, SlashCommandBuilder } from "discord.js";
+import { ActivityType } from "discord.js";
+import { assist, client, cry, roll, rpg } from "./utils";
 
-const commands = [
-    new SlashCommandBuilder()
-        .setName("cry")
-        .setDescription("Gonna cry?")
-        .addUserOption((option) =>
-            option.setName("username").setDescription("who?").setRequired(true)
-        ),
-    new SlashCommandBuilder()
-        .setName("assist")
-        .setDescription("You following to assist?"),
-    new SlashCommandBuilder().setName("roll").setDescription("Roll a dice!"),
-];
+/*--------------*/
+/*    EVENTS    */
+/*--------------*/
 
 const { DISCORD_KEY } = process.env;
 
-const rest = new REST({ version: "10" }).setToken(DISCORD_KEY as string);
+client.on("ready", () => {
+    console.log(
+        `[${new Date()}] Discord Bot ${client.user?.tag} has logged in!`
+    );
 
-const setupBot = async (): Promise<void> => {
-    try {
-        await rest.put(Routes.applicationCommands("816335957686091876"), {
-            body: commands,
+    if (client.user) {
+        client.user.setActivity("sitting here and taking it...", {
+            type: ActivityType.Competing,
         });
-
-        console.log(`[${new Date()}] Discord Bot commands loaded!`);
-    } catch (error) {
-        console.error(error);
     }
-};
+});
 
-setupBot();
+client.on("interactionCreate", async (interaction) => {
+    if (!interaction.isButton()) return;
+
+    switch (interaction.customId) {
+        case "ClearDiceRoll":
+            await interaction.message.delete();
+            break;
+    }
+});
+
+client.on("interactionCreate", async (interaction) => {
+    if (!interaction.isChatInputCommand()) return;
+    switch (interaction.commandName) {
+        case "assist":
+            assist(interaction);
+            break;
+        case "cry":
+            cry(interaction);
+            break;
+        case "roll":
+            roll(interaction);
+            break;
+        case "rpg":
+            rpg(interaction);
+            break;
+    }
+});
+
+client.login(DISCORD_KEY as string).catch((e) => {
+    console.log(`ERROR: ${e.toString()}`);
+});

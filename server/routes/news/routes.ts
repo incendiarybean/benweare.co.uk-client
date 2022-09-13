@@ -1,6 +1,6 @@
 import type { NextFunction, Request, Response } from "express";
 import express from "express";
-import { storage } from "./collector";
+import { storage } from "./utils";
 
 const router = express.Router();
 
