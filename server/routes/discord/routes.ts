@@ -47,8 +47,12 @@ client.on("interactionCreate", async (interaction) => {
     }
 });
 
-if (DISCORD_ENABLED) {
-    client.login(DISCORD_TOKEN as string).catch((e) => {
-        console.log(`ERROR: ${e.toString()}`);
-    });
-}
+const discordRoutes = () => {
+    if (DISCORD_ENABLED) {
+        client.login(DISCORD_TOKEN as string).catch((e) => {
+            console.log(`ERROR: ${e.toString()}`);
+        });
+    }
+};
+
+export default discordRoutes;
