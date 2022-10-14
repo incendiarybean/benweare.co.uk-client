@@ -9,13 +9,16 @@ import {
     Client,
     GatewayIntentBits,
     Guild,
+    REST,
+    Routes,
+    SlashCommandBuilder,
 } from "discord.js";
-import { REST, Routes, SlashCommandBuilder } from "discord.js";
-import { createAudioPlayer, joinVoiceChannel } from "@discordjs/voice";
 import {
     AudioPlayerStatus,
     VoiceConnectionStatus,
+    createAudioPlayer,
     createAudioResource,
+    joinVoiceChannel,
 } from "@discordjs/voice";
 import { DiscordUsernameOptions } from "@lib/types";
 import { die } from "@resources/data/discord";
@@ -109,7 +112,7 @@ export const checkVoiceTarget = (
 export const createPlayer = (guild: Guild, targetVoiceChannel: string) => {
     const player = createAudioPlayer();
     const connection = joinVoiceChannel({
-        channelId: targetVoiceChannel as string,
+        channelId: targetVoiceChannel,
         guildId: guild.id,
         adapterCreator: guild.voiceAdapterCreator,
         selfDeaf: false,

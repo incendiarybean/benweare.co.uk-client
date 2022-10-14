@@ -1,4 +1,4 @@
-import { AxiosResponse } from "axios";
+import type { AxiosResponse } from "axios";
 import axios from "axios";
 import { JSDOM } from "jsdom";
 import { NewsArticle, NewsStorage } from "@lib/types";
@@ -81,11 +81,11 @@ const fetchArticles = (
                 const HTMLArticles: HTMLElement[] = [];
                 Array.prototype.slice
                     .call(document.querySelectorAll(containerSelector))
-                    .map((container) =>
+                    .forEach((container) =>
                         Array.prototype.slice
                             .call(container.querySelectorAll(splitSelector))
-                            .map((article, index) => {
-                                if (index > 9 || !article.textContent) {
+                            .forEach((article, index) => {
+                                if (index < 9 || !article.textContent) {
                                     return null;
                                 }
                                 return HTMLArticles.push(article);

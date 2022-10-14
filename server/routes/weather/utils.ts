@@ -179,47 +179,6 @@ export const getWeather = () => {
             storage.timestamp = new Date().toISOString();
             IO.local.emit("RELOAD_WEATHER");
         })
-        // axios
-        //     .get(weatherUrl, { headers: config.headers })
-        //     .then((response: AxiosResponse) => {
-        //         if (response.status !== 429) {
-        //             const { data } = response;
-        //             const { features } = data;
-
-        //             if (features) {
-        //                 features[0].properties.timeSeries =
-        //                     features[0].properties.timeSeries.map((day: any) => {
-        //                         const [type, description] = weatherCode(
-        //                             day.daySignificantWeatherCode
-        //                         );
-
-        //                         day.MaxTemp = `${Math.round(
-        //                             day.dayMaxScreenTemperature
-        //                         )}º`;
-        //                         day.LowTemp = `${Math.round(
-        //                             day.nightMinScreenTemperature
-        //                         )}º`;
-        //                         day.MaxFeels = `${Math.round(
-        //                             day.dayMaxFeelsLikeTemp
-        //                         )}º`;
-        //                         day.Wind = Math.round(day.midnight10MWindGust);
-
-        //                         day.WeatherType = type;
-        //                         day.Description = description;
-        //                         return day;
-        //                     });
-
-        //                 data.location = features[0].properties.location.name;
-        //                 data.timeseries = features[0].properties.timeSeries;
-        //                 delete data.type;
-        //                 delete data.features;
-        //                 delete data.parameters;
-        //             }
-
-        //             storage.data = data;
-        //             storage.timestamp = new Date().toISOString();
-        //             IO.local.emit("RELOAD_WEATHER");
-        //         }
         .catch(() => {
             console.log(
                 `[${new Date()}] Failed to fetch weather at this time.`
@@ -228,7 +187,7 @@ export const getWeather = () => {
 };
 
 export const isCorrectDateFormat = (date: string) =>
-    date.match(/[0-9]{4}-[0-9]{2}-[0-9]{2}/);
+    date.match(/\d{4}-\d{2}-\d{2}/);
 
 export const getDayByDate = (date: string, timeseries: WeatherTimeSeries[]) =>
     timeseries.filter(
