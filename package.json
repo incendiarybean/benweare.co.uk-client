@@ -1,7 +1,6 @@
 {
     "name": "benweare.com-client",
     "version": "0.2.0",
-    "private": true,
     "main": "./build/path.js",
     "scripts": {
         "start": "react-scripts start",
