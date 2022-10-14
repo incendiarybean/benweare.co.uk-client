@@ -1,5 +1,3 @@
-import { AxiosRequestHeaders } from "axios";
-import { CacheType, CommandInteractionOption } from "discord.js";
 import React from "react";
 
 /* TYPES FOR CLIENT */
@@ -83,18 +81,6 @@ export interface BodyProps {
     mobileMenu: boolean;
 }
 
-/* TYPES FOR SERVER */
-export interface WeatherFeatures {
-    type: string;
-    geometry: { type: string; coordinates: number[] };
-    properties: {
-        location: { name: string };
-        requestPointDistance: number;
-        modelRunDate: string;
-        timeSeries: WeatherTimeSeries[];
-    };
-}
-
 export interface WeatherTimeSeries {
     time: string;
     Description: string;
@@ -145,77 +131,3 @@ export interface WeatherTimeSeries {
     nightUpperBoundMinFeelsLikeTemp: number;
     nightUpperBoundMinTemp: number;
 }
-
-export interface WeatherParam {
-    [key: string]: {
-        type: string;
-        description: string;
-        unit: {
-            label: string;
-            symbol: {
-                value: string;
-                type: string;
-            };
-        };
-    };
-}
-
-export interface WeatherResponse {
-    location: string;
-    timeseries: WeatherTimeSeries[];
-    type?: string;
-    features?: WeatherFeatures[];
-    parameters?: WeatherParam[];
-}
-
-export interface WeatherAxiosResponse {
-    status: string;
-    httpMessage: string;
-    data: WeatherResponse;
-}
-
-export interface WeatherStorage {
-    timestamp: string | null;
-    data: {
-        timeseries: WeatherTimeSeries[] | null;
-        location: string | null;
-    };
-}
-
-export interface WeatherConfig {
-    method: string;
-    url: string;
-    qs: {
-        [key: string]: string;
-    };
-    headers: WeatherRequestHeaders;
-}
-
-export interface NewsStorage {
-    timestamp: string | null;
-    data: {
-        bbc: NewsArticle[] | null;
-        pc: NewsArticle[] | null;
-        nasa: NasaArticle | null;
-    };
-}
-
-export type DiscordUsernameOptions =
-    | {
-          user: {
-              id: string;
-              bot: boolean;
-              system: boolean;
-              username: string;
-              discriminator: string;
-              avatar: string;
-              banner: undefined | string;
-              accentColor: undefined | string;
-          };
-      } & CommandInteractionOption<CacheType>;
-
-export type WeatherRequestHeaders = {
-    "x-ibm-client-id": string;
-    "x-ibm-client-secret": string;
-    accept: string;
-} & AxiosRequestHeaders;

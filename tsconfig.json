@@ -17,7 +17,7 @@
         "jsx": "react-jsx",
         "baseUrl": "./",
         "paths": {
-            "@lib/types": ["./server/lib/types.ts"]
+            "@lib/types": ["./lib/types.ts"]
         }
     },
     "include": ["src"]
