@@ -36,11 +36,14 @@ jobs:
                   echo Node Version: `node --version`
                   echo NPM Version: `npm --version`
 
-            - name: Install dependencies
-              run: npm install
+            - name: Install dependencies and build 🔧
+              run: npm install && npm run build
 
-            - name: Run Tests
+            - name: Run Tests 🧪
               run: npm test
 
-            - name: Test Client build
-              run: npm run build
+            - name: Publish package on NPM 📦
+              if: github.ref == 'refs/heads/main'
+              run: npm publish --access public
+              env:
+                  NODE_AUTH_TOKEN: ${{ secrets.NPM_KEY }}
