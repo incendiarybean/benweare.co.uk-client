@@ -62,8 +62,5 @@
     },
     "files": [
         "build/*"
-    ],
-    "dependencies": {
-        "benweare.com-client": "^0.2.0"
-    }
+    ]
 }
