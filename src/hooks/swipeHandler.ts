@@ -22,12 +22,12 @@ export const SwipeHandler = (
 
         const handleSwipeMove = ({ target, targetTouches }: TouchEvent) => {
             if (ref && ref.current && ref.current.contains(target as Node)) {
-                if (touchStart && touchStart + 150 < targetTouches[0].clientX) {
+                if (touchStart && touchStart - 150 > targetTouches[0].clientX) {
                     setTouchStart(null);
                     return action(true);
                 }
 
-                if (touchStart && touchStart - 150 > targetTouches[0].clientX) {
+                if (touchStart && touchStart + 150 < targetTouches[0].clientX) {
                     setTouchStart(null);
                     return action(false);
                 }
