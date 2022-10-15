@@ -19,8 +19,8 @@ jobs:
     build:
         runs-on: ubuntu-latest
         env:
-            REACT_APP_HOSTNAME: "TEST_VALUE"
-            REACT_APP_SOCKET_TOKEN: "TEST_VALUE"
+            if: github.ref == 'refs/heads/main'
+
         steps:
             - uses: actions/checkout@v3
 
@@ -38,6 +38,18 @@ jobs:
 
             - name: Install dependencies and build 🔧
               run: npm install && npm run build
+
+            - name: Install dependencies and build  🔧
+              if: github.ref == 'refs/heads/development'
+              run: npm install && npm run build
+              with:
+                  REACT_APP_HOSTNAME: "TEST_HOST"
+
+            - name: Install dependencies and build production 🔧
+              if: github.ref == 'refs/heads/main'
+              run: npm install && npm run build
+              with:
+                  REACT_APP_HOSTNAME: ${{ secrets.PROD_HOSTNAME }}
 
             - name: Run Tests 🧪
               run: npm test
