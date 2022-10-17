@@ -20,9 +20,6 @@ jobs:
         runs-on: ubuntu-latest
         env:
             REACT_APP_NAME: ${{ secrets.APP_NAME }}
-            REACT_APP_HOSTNAME: ${{ secrets.PROD_HOSTNAME }}
-            REACT_APP_LOCAL: ${{ secrets.DEV_HOSTNAME }}
-            REACT_APP_SOCKET: ${{ fromJSON('["development", "production"]')[github.ref == 'refs/heads/main'] }}
 
         steps:
             - uses: actions/checkout@v3
@@ -34,7 +31,6 @@ jobs:
             - name: Check Environment Variables 🔎
               if: github.ref == 'refs/heads/feature'
               run: |
-                  echo "REACT SOCKET ENV: $REACT_APP_SOCKET"
                   echo "REACT APP VERSION: $REACT_APP_VERSION"
 
             - name: Setup Node.js environment 🔧
