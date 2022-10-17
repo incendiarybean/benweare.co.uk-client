@@ -1,8 +1,8 @@
-import { BodyProps } from "@lib/types";
 import React from "react";
 import { Route, Routes } from "react-router-dom";
-import Dashboard from "../pages/dashboard";
-import Info from "../pages/info";
+import { BodyProps } from "src/common/types";
+import Dashboard from "./pages/dashboard";
+import Info from "./pages/info";
 
 function Component(props: BodyProps) {
     return (

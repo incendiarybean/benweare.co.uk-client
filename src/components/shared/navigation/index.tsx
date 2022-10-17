@@ -1,7 +1,7 @@
-import React, { useEffect, useState, createRef } from "react";
+import React, { createRef, useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { NavbarProps } from "@lib/types";
-import { ExternalClickHandler } from "src/hooks/externalClickHandler";
+import { ExternalClickHandler } from "src/common/hooks/externalClickHandler";
+import { NavbarProps } from "src/common/types";
 
 function Component({ Icon, mobileMenu, setMobileMenu }: NavbarProps) {
     const [activePageNumber, setActivePageNumber] = useState<number>(0);

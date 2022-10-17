@@ -1,6 +1,6 @@
 import React from "react";
-import { BodyProps } from "@lib/types";
-import { NewsCarousel, Footer, Card } from "../..";
+import { BodyProps } from "src/common/types";
+import { Card, Footer, NewsCarousel } from "src/components/";
 
 function Component({ Icon, mobileMenu }: BodyProps) {
     return (
