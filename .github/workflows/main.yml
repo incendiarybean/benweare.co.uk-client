@@ -29,19 +29,19 @@ jobs:
               run: |
                   echo "REACT SOCKET ENV: $REACT_APP_SOCKET"
 
-            - name: Setup Node.js environment
+            - name: Setup Node.js environment 🔧
               uses: actions/setup-node@v3
               with:
                   node-version: "16.x"
                   registry-url: "https://registry.npmjs.org"
 
-            - name: Update to NPM 8.6.0
+            - name: Update to NPM 8.6.0 ⚙️
               run: |
                   npm i -g npm@8.6.0
                   echo Node Version: `node --version`
                   echo NPM Version: `npm --version`
 
-            - name: Install dependencies and build 🔧
+            - name: Install dependencies and build 🔨
               run: npm install && npm run build
 
             - name: Run Tests 🧪
