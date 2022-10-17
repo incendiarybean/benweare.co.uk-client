@@ -20,8 +20,14 @@ jobs:
         runs-on: ubuntu-latest
         env:
             REACT_APP_HOSTNAME: ${{ secrets.PROD_HOSTNAME }}
+            REACT_APP_LOCAL: ${{ secrets.DEV_HOSTNAME }}
+            NODE_ENV: ${{ fromJSON('["development", "production"]')[github.ref == 'refs/heads/main'] }}
         steps:
             - uses: actions/checkout@v3
+
+            - name: Environment ⚙️
+              run: |
+                  echo "ENV: $NODE_ENV"
 
             - name: Setup Node.js environment
               uses: actions/setup-node@v3
