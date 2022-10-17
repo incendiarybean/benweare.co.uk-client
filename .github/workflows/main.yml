@@ -32,6 +32,7 @@ jobs:
                   echo "REACT_APP_VERSION=$(grep '"version"' package.json | cut -d '"' -f 4 | head -n 1 )" >> $GITHUB_ENV
 
             - name: Check Environment Variables 🔎
+              if: github.ref == 'refs/heads/feature'
               run: |
                   echo "REACT SOCKET ENV: $REACT_APP_SOCKET"
                   echo "REACT APP VERSION: $REACT_APP_VERSION"
