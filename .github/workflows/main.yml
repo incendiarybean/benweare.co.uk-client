@@ -23,7 +23,7 @@ jobs:
             REACT_APP_HOSTNAME: ${{ secrets.PROD_HOSTNAME }}
             REACT_APP_LOCAL: ${{ secrets.DEV_HOSTNAME }}
             REACT_APP_SOCKET: ${{ fromJSON('["development", "production"]')[github.ref == 'refs/heads/main'] }}
-            REACT_APP_VERSION: $(grep '"version"' package.json | cut -d '"' -f 4 | head -n 1 )
+            REACT_APP_VERSION: ${{ $(grep '"version"' package.json | cut -d '"' -f 4 | head -n 1 ) }}
 
         steps:
             - uses: actions/checkout@v3
