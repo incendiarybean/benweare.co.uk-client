@@ -27,7 +27,7 @@ jobs:
 
             - name: Environment ⚙️
               run: |
-                  echo "ENV: $NODE_ENV"
+                  echo "REACT SOCKET ENV: $REACT_APP_SOCKET"
 
             - name: Setup Node.js environment
               uses: actions/setup-node@v3
