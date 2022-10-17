@@ -1,11 +1,11 @@
 import "react-toastify/dist/ReactToastify.css";
 import "animate.css";
-import "./TS/socket";
+import "./common/utils/socket";
 
 import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
-import { Icon, Navbar, Routes, Sidebar } from "./components";
+import { Icon, Navbar, Routes, Sidebar } from "src/components/";
 
 function App() {
     const [mobileMenu, setMobileMenu] = useState<boolean>(false);

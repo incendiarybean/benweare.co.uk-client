@@ -1,5 +1,5 @@
 import React from "react";
-import { Icon } from "src/components";
+import { Icon } from "src/components/";
 import { act, render, screen } from "@testing-library/react";
 import Component from "./";
 

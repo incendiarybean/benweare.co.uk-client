@@ -1,7 +1,7 @@
-import { NasaArticle, NewsCard } from "@lib/types";
 import React, { useEffect, useState } from "react";
-import { sleep } from "src/TS/utils";
-import { Loader, Error } from "../..";
+import { NasaArticle, NewsCard } from "src/common/types";
+import { sleep } from "src/common/utils";
+import { Error, Loader } from "src/components/";
 
 function Component({ Endpoint, SiteName }: NewsCard) {
     const [article, setArticle] = useState<NasaArticle>();
