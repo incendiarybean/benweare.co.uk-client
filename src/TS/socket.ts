@@ -1,8 +1,8 @@
 import { io } from "socket.io-client";
 
-const { REACT_APP_HOSTNAME, REACT_APP_LOCAL, NODE_ENV } = process.env;
+const { REACT_APP_HOSTNAME, REACT_APP_LOCAL, REACT_APP_SOCKET } = process.env;
 const socketHostname =
-    NODE_ENV === "production" ? REACT_APP_HOSTNAME : REACT_APP_LOCAL;
+    REACT_APP_SOCKET === "production" ? REACT_APP_HOSTNAME : REACT_APP_LOCAL;
 
 const IO = io(socketHostname as string);
 
