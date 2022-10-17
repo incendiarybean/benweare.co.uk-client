@@ -31,7 +31,6 @@ jobs:
             - name: Check Environment Variables 🔎
               if: github.ref == 'refs/heads/feature'
               run: |
-                  echo "REACT SOCKET ENV: $REACT_APP_SOCKET"
                   echo "REACT APP VERSION: $REACT_APP_VERSION"
 
             - name: Setup Node.js environment 🔧
