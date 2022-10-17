@@ -19,6 +19,7 @@ jobs:
     build:
         runs-on: ubuntu-latest
         env:
+            REACT_APP_NAME: ${{ secrets.APP_NAME }}
             REACT_APP_HOSTNAME: ${{ secrets.PROD_HOSTNAME }}
             REACT_APP_LOCAL: ${{ secrets.DEV_HOSTNAME }}
             REACT_APP_SOCKET: ${{ fromJSON('["development", "production"]')[github.ref == 'refs/heads/main'] }}
