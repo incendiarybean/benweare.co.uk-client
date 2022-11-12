@@ -51,9 +51,9 @@ function Component({ Icon, Endpoint, SiteName, Disabled }: NewsCarousel) {
         const getNews = async () => {
             fetch(Endpoint)
                 .then((data) => data.json())
-                .then(({ items }) => {
-                    setArticles(items);
-                    preloadImages(items);
+                .then(({ response }) => {
+                    setArticles(response.items);
+                    preloadImages(response.items);
                 })
                 .catch(() => {
                     setLoaded("Failed");
@@ -80,8 +80,8 @@ function Component({ Icon, Endpoint, SiteName, Disabled }: NewsCarousel) {
                     <div className="w-full">
                         {articles.map((data, index) => (
                             <a
-                                key={`${data.site}-${index}`}
-                                href={data.link}
+                                key={`${data.url}-${index}`}
+                                href={data.url}
                                 rel="noreferrer"
                                 target="_blank"
                                 className={`${generateClassName(
@@ -132,7 +132,7 @@ function Component({ Icon, Endpoint, SiteName, Disabled }: NewsCarousel) {
                                     {loaded &&
                                         articles.map((data, index) => (
                                             <button
-                                                key={`${data.site}-${index}-navigator`}
+                                                key={`${data.url}-${index}-navigator`}
                                                 onClick={() =>
                                                     handleRotation(index)
                                                 }
