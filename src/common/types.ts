@@ -25,10 +25,10 @@ export interface Icons {
 
 export interface NewsArticle {
     title: string;
-    link: string;
+    url: string;
+    description?: string;
     img: string;
     date: string;
-    site: string;
 }
 
 export interface NasaArticle {

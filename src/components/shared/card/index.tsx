@@ -1,18 +1,18 @@
 import React, { useEffect, useState } from "react";
-import { NasaArticle, NewsCard } from "src/common/types";
+import { NewsArticle, NewsCard } from "src/common/types";
 import { sleep } from "src/common/utils";
 import { Error, Loader } from "src/components/";
 
 function Component({ Endpoint, SiteName }: NewsCard) {
-    const [article, setArticle] = useState<NasaArticle>();
+    const [article, setArticle] = useState<NewsArticle>();
     const [loaded, setLoaded] = useState<boolean | string>(false);
 
     useEffect(() => {
         const getDetail = async () => {
             fetch(Endpoint)
                 .then((data) => data.json())
-                .then(({ items }) => {
-                    setArticle(items[0]);
+                .then(({ response }) => {
+                    setArticle(response.items[0]);
                     setLoaded(true);
                 })
                 .catch(() => {
@@ -44,7 +44,7 @@ function Component({ Endpoint, SiteName }: NewsCard) {
                                 <h1 className="text-left text-sm xl:text-lg font-bold leading-normal">
                                     {article.title}
                                 </h1>
-                                <p className="text-sm">{article.explanation}</p>
+                                <p className="text-sm">{article.description}</p>
 
                                 <div className="flex mt-4">
                                     <button
@@ -93,7 +93,7 @@ function Component({ Endpoint, SiteName }: NewsCard) {
                                 <h1 className="text-left text-sm xl:text-lg font-bold leading-normal">
                                     {article.title}
                                 </h1>
-                                <p className="text-xs">{article.explanation}</p>
+                                <p className="text-xs">{article.description}</p>
                                 <div className="flex flex-col ml-4 w-1/2">
                                     <h2 className="text-center text-xs mt-1 mb-2 text-blue-600 dark:text-blue-400 font-bold uppercase">
                                         {SiteName} Article
