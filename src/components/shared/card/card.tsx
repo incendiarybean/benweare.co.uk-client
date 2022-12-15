@@ -3,7 +3,7 @@ import { NewsArticle, NewsCard } from "src/common/types";
 import { sleep } from "src/common/utils";
 import { Error, Loader } from "src/components/";
 
-function Component({ Endpoint, SiteName }: NewsCard) {
+const Card = ({ Endpoint, SiteName }: NewsCard) => {
     const [article, setArticle] = useState<NewsArticle>();
     const [loaded, setLoaded] = useState<boolean | string>(false);
 
@@ -26,12 +26,12 @@ function Component({ Endpoint, SiteName }: NewsCard) {
 
     return (
         <div className="px-2 md:px-6 my-3 w-full">
-            <div className="text-left flex flex-col w-full items-center justify-center md:p-4 md:border border-slate-300 dark:border-slate-600 rounded-xl">
+            <div className="text-left flex flex-col w-full items-center justify-center md:p-4 md:border border-slate-300 dark:border-zinc-600/20 rounded-xl">
                 {loaded === true &&
                     article &&
                     (!article.url.includes("youtube.com") ? (
                         <div
-                            className={`animate__animated animate__fadeIn animate__faster w-full rounded-xl flex-col xl:flex-row bg-white dark:bg-slate-900 shadow-md`}
+                            className={`animate__animated animate__fadeIn animate__faster w-full rounded-xl flex-col xl:flex-row bg-white dark:bg-zinc-900/80 shadow-md`}
                         >
                             <div
                                 className="rounded-t-xl w-full h-52 shadow-sm bg-cover"
@@ -72,7 +72,7 @@ function Component({ Endpoint, SiteName }: NewsCard) {
                             href={article.url}
                             rel="noreferrer"
                             target="_blank"
-                            className={`animate__animated animate__fadeIn animate__faster w-full rounded-xl flex-col xl:flex-row bg-white dark:bg-slate-900 shadow-md`}
+                            className={`animate__animated animate__fadeIn animate__faster w-full rounded-xl flex-col xl:flex-row bg-white dark:bg-zinc-700 shadow-md`}
                         >
                             <div className="p-2">
                                 <iframe
@@ -111,6 +111,6 @@ function Component({ Endpoint, SiteName }: NewsCard) {
             </div>
         </div>
     );
-}
+};
 
-export default Component;
+export default Card;

@@ -5,7 +5,7 @@ import { sleep } from "src/common/utils";
 import IO from "src/common/utils/socket";
 import { Error, Loader } from "src/components/";
 
-function Component({ Icon, Endpoint, SiteName, Disabled }: NewsCarousel) {
+const NewsReel = ({ Icon, Endpoint, SiteName, Disabled }: NewsCarousel) => {
     const [articles, setArticles] = useState<NewsArticle[]>([]);
     const [articleChanged, setArticleChanged] = useState<boolean>(false);
     const [loaded, setLoaded] = useState<boolean | string>(false);
@@ -75,7 +75,7 @@ function Component({ Icon, Endpoint, SiteName, Disabled }: NewsCarousel) {
             id={`${SiteName}-news`}
             className="px-2 md:px-6 my-3 w-full"
         >
-            <div className="text-left flex flex-col w-full items-center justify-center md:p-4 md:border border-slate-300 dark:border-slate-600 rounded-xl">
+            <div className="text-left flex flex-col w-full items-center justify-center md:p-4 md:border border-slate-300 dark:border-zinc-600/20 rounded-xl">
                 {loaded === true && articles && (
                     <div className="w-full">
                         {articles.map((data, index) => (
@@ -86,7 +86,7 @@ function Component({ Icon, Endpoint, SiteName, Disabled }: NewsCarousel) {
                                 target="_blank"
                                 className={`${generateClassName(
                                     index
-                                )}w-full rounded-xl flex-col xl:flex-row bg-white dark:bg-slate-900 shadow-md transition-all duration-100 md:hover:scale-95`}
+                                )}w-full rounded-xl flex-col xl:flex-row bg-white dark:bg-zinc-900/80 shadow-md transition-all duration-100 md:hover:scale-95`}
                             >
                                 <div className="flex-grow">
                                     <div
@@ -120,8 +120,9 @@ function Component({ Icon, Endpoint, SiteName, Disabled }: NewsCarousel) {
                         ))}
                         <div className="lg:px-4 w-full mt-2">
                             <div className="flex justify-center">
-                                <div className="bg-white dark:bg-slate-900 rounded-xl shadow-md flex w-full lg:w-1/2 p-2 justify-between h-12 lg:h-fit items-center">
+                                <div className="bg-white dark:bg-zinc-900/80 rounded-xl shadow-md flex w-full lg:w-1/2 p-2 justify-between h-12 lg:h-fit items-center">
                                     <button
+                                        aria-label="Previous Article"
                                         className="border-slate-500 dark:border-slate-100 hover:text-blue-500 dark:hover:text-blue-400 border hover:border-blue-500 dark:hover:border-blue-400 w-6 h-6 rounded-xl duration-150 hover:scale-105 active:scale-95"
                                         onClick={() =>
                                             handleRotation(articlePage - 1)
@@ -132,18 +133,20 @@ function Component({ Icon, Endpoint, SiteName, Disabled }: NewsCarousel) {
                                     {loaded &&
                                         articles.map((data, index) => (
                                             <button
+                                                aria-label={`Article ${index}`}
                                                 key={`${data.url}-${index}-navigator`}
                                                 onClick={() =>
                                                     handleRotation(index)
                                                 }
                                                 className={`transition-all w-3 self-center duration-150 hover:scale-150 active:scale-125 ease-in-out rounded-md xl:p-1 ${
                                                     index === articlePage
-                                                        ? "bg-blue-400 h-3"
-                                                        : "bg-slate-300 h-2"
+                                                        ? "bg-sky-400 h-3"
+                                                        : "bg-zinc-400 h-2"
                                                 } shadow`}
                                             />
                                         ))}
                                     <button
+                                        aria-label="Next Article"
                                         className="border-slate-500 dark:border-slate-100 hover:text-blue-500 dark:hover:text-blue-400 border hover:border-blue-500 dark:hover:border-blue-400 w-6 h-6 rounded-xl duration-150 hover:scale-105 active:scale-95"
                                         onClick={() =>
                                             handleRotation(articlePage + 1)
@@ -161,6 +164,6 @@ function Component({ Icon, Endpoint, SiteName, Disabled }: NewsCarousel) {
             </div>
         </div>
     );
-}
+};
 
-export default Component;
+export default NewsReel;

@@ -1,4 +1,4 @@
-function Component() {
+const Loader = () => {
     return (
         <div className="w-full h-64 flex flex-col justify-around items-center">
             <div className="w-full px-4 mb-2 p-2 items-center flex flex-col justify-around">
@@ -28,5 +28,5 @@ function Component() {
             </div>
         </div>
     );
-}
-export default Component;
+};
+export default Loader;

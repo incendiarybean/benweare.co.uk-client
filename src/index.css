@@ -7,6 +7,16 @@ html,
     height: 100%;
 }
 
+html {
+    @apply bg-gray-200;
+    @apply dark:bg-zinc-800;
+    overflow: overlay;
+}
+
+.overlay {
+    overflow: overlay;
+}
+
 body {
     margin: 0;
     font-family: "Roboto", sans-serif;

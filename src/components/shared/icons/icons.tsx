@@ -563,3 +563,132 @@ export const Box = () => (
         </g>
     </svg>
 );
+
+export const GitHubIcon = () => (
+    <svg
+        viewBox="0 0 16 16"
+        className="w-5 h-5"
+        fill="currentColor"
+        aria-hidden="true"
+    >
+        <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path>
+    </svg>
+);
+
+export const DocsIcon = () => (
+    <svg
+        height="21"
+        viewBox="0 0 21 21"
+        width="21"
+        xmlns="http://www.w3.org/2000/svg"
+    >
+        <g
+            fill="none"
+            fillRule="evenodd"
+            stroke="currentColor"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            transform="translate(1 2)"
+        >
+            <path d="m16.5 12.5v-10c0-1.1045695-.8954305-2-2-2h-8c-1.1045695 0-2 .8954305-2 2v10c0 1.1045695.8954305 2 2 2h8c1.1045695 0 2-.8954305 2-2z" />
+            <path d="m4.30542777 2.93478874-2.00419132.72946598c-1.03795581.37778502-1.57312998 1.52546972-1.19534496 2.56342553l3.42020143 9.39692625c.37778502 1.0379558 1.52546972 1.5731299 2.56342553 1.1953449l5.56843115-2.1980811" />
+            <path d="m7.5 5.5h5" />
+            <path d="m7.5 7.5h6" />
+            <path d="m7.5 9.5h3" />
+        </g>
+    </svg>
+);
+
+export const LinkIcon = () => (
+    <svg
+        height="21"
+        viewBox="0 0 21 21"
+        width="21"
+        xmlns="http://www.w3.org/2000/svg"
+    >
+        <g
+            fill="none"
+            fillRule="evenodd"
+            stroke="currentColor"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            transform="translate(4 5)"
+        >
+            <path d="m5.5 2.5 1-1c1.1045695-1.1045695 2.8954305-1.1045695 4 0s1.1045695 2.8954305 0 4l-1 1m-3 3-1 1c-1.1045695 1.1045695-2.8954305 1.1045695-4 0s-1.1045695-2.8954305 0-4l1-1" />
+            <path d="m3.5 8.5 5-5" />
+        </g>
+    </svg>
+);
+
+export const CrossIcon = () => (
+    <svg
+        height="24"
+        viewBox="0 0 21 21"
+        width="24"
+        xmlns="http://www.w3.org/2000/svg"
+        className=""
+    >
+        <g
+            fill="none"
+            fillRule="evenodd"
+            stroke="currentColor"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            transform="translate(2 2)"
+        >
+            <circle cx="8.5" cy="8.5" r="8" />
+            <g transform="matrix(0 1 -1 0 17 0)">
+                <path d="m5.5 11.5 6-6" />
+                <path d="m5.5 5.5 6 6" />
+            </g>
+        </g>
+    </svg>
+);
+
+export const TickIcon = () => (
+    <svg
+        viewBox="0 0 21 21"
+        xmlns="http://www.w3.org/2000/svg"
+        className="text-green-500"
+    >
+        <g
+            fill="none"
+            fillRule="evenodd"
+            stroke="currentColor"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            transform="translate(2 2)"
+        >
+            <path d="m12.8571123 1.79063546c-3.70547974-2.40636667-8.66011018-1.35322746-11.06647684 2.35225226-2.40636667 3.70547972-1.35322746 8.66011018 2.35225226 11.06647678 1.40713892.9138067 2.9944136 1.3287299 4.55387082 1.2889715 2.54712886-.0649393 5.02004606-1.3428829 6.51260596-3.6412237 1.5774991-2.4291355 1.6682799-5.39509184.4997393-7.82805117" />
+            <path d="m4.5 7.5 3 3 8-8" />
+        </g>
+    </svg>
+);
+
+export const MenuIcon = () => (
+    <svg width="24" height="24" fill="none" aria-hidden="true">
+        <path
+            d="M12 6v.01M12 12v.01M12 18v.01M12 7a1 1 0 1 1 0-2 1 1 0 0 1 0 2Zm0 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Zm0 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"
+            stroke="currentColor"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+        ></path>
+    </svg>
+);
+
+export const NpmIcon = () => (
+    <svg
+        width="24"
+        height="24"
+        xmlns="http://www.w3.org/2000/svg"
+        className="w-5 h-5 text-white dark:text-black fill-current bg-slate-800 dark:bg-slate-400 hover:bg-sky-400 rounded-full"
+        viewBox="0 0 576 512"
+    >
+        <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="M288 288h-32v-64h32v64zm288-128v192H288v32H160v-32H0V160h576zm-416 32H32v128h64v-96h32v96h32V192zm160 0H192v160h64v-32h64V192zm224 0H352v128h64v-96h32v96h32v-96h32v96h32V192z"
+        />
+    </svg>
+);
