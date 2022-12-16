@@ -5,7 +5,7 @@ const Documentation = () => {
                 <iframe
                     className="h-[135rem] w-full rounded"
                     title="API Documentation"
-                    src="http://localhost:8080/api/docs"
+                    src="/api/docs"
                 />
             </div>
         </div>
