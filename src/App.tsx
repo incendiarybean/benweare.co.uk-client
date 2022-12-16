@@ -2,12 +2,18 @@ import "react-toastify/dist/ReactToastify.css";
 import "animate.css";
 import "./common/utils/socket";
 
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { BrowserRouter as Router } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
-import { Icon, Navbar, Routes, Sidebar } from "src/components/";
+import {
+    Icon,
+    LeftNavigationBar,
+    NavigationBar,
+    RightNavigationBar,
+    Routes,
+} from "src/components/";
 
-function App() {
+const App = () => {
     const [mobileMenu, setMobileMenu] = useState<boolean>(false);
 
     useEffect(() => {
@@ -26,26 +32,29 @@ function App() {
 
     return (
         <Router>
-            <ToastContainer />
-            <div className="text-slate-700 dark:text-white bg-gray-200 dark:bg-slate-700">
-                <div className="w-full flex flex-col md:flex-row text-center justify-center">
-                    <Navbar
-                        Icon={Icon}
-                        setMobileMenu={setMobileMenu}
-                        mobileMenu={mobileMenu}
-                    />
-                    <div
-                        className={`w-full md:max-w-4xl transition-all duration-150 ${
-                            mobileMenu ? "opacity-40" : "opacity-100"
-                        } overflow-auto md:h-screen border-l border-r border-slate-300 dark:border-slate-600`}
-                    >
-                        <Routes Icon={Icon} mobileMenu={mobileMenu} />
+            <div className="text-slate-800 dark:text-white">
+                <ToastContainer />
+                <div className="">
+                    <NavigationBar />
+                    <div className="w-full flex flex-col md:flex-row text-center justify-center min-w-[20rem]">
+                        <LeftNavigationBar
+                            Icon={Icon}
+                            setMobileMenu={setMobileMenu}
+                            mobileMenu={mobileMenu}
+                        />
+                        <div
+                            className={`w-full md:max-w-4xl transition-all duration-150 ${
+                                mobileMenu ? "opacity-40" : "opacity-100"
+                            } px-2 sm:px-0 md:h-auto sm:border-l sm:border-r border-slate-300 dark:border-zinc-600/20`}
+                        >
+                            <Routes Icon={Icon} mobileMenu={mobileMenu} />
+                        </div>
+                        <RightNavigationBar />
                     </div>
-                    <Sidebar />
                 </div>
             </div>
         </Router>
     );
-}
+};
 
 export default App;

@@ -1,7 +1,6 @@
-import React from "react";
 import { Icon } from "src/components/";
 import { act, render, screen } from "@testing-library/react";
-import Component from "./";
+import Component from "./info";
 
 test("Name and image displays", () => {
     render(<Component Icon={Icon} />);

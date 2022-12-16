@@ -8,6 +8,9 @@ module.exports = {
                 width: "width",
                 bg: "background-color",
             },
+            overflow: {
+                overlay: "overlay",
+            },
             height: {
                 92: "23rem",
                 128: "32rem",
