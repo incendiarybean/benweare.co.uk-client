@@ -5,10 +5,6 @@ import { NavbarProps } from "src/common/types";
 const LeftNavigationBar = ({ Icon }: NavbarProps) => {
     const [activePage, setActivePage] = useState<string>();
 
-    const handlePageNavigation = (page: string) => {
-        setActivePage(page);
-    };
-
     useEffect(() => {
         setActivePage(window.location.pathname);
     }, []);
@@ -26,7 +22,7 @@ const LeftNavigationBar = ({ Icon }: NavbarProps) => {
                                 ? "text-white bg-sky-600/80 dark:bg-sky-400/10 hover:from-sky-600 hover:to-sky-800 font-semibold leading-tight shadow-md"
                                 : "hover:bg-zinc-100 dark:hover:bg-zinc-900/40 hover:shadow-sm"
                         } w-full md:w-48 h-12 flex items-center md:rounded`}
-                        onClick={() => handlePageNavigation("/dashboard")}
+                        onClick={() => setActivePage("/dashboard")}
                     >
                         <div className="p-3">
                             <Icon.Home />
@@ -44,7 +40,7 @@ const LeftNavigationBar = ({ Icon }: NavbarProps) => {
                                 ? "text-white bg-sky-600/80 dark:bg-sky-400/10 hover:from-sky-600 hover:to-sky-800 font-semibold leading-tight shadow-md"
                                 : "hover:bg-zinc-100 dark:hover:bg-zinc-900/40 hover:shadow-sm"
                         } w-full md:w-48 h-12 flex items-center md:rounded`}
-                        onClick={() => handlePageNavigation("/")}
+                        onClick={() => setActivePage("/")}
                     >
                         <div className="p-3">
                             <Icon.Info />
@@ -62,7 +58,7 @@ const LeftNavigationBar = ({ Icon }: NavbarProps) => {
                                 ? "text-white bg-sky-600/80 dark:bg-sky-400/10 hover:from-sky-600 hover:to-sky-800 font-semibold leading-tight shadow-md"
                                 : "hover:bg-zinc-100 dark:hover:bg-zinc-900/40 hover:shadow-sm"
                         } w-full md:w-48 h-12 flex items-center md:rounded`}
-                        onClick={() => handlePageNavigation("/documentation")}
+                        onClick={() => setActivePage("/documentation")}
                     >
                         <div className="p-3">
                             <Icon.Newspaper />
