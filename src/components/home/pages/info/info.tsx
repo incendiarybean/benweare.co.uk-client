@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import profile_image from "src/common/images/profile-sm.webp";
 import { IconProps } from "src/common/types";
 
-const About = ({ Icon }: IconProps) => {
+const InfoPage = ({ Icon }: IconProps) => {
     const [show, setShow] = useState<boolean>(false);
     const [loaded, setLoaded] = useState<boolean>(false);
 
@@ -27,7 +27,7 @@ const About = ({ Icon }: IconProps) => {
         <div className="select-none items-center flex flex-col w-full overflow-auto md:h-screen pb-20">
             {loaded && (
                 <div className="animate__animated animate__fadeIn animate__faster px-2 md:px-6 my-3 w-full">
-                    <div className="flex flex-col w-full min-w-fit lg:min-w-0 bg-white dark:bg-zinc-900/80 rounded-xl shadow-md p-10 mt-28 self-center">
+                    <div className="flex flex-col w-full min-w-fit lg:min-w-0 bg-white dark:bg-zinc-900/70 rounded shadow-md p-10 mt-28 self-center">
                         <div className="flex justify-center items-center mb-5">
                             <img
                                 className="min-w-fit -mt-32 rounded-full shadow-xl border-8 border-white dark:border-zinc-800/40"
@@ -68,10 +68,10 @@ const About = ({ Icon }: IconProps) => {
                     </div>
                     <div
                         hidden={!show}
-                        className="snap-proximity snap-y text-left w-full min-w-fit lg:min-w-0 bg-white dark:bg-zinc-900/70 rounded-xl shadow-xl overlay h-96 self-center mt-4 mb-20"
+                        className="snap-proximity snap-y text-left w-full min-w-fit lg:min-w-0 bg-white dark:bg-zinc-900/70 rounded shadow-xl overlay h-96 self-center mt-4 mb-20"
                     >
                         <div className="snap-start">
-                            <p className="bg-white dark:bg-zinc-900/80 text-left pl-8 p-3 text-sm text-sky-600 dark:text-sky-400 font-bold uppercase border-b dark:border-slate-600">
+                            <p className="bg-white dark:bg-zinc-900/70 text-left pl-8 p-3 text-sm text-sky-600 dark:text-sky-400 font-bold uppercase border-b dark:border-slate-600">
                                 Services/Environments
                             </p>
                             <div className="w-full flex flex-col items-center overflow-hidden text-sm pb-4">
@@ -119,7 +119,7 @@ const About = ({ Icon }: IconProps) => {
                             </div>
                         </div>
                         <div className="snap-start">
-                            <p className="bg-white dark:bg-zinc-900/80 w-full text-left pl-8 p-3 text-sm text-sky-600 dark:text-sky-400 font-bold uppercase border-b dark:border-slate-600 shadow-inner">
+                            <p className="bg-white dark:bg-zinc-900/70 w-full text-left pl-8 p-3 text-sm text-sky-600 dark:text-sky-400 font-bold uppercase border-b dark:border-slate-600 shadow-inner">
                                 Proficient Languages
                             </p>
                             <div className="w-full flex flex-col items-center overflow-hidden text-sm pb-4">
@@ -146,7 +146,7 @@ const About = ({ Icon }: IconProps) => {
                             </div>
                         </div>
                         <div className="snap-start">
-                            <p className="bg-white dark:bg-zinc-900/80 w-full text-left pl-8 p-3 text-sm text-sky-600 dark:text-sky-400 font-bold uppercase border-b dark:border-slate-600 shadow-inner">
+                            <p className="bg-white dark:bg-zinc-900/70 w-full text-left pl-8 p-3 text-sm text-sky-600 dark:text-sky-400 font-bold uppercase border-b dark:border-slate-600 shadow-inner">
                                 Minor Language Experience
                             </p>
                             <div className="w-full flex flex-col items-center overflow-hidden text-sm pb-4">
@@ -173,7 +173,7 @@ const About = ({ Icon }: IconProps) => {
                             </div>
                         </div>
                         <div className="snap-start">
-                            <p className="bg-white dark:bg-zinc-900/80 w-full text-left pl-8 p-3 text-sm text-sky-600 dark:text-sky-400 font-bold uppercase border-b dark:border-slate-600 shadow-inner">
+                            <p className="bg-white dark:bg-zinc-900/70 w-full text-left pl-8 p-3 text-sm text-sky-600 dark:text-sky-400 font-bold uppercase border-b dark:border-slate-600 shadow-inner">
                                 Databases
                             </p>
                             <div className="w-full flex flex-col items-center overflow-hidden text-sm pb-4">
@@ -200,7 +200,7 @@ const About = ({ Icon }: IconProps) => {
                             </div>
                         </div>
                         <div className="snap-start">
-                            <p className="bg-white dark:bg-zinc-900/80 w-full text-left pl-8 p-3 text-sm text-sky-600 dark:text-sky-400 font-bold uppercase border-b dark:border-slate-600 shadow-inner">
+                            <p className="bg-white dark:bg-zinc-900/70 w-full text-left pl-8 p-3 text-sm text-sky-600 dark:text-sky-400 font-bold uppercase border-b dark:border-slate-600 shadow-inner">
                                 JS Frameworks
                             </p>
                             <div className="w-full flex flex-col items-center overflow-hidden text-sm pb-4">
@@ -244,4 +244,4 @@ const About = ({ Icon }: IconProps) => {
     );
 };
 
-export default About;
+export default InfoPage;

@@ -1,5 +1,3 @@
-import React from "react";
-
 export const Calendar = () => (
     <svg
         height="21"
@@ -564,7 +562,7 @@ export const Box = () => (
     </svg>
 );
 
-export const GitHubIcon = () => (
+export const GitHub = () => (
     <svg
         viewBox="0 0 16 16"
         className="w-5 h-5"
@@ -575,7 +573,7 @@ export const GitHubIcon = () => (
     </svg>
 );
 
-export const DocsIcon = () => (
+export const Docs = () => (
     <svg
         height="21"
         viewBox="0 0 21 21"
@@ -599,7 +597,7 @@ export const DocsIcon = () => (
     </svg>
 );
 
-export const LinkIcon = () => (
+export const Link = () => (
     <svg
         height="21"
         viewBox="0 0 21 21"
@@ -620,7 +618,7 @@ export const LinkIcon = () => (
     </svg>
 );
 
-export const CrossIcon = () => (
+export const Cross = () => (
     <svg
         height="24"
         viewBox="0 0 21 21"
@@ -645,7 +643,7 @@ export const CrossIcon = () => (
     </svg>
 );
 
-export const TickIcon = () => (
+export const Tick = () => (
     <svg
         viewBox="0 0 21 21"
         xmlns="http://www.w3.org/2000/svg"
@@ -665,7 +663,7 @@ export const TickIcon = () => (
     </svg>
 );
 
-export const MenuIcon = () => (
+export const Menu = () => (
     <svg width="24" height="24" fill="none" aria-hidden="true">
         <path
             d="M12 6v.01M12 12v.01M12 18v.01M12 7a1 1 0 1 1 0-2 1 1 0 0 1 0 2Zm0 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Zm0 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"
@@ -677,7 +675,7 @@ export const MenuIcon = () => (
     </svg>
 );
 
-export const NpmIcon = () => (
+export const Npm = () => (
     <svg
         width="24"
         height="24"

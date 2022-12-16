@@ -1,4 +1,4 @@
-import React, { createRef, useEffect, useState } from "react";
+import { createRef, useEffect, useState } from "react";
 import { SwipeHandler } from "src/common/hooks/swipeHandler";
 import { NewsArticle, NewsCarousel } from "src/common/types";
 import { sleep } from "src/common/utils";
@@ -75,7 +75,7 @@ const NewsReel = ({ Icon, Endpoint, SiteName, Disabled }: NewsCarousel) => {
             id={`${SiteName}-news`}
             className="px-2 md:px-6 my-3 w-full"
         >
-            <div className="text-left flex flex-col w-full items-center justify-center md:p-4 md:border border-slate-300 dark:border-zinc-600/20 rounded-xl">
+            <div className="text-left flex flex-col w-full items-center justify-center md:p-4 md:border border-slate-300 dark:border-zinc-600/20 rounded">
                 {loaded === true && articles && (
                     <div className="w-full">
                         {articles.map((data, index) => (
@@ -86,11 +86,11 @@ const NewsReel = ({ Icon, Endpoint, SiteName, Disabled }: NewsCarousel) => {
                                 target="_blank"
                                 className={`${generateClassName(
                                     index
-                                )}w-full rounded-xl flex-col xl:flex-row bg-white dark:bg-zinc-900/80 shadow-md transition-all duration-100 md:hover:scale-95`}
+                                )}w-full rounded flex-col xl:flex-row bg-white dark:bg-zinc-900/70 shadow-md transition-all duration-100 md:hover:scale-95`}
                             >
                                 <div className="flex-grow">
                                     <div
-                                        className="w-full md:w-full xl:w-96 h-64 shadow bg-cover rounded-t-xl xl:rounded-none xl:rounded-l-xl"
+                                        className="w-full md:w-full xl:w-96 h-64 shadow bg-cover rounded-t xl:rounded-none xl:rounded-l"
                                         style={{
                                             backgroundImage: `url(${data.img})`,
                                         }}
@@ -120,10 +120,10 @@ const NewsReel = ({ Icon, Endpoint, SiteName, Disabled }: NewsCarousel) => {
                         ))}
                         <div className="lg:px-4 w-full mt-2">
                             <div className="flex justify-center">
-                                <div className="bg-white dark:bg-zinc-900/80 rounded-xl shadow-md flex w-full lg:w-1/2 p-2 justify-between h-12 lg:h-fit items-center">
+                                <div className="bg-white dark:bg-zinc-900/70 rounded shadow-md flex w-full lg:w-1/2 p-2 justify-between h-12 lg:h-fit items-center">
                                     <button
                                         aria-label="Previous Article"
-                                        className="border-slate-500 dark:border-slate-100 hover:text-blue-500 dark:hover:text-blue-400 border hover:border-blue-500 dark:hover:border-blue-400 w-6 h-6 rounded-xl duration-150 hover:scale-105 active:scale-95"
+                                        className="border-slate-500 dark:border-slate-100 hover:text-blue-500 dark:hover:text-blue-400 border hover:border-blue-500 dark:hover:border-blue-400 w-6 h-6 rounded duration-150 hover:scale-105 active:scale-95"
                                         onClick={() =>
                                             handleRotation(articlePage - 1)
                                         }
@@ -138,16 +138,16 @@ const NewsReel = ({ Icon, Endpoint, SiteName, Disabled }: NewsCarousel) => {
                                                 onClick={() =>
                                                     handleRotation(index)
                                                 }
-                                                className={`transition-all w-3 self-center duration-150 hover:scale-150 active:scale-125 ease-in-out rounded-md xl:p-1 ${
+                                                className={`transition-all self-center duration-150 hover:scale-150 active:scale-125 ease-in-out rounded xl:p-1 ${
                                                     index === articlePage
-                                                        ? "bg-sky-400 h-3"
-                                                        : "bg-zinc-400 h-2"
+                                                        ? "bg-sky-400 w-3 h-3"
+                                                        : "bg-zinc-400 w-2 h-2"
                                                 } shadow`}
                                             />
                                         ))}
                                     <button
                                         aria-label="Next Article"
-                                        className="border-slate-500 dark:border-slate-100 hover:text-blue-500 dark:hover:text-blue-400 border hover:border-blue-500 dark:hover:border-blue-400 w-6 h-6 rounded-xl duration-150 hover:scale-105 active:scale-95"
+                                        className="border-slate-500 dark:border-slate-100 hover:text-blue-500 dark:hover:text-blue-400 border hover:border-blue-500 dark:hover:border-blue-400 w-6 h-6 rounded duration-150 hover:scale-105 active:scale-95"
                                         onClick={() =>
                                             handleRotation(articlePage + 1)
                                         }

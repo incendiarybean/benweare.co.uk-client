@@ -1,8 +1,7 @@
-import React from "react";
 import { BodyProps } from "src/common/types";
 import { Card, NewsCarousel } from "src/components/";
 
-const Dashboard = ({ Icon, mobileMenu }: BodyProps) => {
+const DashboardPage = ({ Icon, mobileMenu }: BodyProps) => {
     return (
         <div className="select-none items-center flex flex-col w-full">
             <NewsCarousel
@@ -25,4 +24,4 @@ const Dashboard = ({ Icon, mobileMenu }: BodyProps) => {
     );
 };
 
-export default Dashboard;
+export default DashboardPage;

@@ -2,7 +2,7 @@ import "react-toastify/dist/ReactToastify.css";
 import "animate.css";
 import "./common/utils/socket";
 
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { BrowserRouter as Router } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import {

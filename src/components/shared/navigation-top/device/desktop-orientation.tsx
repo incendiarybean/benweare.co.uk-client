@@ -1,4 +1,4 @@
-import { GitHubIcon, Newspaper, NpmIcon } from "../../icons/icons";
+import { Icon } from "src/components";
 
 const DesktopNav = () => {
     return (
@@ -11,7 +11,7 @@ const DesktopNav = () => {
                             href="https://benweare.co.uk/api/docs"
                         >
                             <span className="sr-only">API Documentation</span>
-                            <Newspaper />
+                            <Icon.Newspaper />
                         </a>
                     </li>
                     <li className="flex items-center">
@@ -22,7 +22,7 @@ const DesktopNav = () => {
                             <span className="sr-only">
                                 IncendiaryBean's NPM
                             </span>
-                            <NpmIcon />
+                            <Icon.Npm />
                         </a>
                     </li>
                     <li className="flex items-center">
@@ -33,7 +33,7 @@ const DesktopNav = () => {
                             <span className="sr-only">
                                 IncendiaryBean's Github
                             </span>
-                            <GitHubIcon />
+                            <Icon.GitHub />
                         </a>
                     </li>
                 </ul>

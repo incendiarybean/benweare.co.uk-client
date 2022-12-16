@@ -1,4 +1,3 @@
-import React from "react";
 import { Route, Routes } from "react-router-dom";
 import { BodyProps } from "src/common/types";
 import Dashboard from "./pages/dashboard/dashboard";

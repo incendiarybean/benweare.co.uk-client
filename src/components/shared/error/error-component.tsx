@@ -2,7 +2,7 @@ const Error = () => {
     return (
         <div className="w-full h-64 flex flex-col justify-around items-center">
             <div className="w-full px-4 mb-2 p-2 items-center flex flex-col justify-around">
-                <div className="text-white bg-gradient-to-r from-blue-700 to-blue-500 p-4 rounded-xl shadow-md">
+                <div className="text-white bg-gradient-to-r from-blue-700 to-blue-500 p-4 rounded shadow-md">
                     <svg
                         strokeWidth="1.3"
                         height="24"
