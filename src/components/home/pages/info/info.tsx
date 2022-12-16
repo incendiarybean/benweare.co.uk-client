@@ -30,7 +30,7 @@ const InfoPage = ({ Icon }: IconProps) => {
                     <div className="flex flex-col w-full min-w-fit lg:min-w-0 bg-white dark:bg-zinc-900/70 rounded shadow-md p-10 mt-28 self-center">
                         <div className="flex justify-center items-center mb-5">
                             <img
-                                className="min-w-fit -mt-32 rounded-full shadow-xl border-8 border-white dark:border-zinc-800/40"
+                                className="min-w-fit -mt-32 rounded-full shadow-xl border-8 border-white dark:border-zinc-900/60"
                                 src={profile_image}
                                 alt="Ben Weare, Benjamin Weare's mugshot"
                                 loading="eager"
