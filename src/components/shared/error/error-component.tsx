@@ -9,7 +9,7 @@ const Error = () => {
                         className="transform scale-150"
                         viewBox="0 0 21 21"
                         width="24"
-                        xmlns="https:////www.w3.org/2000/svg"
+                        xmlns="https://www.w3.org/2000/svg"
                     >
                         <g fill="none" fillRule="evenodd">
                             <circle
