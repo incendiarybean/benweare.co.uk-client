@@ -28,7 +28,7 @@ const DesktopNav = () => {
                     <li className="flex items-center">
                         <a
                             className="px-2 block dark:text-slate-400 hover:text-sky-500 dark:hover:text-sky-500"
-                            href="https://github.com/incendiarybean/isaac-achievement-hunter"
+                            href="https://github.com/incendiarybean"
                         >
                             <span className="sr-only">
                                 IncendiaryBean's Github
