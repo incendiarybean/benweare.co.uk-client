@@ -72,36 +72,46 @@ const Card = ({ Endpoint, SiteName }: NewsCard) => {
                             href={article.url}
                             rel="noreferrer"
                             target="_blank"
-                            className={`animate__animated animate__fadeIn animate__faster w-full rounded flex-col xl:flex-row bg-white dark:bg-zinc-700 shadow-md`}
+                            className={`animate__animated animate__fadeIn animate__faster w-full rounded flex-col xl:flex-row bg-white dark:bg-zinc-900/70 shadow-md`}
                         >
                             <div className="p-2">
                                 <iframe
-                                    className="w-full rounded-lg h-96"
+                                    className="w-full rounded h-96"
                                     src={`https://www.youtube.com/embed/${
                                         article.url.split("/")[
                                             article.url.split("/").length - 1
                                         ]
                                     }`}
-                                    frameBorder="0"
                                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                                     allowFullScreen
                                     title="Embedded youtube"
                                 />
                             </div>
 
-                            <div className="w-full p-3 flex flex-col justify-between h-56 md:h-28 overflow-auto lg:h-auto">
+                            <div className="w-full p-3 flex flex-col justify-between h-auto md:h-28 overflow-auto lg:h-auto">
                                 <h1 className="text-left text-sm xl:text-lg font-bold leading-normal">
                                     {article.title}
                                 </h1>
-                                <p className="text-xs">{article.description}</p>
-                                <div className="flex flex-col ml-4 w-1/2">
-                                    <h2 className="text-center text-xs mt-1 mb-2 text-blue-600 dark:text-blue-400 font-bold uppercase">
-                                        {SiteName} Article
-                                    </h2>
+                                <p className="text-sm">{article.description}</p>
 
-                                    <span className="self-center text-xs text-blue-700 dark:text-blue-300 -mt-2">
-                                        {article.date}
-                                    </span>
+                                <div className="flex mt-4">
+                                    <button
+                                        onClick={() =>
+                                            window.open(article.url, "_blank")
+                                        }
+                                        className="transition-all duration-100 text-center p-2 rounded text-white w-1/2 bg-gradient-to-r from-blue-700 to-blue-500 hover:shadow-md hover:from-blue-800 hover:to-blue-600"
+                                    >
+                                        View on YouTube
+                                    </button>
+                                    <div className="flex flex-col ml-4 w-1/2">
+                                        <h2 className="text-center text-xs mt-1 mb-2 text-blue-600 dark:text-blue-400 font-bold uppercase">
+                                            {SiteName} Article
+                                        </h2>
+
+                                        <span className="self-center text-xs text-blue-700 dark:text-blue-300 -mt-2">
+                                            {article.date}
+                                        </span>
+                                    </div>
                                 </div>
                             </div>
                         </a>
