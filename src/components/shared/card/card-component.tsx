@@ -74,9 +74,9 @@ const Card = ({ Endpoint, SiteName }: NewsCard) => {
                             target="_blank"
                             className={`animate__animated animate__fadeIn animate__faster w-full rounded flex-col xl:flex-row bg-white dark:bg-zinc-900/70 shadow-md`}
                         >
-                            <div className="p-2">
+                            <div>
                                 <iframe
-                                    className="w-full rounded h-96"
+                                    className="rounded-t w-full h-96 shadow-sm"
                                     src={`https://www.youtube.com/embed/${
                                         article.url.split("/")[
                                             article.url.split("/").length - 1
