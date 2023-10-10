@@ -1,9 +1,9 @@
-import { createRef, useEffect, useState } from "react";
-import { SwipeHandler } from "src/common/hooks/swipeHandler";
-import { NewsArticle, NewsCarousel } from "src/common/types";
-import { sleep } from "src/common/utils";
-import IO from "src/common/utils/socket";
-import { Error, Loader } from "src/components/";
+import { createRef, useEffect, useState } from 'react';
+import { SwipeHandler } from 'src/common/hooks/swipeHandler';
+import { NewsArticle, NewsCarousel } from 'src/common/types';
+import { sleep } from 'src/common/utils';
+import IO from 'src/common/utils/socket';
+import { Error, Loader } from 'src/components/';
 
 const NewsReel = ({ Icon, Endpoint, SiteName, Disabled }: NewsCarousel) => {
     const [articles, setArticles] = useState<NewsArticle[]>([]);
@@ -30,12 +30,12 @@ const NewsReel = ({ Icon, Endpoint, SiteName, Disabled }: NewsCarousel) => {
     };
 
     const generateClassName = (index: number) => {
-        const display = index === articlePage ? "flex " : "hidden ";
-        const allowClick = Disabled ? "pointer-events-none " : "";
+        const display = index === articlePage ? 'flex ' : 'hidden ';
+        const allowClick = Disabled ? 'pointer-events-none ' : '';
         const animateFirstRenderOnly =
             index === 0 && !articleChanged
-                ? "animate__animated animate__fadeIn animate__faster "
-                : "";
+                ? 'animate__animated animate__fadeIn animate__faster '
+                : '';
 
         return `${display}${allowClick}${animateFirstRenderOnly}`;
     };
@@ -56,12 +56,12 @@ const NewsReel = ({ Icon, Endpoint, SiteName, Disabled }: NewsCarousel) => {
                     preloadImages(response.items);
                 })
                 .catch(() => {
-                    setLoaded("Failed");
+                    setLoaded('Failed');
                     sleep(5000).then(getNews);
                 });
         };
 
-        IO.on("RELOAD_NEWS", () => getNews());
+        IO.on('RELOAD_NEWS', () => getNews());
 
         getNews();
     }, [Endpoint, SiteName]);
@@ -73,57 +73,59 @@ const NewsReel = ({ Icon, Endpoint, SiteName, Disabled }: NewsCarousel) => {
         <div
             ref={navigationElement}
             id={`${SiteName}-news`}
-            className="px-2 md:px-6 my-3 w-full"
+            className='px-2 md:px-6 my-3 w-full'
         >
-            <div className="text-left flex flex-col w-full items-center justify-center md:p-4 md:border border-slate-300 dark:border-zinc-600/20 rounded">
+            <div className='text-left flex flex-col w-full items-center justify-center md:p-4 md:border border-slate-300 dark:border-zinc-600/20 rounded'>
                 {loaded === true && articles && (
-                    <div className="w-full">
+                    <div className='w-full'>
                         {articles.map((data, index) => (
                             <a
-                                key={`${data.url}-${index}`}
+                                key={`${data.url}-${data.id}`}
                                 href={data.url}
-                                rel="noreferrer"
-                                target="_blank"
+                                rel='noreferrer'
+                                target='_blank'
                                 className={`${generateClassName(
                                     index
                                 )}w-full rounded flex-col xl:flex-row bg-white dark:bg-zinc-900/70 shadow-md transition-all duration-100 md:hover:scale-95`}
                             >
-                                <div className="flex-grow">
+                                <div className='flex-grow'>
                                     <div
-                                        className="w-full md:w-full xl:w-96 h-64 shadow bg-cover rounded-t xl:rounded-none xl:rounded-l"
+                                        className='w-full md:w-full xl:w-96 h-64 shadow bg-cover rounded-t xl:rounded-none xl:rounded-l'
                                         style={{
                                             backgroundImage: `url(${data.img})`,
                                         }}
                                     />
                                 </div>
 
-                                <div className="w-full xl:w-1/2 p-3 flex flex-col justify-between h-40 xl:h-64 overflow-auto">
+                                <div className='w-full xl:w-1/2 p-3 flex flex-col justify-between h-40 xl:h-64 overflow-auto'>
                                     <div>
-                                        <div className="flex flex-col md:w-full text-xs text-left">
-                                            <span className="text-blue-700 dark:text-blue-300">
-                                                {data.date}
+                                        <div className='flex flex-col md:w-full text-xs text-left'>
+                                            <span className='text-blue-700 dark:text-blue-300'>
+                                                {new Date(
+                                                    data.date
+                                                ).toLocaleDateString('en-UK')}
                                             </span>
-                                            <h2 className="text-blue-600 dark:text-blue-400 font-bold uppercase text-md">
+                                            <h2 className='text-blue-600 dark:text-blue-400 font-bold uppercase text-md'>
                                                 News Article
                                             </h2>
                                         </div>
-                                        <p className="text-left text-sm md:text-lg xl:text-xl font-bold leading-normal ">
+                                        <p className='text-left text-sm md:text-lg xl:text-xl font-bold leading-normal '>
                                             {data.title}
                                         </p>
                                     </div>
-                                    <p className="flex text-left text-xs md:text-sm text-blue-700 dark:text-blue-400 font-bold leading-normal items-center">
+                                    <p className='flex text-left text-xs md:text-sm text-blue-700 dark:text-blue-400 font-bold leading-normal items-center'>
                                         <Icon.RightCornerArrow />
                                         {SiteName}
                                     </p>
                                 </div>
                             </a>
                         ))}
-                        <div className="lg:px-4 w-full mt-2">
-                            <div className="flex justify-center">
-                                <div className="bg-white dark:bg-zinc-900/70 rounded shadow-md flex w-full lg:w-1/2 p-2 justify-between h-12 lg:h-fit items-center">
+                        <div className='lg:px-4 w-full mt-2'>
+                            <div className='flex justify-center'>
+                                <div className='bg-white dark:bg-zinc-900/70 rounded shadow-md flex w-full lg:w-1/2 p-2 justify-between h-12 lg:h-fit items-center'>
                                     <button
-                                        aria-label="Previous Article"
-                                        className="border-slate-500 dark:border-slate-100 hover:text-blue-500 dark:hover:text-blue-400 border hover:border-blue-500 dark:hover:border-blue-400 w-6 h-6 rounded duration-150 hover:scale-105 active:scale-95"
+                                        aria-label='Previous Article'
+                                        className='border-slate-500 dark:border-slate-100 hover:text-blue-500 dark:hover:text-blue-400 border hover:border-blue-500 dark:hover:border-blue-400 w-6 h-6 rounded duration-150 hover:scale-105 active:scale-95'
                                         onClick={() =>
                                             handleRotation(articlePage - 1)
                                         }
@@ -134,20 +136,20 @@ const NewsReel = ({ Icon, Endpoint, SiteName, Disabled }: NewsCarousel) => {
                                         articles.map((data, index) => (
                                             <button
                                                 aria-label={`Article ${index}`}
-                                                key={`${data.url}-${index}-navigator`}
+                                                key={`${data.url}-${data.id}-navigator`}
                                                 onClick={() =>
                                                     handleRotation(index)
                                                 }
                                                 className={`transition-all self-center duration-150 hover:scale-150 active:scale-125 ease-in-out rounded xl:p-1 ${
                                                     index === articlePage
-                                                        ? "bg-sky-400 w-3 h-3"
-                                                        : "bg-zinc-400 w-2 h-2"
+                                                        ? 'bg-sky-400 w-3 h-3'
+                                                        : 'bg-zinc-400 w-2 h-2'
                                                 } shadow`}
                                             />
                                         ))}
                                     <button
-                                        aria-label="Next Article"
-                                        className="border-slate-500 dark:border-slate-100 hover:text-blue-500 dark:hover:text-blue-400 border hover:border-blue-500 dark:hover:border-blue-400 w-6 h-6 rounded duration-150 hover:scale-105 active:scale-95"
+                                        aria-label='Next Article'
+                                        className='border-slate-500 dark:border-slate-100 hover:text-blue-500 dark:hover:text-blue-400 border hover:border-blue-500 dark:hover:border-blue-400 w-6 h-6 rounded duration-150 hover:scale-105 active:scale-95'
                                         onClick={() =>
                                             handleRotation(articlePage + 1)
                                         }
@@ -159,7 +161,7 @@ const NewsReel = ({ Icon, Endpoint, SiteName, Disabled }: NewsCarousel) => {
                         </div>
                     </div>
                 )}
-                {loaded === "Failed" && <Error />}
+                {loaded === 'Failed' && <Error />}
                 {loaded === false && <Loader />}
             </div>
         </div>

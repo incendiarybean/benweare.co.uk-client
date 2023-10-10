@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect } from 'react';
 
 /**
  * This function tracks the focus of an element
@@ -18,9 +18,9 @@ export const ExternalClickHandler = (
             }
         };
 
-        document.addEventListener("mousedown", handleClickOutside);
+        document.addEventListener('mousedown', handleClickOutside);
         return () => {
-            document.removeEventListener("mousedown", handleClickOutside);
+            document.removeEventListener('mousedown', handleClickOutside);
         };
     }, [ref, action]);
 };

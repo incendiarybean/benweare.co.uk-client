@@ -22,6 +22,7 @@ export interface Icons {
 }
 
 export interface NewsArticle {
+    id: number;
     title: string;
     url: string;
     description?: string;
