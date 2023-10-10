@@ -13,7 +13,7 @@ export const ExternalClickHandler = (
 ) => {
     useEffect(() => {
         const handleClickOutside = ({ target }: MouseEvent) => {
-            if (ref && ref.current && !ref.current.contains(target as Node)) {
+            if (ref?.current && !ref.current.contains(target as Node)) {
                 action(false);
             }
         };

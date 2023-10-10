@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { NewsArticle, NewsCard } from 'src/common/types';
 import { sleep } from 'src/common/utils';
-import { Error, Loader } from 'src/components/';
+import { ErrorComponent, Loader } from 'src/components/';
 
 const Card = ({ Endpoint, SiteName }: NewsCard) => {
     const [article, setArticle] = useState<NewsArticle>();
@@ -120,7 +120,7 @@ const Card = ({ Endpoint, SiteName }: NewsCard) => {
                             </div>
                         </a>
                     ))}
-                {loaded === 'Failed' && <Error />}
+                {loaded === 'Failed' && <ErrorComponent />}
                 {loaded === false && <Loader />}
             </div>
         </div>

@@ -1,17 +1,10 @@
 import { useEffect, useState } from 'react';
 import profile_image from 'src/common/images/profile-sm.webp';
-import { IconProps } from 'src/common/types';
+import ArrowComponent from 'src/components/shared/arrow/arrow-component';
 
-const InfoPage = ({ Icon }: IconProps) => {
+const InfoPage = () => {
     const [show, setShow] = useState<boolean>(false);
     const [loaded, setLoaded] = useState<boolean>(false);
-
-    const Expand = () => {
-        if (!show) {
-            return <Icon.UpArrow />;
-        }
-        return <Icon.DownArrow />;
-    };
 
     const preloadImage = () => {
         const img = new Image();
@@ -61,7 +54,8 @@ const InfoPage = ({ Icon }: IconProps) => {
                             <hr className='z-0 w-full' />
 
                             <div className='z-10 -mt-3 min-w-fit px-2 text-xs uppercase flex flex-row items-center'>
-                                <p>Languages &amp; Experience</p> <Expand />
+                                <p>Languages &amp; Experience</p>{' '}
+                                <ArrowComponent display={show} />
                             </div>
                             <hr className='z-0 w-full' />
                         </button>

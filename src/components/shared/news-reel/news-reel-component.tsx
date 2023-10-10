@@ -3,7 +3,7 @@ import { SwipeHandler } from 'src/common/hooks/swipeHandler';
 import { NewsArticle, NewsCarousel } from 'src/common/types';
 import { sleep } from 'src/common/utils';
 import IO from 'src/common/utils/socket';
-import { Error, Loader } from 'src/components/';
+import { ErrorComponent, Loader } from 'src/components/';
 
 const NewsReel = ({ Icon, Endpoint, SiteName, Disabled }: NewsCarousel) => {
     const [articles, setArticles] = useState<NewsArticle[]>([]);
@@ -161,7 +161,7 @@ const NewsReel = ({ Icon, Endpoint, SiteName, Disabled }: NewsCarousel) => {
                         </div>
                     </div>
                 )}
-                {loaded === 'Failed' && <Error />}
+                {loaded === 'Failed' && <ErrorComponent />}
                 {loaded === false && <Loader />}
             </div>
         </div>

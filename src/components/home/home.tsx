@@ -7,7 +7,7 @@ const HomeRouter = (props: BodyProps) => {
         <Routes>
             <Route path='/dashboard' element={<Dashboard {...props} />} />
             <Route path='/documentation' element={<Documentation />} />
-            <Route path='*' element={<Info {...props} />} />
+            <Route path='*' element={<Info />} />
         </Routes>
     );
 };
