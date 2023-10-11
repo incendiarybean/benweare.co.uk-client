@@ -1,7 +1,8 @@
+import { ExternalClickHandler } from '@common/hooks/externalClickHandler';
+import { animateCSS } from '@common/utils';
+import { Icon } from '@components';
 import { createRef, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ExternalClickHandler } from 'src/common/hooks/externalClickHandler';
-import { Icon } from 'src/components';
 
 const MobileNav = () => {
     const [settingsOpen, setSettingsOpen] = useState(false);
@@ -24,51 +25,63 @@ const MobileNav = () => {
     const accountElement = createRef<HTMLDivElement>();
     ExternalClickHandler(accountElement, setSettingsOpen);
 
+    const openSettings = (open = !settingsOpen) => {
+        if (open) {
+            animateCSS('.popin-settings', 'slideInLeft');
+            setSettingsOpen(open);
+        } else {
+            setSettingsOpen(false);
+        }
+    };
+
     return (
         <div className='ml-2 -my-1 md:hidden'>
             <button
-                onClick={() => setSettingsOpen(!settingsOpen)}
+                onClick={() => openSettings()}
                 type='button'
-                className='text-slate-500 w-8 h-8 flex items-center justify-center hover:text-slate-600 dark:text-slate-400 dark:hover:text-slate-300'
+                className='border border-zinc-500 rounded-md w-8 h-8 flex items-center justify-center hover:text-slate-600 dark:text-slate-400 dark:hover:text-slate-300'
             >
                 <span className='sr-only'>Navigation</span>
-                <Icon.Menu />
+                <Icon.Burger />
             </button>
             <div
                 hidden={!settingsOpen}
-                className='animate-fadeIn absolute top-0 left-0 w-full h-screen bg-zinc-900 bg-opacity-70'
+                className='animate-fadeIn absolute top-0 left-0 w-full h-screen bg-zinc-500 bg-opacity-30'
             >
-                <div className='flex justify-end w-full h-full'>
+                <div className='popin-settings flex justify-start w-full h-full'>
                     <div
                         ref={accountElement}
-                        className='bg-zinc-900 shadow w-3/4 p-2 flex flex-col'
+                        className='bg-zinc-900 shadow w-10/12 p-2 flex flex-col rounded-r-xl border-r border-zinc-600'
                     >
-                        <div className='flex justify-between items-center pt-2 pb-1 border-b border-zinc-800 mx-5'>
-                            <h1 className='uppercase leading-wide font-bold'>
+                        <div className='flex justify-between items-center pt-2 pb-1 border-b border-zinc-500 mx-2'>
+                            <h1 className='uppercase leading-wide font-bold mt-2'>
                                 Menu
                             </h1>
                             <button
-                                onClick={() => setSettingsOpen(false)}
-                                className='text-red-500 hover:text-red-700'
+                                onClick={() => openSettings(false)}
+                                className='hover:bg-zinc-500 rounded-md text-zinc-800 w-8 h-8 flex items-center justify-center hover:text-slate-600 dark:text-slate-400 dark:hover:text-slate-300'
                             >
+                                <span className='sr-only'>
+                                    Close Navigation
+                                </span>
                                 <Icon.Cross />
                             </button>
                         </div>
-                        <div className='mx-6'>
+                        <div className='space-y-2 mx-2'>
                             <Link
                                 to='/dashboard'
                                 className={`${
                                     activePageNumber === 0
-                                        ? 'text-sky-400 hover:text-sky-600'
+                                        ? 'bg-zinc-800 border-l-4 border-sky-400'
                                         : 'hover:text-sky-400'
-                                } w-full md:w-48 h-12 flex items-center`}
+                                } mt-2 w-full md:w-48 h-10 flex items-center rounded-r-xl`}
                                 onClick={() => handlePageNavigation(0)}
                             >
-                                <div className='p-3'>
+                                <div className='p-2 text-zinc-500'>
                                     <Icon.Home />
                                 </div>
 
-                                <p className='overflow-hidden md:ml-2 mt-1 text-sm'>
+                                <p className='overflow-hidden md:ml-2 text-md'>
                                     Dashboard
                                 </p>
                             </Link>
@@ -77,16 +90,16 @@ const MobileNav = () => {
                                 to='/'
                                 className={`${
                                     activePageNumber === 1
-                                        ? 'text-sky-400 hover:text-sky-600'
+                                        ? 'bg-zinc-800 border-l-4 border-sky-400'
                                         : 'hover:text-sky-400'
-                                } w-full md:w-48 h-12 flex items-center`}
+                                } mt-2 w-full md:w-48 h-10 flex items-center rounded-r-xl`}
                                 onClick={() => handlePageNavigation(1)}
                             >
-                                <div className='p-3'>
+                                <div className='p-2 text-zinc-500'>
                                     <Icon.Info />
                                 </div>
 
-                                <p className='overflow-hidden md:ml-2 mt-1 text-sm'>
+                                <p className='overflow-hidden md:ml-2 text-md'>
                                     About
                                 </p>
                             </Link>
@@ -95,13 +108,13 @@ const MobileNav = () => {
                                 target='_blank'
                                 rel='noreferrer'
                                 href='https://www.npmjs.com/~incendiarybean'
-                                className='w-full md:w-48 h-12 flex items-center hover:text-sky-400'
+                                className='w-full md:w-48 h-11 flex items-center hover:text-sky-400'
                             >
-                                <div className='p-3'>
+                                <div className='p-2 text-zinc-500'>
                                     <Icon.Packages />
                                 </div>
 
-                                <p className='overflow-hidden md:ml-2 mt-1 text-sm font-medium'>
+                                <p className='overflow-hidden md:ml-2 text-md font-medium'>
                                     Packages
                                 </p>
                             </a>
@@ -110,13 +123,13 @@ const MobileNav = () => {
                                 target='_blank'
                                 rel='noreferrer'
                                 href='https://github.com/incendiarybean'
-                                className='w-full md:w-48 h-12 flex items-center hover:text-sky-400'
+                                className='w-full md:w-48 h-11 flex items-center hover:text-sky-400'
                             >
-                                <div className='p-3'>
+                                <div className='p-2 text-zinc-500'>
                                     <Icon.OpenBox />
                                 </div>
 
-                                <p className='overflow-hidden md:ml-2 mt-1 text-sm font-medium'>
+                                <p className='overflow-hidden md:ml-2 text-md font-medium'>
                                     GitHub
                                 </p>
                             </a>
@@ -125,13 +138,13 @@ const MobileNav = () => {
                                 target='_blank'
                                 rel='noreferrer'
                                 href='https://hub.docker.com/u/incendiarybean'
-                                className='w-full md:w-48 h-12 flex items-center hover:text-sky-400'
+                                className='w-full md:w-48 h-11 flex items-center hover:text-sky-400'
                             >
-                                <div className='p-3'>
+                                <div className='p-2 text-zinc-500'>
                                     <Icon.Box />
                                 </div>
 
-                                <p className='overflow-hidden md:ml-2 mt-1 text-sm font-medium'>
+                                <p className='overflow-hidden md:ml-2 text-md font-medium'>
                                     Docker
                                 </p>
                             </a>
@@ -139,13 +152,13 @@ const MobileNav = () => {
                                 target='_blank'
                                 rel='noreferrer'
                                 href='/api/docs'
-                                className='w-full md:w-48 h-12 flex items-center hover:text-sky-400'
+                                className='w-full md:w-48 h-11 flex items-center hover:text-sky-400'
                             >
-                                <div className='p-3'>
+                                <div className='p-2 text-zinc-500'>
                                     <Icon.Newspaper />
                                 </div>
 
-                                <p className='overflow-hidden md:ml-2 mt-1 text-sm font-medium'>
+                                <p className='p-1 overflow-hidden md:ml-2 text-md font-medium'>
                                     Documentation
                                 </p>
                             </a>

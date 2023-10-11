@@ -313,23 +313,15 @@ export const Info = () => (
 
 export const Burger = () => (
     <svg
-        height='22'
-        viewBox='0 0 21 21'
-        width='22'
-        xmlns='http://www.w3.org/2000/svg'
-        strokeWidth='1.3'
+        aria-hidden='true'
+        height='16'
+        viewBox='0 0 16 16'
+        version='1.1'
+        width='16'
+        data-view-component='true'
+        className='fill-current'
     >
-        <g
-            fill='none'
-            fillRule='evenodd'
-            stroke='currentColor'
-            strokeLinecap='round'
-            strokeLinejoin='round'
-        >
-            <path d='m4.5 6.5h12' />
-            <path d='m4.498 10.5h11.997' />
-            <path d='m4.5 14.5h11.995' />
-        </g>
+        <path d='M1 2.75A.75.75 0 0 1 1.75 2h12.5a.75.75 0 0 1 0 1.5H1.75A.75.75 0 0 1 1 2.75Zm0 5A.75.75 0 0 1 1.75 7h12.5a.75.75 0 0 1 0 1.5H1.75A.75.75 0 0 1 1 7.75ZM1.75 12h12.5a.75.75 0 0 1 0 1.5H1.75a.75.75 0 0 1 0-1.5Z'></path>
     </svg>
 );
 
@@ -620,26 +612,15 @@ export const Link = () => (
 
 export const Cross = () => (
     <svg
-        height='24'
-        viewBox='0 0 21 21'
-        width='24'
-        xmlns='http://www.w3.org/2000/svg'
-        className=''
+        aria-hidden='true'
+        height='16'
+        viewBox='0 0 16 16'
+        version='1.1'
+        width='16'
+        data-view-component='true'
+        className='fill-current'
     >
-        <g
-            fill='none'
-            fillRule='evenodd'
-            stroke='currentColor'
-            strokeLinecap='round'
-            strokeLinejoin='round'
-            transform='translate(2 2)'
-        >
-            <circle cx='8.5' cy='8.5' r='8' />
-            <g transform='matrix(0 1 -1 0 17 0)'>
-                <path d='m5.5 11.5 6-6' />
-                <path d='m5.5 5.5 6 6' />
-            </g>
-        </g>
+        <path d='M3.72 3.72a.75.75 0 0 1 1.06 0L8 6.94l3.22-3.22a.749.749 0 0 1 1.275.326.749.749 0 0 1-.215.734L9.06 8l3.22 3.22a.749.749 0 0 1-.326 1.275.749.749 0 0 1-.734-.215L8 9.06l-3.22 3.22a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042L6.94 8 3.72 4.78a.75.75 0 0 1 0-1.06Z'></path>
     </svg>
 );
 
