@@ -1,7 +1,7 @@
+import { NewsArticle, NewsCard } from '@common/types';
+import { sleep } from '@common/utils';
+import { ErrorComponent, Loader } from '@components';
 import { useEffect, useState } from 'react';
-import { NewsArticle, NewsCard } from 'src/common/types';
-import { sleep } from 'src/common/utils';
-import { ErrorComponent, Loader } from 'src/components/';
 
 const Card = ({ Endpoint, SiteName }: NewsCard) => {
     const [article, setArticle] = useState<NewsArticle>();

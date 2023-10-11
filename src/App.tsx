@@ -1,17 +1,17 @@
-import 'react-toastify/dist/ReactToastify.css';
 import 'animate.css';
+import 'react-toastify/dist/ReactToastify.css';
 import './common/utils/socket';
 
-import { useEffect, useState } from 'react';
-import { BrowserRouter as Router } from 'react-router-dom';
-import { ToastContainer, toast } from 'react-toastify';
 import {
     Icon,
     LeftNavigationBar,
     NavigationBar,
     RightNavigationBar,
     Routes,
-} from 'src/components/';
+} from '@components';
+import { useEffect, useState } from 'react';
+import { BrowserRouter as Router } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
 
 const App = () => {
     const [mobileMenu, setMobileMenu] = useState<boolean>(false);

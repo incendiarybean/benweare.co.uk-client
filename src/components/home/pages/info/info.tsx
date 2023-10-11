@@ -1,6 +1,6 @@
+import profile_image from '@common/images/profile-sm.webp';
+import { ArrowComponent } from '@components';
 import { useEffect, useState } from 'react';
-import profile_image from 'src/common/images/profile-sm.webp';
-import ArrowComponent from 'src/components/shared/arrow/arrow-component';
 
 const InfoPage = () => {
     const [show, setShow] = useState<boolean>(false);
