@@ -56,11 +56,11 @@ const Card = ({ Endpoint, SiteName }: NewsCard) => {
                                         View Full-Size
                                     </button>
                                     <div className='flex flex-col ml-4 w-1/2'>
-                                        <h2 className='text-center text-xs mt-1 mb-2 text-blue-600 dark:text-blue-400 font-bold uppercase'>
+                                        <h2 className='text-center text-xs mt-1 mb-2 text-sky-900 dark:text-sky-400 font-bold uppercase'>
                                             {SiteName} Article
                                         </h2>
 
-                                        <span className='self-center text-xs text-blue-700 dark:text-blue-300 -mt-2'>
+                                        <span className='self-center text-xs text-sky-800 dark:text-sky-300 -mt-2'>
                                             {new Date(
                                                 article.date
                                             ).toLocaleDateString('en-UK')}
@@ -106,11 +106,11 @@ const Card = ({ Endpoint, SiteName }: NewsCard) => {
                                         View on YouTube
                                     </button>
                                     <div className='flex flex-col ml-4 w-1/2'>
-                                        <h2 className='text-center text-xs mt-1 mb-2 text-blue-600 dark:text-blue-400 font-bold uppercase'>
+                                        <h2 className='text-center text-xs mt-1 mb-2 text-sky-900 dark:text-sky-400 font-bold uppercase'>
                                             {SiteName} Article
                                         </h2>
 
-                                        <span className='self-center text-xs text-blue-700 dark:text-blue-300 -mt-2'>
+                                        <span className='self-center text-xs text-sky-800 dark:text-sky-300 -mt-2'>
                                             {new Date(
                                                 article.date
                                             ).toLocaleDateString('en-UK')}
