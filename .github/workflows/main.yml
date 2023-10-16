@@ -33,12 +33,12 @@ jobs:
             - name: ⚙️ Configure Node.js environment
               uses: actions/setup-node@v3
               with:
-                  node-version: "18"
-                  registry-url: "https://registry.npmjs.org"
+                  node-version: '18'
+                  registry-url: 'https://registry.npmjs.org'
 
             - name: ⚙️ Configure NPM
               run: |
-                  npm i -g npm@8
+                  npm i -g npm@9
                   echo Node Version: `node --version`
                   echo NPM Version: `npm --version`
 
