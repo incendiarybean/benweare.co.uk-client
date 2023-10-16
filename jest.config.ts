@@ -10,5 +10,7 @@ export default {
         '^@common/utils': '<rootDir>/src/common/utils/index.ts',
         '^@components': '<rootDir>/src/components',
         '^@common/images/(.*)$': 'identity-obj-proxy',
+        '^@common/hooks/externalClickHandler':
+            '<rootDir>/src/common/hooks/externalClickHandler.ts',
     },
 };
