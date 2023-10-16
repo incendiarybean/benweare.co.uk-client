@@ -11,6 +11,7 @@ export default defineConfig({
         },
     },
     build: {
+        outDir: './build',
         minify: 'esbuild',
         rollupOptions: {
             output: {
