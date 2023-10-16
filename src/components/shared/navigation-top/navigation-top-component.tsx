@@ -1,4 +1,3 @@
-import { VITE_APP_VERSION } from '@common/constants';
 import DesktopNav from './device/desktop-orientation';
 import MobileNav from './device/mobile-orientation';
 

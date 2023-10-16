@@ -1,3 +1,3 @@
-const { VITE_APP_DOCS_URL, VITE_APP_VERSION } = import.meta.env;
+const { VITE_APP_DOCS_URL } = import.meta.env;
 
-export { VITE_APP_DOCS_URL, VITE_APP_VERSION };
+export { VITE_APP_DOCS_URL };
