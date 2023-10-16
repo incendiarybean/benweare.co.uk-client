@@ -10,6 +10,9 @@ export default defineConfig({
             '/api/': 'http://localhost:8080/',
         },
     },
+    define: {
+        VITE_APP_VERSION: JSON.stringify(process.env.npm_package_version),
+    },
     build: {
         outDir: './build',
         minify: 'esbuild',
