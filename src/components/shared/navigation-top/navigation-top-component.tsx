@@ -13,7 +13,7 @@ const NavigationBar = () => {
                                 className='mr-3 flex-none w-auto overflow-hidden md:w-auto'
                                 href='/'
                             >
-                                <span className='py-1 px-2 border border-sky-400/80 dark:border-sky-400/20 rounded text-sky-600 dark:text-sky-400 hover:text-sky-800 dark:hover:text-sky-600'>
+                                <span className='py-1 px-2 border border-sky-500 dark:border-sky-400/20 rounded text-sky-500 dark:text-sky-400 hover:text-sky-900 dark:hover:text-sky-600'>
                                     benweare.co.uk
                                 </span>
                             </a>

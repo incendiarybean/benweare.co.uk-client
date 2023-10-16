@@ -8,7 +8,7 @@ html,
 }
 
 html {
-    @apply bg-gray-200;
+    @apply bg-zinc-200;
     @apply dark:bg-zinc-800;
     overflow: overlay;
 }
@@ -19,7 +19,7 @@ html {
 
 body {
     margin: 0;
-    font-family: "Roboto", sans-serif;
+    font-family: 'Roboto', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     height: 100%;

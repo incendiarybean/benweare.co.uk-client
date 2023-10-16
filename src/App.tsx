@@ -39,11 +39,7 @@ const App = () => {
                             setMobileMenu={setMobileMenu}
                             mobileMenu={mobileMenu}
                         />
-                        <div
-                            className={`w-full md:max-w-4xl transition-all duration-150 ${
-                                mobileMenu ? 'opacity-40' : 'opacity-100'
-                            } px-2 sm:px-0 md:h-auto sm:border-l sm:border-r border-slate-300 dark:border-zinc-600/20`}
-                        >
+                        <div className='w-full md:max-w-4xl px-2 sm:px-0 md:h-auto sm:border-l sm:border-r border-slate-300 dark:border-zinc-600/20'>
                             <Routes Icon={Icon} mobileMenu={mobileMenu} />
                         </div>
                         <RightNavigationBar />

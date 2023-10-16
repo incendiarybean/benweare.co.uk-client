@@ -46,12 +46,12 @@ const MobileNav = () => {
             </button>
             <div
                 hidden={!settingsOpen}
-                className='animate-fadeIn absolute top-0 left-0 w-full h-screen bg-zinc-500 bg-opacity-30'
+                className='absolute top-0 left-0 w-full h-screen bg-zinc-500 bg-opacity-30'
             >
                 <div className='popin-settings flex justify-start w-full h-full'>
                     <div
                         ref={accountElement}
-                        className='bg-zinc-900 shadow w-10/12 p-2 flex flex-col rounded-r-xl border-r border-zinc-600'
+                        className='bg-zinc-200 dark:bg-zinc-900 shadow w-10/12 p-2 flex flex-col rounded-r-xl border-r border-zinc-400 dark:border-zinc-600'
                     >
                         <div className='flex justify-between items-center pt-2 pb-1 border-b border-zinc-500 mx-2'>
                             <h1 className='uppercase leading-wide font-bold mt-2'>
@@ -59,7 +59,7 @@ const MobileNav = () => {
                             </h1>
                             <button
                                 onClick={() => openSettings(false)}
-                                className='hover:bg-zinc-500 rounded-md text-zinc-800 w-8 h-8 flex items-center justify-center hover:text-slate-600 dark:text-slate-400 dark:hover:text-slate-300'
+                                className='hover:bg-zinc-300 hover:dark:bg-zinc-500 rounded-md text-zinc-800 w-8 h-8 flex items-center justify-center hover:text-slate-600 dark:text-slate-400 dark:hover:text-slate-300'
                             >
                                 <span className='sr-only'>
                                     Close Navigation
@@ -72,7 +72,7 @@ const MobileNav = () => {
                                 to='/dashboard'
                                 className={`${
                                     activePageNumber === 0
-                                        ? 'bg-zinc-800 border-l-4 border-sky-400'
+                                        ? 'bg-zinc-300 dark:bg-zinc-800 border-l-4 border-sky-400'
                                         : 'hover:text-sky-400'
                                 } mt-2 w-full md:w-48 h-10 flex items-center rounded-r-xl`}
                                 onClick={() => handlePageNavigation(0)}
@@ -90,7 +90,7 @@ const MobileNav = () => {
                                 to='/'
                                 className={`${
                                     activePageNumber === 1
-                                        ? 'bg-zinc-800 border-l-4 border-sky-400'
+                                        ? 'bg-zinc-300 dark:bg-zinc-800 border-l-4 border-sky-400'
                                         : 'hover:text-sky-400'
                                 } mt-2 w-full md:w-48 h-10 flex items-center rounded-r-xl`}
                                 onClick={() => handlePageNavigation(1)}

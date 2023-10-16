@@ -3,7 +3,7 @@ const Loader = () => {
         <div className='w-full h-64 flex flex-col justify-around items-center'>
             <div className='w-full px-4 mb-2 p-2 items-center flex flex-col justify-around'>
                 <svg
-                    className='animate-spin h-28 w-28 text-blue-700'
+                    className='animate-spin h-28 w-28 text-sky-700'
                     xmlns='http://www.w3.org/2000/svg'
                     fill='none'
                     viewBox='0 0 24 24'

@@ -1,9 +1,9 @@
+import { ErrorComponent, Loader } from '@components';
 import { createRef, useEffect, useState } from 'react';
 import { SwipeHandler } from 'src/common/hooks/swipeHandler';
 import { NewsArticle, NewsCarousel } from 'src/common/types';
 import { sleep } from 'src/common/utils';
 import IO from 'src/common/utils/socket';
-import { ErrorComponent, Loader } from 'src/components/';
 
 const NewsReel = ({ Icon, Endpoint, SiteName, Disabled }: NewsCarousel) => {
     const [articles, setArticles] = useState<NewsArticle[]>([]);
@@ -100,12 +100,12 @@ const NewsReel = ({ Icon, Endpoint, SiteName, Disabled }: NewsCarousel) => {
                                 <div className='w-full xl:w-1/2 p-3 flex flex-col justify-between h-40 xl:h-64 overflow-auto'>
                                     <div>
                                         <div className='flex flex-col md:w-full text-xs text-left'>
-                                            <span className='text-blue-700 dark:text-blue-300'>
+                                            <span className='text-sky-900 dark:text-sky-300'>
                                                 {new Date(
                                                     data.date
                                                 ).toLocaleDateString('en-UK')}
                                             </span>
-                                            <h2 className='text-blue-600 dark:text-blue-400 font-bold uppercase text-md'>
+                                            <h2 className='text-sky-900 dark:text-sky-400 font-bold uppercase text-md'>
                                                 News Article
                                             </h2>
                                         </div>
@@ -113,7 +113,7 @@ const NewsReel = ({ Icon, Endpoint, SiteName, Disabled }: NewsCarousel) => {
                                             {data.title}
                                         </p>
                                     </div>
-                                    <p className='flex text-left text-xs md:text-sm text-blue-700 dark:text-blue-400 font-bold leading-normal items-center'>
+                                    <p className='flex text-left text-xs md:text-sm text-sky-900 dark:text-sky-400 font-bold leading-normal items-center'>
                                         <Icon.RightCornerArrow />
                                         {SiteName}
                                     </p>
@@ -125,7 +125,7 @@ const NewsReel = ({ Icon, Endpoint, SiteName, Disabled }: NewsCarousel) => {
                                 <div className='bg-white dark:bg-zinc-900/70 rounded shadow-md flex w-full lg:w-1/2 p-2 justify-between h-12 lg:h-fit items-center'>
                                     <button
                                         aria-label='Previous Article'
-                                        className='border-slate-500 dark:border-slate-100 hover:text-blue-500 dark:hover:text-blue-400 border hover:border-blue-500 dark:hover:border-blue-400 w-6 h-6 rounded duration-150 hover:scale-105 active:scale-95'
+                                        className='border-slate-500 dark:border-slate-100 hover:text-sky-500 dark:hover:text-sky-400 border hover:border-blue-500 dark:hover:border-blue-400 w-6 h-6 rounded duration-150 hover:scale-105 active:scale-95'
                                         onClick={() =>
                                             handleRotation(articlePage - 1)
                                         }
@@ -149,7 +149,7 @@ const NewsReel = ({ Icon, Endpoint, SiteName, Disabled }: NewsCarousel) => {
                                         ))}
                                     <button
                                         aria-label='Next Article'
-                                        className='border-slate-500 dark:border-slate-100 hover:text-blue-500 dark:hover:text-blue-400 border hover:border-blue-500 dark:hover:border-blue-400 w-6 h-6 rounded duration-150 hover:scale-105 active:scale-95'
+                                        className='border-slate-500 dark:border-slate-100 hover:text-sky-500 dark:hover:text-sky-400 border hover:border-blue-500 dark:hover:border-blue-400 w-6 h-6 rounded duration-150 hover:scale-105 active:scale-95'
                                         onClick={() =>
                                             handleRotation(articlePage + 1)
                                         }
