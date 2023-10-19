@@ -1,31 +1,26 @@
 import { ExternalClickHandler } from '@common/hooks/externalClickHandler';
+import type { NavbarProps } from '@common/types';
 import { animateCSS } from '@common/utils';
-import { Icon } from '@components';
-import { createRef, useEffect, useState } from 'react';
+import { createRef, useState } from 'react';
 import { Link } from 'react-router-dom';
+import {
+    Box,
+    Burger,
+    Cross,
+    Home,
+    Info,
+    Newspaper,
+    OpenBox,
+    Packages,
+} from 'src/components/shared/icons';
 
-const MobileNav = () => {
+const MobileNav = ({ setActivePage, isActivePage }: NavbarProps) => {
     const [settingsOpen, setSettingsOpen] = useState(false);
-    const [activePageNumber, setActivePageNumber] = useState<number>(0);
-
-    const handlePageNavigation = (pageNumber: number) => {
-        setActivePageNumber(pageNumber);
-    };
-
-    const setActiveRoute = (route: string) => {
-        if (route === '/') {
-            setActivePageNumber(1);
-        } else setActivePageNumber(0);
-    };
-
-    useEffect(() => {
-        setActiveRoute(window.location.pathname);
-    }, []);
 
     const accountElement = createRef<HTMLDivElement>();
     ExternalClickHandler(accountElement, setSettingsOpen);
 
-    const openSettings = (open = !settingsOpen) => {
+    const openNavigation = (open = !settingsOpen) => {
         if (open) {
             animateCSS('.popin-settings', 'slideInLeft');
             setSettingsOpen(open);
@@ -37,12 +32,12 @@ const MobileNav = () => {
     return (
         <div className='ml-2 -my-1 md:hidden'>
             <button
-                onClick={() => openSettings()}
+                onClick={() => openNavigation()}
                 type='button'
                 className='border border-zinc-500 rounded-md w-8 h-8 flex items-center justify-center hover:text-slate-600 dark:text-slate-400 dark:hover:text-slate-300'
             >
                 <span className='sr-only'>Navigation</span>
-                <Icon.Burger />
+                <Burger />
             </button>
             <div
                 hidden={!settingsOpen}
@@ -59,27 +54,27 @@ const MobileNav = () => {
                                     Menu
                                 </h1>
                                 <button
-                                    onClick={() => openSettings(false)}
+                                    onClick={() => openNavigation(false)}
                                     className='hover:bg-zinc-300 hover:dark:bg-zinc-500 rounded-md text-zinc-800 w-8 h-8 flex items-center justify-center hover:text-slate-600 dark:text-slate-400 dark:hover:text-slate-300'
                                 >
                                     <span className='sr-only'>
                                         Close Navigation
                                     </span>
-                                    <Icon.Cross />
+                                    <Cross />
                                 </button>
                             </div>
 
                             <Link
                                 to='/dashboard'
                                 className={`${
-                                    activePageNumber === 0
+                                    isActivePage('/dashboard')
                                         ? 'bg-zinc-300 dark:bg-zinc-800 border-l-4 border-sky-400'
                                         : 'hover:text-sky-400'
                                 } mt-2 w-full md:w-48 h-10 flex items-center rounded-r-xl`}
-                                onClick={() => handlePageNavigation(0)}
+                                onClick={() => setActivePage('/dashboard')}
                             >
                                 <div className='p-2 text-zinc-500'>
-                                    <Icon.Home />
+                                    <Home />
                                 </div>
 
                                 <p className='overflow-hidden md:ml-2 text-md'>
@@ -90,14 +85,14 @@ const MobileNav = () => {
                             <Link
                                 to='/'
                                 className={`${
-                                    activePageNumber === 1
+                                    isActivePage('/')
                                         ? 'bg-zinc-300 dark:bg-zinc-800 border-l-4 border-sky-400'
                                         : 'hover:text-sky-400'
                                 } mt-2 w-full md:w-48 h-10 flex items-center rounded-r-xl`}
-                                onClick={() => handlePageNavigation(1)}
+                                onClick={() => setActivePage('/')}
                             >
                                 <div className='p-2 text-zinc-500'>
-                                    <Icon.Info />
+                                    <Info />
                                 </div>
 
                                 <p className='overflow-hidden md:ml-2 text-md'>
@@ -112,7 +107,7 @@ const MobileNav = () => {
                                 className='w-full md:w-48 h-11 flex items-center hover:text-sky-400'
                             >
                                 <div className='p-2 text-zinc-500'>
-                                    <Icon.Packages />
+                                    <Packages />
                                 </div>
 
                                 <p className='overflow-hidden md:ml-2 text-md font-medium'>
@@ -127,7 +122,7 @@ const MobileNav = () => {
                                 className='w-full md:w-48 h-11 flex items-center hover:text-sky-400'
                             >
                                 <div className='p-2 text-zinc-500'>
-                                    <Icon.OpenBox />
+                                    <OpenBox />
                                 </div>
 
                                 <p className='overflow-hidden md:ml-2 text-md font-medium'>
@@ -142,7 +137,7 @@ const MobileNav = () => {
                                 className='w-full md:w-48 h-11 flex items-center hover:text-sky-400'
                             >
                                 <div className='p-2 text-zinc-500'>
-                                    <Icon.Box />
+                                    <Box />
                                 </div>
 
                                 <p className='overflow-hidden md:ml-2 text-md font-medium'>
@@ -156,7 +151,7 @@ const MobileNav = () => {
                                 className='w-full md:w-48 h-11 flex items-center hover:text-sky-400'
                             >
                                 <div className='p-2 text-zinc-500'>
-                                    <Icon.Newspaper />
+                                    <Newspaper />
                                 </div>
 
                                 <p className='p-1 overflow-hidden md:ml-2 text-md font-medium'>

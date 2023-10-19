@@ -19,6 +19,8 @@
 
         /* LINTING */
         "strict": true,
+        "strictFunctionTypes": true,
+        "strictPropertyInitialization": true,
         "forceConsistentCasingInFileNames": true,
         "noFallthroughCasesInSwitch": true,
         "noImplicitAny": true,
@@ -29,6 +31,7 @@
         "baseUrl": "./",
         "paths": {
             "@components": ["./src/components"],
+            "@icons": ["./src/components/shared/icons"],
             "@common/*": ["./src/common/*"]
         }
     },

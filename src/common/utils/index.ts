@@ -34,3 +34,5 @@ export const animateCSS = (
             );
         }
     });
+
+export { default as IO } from './socket';

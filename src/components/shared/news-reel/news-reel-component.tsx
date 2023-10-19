@@ -1,18 +1,20 @@
+import { SwipeHandler } from '@common/hooks/swipeHandler';
+import type { NewsArticle, NewsCarousel } from '@common/types';
+import { IO, sleep } from '@common/utils';
 import { ErrorComponent, Loader } from '@components';
 import { createRef, useEffect, useState } from 'react';
-import { SwipeHandler } from 'src/common/hooks/swipeHandler';
-import { NewsArticle, NewsCarousel } from 'src/common/types';
-import { sleep } from 'src/common/utils';
-import IO from 'src/common/utils/socket';
+import {
+    LeftArrow,
+    RightArrow,
+    RightCornerArrow,
+} from 'src/components/shared/icons';
 
-const NewsReel = ({ Icon, Endpoint, SiteName, Disabled }: NewsCarousel) => {
+const NewsReel = ({ Endpoint, SiteName }: NewsCarousel) => {
     const [articles, setArticles] = useState<NewsArticle[]>([]);
-    const [articleChanged, setArticleChanged] = useState<boolean>(false);
-    const [loaded, setLoaded] = useState<boolean | string>(false);
     const [articlePage, setArticlePage] = useState<number>(0);
+    const [loaded, setLoaded] = useState<boolean | string>(false);
 
     const handleRotation = (index: number) => {
-        setArticleChanged(true);
         if (index === articles.length) {
             return setArticlePage(0);
         }
@@ -22,22 +24,11 @@ const NewsReel = ({ Icon, Endpoint, SiteName, Disabled }: NewsCarousel) => {
         setArticlePage(index);
     };
 
-    const swipeAction = (direction: any) => {
+    const swipeAction = (direction: boolean) => {
         if (direction) {
             return handleRotation(articlePage + 1);
         }
         return handleRotation(articlePage - 1);
-    };
-
-    const generateClassName = (index: number) => {
-        const display = index === articlePage ? 'flex ' : 'hidden ';
-        const allowClick = Disabled ? 'pointer-events-none ' : '';
-        const animateFirstRenderOnly =
-            index === 0 && !articleChanged
-                ? 'animate__animated animate__fadeIn animate__faster '
-                : '';
-
-        return `${display}${allowClick}${animateFirstRenderOnly}`;
     };
 
     const preloadImages = (data: NewsArticle[]) =>
@@ -76,17 +67,17 @@ const NewsReel = ({ Icon, Endpoint, SiteName, Disabled }: NewsCarousel) => {
             className='px-1 md:px-6 my-2 w-full'
         >
             <div className='text-left flex flex-col w-full items-center justify-center md:p-4 md:border border-slate-300 dark:border-zinc-600/20 rounded'>
-                {loaded === true && articles && (
-                    <div className='w-full border xl:border-none border-slate-300 dark:border-zinc-600/30 rounded shadow-md xl:shadow-none'>
+                {loaded && articles && (
+                    <div className='animate__animated animate__fadeIn animate__faster w-full border xl:border-none border-slate-300 dark:border-zinc-600/30 rounded shadow-md xl:shadow-none'>
                         {articles.map((data, index) => (
                             <a
                                 key={`${data.url}-${data.id}`}
                                 href={data.url}
                                 rel='noreferrer'
                                 target='_blank'
-                                className={`${generateClassName(
-                                    index
-                                )}w-full rounded-t xl:rounded xl:shadow-md flex-col xl:flex-row bg-white dark:bg-zinc-900/70 xl:border border-slate-300 dark:border-zinc-600/30`}
+                                className={`${
+                                    index === articlePage ? 'flex' : 'hidden'
+                                } w-full rounded-t xl:rounded xl:shadow-md flex-col xl:flex-row bg-white dark:bg-zinc-900/70 xl:border border-slate-300 dark:border-zinc-600/30`}
                             >
                                 <div className='flex-grow'>
                                     <img
@@ -100,7 +91,7 @@ const NewsReel = ({ Icon, Endpoint, SiteName, Disabled }: NewsCarousel) => {
                                         <div className='flex md:w-full text-xs text-left items-center justify-between text-blue-600 dark:text-sky-500'>
                                             <h2 className='-mx-1 flex items-center font-bold uppercase text-md'>
                                                 <span>
-                                                    <Icon.RightCornerArrow />
+                                                    <RightCornerArrow />
                                                 </span>
                                                 {SiteName}
                                             </h2>
@@ -127,7 +118,7 @@ const NewsReel = ({ Icon, Endpoint, SiteName, Disabled }: NewsCarousel) => {
                                             handleRotation(articlePage - 1)
                                         }
                                     >
-                                        <Icon.LeftArrow />
+                                        <LeftArrow />
                                     </button>
                                     {loaded &&
                                         articles.map((data, index) => (
@@ -151,7 +142,7 @@ const NewsReel = ({ Icon, Endpoint, SiteName, Disabled }: NewsCarousel) => {
                                             handleRotation(articlePage + 1)
                                         }
                                     >
-                                        <Icon.RightArrow />
+                                        <RightArrow />
                                     </button>
                                 </div>
                             </div>

@@ -1,4 +1,6 @@
-const ErrorComponent = ({ err }: { err: { feedName: string } }) => {
+import type { ErrorComponentProps } from '@common/types';
+
+const ErrorComponent = ({ err }: ErrorComponentProps) => {
     return (
         <div className='w-full h-12 flex items-center'>
             <div className='w-full px-4 mb-2 p-2 items-center flex justify-around'>

@@ -1,4 +1,4 @@
-import { Icon } from 'src/components';
+import { GitHub, Newspaper, Npm } from 'src/components/shared/icons';
 
 const DesktopNav = () => {
     return (
@@ -11,7 +11,7 @@ const DesktopNav = () => {
                             href='https://benweare.co.uk/api/docs'
                         >
                             <span className='sr-only'>API Documentation</span>
-                            <Icon.Newspaper />
+                            <Newspaper />
                         </a>
                     </li>
                     <li className='flex items-center'>
@@ -22,7 +22,7 @@ const DesktopNav = () => {
                             <span className='sr-only'>
                                 IncendiaryBean's NPM
                             </span>
-                            <Icon.Npm />
+                            <Npm />
                         </a>
                     </li>
                     <li className='flex items-center'>
@@ -33,7 +33,7 @@ const DesktopNav = () => {
                             <span className='sr-only'>
                                 IncendiaryBean's Github
                             </span>
-                            <Icon.GitHub />
+                            <GitHub />
                         </a>
                     </li>
                 </ul>
