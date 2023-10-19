@@ -158,7 +158,9 @@ const NewsReel = ({ Icon, Endpoint, SiteName, Disabled }: NewsCarousel) => {
                         </div>
                     </div>
                 )}
-                {loaded === 'Failed' && <ErrorComponent />}
+                {loaded === 'Failed' && (
+                    <ErrorComponent err={{ feedName: SiteName }} />
+                )}
                 {loaded === false && <Loader />}
             </div>
         </div>

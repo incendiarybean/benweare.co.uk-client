@@ -130,7 +130,9 @@ const Card = ({ Endpoint, SiteName }: NewsCard) => {
                             </div>
                         </a>
                     ))}
-                {loaded === 'Failed' && <ErrorComponent />}
+                {loaded === 'Failed' && (
+                    <ErrorComponent err={{ feedName: SiteName }} />
+                )}
                 {loaded === false && <Loader />}
             </div>
         </div>
