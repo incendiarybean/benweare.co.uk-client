@@ -13,7 +13,9 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 
 const App = () => {
-    const [activePage, setActivePage] = useState<string>('/');
+    const [activePage, setActivePage] = useState<string>(
+        window.location.pathname
+    );
 
     useEffect(() => {
         if (window.matchMedia('(prefers-color-scheme: dark)')?.matches) {
