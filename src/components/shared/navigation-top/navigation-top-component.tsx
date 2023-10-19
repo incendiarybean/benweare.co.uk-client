@@ -8,12 +8,12 @@ const NavigationBar = () => {
                 <div className='py-4 border-b border-sky-900/10 px-2 sm:px-8 md:border-0 dark:border-sky-300/10 mx-0'>
                     <div className='z-40 flex justify-between items-center w-full'>
                         <MobileNav />
-                        <div className='mx-4 flex items-center justify-between sm:justify-start w-full'>
+                        <div className='mx-4 sm:mx-0 flex items-center justify-between sm:justify-start w-full'>
                             <a
                                 className='mr-3 flex-none w-auto overflow-hidden md:w-auto'
                                 href='/'
                             >
-                                <span className='py-1 px-2 border border-sky-500 dark:border-sky-400/20 rounded text-sky-500 dark:text-sky-400 hover:text-sky-900 dark:hover:text-sky-600'>
+                                <span className='py-1 px-2 border border-sky-500 dark:border-sky-400/20 rounded text-sky-500 dark:text-sky-400 hover:text-blue-600 dark:hover:text-sky-600'>
                                     benweare.co.uk
                                 </span>
                             </a>

@@ -73,11 +73,11 @@ const NewsReel = ({ Icon, Endpoint, SiteName, Disabled }: NewsCarousel) => {
         <div
             ref={navigationElement}
             id={`${SiteName}-news`}
-            className='px-2 md:px-6 my-3 w-full'
+            className='px-1 md:px-6 my-2 w-full'
         >
             <div className='text-left flex flex-col w-full items-center justify-center md:p-4 md:border border-slate-300 dark:border-zinc-600/20 rounded'>
                 {loaded === true && articles && (
-                    <div className='w-full'>
+                    <div className='w-full border xl:border-none border-slate-300 dark:border-zinc-600/30 rounded shadow-md xl:shadow-none'>
                         {articles.map((data, index) => (
                             <a
                                 key={`${data.url}-${data.id}`}
@@ -86,43 +86,40 @@ const NewsReel = ({ Icon, Endpoint, SiteName, Disabled }: NewsCarousel) => {
                                 target='_blank'
                                 className={`${generateClassName(
                                     index
-                                )}w-full rounded flex-col xl:flex-row bg-white dark:bg-zinc-900/70 shadow-md transition-all duration-100 md:hover:scale-95`}
+                                )}w-full rounded-t xl:rounded xl:shadow-md flex-col xl:flex-row bg-white dark:bg-zinc-900/70 xl:border border-slate-300 dark:border-zinc-600/30`}
                             >
                                 <div className='flex-grow'>
-                                    <div
-                                        className='w-full md:w-full xl:w-96 h-64 shadow bg-cover rounded-t xl:rounded-none xl:rounded-l'
-                                        style={{
-                                            backgroundImage: `url(${data.img})`,
-                                        }}
+                                    <img
+                                        src={data.img}
+                                        className='w-full md:w-full xl:w-96 h-60 xl:h-60 object-cover shadow rounded-t xl:rounded-tr-none xl:rounded-l'
                                     />
                                 </div>
 
-                                <div className='w-full xl:w-1/2 p-3 flex flex-col justify-between h-40 xl:h-64 overflow-auto'>
+                                <div className='w-full xl:w-1/2 p-3 flex flex-col justify-between h-36 md:h-40 xl:h-60 overflow-auto'>
                                     <div>
-                                        <div className='flex flex-col md:w-full text-xs text-left'>
-                                            <span className='text-sky-900 dark:text-sky-300'>
+                                        <div className='flex md:w-full text-xs text-left items-center justify-between text-blue-600 dark:text-sky-500'>
+                                            <h2 className='-mx-1 flex items-center font-bold uppercase text-md'>
+                                                <span>
+                                                    <Icon.RightCornerArrow />
+                                                </span>
+                                                {SiteName}
+                                            </h2>
+                                            <span className='mr-2'>
                                                 {new Date(
                                                     data.date
                                                 ).toLocaleDateString('en-UK')}
                                             </span>
-                                            <h2 className='text-sky-900 dark:text-sky-400 font-bold uppercase text-md'>
-                                                News Article
-                                            </h2>
                                         </div>
-                                        <p className='text-left text-sm md:text-lg xl:text-xl font-bold leading-normal '>
+                                        <p className='text-left text-md md:text-lg xl:text-xl font-bold leading-normal flex '>
                                             {data.title}
                                         </p>
                                     </div>
-                                    <p className='flex text-left text-xs md:text-sm text-sky-900 dark:text-sky-400 font-bold leading-normal items-center'>
-                                        <Icon.RightCornerArrow />
-                                        {SiteName}
-                                    </p>
                                 </div>
                             </a>
                         ))}
-                        <div className='lg:px-4 w-full mt-2'>
+                        <div className='w-full xl:mt-2'>
                             <div className='flex justify-center'>
-                                <div className='bg-white dark:bg-zinc-900/70 rounded shadow-md flex w-full lg:w-1/2 p-2 justify-between h-12 lg:h-fit items-center'>
+                                <div className='bg-white dark:bg-zinc-900/70 rounded-b xl:rounded flex w-full xl:w-1/2 p-2 justify-between h-12 lg:h-fit items-center xl:shadow xl:border border-slate-300 dark:border-zinc-600/30'>
                                     <button
                                         aria-label='Previous Article'
                                         className='border-slate-500 dark:border-slate-100 hover:text-sky-500 dark:hover:text-sky-400 border hover:border-blue-500 dark:hover:border-blue-400 w-6 h-6 rounded duration-150 hover:scale-105 active:scale-95'
@@ -161,7 +158,9 @@ const NewsReel = ({ Icon, Endpoint, SiteName, Disabled }: NewsCarousel) => {
                         </div>
                     </div>
                 )}
-                {loaded === 'Failed' && <ErrorComponent />}
+                {loaded === 'Failed' && (
+                    <ErrorComponent err={{ feedName: SiteName }} />
+                )}
                 {loaded === false && <Loader />}
             </div>
         </div>

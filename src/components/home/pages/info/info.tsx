@@ -48,7 +48,7 @@ const InfoPage = () => {
                         </div>
 
                         <button
-                            className='group hover:text-sky-900 mt-10 flex'
+                            className='group hover:text-blue-600 mt-10 flex'
                             onClick={() => setShow(!show)}
                         >
                             <hr className='z-0 w-full' />

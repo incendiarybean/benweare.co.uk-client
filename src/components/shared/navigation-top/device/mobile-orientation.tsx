@@ -51,23 +51,24 @@ const MobileNav = () => {
                 <div className='popin-settings flex justify-start w-full h-full'>
                     <div
                         ref={accountElement}
-                        className='bg-zinc-200 dark:bg-zinc-900 shadow w-10/12 p-2 flex flex-col rounded-r-xl border-r border-zinc-400 dark:border-zinc-600'
+                        className='bg-zinc-200 dark:bg-zinc-900 shadow w-10/12 p-2 flex flex-col justify-between rounded-r-xl border-r border-zinc-400 dark:border-zinc-600'
                     >
-                        <div className='flex justify-between items-center pt-2 pb-1 border-b border-zinc-500 mx-2'>
-                            <h1 className='uppercase leading-wide font-bold mt-2'>
-                                Menu
-                            </h1>
-                            <button
-                                onClick={() => openSettings(false)}
-                                className='hover:bg-zinc-300 hover:dark:bg-zinc-500 rounded-md text-zinc-800 w-8 h-8 flex items-center justify-center hover:text-slate-600 dark:text-slate-400 dark:hover:text-slate-300'
-                            >
-                                <span className='sr-only'>
-                                    Close Navigation
-                                </span>
-                                <Icon.Cross />
-                            </button>
-                        </div>
                         <div className='space-y-2 mx-2'>
+                            <div className='flex justify-between items-center pt-2 pb-1 border-b border-zinc-500'>
+                                <h1 className='uppercase leading-wide font-bold mt-2'>
+                                    Menu
+                                </h1>
+                                <button
+                                    onClick={() => openSettings(false)}
+                                    className='hover:bg-zinc-300 hover:dark:bg-zinc-500 rounded-md text-zinc-800 w-8 h-8 flex items-center justify-center hover:text-slate-600 dark:text-slate-400 dark:hover:text-slate-300'
+                                >
+                                    <span className='sr-only'>
+                                        Close Navigation
+                                    </span>
+                                    <Icon.Cross />
+                                </button>
+                            </div>
+
                             <Link
                                 to='/dashboard'
                                 className={`${
@@ -162,6 +163,18 @@ const MobileNav = () => {
                                     Documentation
                                 </p>
                             </a>
+                        </div>
+                        <div className='h-16 w-full flex justify-start items-center'>
+                            <span className='ml-3 text-xs leading-5 font-medium text-sky-600 dark:text-sky-400 bg-sky-400/30 dark:bg-sky-400/10 rounded-full py-1 px-3 items-center'>
+                                <strong className='font-semibold'>
+                                    benweare.co.uk
+                                </strong>
+                            </span>
+                            <span className='ml-3 text-xs leading-5 font-medium text-sky-600 dark:text-sky-400 bg-sky-400/30 dark:bg-sky-400/10 rounded-full py-1 px-3 items-center'>
+                                <strong className='font-semibold'>
+                                    v{VITE_APP_VERSION}
+                                </strong>
+                            </span>
                         </div>
                     </div>
                 </div>

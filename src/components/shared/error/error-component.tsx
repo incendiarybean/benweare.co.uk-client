@@ -1,12 +1,11 @@
-const ErrorComponent = () => {
+const ErrorComponent = ({ err }: { err: { feedName: string } }) => {
     return (
-        <div className='w-full h-64 flex flex-col justify-around items-center'>
-            <div className='w-full px-4 mb-2 p-2 items-center flex flex-col justify-around'>
-                <div className='text-white bg-gradient-to-r from-blue-700 to-blue-500 p-4 rounded shadow-md'>
+        <div className='w-full h-12 flex items-center'>
+            <div className='w-full px-4 mb-2 p-2 items-center flex justify-around'>
+                <div className='text-white bg-red-500 dark:bg-red-500/60 rounded-full shadow-md flex justify-around p-1 px-2 items-center'>
                     <svg
                         strokeWidth='1.3'
                         height='24'
-                        className='transform scale-150'
                         viewBox='0 0 21 21'
                         width='24'
                         xmlns='https://www.w3.org/2000/svg'
@@ -34,9 +33,9 @@ const ErrorComponent = () => {
                             />
                         </g>
                     </svg>
-                </div>
-                <div className='text-xs uppercase mt-4 p-1 px-6 rounded-full bg-gradient-to-r from-blue-700 to-blue-500 text-white shadow-md'>
-                    This feed has failed to load.
+                    <p className='mx-1 text-sm md:text-md'>
+                        ERROR: {err.feedName} component has failed to load.
+                    </p>
                 </div>
             </div>
         </div>
