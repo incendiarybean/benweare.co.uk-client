@@ -12,5 +12,7 @@ export default {
         '^@common/images/(.*)$': 'identity-obj-proxy',
         '^@common/hooks/externalClickHandler':
             '<rootDir>/src/common/hooks/externalClickHandler.ts',
+        '^@common/hooks/swipeHandler':
+            '<rootDir>/src/common/hooks/swipeHandler.ts',
     },
 };
