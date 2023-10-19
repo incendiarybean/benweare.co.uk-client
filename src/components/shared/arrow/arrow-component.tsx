@@ -1,10 +1,11 @@
-import { Icon } from 'src/components';
+import type { ArrowComponentProps } from '@common/types';
+import { DownArrow, UpArrow } from 'src/components/shared/icons';
 
-function ArrowComponent({ display }: { display: boolean }) {
+const ArrowComponent = ({ display }: ArrowComponentProps) => {
     if (!display) {
-        return <Icon.UpArrow />;
+        return <UpArrow />;
     }
-    return <Icon.DownArrow />;
-}
+    return <DownArrow />;
+};
 
 export default ArrowComponent;

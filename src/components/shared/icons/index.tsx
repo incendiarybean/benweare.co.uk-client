@@ -1,41 +1,3 @@
-export const Calendar = () => (
-    <svg
-        height='21'
-        viewBox='0 0 21 21'
-        width='21'
-        xmlns='http:////www.w3.org/2000/svg'
-    >
-        <g
-            className='stroke-current'
-            fill='none'
-            fillRule='evenodd'
-            transform='translate(2 2)'
-        >
-            <path
-                className='stroke-current'
-                d='m2.5.5h12.0269119c1.1045695 0 2 .8954305 2 2v11.9907459c0 1.0543618-.8158778 1.9181651-1.8507376 1.9945143l-.1588615.0054627-12.02691193-.0577246c-1.10080997-.0052835-1.99040087-.8991544-1.99040087-1.999977v-11.9330213c0-1.1045695.8954305-2 2-2z'
-                stroke='currentColor'
-                strokeLinecap='round'
-                strokeLinejoin='round'
-            />
-            <path
-                className='stroke-current'
-                d='m.5 4.5h16.027'
-                stroke='currentColor'
-                strokeLinecap='round'
-                strokeLinejoin='round'
-            />
-            <circle
-                className='stroke-current'
-                cx='4.5'
-                cy='8.5'
-                fill='currentColor'
-                r='1'
-            />
-        </g>
-    </svg>
-);
-
 export const Cloud = () => (
     <svg
         height='20.315mm'
@@ -209,66 +171,6 @@ export const Foggy = () => (
             />
         </g>
     </svg>
-);
-
-export const LoaderSmall = () => (
-    <svg
-        className='animate-spin -ml-1 mr-3 h-5 w-5 text-slate-700'
-        xmlns='http://www.w3.org/2000/svg'
-        fill='none'
-        viewBox='0 0 24 24'
-    >
-        <circle
-            className='opacity-25'
-            cx='12'
-            cy='12'
-            r='10'
-            stroke='currentColor'
-            strokeWidth='4'
-        />
-        <path
-            className='opacity-75'
-            fill='currentColor'
-            d='M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z'
-        />
-    </svg>
-);
-
-export const Failed = () => (
-    <span className='inline-flex  rounded-full h-6 p-1 py-2 justify-center items-center'>
-        <svg
-            height='25'
-            viewBox='0 0 21 21'
-            width='25'
-            xmlns='http://www.w3.org/2000/svg'
-        >
-            <g className='stroke-current' fill='none' fillRule='evenodd'>
-                <circle
-                    className='stroke-current'
-                    cx='10.5'
-                    cy='10.5'
-                    r='8'
-                    stroke='white'
-                    strokeLinecap='round'
-                    strokeLinejoin='round'
-                />
-                <path
-                    className='stroke-current'
-                    d='m10.5 11.5v-5'
-                    stroke='white'
-                    strokeLinecap='round'
-                    strokeLinejoin='round'
-                />
-                <circle
-                    className='stroke-current'
-                    cx='10.5'
-                    cy='14.5'
-                    fill='white'
-                    r='1'
-                />
-            </g>
-        </svg>
-    </span>
 );
 
 export const Info = () => (
@@ -589,27 +491,6 @@ export const Docs = () => (
     </svg>
 );
 
-export const Link = () => (
-    <svg
-        height='21'
-        viewBox='0 0 21 21'
-        width='21'
-        xmlns='http://www.w3.org/2000/svg'
-    >
-        <g
-            fill='none'
-            fillRule='evenodd'
-            stroke='currentColor'
-            strokeLinecap='round'
-            strokeLinejoin='round'
-            transform='translate(4 5)'
-        >
-            <path d='m5.5 2.5 1-1c1.1045695-1.1045695 2.8954305-1.1045695 4 0s1.1045695 2.8954305 0 4l-1 1m-3 3-1 1c-1.1045695 1.1045695-2.8954305 1.1045695-4 0s-1.1045695-2.8954305 0-4l1-1' />
-            <path d='m3.5 8.5 5-5' />
-        </g>
-    </svg>
-);
-
 export const Cross = () => (
     <svg
         aria-hidden='true'
@@ -621,38 +502,6 @@ export const Cross = () => (
         className='fill-current'
     >
         <path d='M3.72 3.72a.75.75 0 0 1 1.06 0L8 6.94l3.22-3.22a.749.749 0 0 1 1.275.326.749.749 0 0 1-.215.734L9.06 8l3.22 3.22a.749.749 0 0 1-.326 1.275.749.749 0 0 1-.734-.215L8 9.06l-3.22 3.22a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042L6.94 8 3.72 4.78a.75.75 0 0 1 0-1.06Z'></path>
-    </svg>
-);
-
-export const Tick = () => (
-    <svg
-        viewBox='0 0 21 21'
-        xmlns='http://www.w3.org/2000/svg'
-        className='text-green-500'
-    >
-        <g
-            fill='none'
-            fillRule='evenodd'
-            stroke='currentColor'
-            strokeLinecap='round'
-            strokeLinejoin='round'
-            transform='translate(2 2)'
-        >
-            <path d='m12.8571123 1.79063546c-3.70547974-2.40636667-8.66011018-1.35322746-11.06647684 2.35225226-2.40636667 3.70547972-1.35322746 8.66011018 2.35225226 11.06647678 1.40713892.9138067 2.9944136 1.3287299 4.55387082 1.2889715 2.54712886-.0649393 5.02004606-1.3428829 6.51260596-3.6412237 1.5774991-2.4291355 1.6682799-5.39509184.4997393-7.82805117' />
-            <path d='m4.5 7.5 3 3 8-8' />
-        </g>
-    </svg>
-);
-
-export const Menu = () => (
-    <svg width='24' height='24' fill='none' aria-hidden='true'>
-        <path
-            d='M12 6v.01M12 12v.01M12 18v.01M12 7a1 1 0 1 1 0-2 1 1 0 0 1 0 2Zm0 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Zm0 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z'
-            stroke='currentColor'
-            strokeWidth='1.5'
-            strokeLinecap='round'
-            strokeLinejoin='round'
-        ></path>
     </svg>
 );
 
