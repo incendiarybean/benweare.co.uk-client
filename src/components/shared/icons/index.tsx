@@ -181,34 +181,21 @@ export const Info = () => (
         xmlns='http://www.w3.org/2000/svg'
     >
         <g
-            className='stroke-current'
             fill='none'
             fillRule='evenodd'
+            transform='translate(2 2)'
             strokeWidth='1.3'
         >
-            <circle
-                className='stroke-current'
-                cx='10.5'
-                cy='10.5'
-                r='8'
-                stroke='white'
+            <g
+                stroke='currentColor'
                 strokeLinecap='round'
                 strokeLinejoin='round'
-            />
-            <path
-                className='stroke-current'
-                d='m10.5 14.5v-4'
-                stroke='white'
-                strokeLinecap='round'
-                strokeLinejoin='round'
-            />
-            <circle
-                className='stroke-current'
-                cx='10.5'
-                cy='7.5'
-                fill='white'
-                r='1'
-            />
+            >
+                <circle cx='8.5' cy='8.5' r='8' />
+                <path d='m8.5 12.5v-4h-1' />
+                <path d='m7.5 12.5h2' />
+            </g>
+            <circle cx='8.5' cy='5.5' fill='currentColor' r='1' />
         </g>
     </svg>
 );

@@ -17,7 +17,7 @@ const InfoPage = () => {
     }, []);
 
     return (
-        <div className='select-none items-center flex flex-col w-full overflow-auto md:h-screen pb-20'>
+        <div className='flex-1 select-none items-center flex flex-col w-full'>
             {loaded && (
                 <div className='animate__animated animate__fadeIn animate__faster px-2 md:px-6 my-3 w-full'>
                     <div className='flex flex-col w-full min-w-fit lg:min-w-0 bg-white dark:bg-zinc-900/70 rounded shadow-md p-10 mt-28 self-center'>

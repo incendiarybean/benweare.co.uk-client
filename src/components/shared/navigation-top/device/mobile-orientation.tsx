@@ -1,8 +1,7 @@
 import { ExternalClickHandler } from '@common/hooks/externalClickHandler';
-import type { NavbarProps } from '@common/types';
 import { animateCSS } from '@common/utils';
 import { createRef, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import {
     Box,
     Burger,
@@ -14,7 +13,7 @@ import {
     Packages,
 } from 'src/components/shared/icons';
 
-const MobileNav = ({ setActivePage, isActivePage }: NavbarProps) => {
+const MobileNav = () => {
     const [settingsOpen, setSettingsOpen] = useState(false);
 
     const accountElement = createRef<HTMLDivElement>();
@@ -64,14 +63,15 @@ const MobileNav = ({ setActivePage, isActivePage }: NavbarProps) => {
                                 </button>
                             </div>
 
-                            <Link
+                            <NavLink
                                 to='/dashboard'
-                                className={`${
-                                    isActivePage('/dashboard')
-                                        ? 'bg-zinc-300 dark:bg-zinc-800 border-l-4 border-sky-400'
-                                        : 'hover:text-sky-400'
-                                } mt-2 w-full md:w-48 h-10 flex items-center rounded-r-xl`}
-                                onClick={() => setActivePage('/dashboard')}
+                                className={({ isActive }) =>
+                                    `${
+                                        isActive
+                                            ? 'bg-zinc-300 dark:bg-zinc-800 border-l-4 border-sky-400'
+                                            : 'hover:text-sky-400'
+                                    } mt-2 w-full md:w-48 h-10 flex items-center rounded-r-xl`
+                                }
                             >
                                 <div className='p-2 text-zinc-500'>
                                     <Home />
@@ -80,16 +80,17 @@ const MobileNav = ({ setActivePage, isActivePage }: NavbarProps) => {
                                 <p className='overflow-hidden md:ml-2 text-md'>
                                     Dashboard
                                 </p>
-                            </Link>
+                            </NavLink>
 
-                            <Link
+                            <NavLink
                                 to='/'
-                                className={`${
-                                    isActivePage('/')
-                                        ? 'bg-zinc-300 dark:bg-zinc-800 border-l-4 border-sky-400'
-                                        : 'hover:text-sky-400'
-                                } mt-2 w-full md:w-48 h-10 flex items-center rounded-r-xl`}
-                                onClick={() => setActivePage('/')}
+                                className={({ isActive }) =>
+                                    `${
+                                        isActive
+                                            ? 'bg-zinc-300 dark:bg-zinc-800 border-l-4 border-sky-400'
+                                            : 'hover:text-sky-400'
+                                    } mt-2 w-full md:w-48 h-10 flex items-center rounded-r-xl`
+                                }
                             >
                                 <div className='p-2 text-zinc-500'>
                                     <Info />
@@ -98,7 +99,7 @@ const MobileNav = ({ setActivePage, isActivePage }: NavbarProps) => {
                                 <p className='overflow-hidden md:ml-2 text-md'>
                                     About
                                 </p>
-                            </Link>
+                            </NavLink>
 
                             <a
                                 target='_blank'
@@ -144,6 +145,7 @@ const MobileNav = ({ setActivePage, isActivePage }: NavbarProps) => {
                                     Docker
                                 </p>
                             </a>
+
                             <a
                                 target='_blank'
                                 rel='noreferrer'
