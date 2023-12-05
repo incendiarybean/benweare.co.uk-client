@@ -45,7 +45,7 @@ const MobileNav = () => {
                 <div className='popin-settings flex justify-start w-full h-full'>
                     <div
                         ref={accountElement}
-                        className='bg-zinc-200 dark:bg-zinc-900 shadow w-10/12 p-2 flex flex-col justify-between rounded-r-xl border-r border-zinc-400 dark:border-zinc-600'
+                        className='bg-zinc-200 dark:bg-zinc-900 shadow w-10/12 p-2 flex flex-col justify-between rounded-r-xl border-r border-zinc-400 dark:border-zinc-600 overflow-y-auto'
                     >
                         <div className='space-y-2 mx-2'>
                             <div className='flex justify-between items-center pt-2 pb-1 border-b border-zinc-500'>

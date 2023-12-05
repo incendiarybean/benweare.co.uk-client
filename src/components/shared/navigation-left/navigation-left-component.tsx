@@ -11,7 +11,7 @@ import {
 const LeftNavigationBar = () => {
     return (
         <div className='md:flex-1 md:pl-2 md:mx-4 hidden md:flex justify-end z-10 min-w-[12rem]'>
-            <div className='flex flex-col gap-2 w-48 mt-12'>
+            <div className='flex flex-col gap-2 w-48 mt-28 fixed top-0'>
                 <NavLink
                     to='/dashboard'
                     className={({ isActive }) =>

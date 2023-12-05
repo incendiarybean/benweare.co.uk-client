@@ -25,11 +25,11 @@ const App = () => {
     }, []);
 
     return (
-        <div className='text-slate-800 dark:text-white'>
+        <div className='text-slate-800 dark:text-white min-w-[16rem]'>
             <ToastContainer />
             <div className='min-h-screen flex flex-col'>
                 <NavigationBar />
-                <div className='flex-1 w-full flex flex-row min-w-[20rem]'>
+                <div className='flex-1 w-full flex flex-row min-w-[16rem]'>
                     <LeftNavigationBar />
                     <div className='w-full md:max-w-4xl px-2 md:px-0 md:border-l lg:border-r border-slate-300 dark:border-zinc-600/20'>
                         <Outlet />
