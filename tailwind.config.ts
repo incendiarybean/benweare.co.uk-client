@@ -4,29 +4,12 @@ export default {
         extend: {
             transitionProperty: {
                 width: 'width',
+                height: 'height',
                 bg: 'background-color',
             },
-            overflow: {
-                overlay: 'overlay',
-            },
             height: {
-                92: '23rem',
-                128: '32rem',
+                88: '22rem',
                 120: '30rem',
-                112: '28rem',
-            },
-            width: {
-                '2xl': '42rem',
-            },
-            maxHeight: {
-                128: '32rem',
-                120: '30rem',
-                112: '28rem',
-            },
-            minWidth: {
-                128: '32rem',
-                120: '30rem',
-                112: '28rem',
             },
         },
     },

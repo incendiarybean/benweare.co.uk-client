@@ -54,3 +54,85 @@ body {
 ::-webkit-scrollbar-thumb:hover {
     background-color: #9ca3af;
 }
+
+/* Default Classes */
+.default-bg {
+    @apply bg-white dark:bg-zinc-900/70;
+}
+
+.default-border {
+    @apply border-slate-300 dark:border-zinc-600/30;
+}
+
+.default-border-darker {
+    @apply border-slate-300 dark:border-zinc-600/40;
+}
+
+.highlighted-text {
+    @apply text-blue-600 dark:text-sky-500;
+}
+
+.hover-highlighted-text {
+    @apply hover:text-sky-600 hover:dark:text-sky-700;
+}
+
+.info-page {
+    @apply select-none pb-10;
+
+    .wrapper {
+        @apply flex flex-col w-full bg-white dark:bg-zinc-900/70 rounded shadow-md p-10 mt-28;
+
+        .content {
+            .image-wrapper {
+                @apply flex justify-center items-center mb-5;
+
+                .image {
+                    @apply min-w-fit -mt-32 rounded-full shadow-xl border-8 border-white dark:border-zinc-900/60;
+                }
+            }
+
+            .context {
+                @apply text-center;
+
+                h1 {
+                    @apply text-2xl font-semibold leading-loose;
+                }
+
+                h2 {
+                    @apply text-xs -mt-2 mb-2 text-sky-600 dark:text-sky-400 font-bold uppercase;
+                }
+
+                hr {
+                    @apply mb-4 mt-2;
+                }
+
+                p {
+                    @apply font-light leading-relaxed;
+                }
+            }
+        }
+    }
+
+    .info-page-service-list {
+        @apply snap-proximity snap-y bg-white dark:bg-zinc-900/70 rounded shadow-xl overflow-y-auto h-120 mt-4;
+
+        .heading {
+            @apply uppercase default-bg pl-8 p-3 text-sm text-sky-600 dark:text-sky-400 font-bold border-b dark:border-slate-600 shadow-inner;
+        }
+
+        .service-list-wrapper {
+            @apply w-full flex flex-col items-center overflow-hidden text-sm pb-4;
+        }
+
+        .service-list {
+            @apply w-full py-2 pl-10 pr-3 transition duration-150;
+
+            &.first-item {
+                @apply hover:bg-slate-100 dark:hover:bg-zinc-900/70;
+            }
+            &.item {
+                @apply border-t border-gray-100 dark:border-gray-600 hover:bg-slate-100 dark:hover:bg-zinc-900/70;
+            }
+        }
+    }
+}

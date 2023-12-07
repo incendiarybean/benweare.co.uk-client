@@ -1,10 +1,10 @@
-import type { NewsArticle, NewsCard } from '@common/types';
+import type { CardProps, NewsArticle } from '@common/types';
 import { sleep } from '@common/utils';
 import { ArrowComponent, ErrorComponent, Loader } from '@components';
 import { useEffect, useState } from 'react';
 import { RightCornerArrow } from 'src/components/shared/icons';
 
-const Card = ({ Endpoint, SiteName }: NewsCard) => {
+const Card = ({ Endpoint, SiteName }: CardProps) => {
     const [article, setArticle] = useState<NewsArticle>();
     const [loaded, setLoaded] = useState<boolean | string>(false);
     const [show, setShow] = useState<boolean>(false);
@@ -138,9 +138,8 @@ const Card = ({ Endpoint, SiteName }: NewsCard) => {
                             </div>
                         </div>
                     ))}
-                {loaded === 'Failed' && (
-                    <ErrorComponent err={{ feedName: SiteName }} />
-                )}
+                {loaded === 'Failed' && <ErrorComponent feedName={SiteName} />}
+
                 {loaded === false && <Loader />}
             </div>
         </div>

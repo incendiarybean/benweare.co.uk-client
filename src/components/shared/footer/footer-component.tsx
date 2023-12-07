@@ -2,9 +2,9 @@ import { GitHub, Newspaper, Npm } from '@icons';
 
 const FooterComponent = () => {
     return (
-        <footer className='bg-white dark:bg-zinc-900/70 p-4 py-8 border-t border-sky-900/10 dark:border-sky-300/10 w-full flex justify-around'>
+        <footer className='p-4 py-8 flex justify-around border-t dark:border-sky-100/10'>
             <div className='flex flex-col'>
-                <ul className='md:hidden flex justify-around'>
+                <ul className='flex justify-around'>
                     <li>
                         <a
                             className='px-2 block dark:text-slate-400 hover:text-sky-500 dark:hover:text-sky-500'
