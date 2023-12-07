@@ -2,9 +2,9 @@ import { VITE_APP_DOCS_URL } from '@common/constants';
 
 const Documentation = () => {
     return (
-        <div className='select-none w-full p-4'>
+        <div className='select-none w-full p-4 px-6 flex flex-col flex-1'>
             <iframe
-                className='h-[135rem] w-full rounded'
+                className='flex-1 w-full rounded'
                 title='API Documentation'
                 src={VITE_APP_DOCS_URL ?? '/api/docs'}
             />

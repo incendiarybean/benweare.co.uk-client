@@ -17,10 +17,10 @@ const InfoPage = () => {
     }, []);
 
     return (
-        <div className='flex-1 select-none items-center flex flex-col w-full'>
+        <div className='select-none w-full'>
             {loaded && (
-                <div className='animate__animated animate__fadeIn animate__faster px-2 md:px-6 my-3 w-full'>
-                    <div className='flex flex-col w-full min-w-fit lg:min-w-0 bg-white dark:bg-zinc-900/70 rounded shadow-md p-10 mt-28 self-center'>
+                <div className='animate__animated animate__fadeIn animate__faster flex flex-col px-2 md:px-6 my-3 w-full'>
+                    <div className='flex flex-col w-full bg-white dark:bg-zinc-900/70 rounded shadow-md p-10 mt-28 self-center'>
                         <div className='flex justify-center items-center mb-5'>
                             <img
                                 className='min-w-fit -mt-32 rounded-full shadow-xl border-8 border-white dark:border-zinc-900/60'
@@ -29,22 +29,19 @@ const InfoPage = () => {
                                 loading='eager'
                             />
                         </div>
-                        <div className=''>
-                            <h1 className='text-center text-2x font-bold leading-normal mb-1'>
+                        <div className='text-center'>
+                            <h1 className='text-2x font-bold leading-normal mb-1'>
                                 Ben Weare
                             </h1>
                             <h2 className='text-center text-xs -mt-2 mb-2 text-sky-600 dark:text-sky-400 font-bold uppercase'>
                                 Gloucestershire, England
                             </h2>
                             <hr className='mb-2' />
-                            <div className=''>
-                                <p className='text-center font-light leading-relaxed'>
-                                    I'm an aspiring Full-Stack Software
-                                    Developer. I work mostly with NodeJS and
-                                    Python with hosting using AWS
-                                    infrastructure/Heroku.
-                                </p>
-                            </div>
+                            <p className='font-light leading-relaxed'>
+                                I'm an aspiring Full-Stack Software Developer. I
+                                work mostly with NodeJS and Python with hosting
+                                using AWS infrastructure/Heroku.
+                            </p>
                         </div>
 
                         <button
@@ -62,10 +59,10 @@ const InfoPage = () => {
                     </div>
                     <div
                         hidden={!show}
-                        className='snap-proximity snap-y text-left w-full min-w-fit lg:min-w-0 bg-white dark:bg-zinc-900/70 rounded shadow-xl overlay h-96 self-center mt-4 mb-20'
+                        className='snap-proximity snap-y w-full  bg-white dark:bg-zinc-900/70 rounded shadow-xl overlay h-120 self-center mt-4 mb-20'
                     >
                         <div className='snap-start'>
-                            <p className='bg-white dark:bg-zinc-900/70 text-left pl-8 p-3 text-sm text-sky-600 dark:text-sky-400 font-bold uppercase border-b dark:border-slate-600'>
+                            <p className='bg-white dark:bg-zinc-900/70 pl-8 p-3 text-sm text-sky-600 dark:text-sky-400 font-bold uppercase border-b dark:border-slate-600'>
                                 Services/Environments
                             </p>
                             <div className='w-full flex flex-col items-center overflow-hidden text-sm pb-4'>

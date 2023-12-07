@@ -2,7 +2,7 @@ import { Card, NewsCarousel } from '@components';
 
 const DashboardPage = () => {
     return (
-        <div className='select-none items-center flex flex-col w-full pb-3'>
+        <div className='select-none flex flex-col py-2'>
             <Card SiteName='NASA' Endpoint={'/api/news/nasa'} />
             <NewsCarousel Endpoint={'/api/news/pcgamer'} SiteName='PCGamer' />
             <NewsCarousel

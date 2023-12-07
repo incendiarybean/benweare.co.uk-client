@@ -31,7 +31,7 @@ const App = () => {
                 <NavigationBar />
                 <div className='flex-1 w-full flex flex-row min-w-[16rem]'>
                     <LeftNavigationBar />
-                    <div className='w-full md:max-w-4xl px-2 md:px-0 md:border-l lg:border-r border-slate-300 dark:border-zinc-600/20'>
+                    <div className='w-full md:max-w-4xl px-2 md:px-0 md:border-l lg:border-r border-slate-300 dark:border-zinc-600/20 flex flex-col'>
                         <Outlet />
                     </div>
                     <RightNavigationBar />

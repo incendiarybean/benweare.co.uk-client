@@ -27,7 +27,7 @@ const Card = ({ Endpoint, SiteName }: NewsCard) => {
     }, [Endpoint, SiteName]);
 
     return (
-        <div className='px-1 md:px-6 my-3 w-full'>
+        <div className='px-1 md:px-6 my-2 w-full'>
             <div className='animate__animated animate__fadeIn animate__faster text-left flex flex-col w-full items-center justify-center md:p-4 md:border border-slate-300 dark:border-zinc-600/20 rounded'>
                 {loaded &&
                     article &&
