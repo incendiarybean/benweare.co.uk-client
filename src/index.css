@@ -80,14 +80,14 @@ body {
     @apply select-none pb-10;
 
     .wrapper {
-        @apply flex flex-col w-full bg-white dark:bg-zinc-900/70 rounded shadow-md p-10 mt-28;
+        @apply flex flex-col w-full bg-white dark:bg-zinc-900/70 rounded shadow p-10 mt-28;
 
         .content {
             .image-wrapper {
                 @apply flex justify-center items-center mb-5;
 
                 .image {
-                    @apply min-w-fit -mt-32 rounded-full shadow-xl border-8 border-white dark:border-zinc-900/60;
+                    @apply min-w-fit -mt-32 rounded-full shadow border-8 border-white dark:border-zinc-900/60;
                 }
             }
 

@@ -16,8 +16,8 @@ const LeftNavigationBar = () => {
                     to='/dashboard'
                     className={({ isActive }) =>
                         (isActive
-                            ? 'text-white bg-sky-600/80 dark:bg-sky-400/10 hover:from-sky-600 hover:to-sky-800 leading-loose shadow-md'
-                            : 'hover:bg-zinc-100 dark:hover:bg-zinc-900/40 hover:shadow-sm') +
+                            ? 'text-white bg-sky-600/80 dark:bg-sky-400/10 hover:from-sky-600 hover:to-sky-800 leading-loose shadow'
+                            : 'hover:bg-zinc-100 dark:hover:bg-zinc-900/40 hover:shadow') +
                         ' transition-bg ease-in-out duration-100 w-full h-12 flex items-center md:rounded p-3'
                     }
                 >
@@ -32,8 +32,8 @@ const LeftNavigationBar = () => {
                     to='/'
                     className={({ isActive }) =>
                         (isActive
-                            ? 'text-white bg-sky-600/80 dark:bg-sky-400/10 hover:from-sky-600 hover:to-sky-800 leading-loose shadow-md'
-                            : 'hover:bg-zinc-100 dark:hover:bg-zinc-900/40 hover:shadow-sm') +
+                            ? 'text-white bg-sky-600/80 dark:bg-sky-400/10 hover:from-sky-600 hover:to-sky-800 leading-loose shadow'
+                            : 'hover:bg-zinc-100 dark:hover:bg-zinc-900/40 hover:shadow') +
                         ' transition-bg ease-in-out duration-100 w-full h-12 flex items-center md:rounded p-3'
                     }
                 >
@@ -48,8 +48,8 @@ const LeftNavigationBar = () => {
                     to='/documentation'
                     className={({ isActive }) =>
                         (isActive
-                            ? 'text-white bg-sky-600/80 dark:bg-sky-400/10 hover:from-sky-600 hover:to-sky-800 leading-loose shadow-md'
-                            : 'hover:bg-zinc-100 dark:hover:bg-zinc-900/40 hover:shadow-sm') +
+                            ? 'text-white bg-sky-600/80 dark:bg-sky-400/10 hover:from-sky-600 hover:to-sky-800 leading-loose shadow'
+                            : 'hover:bg-zinc-100 dark:hover:bg-zinc-900/40 hover:shadow') +
                         ' transition-bg ease-in-out duration-100 w-full h-12 flex items-center md:rounded p-3'
                     }
                 >
@@ -64,7 +64,7 @@ const LeftNavigationBar = () => {
                     target='_blank'
                     rel='noreferrer'
                     href='https://www.npmjs.com/~incendiarybean'
-                    className='transition-colors ease-in-out duration-100 hover:bg-zinc-100 dark:hover:bg-zinc-900/40 hover:shadow-sm w-full h-12 flex items-center md:rounded p-3'
+                    className='transition-colors ease-in-out duration-100 hover:bg-zinc-100 dark:hover:bg-zinc-900/40 hover:shadow w-full h-12 flex items-center md:rounded p-3'
                 >
                     <Packages />
 
@@ -77,7 +77,7 @@ const LeftNavigationBar = () => {
                     target='_blank'
                     rel='noreferrer'
                     href='https://github.com/incendiarybean'
-                    className='transition-colors ease-in-out duration-100 hover:bg-zinc-100 dark:hover:bg-zinc-900/40 hover:shadow-sm w-full h-12 flex items-center md:rounded p-3'
+                    className='transition-colors ease-in-out duration-100 hover:bg-zinc-100 dark:hover:bg-zinc-900/40 hover:shadow w-full h-12 flex items-center md:rounded p-3'
                 >
                     <OpenBox />
 
@@ -90,7 +90,7 @@ const LeftNavigationBar = () => {
                     target='_blank'
                     rel='noreferrer'
                     href='https://hub.docker.com/u/incendiarybean'
-                    className='transition-colors ease-in-out duration-100 hover:bg-zinc-100 dark:hover:bg-zinc-900/40 hover:shadow-sm w-full h-12 flex items-center md:rounded p-3'
+                    className='transition-colors ease-in-out duration-100 hover:bg-zinc-100 dark:hover:bg-zinc-900/40 hover:shadow w-full h-12 flex items-center md:rounded p-3'
                 >
                     <Box />
 
