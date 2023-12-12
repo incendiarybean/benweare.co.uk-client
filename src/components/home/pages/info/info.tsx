@@ -42,13 +42,13 @@ const InfoPage = () => {
                                 </p>
                             </div>
                             <button
-                                className='group hover:text-blue-600 mt-10 flex w-full'
+                                className='group default-link text-sm mt-10 flex w-full'
                                 onClick={() =>
                                     setShowKnowledgeList(!showKnowledgeList)
                                 }
                             >
                                 <hr className='w-full' />
-                                <div className='-mt-3 min-w-fit px-2 text-xs uppercase flex gap-1 items-center'>
+                                <div className='-mt-3 min-w-fit px-2 uppercase flex gap-1 items-center'>
                                     <p>Languages &amp; Experience</p>
                                     <ArrowComponent
                                         display={showKnowledgeList}

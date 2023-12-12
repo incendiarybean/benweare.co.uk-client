@@ -61,7 +61,7 @@ const CardCarousel = ({ Endpoint, SiteName }: CardProps) => {
         <div
             ref={navigationElement}
             id={`${SiteName}-news`}
-            className='px-1 md:px-6 my-2 w-full'
+            className='px-1 md:px-6 my-2 w-auto'
         >
             <div className='text-left flex flex-col w-full items-center justify-center md:p-4 md:border border-slate-300 dark:border-zinc-600/20 rounded'>
                 {loaded && articles && (
@@ -74,30 +74,22 @@ const CardCarousel = ({ Endpoint, SiteName }: CardProps) => {
                                         href={article.url}
                                         rel='noreferrer'
                                         target='_blank'
-                                        className={`${
-                                            index === articlePage
-                                                ? 'flex'
-                                                : 'hidden'
-                                        } w-full rounded-t xl:rounded xl:shadow hover:shadow-md flex-col xl:flex-row bg-white dark:bg-zinc-900 xl:border border-slate-300 dark:border-zinc-600/30`}
+                                        className={`flex w-full rounded-t xl:rounded xl:shadow hover:shadow-md flex-col xl:flex-row bg-white dark:bg-zinc-900 xl:border border-slate-300 dark:border-zinc-600/30`}
                                     >
-                                        <div className='flex-grow'>
-                                            <img
-                                                alt={`${SiteName} Image: ${article.title}`}
-                                                src={article.img}
-                                                className='w-full md:w-full xl:w-96 h-60 xl:h-60 object-cover shadow rounded-t xl:rounded-tr-none xl:rounded-l'
-                                            />
-                                        </div>
+                                        <img
+                                            alt={`${SiteName} Image: ${article.title}`}
+                                            src={article.img}
+                                            className='w-full md:w-full xl:w-96 h-60 object-cover shadow rounded-t xl:rounded-tr-none xl:rounded-l'
+                                        />
 
-                                        <div className='w-full xl:w-1/2 p-3 flex flex-col justify-between text-left h-36 md:h-40 xl:h-60 overflow-auto'>
+                                        <div className='w-full p-4 flex flex-col justify-between text-left h-36 md:h-40 xl:h-60 overflow-hidden'>
                                             <div>
-                                                <div className='flex md:w-full text-xs items-center justify-between text-blue-600 dark:text-sky-500'>
-                                                    <h2 className='-mx-1 flex items-center font-bold uppercase text-base'>
-                                                        <span>
-                                                            <RightCornerArrow />
-                                                        </span>
+                                                <div className='flex flex-wrap md:w-full items-center justify-between text-sm text-blue-600 dark:text-sky-500'>
+                                                    <h2 className='min-w-fit -mx-1 flex items-center font-bold uppercase'>
+                                                        <RightCornerArrow />
                                                         {SiteName}
                                                     </h2>
-                                                    <span className='mr-2'>
+                                                    <span className='mr-2 text-xs'>
                                                         {new Date(
                                                             article.date
                                                         ).toLocaleDateString(
@@ -105,7 +97,7 @@ const CardCarousel = ({ Endpoint, SiteName }: CardProps) => {
                                                         )}
                                                     </span>
                                                 </div>
-                                                <p className='text-base md:text-lg xl:text-xl font-bold leading-normal flex'>
+                                                <p className='text-lg xl:text-xl font-bold leading-normal line-clamp-4 xl:line-clamp-none'>
                                                     {article.title}
                                                 </p>
                                             </div>

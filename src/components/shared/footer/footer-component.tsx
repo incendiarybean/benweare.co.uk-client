@@ -2,12 +2,12 @@ import { GitHub, Newspaper, Npm } from '@icons';
 
 const FooterComponent = () => {
     return (
-        <footer className='p-4 py-8 flex justify-around border-t dark:border-sky-100/10'>
+        <footer className='p-4 py-8 flex justify-around border-t border-slate-300 dark:border-sky-100/10'>
             <div className='flex flex-col'>
                 <ul className='flex justify-around'>
                     <li>
                         <a
-                            className='px-2 block dark:text-slate-400 hover:text-sky-500 dark:hover:text-sky-500'
+                            className='icon-link'
                             href='https://benweare.co.uk/api/docs'
                         >
                             <span className='sr-only'>API Documentation</span>
@@ -16,7 +16,7 @@ const FooterComponent = () => {
                     </li>
                     <li>
                         <a
-                            className='px-2 block dark:text-slate-400 hover:text-sky-500 dark:hover:text-sky-500'
+                            className='icon-link'
                             href='https://www.npmjs.com/~incendiarybean'
                         >
                             <span className='sr-only'>
@@ -27,7 +27,7 @@ const FooterComponent = () => {
                     </li>
                     <li>
                         <a
-                            className='px-2 block dark:text-slate-400 hover:text-sky-500 dark:hover:text-sky-500'
+                            className='icon-link'
                             href='https://github.com/incendiarybean'
                         >
                             <span className='sr-only'>
@@ -44,7 +44,7 @@ const FooterComponent = () => {
                             target='_blank'
                             rel='noreferrer'
                             href='https://steamcommunity.com/id/IncendiaryBean/'
-                            className='my-1 text-sm dark:text-slate-400 hover:text-sky-500 dark:hover:text-sky-500'
+                            className='footer-link'
                         >
                             Steam
                         </a>
@@ -54,7 +54,7 @@ const FooterComponent = () => {
                             target='_blank'
                             rel='noreferrer'
                             href='https://discordapp.com/users/Beanerino#0454'
-                            className='my-1 text-sm dark:text-slate-400 hover:text-sky-500 dark:hover:text-sky-500'
+                            className='footer-link'
                         >
                             Discord
                         </a>
@@ -64,7 +64,7 @@ const FooterComponent = () => {
                             target='_blank'
                             rel='noreferrer'
                             href='https://www.instagram.com/ben.weare/'
-                            className='my-1 text-sm dark:text-slate-400 hover:text-sky-500 dark:hover:text-sky-500'
+                            className='footer-link'
                         >
                             Instagram
                         </a>
@@ -74,7 +74,7 @@ const FooterComponent = () => {
                             target='_blank'
                             rel='noreferrer'
                             href='https://open.spotify.com/user/incendiarybean'
-                            className='my-1 text-sm dark:text-slate-400 hover:text-sky-500 dark:hover:text-sky-500'
+                            className='footer-link'
                         >
                             Spotify
                         </a>

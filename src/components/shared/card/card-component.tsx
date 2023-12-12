@@ -27,10 +27,10 @@ const Card = ({ Endpoint, SiteName }: CardProps) => {
     }, [Endpoint, SiteName]);
 
     return (
-        <div className='px-1 md:px-6 my-2 w-full'>
+        <div className='px-1 md:px-6 my-2 w-auto'>
             <div className='animate__animated animate__fadeIn animate__faster text-left flex flex-col w-full items-center justify-center md:p-4 md:border border-slate-300 dark:border-zinc-600/20 rounded'>
                 {loaded && article && (
-                    <div className='card border border-slate-300 dark:border-zinc-600/30 w-full rounded flex-col xl:flex-row bg-white dark:bg-zinc-900 shadow'>
+                    <div className='border border-slate-300 dark:border-zinc-600/30 w-full rounded flex-col xl:flex-row bg-white dark:bg-zinc-900 shadow'>
                         {article.url.includes('youtube') ? (
                             <iframe
                                 className='rounded-t w-full h-96 shadow-sm'
@@ -41,7 +41,7 @@ const Card = ({ Endpoint, SiteName }: CardProps) => {
                                 }`}
                                 allow='autoplay; encrypted-media;'
                                 allowFullScreen
-                                title='Embedded youtube'
+                                title={`Embedded YouTube video provided by ${SiteName}`}
                             />
                         ) : (
                             <a
@@ -50,7 +50,7 @@ const Card = ({ Endpoint, SiteName }: CardProps) => {
                                 aria-label={`Open ${SiteName} Image`}
                             >
                                 <img
-                                    alt='NASA Image of the Day'
+                                    alt={`${SiteName} Image`}
                                     src={article.url}
                                     className='rounded-t w-full h-64 shadow-sm object-cover'
                                 />
@@ -59,33 +59,45 @@ const Card = ({ Endpoint, SiteName }: CardProps) => {
 
                         <div className='w-full p-3 flex flex-col h-auto overflow-auto'>
                             <div>
-                                <div className='flex md:w-full text-xs text-left items-center justify-between text-blue-600 dark:text-sky-500'>
-                                    <h2 className='-mx-1 flex items-center font-bold uppercase text-base'>
+                                <div className='flex md:w-full items-center justify-between text-sm text-blue-600 dark:text-sky-500'>
+                                    <h2 className='-mx-1 flex items-center font-bold uppercase'>
                                         <span>
                                             <RightCornerArrow />
                                         </span>
                                         {SiteName}
                                     </h2>
-                                    <span className='mr-2'>
+                                    <span className='mr-2 text-xs'>
                                         {new Date(
                                             article.date
                                         ).toLocaleDateString('en-UK')}
                                     </span>
                                 </div>
-                                <p className='text-left text-sm md:text-lg xl:text-xl font-bold leading-normal flex'>
+                                <p className='md:text-lg xl:text-xl font-bold leading-normal flex'>
                                     {article.title}
                                 </p>
                             </div>
-                            <div className='flex mb-2'>
+                            <div className='flex justify-between items-center mb-2'>
                                 <button
-                                    className='text-blue-500 dark:text-sky-400 hover:text-blue-700 hover:dark:text-sky-600 flex items-center gap-1 text-xs uppercase'
+                                    className='default-link flex items-center gap-1'
                                     onClick={() => setShow(!show)}
                                 >
                                     <p>Read the Article</p>
                                     <ArrowComponent display={show} />
                                 </button>
+                                <a
+                                    className='default-link'
+                                    href={article.url}
+                                    rel='noreferrer'
+                                    target='_blank'
+                                >
+                                    Watch on Youtube
+                                </a>
                             </div>
-                            {show && <p>{article.description}</p>}
+                            {show && (
+                                <p className='text-justify'>
+                                    {article.description}
+                                </p>
+                            )}
                         </div>
                     </div>
                 )}

@@ -3,8 +3,7 @@
 @tailwind utilities;
 
 html {
-    @apply bg-zinc-200;
-    @apply dark:bg-zinc-800;
+    @apply bg-zinc-200 dark:bg-zinc-800 text-slate-800 dark:text-white min-w-[16rem];
     overflow: overlay;
 }
 
@@ -68,6 +67,18 @@ body {
     @apply border-slate-300 dark:border-zinc-600/40;
 }
 
+.default-link {
+    @apply text-sm md:text-xs text-blue-500 dark:text-sky-300 hover:text-blue-700 hover:dark:text-sky-600 uppercase;
+}
+
+.icon-link {
+    @apply px-2 block dark:text-slate-400 hover:text-sky-500 dark:hover:text-sky-500;
+}
+
+.footer-link {
+    @apply my-1 text-sm dark:text-slate-400 hover:text-sky-500 dark:hover:text-sky-500;
+}
+
 .highlighted-text {
     @apply text-blue-600 dark:text-sky-500;
 }
@@ -99,7 +110,7 @@ body {
                 }
 
                 h2 {
-                    @apply text-xs -mt-2 mb-2 text-sky-600 dark:text-sky-400 font-bold uppercase;
+                    @apply text-sm -mt-2 mb-2 text-sky-600 dark:text-sky-400 font-bold uppercase;
                 }
 
                 hr {
@@ -132,6 +143,113 @@ body {
             }
             &.item {
                 @apply border-t border-gray-100 dark:border-gray-600 hover:bg-slate-100 dark:hover:bg-zinc-900/70;
+            }
+        }
+    }
+}
+
+/* Navigation Components */
+.navigation {
+    &.navigation-top {
+        @apply sticky top-0 z-40 w-full backdrop-blur-xl sm:backdrop-blur flex-none md:border-b md:border-sky-500/20 dark:border-sky-100/10 bg-transparent;
+
+        .navigation-top-wrapper {
+            @apply py-4 border-b border-sky-900/10 px-2 md:px-6 md:border-0 dark:border-sky-300/10 flex justify-between items-center;
+
+            .desktop-orientation {
+                @apply hidden md:flex items-center;
+
+                .desktop-menu-wrapper {
+                    @apply flex gap-4 items-center;
+
+                    a {
+                        @apply icon-link;
+                    }
+                }
+            }
+
+            .mobile-orientation {
+                @apply ml-2 -my-1 md:hidden;
+
+                .burger-menu-icon {
+                    @apply border border-zinc-500 rounded-md w-8 h-8 flex items-center justify-center hover:text-slate-600 dark:text-slate-400 dark:hover:text-slate-300;
+                }
+
+                .close-menu-icon {
+                    @apply hover:bg-zinc-300 hover:dark:bg-zinc-500 rounded-md text-zinc-800 w-8 h-8 flex items-center justify-center hover:text-slate-600 dark:text-slate-400 dark:hover:text-slate-300;
+                }
+
+                .mobile-menu-wrapper {
+                    @apply absolute top-0 left-0 w-full h-screen bg-zinc-500 bg-opacity-30;
+
+                    .mobile-menu-flex {
+                        @apply flex justify-start h-full;
+
+                        .mobile-menu {
+                            @apply h-full w-full sm:w-10/12 bg-zinc-200 dark:bg-zinc-900 shadow p-2 flex flex-col justify-between rounded-r-xl border-r border-zinc-400 dark:border-zinc-600 overflow-y-auto;
+
+                            .menu-item {
+                                @apply mt-1 overflow-hidden text-base;
+                            }
+
+                            .menu-icon {
+                                @apply p-2 text-zinc-500;
+                            }
+
+                            .internal-link {
+                                @apply mt-2 w-full h-10 flex gap-2 items-center rounded-xl px-2;
+
+                                &.active {
+                                    @apply bg-zinc-300 dark:bg-zinc-800;
+                                }
+
+                                &.inactive {
+                                    @apply hover:text-sky-400;
+                                }
+                            }
+
+                            .external-link {
+                                @apply w-full h-10 flex gap-2 items-center hover:text-sky-400 px-2;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    &.navigation-right {
+        @apply flex-1 hidden lg:flex justify-start md:mx-4 min-w-[12rem];
+    }
+
+    &.navigation-left {
+        @apply flex-1 hidden md:flex justify-end md:mx-4 min-w-[12rem];
+
+        .navigation-left-wrapper {
+            @apply flex flex-col gap-2 w-48 mt-28 fixed top-0;
+
+            .menu-item {
+                @apply overflow-hidden md:ml-2 mt-1 text-sm;
+            }
+
+            .item-icon {
+                @apply p-3;
+            }
+
+            .internal-link {
+                @apply transition-bg ease-in-out duration-100 w-full h-12 flex items-center md:rounded p-3;
+
+                &.active {
+                    @apply text-white bg-sky-600/80 dark:bg-sky-400/10 hover:from-sky-600 hover:to-sky-800 leading-loose shadow;
+                }
+
+                &.inactive {
+                    @apply hover:bg-zinc-100 dark:hover:bg-zinc-900/40 hover:shadow;
+                }
+            }
+
+            .external-link {
+                @apply transition-colors ease-in-out duration-100 hover:bg-zinc-100 dark:hover:bg-zinc-900/40 hover:shadow w-full h-12 flex items-center md:rounded p-3;
             }
         }
     }
