@@ -26,6 +26,8 @@ const InfoPage = () => {
                                 <img
                                     className='image'
                                     src={profile_image}
+                                    width='256px'
+                                    height='256px'
                                     alt="Ben Weare, Benjamin Weare's mugshot"
                                     loading='eager'
                                 />
