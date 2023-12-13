@@ -346,6 +346,28 @@ export const DownArrow = () => (
     </svg>
 );
 
+export const BackArrow = () => (
+    <svg
+        height='21'
+        viewBox='0 0 21 21'
+        width='21'
+        xmlns='http://www.w3.org/2000/svg'
+    >
+        <g
+            fill='none'
+            fillRule='evenodd'
+            stroke='currentColor'
+            strokeLinecap='round'
+            strokeLinejoin='round'
+            transform='translate(3.5 6.5)'
+        >
+            <path d='m14 8v-2c0-1.65685425-1.3431458-3-3-3h-8' />
+            <path d='m3 6-3.001-3 3.001-3' />
+            <path d='m6 6-3.001-3 3.001-3' />
+        </g>
+    </svg>
+);
+
 export const Newspaper = () => (
     <svg
         height='21'

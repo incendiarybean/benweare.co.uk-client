@@ -2,30 +2,29 @@ import { SwipeHandler } from '@common/hooks/swipeHandler';
 import type { CardProps, NewsArticle } from '@common/types';
 import { IO, sleep } from '@common/utils';
 import { ErrorComponent, Loader } from '@components';
-import { RightCornerArrow } from '@icons';
+import { BackArrow, LeftArrow, RightArrow, RightCornerArrow } from '@icons';
 import { createRef, useEffect, useState } from 'react';
-import CardCarouselButtons from './card-carousel-buttons';
 
 const CardCarousel = ({ Endpoint, SiteName }: CardProps) => {
     const [articles, setArticles] = useState<NewsArticle[]>([]);
-    const [articlePage, setArticlePage] = useState<number>(0);
+    const [currentPage, setCurrentPage] = useState<number>(0);
     const [loaded, setLoaded] = useState<boolean | string>(false);
 
     const handleRotation = (index: number) => {
         if (index === articles.length) {
-            return setArticlePage(0);
+            return setCurrentPage(0);
         }
         if (index < 0) {
-            return setArticlePage(articles.length - 1);
+            return setCurrentPage(articles.length - 1);
         }
-        setArticlePage(index);
+        setCurrentPage(index);
     };
 
     const swipeAction = (direction: boolean) => {
         if (direction) {
-            return handleRotation(articlePage + 1);
+            return handleRotation(currentPage + 1);
         }
-        return handleRotation(articlePage - 1);
+        return handleRotation(currentPage - 1);
     };
 
     const preloadImages = (data: NewsArticle[]) =>
@@ -61,35 +60,35 @@ const CardCarousel = ({ Endpoint, SiteName }: CardProps) => {
         <div
             ref={navigationElement}
             id={`${SiteName}-news`}
-            className='px-1 md:px-6 my-2 w-auto'
+            className='card-carousel'
         >
-            <div className='text-left flex flex-col w-full items-center justify-center md:p-4 md:border border-slate-300 dark:border-zinc-600/20 rounded'>
-                {loaded && articles && (
-                    <div className='animate__animated animate__fadeIn animate__faster w-full border xl:border-none border-slate-300 dark:border-zinc-600/30 rounded shadow xl:shadow-none'>
+            <div className='animate__animated animate__fadeIn animate__faster card-container'>
+                {loaded && loaded !== 'Failed' && articles && (
+                    <div className='wrapper'>
                         {articles.map(
                             (article, index) =>
-                                index === articlePage && (
+                                index === currentPage && (
                                     <a
                                         key={`${article.url}-${article.id}`}
                                         href={article.url}
                                         rel='noreferrer'
                                         target='_blank'
-                                        className={`flex w-full rounded-t xl:rounded xl:shadow hover:shadow-md flex-col xl:flex-row bg-white dark:bg-zinc-900 xl:border border-slate-300 dark:border-zinc-600/30`}
+                                        className='carousel-card'
                                     >
                                         <img
                                             alt={`${SiteName} Image: ${article.title}`}
                                             src={article.img}
-                                            className='w-full md:w-full xl:w-96 h-60 object-cover shadow rounded-t xl:rounded-tr-none xl:rounded-l'
+                                            className='carousel-card-image'
                                         />
 
-                                        <div className='w-full p-4 flex flex-col justify-between text-left h-36 md:h-40 xl:h-60 overflow-hidden'>
-                                            <div>
-                                                <div className='flex flex-wrap md:w-full items-center justify-between text-sm text-blue-600 dark:text-sky-500'>
-                                                    <h2 className='min-w-fit -mx-1 flex items-center font-bold uppercase'>
+                                        <div className='content'>
+                                            <div className='content-inner'>
+                                                <div className='content-title'>
+                                                    <h2>
                                                         <RightCornerArrow />
                                                         {SiteName}
                                                     </h2>
-                                                    <span className='mr-2 text-xs'>
+                                                    <span>
                                                         {new Date(
                                                             article.date
                                                         ).toLocaleDateString(
@@ -97,19 +96,62 @@ const CardCarousel = ({ Endpoint, SiteName }: CardProps) => {
                                                         )}
                                                     </span>
                                                 </div>
-                                                <p className='text-lg xl:text-xl font-bold leading-normal line-clamp-4 xl:line-clamp-none'>
-                                                    {article.title}
-                                                </p>
+                                                <p>{article.title}</p>
                                             </div>
                                         </div>
+                                        <hr />
                                     </a>
                                 )
                         )}
-                        <CardCarouselButtons
-                            handleRotation={handleRotation}
-                            currentPage={articlePage}
-                            articles={articles}
-                        />
+
+                        <div className='card-navigator'>
+                            <div className='rotator'>
+                                <button
+                                    aria-label='Return to first Article'
+                                    className='rotator-button-hidden'
+                                    onClick={() => handleRotation(0)}
+                                >
+                                    <BackArrow />
+                                </button>
+
+                                <button
+                                    aria-label={`Return to previous Article (Article ${
+                                        currentPage - 1
+                                    })`}
+                                    className='rotator-button'
+                                    onClick={() =>
+                                        handleRotation(currentPage - 1)
+                                    }
+                                >
+                                    <LeftArrow />
+                                </button>
+
+                                {articles.map((data, index) => (
+                                    <button
+                                        aria-label={`Move to next Article (Article ${
+                                            currentPage + 1
+                                        })`}
+                                        key={`${data.url}-${data.id}-navigator`}
+                                        onClick={() => handleRotation(index)}
+                                        className={`pip ${
+                                            index === currentPage
+                                                ? 'pip-active'
+                                                : 'pip-inactive'
+                                        }`}
+                                    />
+                                ))}
+
+                                <button
+                                    aria-label='Next Article'
+                                    className='rotator-button'
+                                    onClick={() =>
+                                        handleRotation(currentPage + 1)
+                                    }
+                                >
+                                    <RightArrow />
+                                </button>
+                            </div>
+                        </div>
                     </div>
                 )}
                 {loaded === 'Failed' && <ErrorComponent feedName={SiteName} />}
