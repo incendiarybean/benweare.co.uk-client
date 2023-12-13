@@ -5,7 +5,7 @@ import { ErrorComponent, Loader } from '@components';
 import { BackArrow, LeftArrow, RightArrow, RightCornerArrow } from '@icons';
 import { createRef, useEffect, useState } from 'react';
 
-const CardCarousel = ({ Endpoint, SiteName }: CardProps) => {
+const NewsCarousel = ({ Endpoint, SiteName }: CardProps) => {
     const [articles, setArticles] = useState<NewsArticle[]>([]);
     const [currentPage, setCurrentPage] = useState<number>(0);
     const [loaded, setLoaded] = useState<boolean | string>(false);
@@ -169,4 +169,4 @@ const CardCarousel = ({ Endpoint, SiteName }: CardProps) => {
     );
 };
 
-export default CardCarousel;
+export default NewsCarousel;
