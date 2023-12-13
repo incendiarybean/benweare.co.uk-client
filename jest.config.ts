@@ -5,6 +5,7 @@ export default {
     roots: ['<rootDir>'],
     modulePaths: ['./'],
     moduleNameMapper: {
+        '^@icons': '<rootDir>/src/components/shared/icons',
         '^@common/(.ts)$': '<rootDir>/src/common/$1',
         '^@common/constants': '<rootDir>/src/common/constants.ts',
         '^@common/utils': '<rootDir>/src/common/utils/index.ts',

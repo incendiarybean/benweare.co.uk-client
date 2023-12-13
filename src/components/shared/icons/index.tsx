@@ -181,34 +181,21 @@ export const Info = () => (
         xmlns='http://www.w3.org/2000/svg'
     >
         <g
-            className='stroke-current'
             fill='none'
             fillRule='evenodd'
+            transform='translate(2 2)'
             strokeWidth='1.3'
         >
-            <circle
-                className='stroke-current'
-                cx='10.5'
-                cy='10.5'
-                r='8'
-                stroke='white'
+            <g
+                stroke='currentColor'
                 strokeLinecap='round'
                 strokeLinejoin='round'
-            />
-            <path
-                className='stroke-current'
-                d='m10.5 14.5v-4'
-                stroke='white'
-                strokeLinecap='round'
-                strokeLinejoin='round'
-            />
-            <circle
-                className='stroke-current'
-                cx='10.5'
-                cy='7.5'
-                fill='white'
-                r='1'
-            />
+            >
+                <circle cx='8.5' cy='8.5' r='8' />
+                <path d='m8.5 12.5v-4h-1' />
+                <path d='m7.5 12.5h2' />
+            </g>
+            <circle cx='8.5' cy='5.5' fill='currentColor' r='1' />
         </g>
     </svg>
 );
@@ -244,6 +231,27 @@ export const RightCornerArrow = () => (
         >
             <path d='m8.5 7.5v-7h-7' />
             <path d='m8.5.5-8 8' />
+        </g>
+    </svg>
+);
+
+export const RightCircleArrow = () => (
+    <svg
+        height='21'
+        viewBox='0 0 21 21'
+        width='21'
+        xmlns='http://www.w3.org/2000/svg'
+    >
+        <g
+            fill='none'
+            fillRule='evenodd'
+            stroke='currentColor'
+            strokeLinecap='round'
+            strokeLinejoin='round'
+            transform='translate(2 2)'
+        >
+            <circle cx='8.5' cy='8.5' r='8' />
+            <path d='m7.5 11.5 3-3-3.068-3' />
         </g>
     </svg>
 );
@@ -334,6 +342,28 @@ export const DownArrow = () => (
                 points='9.621 6.379 9.621 10.621 5.379 10.621'
                 transform='scale(1 -1) rotate(-45 -13.02 0)'
             />
+        </g>
+    </svg>
+);
+
+export const BackArrow = () => (
+    <svg
+        height='21'
+        viewBox='0 0 21 21'
+        width='21'
+        xmlns='http://www.w3.org/2000/svg'
+    >
+        <g
+            fill='none'
+            fillRule='evenodd'
+            stroke='currentColor'
+            strokeLinecap='round'
+            strokeLinejoin='round'
+            transform='translate(3.5 6.5)'
+        >
+            <path d='m14 8v-2c0-1.65685425-1.3431458-3-3-3h-8' />
+            <path d='m3 6-3.001-3 3.001-3' />
+            <path d='m6 6-3.001-3 3.001-3' />
         </g>
     </svg>
 );
@@ -499,7 +529,7 @@ export const Cross = () => (
         version='1.1'
         width='16'
         data-view-component='true'
-        className='fill-current'
+        fill='currentColor'
     >
         <path d='M3.72 3.72a.75.75 0 0 1 1.06 0L8 6.94l3.22-3.22a.749.749 0 0 1 1.275.326.749.749 0 0 1-.215.734L9.06 8l3.22 3.22a.749.749 0 0 1-.326 1.275.749.749 0 0 1-.734-.215L8 9.06l-3.22 3.22a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042L6.94 8 3.72 4.78a.75.75 0 0 1 0-1.06Z'></path>
     </svg>
@@ -510,7 +540,8 @@ export const Npm = () => (
         width='24'
         height='24'
         xmlns='http://www.w3.org/2000/svg'
-        className='w-5 h-5 text-white dark:text-black fill-current bg-slate-800 dark:bg-slate-400 hover:bg-sky-400 rounded-full'
+        fill='currentColor'
+        className='w-5 h-5 rounded-full'
         viewBox='0 0 576 512'
     >
         <path

@@ -8,26 +8,16 @@ export type NewsArticle = {
     date: string;
 };
 
-export type NewsCarousel = {
-    Endpoint: string;
+export type CardProps = {
+    /** The website that the articles are fetched from. */
     SiteName: string;
-};
 
-export type Card = {
+    /** The endpoint to fetch articles from. */
     Endpoint: string;
-};
-
-export type NewsCard = {
-    SiteName: string;
-} & Card;
-
-export type NavbarProps = {
-    isActivePage: (val: string) => boolean;
-    setActivePage: React.Dispatch<string>;
 };
 
 export type ErrorComponentProps = {
-    err: { feedName: string };
+    feedName: string;
 };
 
 export type ArrowComponentProps = {

@@ -1,8 +1,8 @@
 import { ExternalClickHandler } from '@common/hooks/externalClickHandler';
-import type { NavbarProps } from '@common/types';
 import { animateCSS } from '@common/utils';
+import { Footer } from '@components';
 import { createRef, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import {
     Box,
     Burger,
@@ -14,7 +14,7 @@ import {
     Packages,
 } from 'src/components/shared/icons';
 
-const MobileNav = ({ setActivePage, isActivePage }: NavbarProps) => {
+const MobileNav = () => {
     const [settingsOpen, setSettingsOpen] = useState(false);
 
     const accountElement = createRef<HTMLDivElement>();
@@ -43,10 +43,10 @@ const MobileNav = ({ setActivePage, isActivePage }: NavbarProps) => {
                 hidden={!settingsOpen}
                 className='absolute top-0 left-0 w-full h-screen bg-zinc-500 bg-opacity-30'
             >
-                <div className='popin-settings flex justify-start w-full h-full'>
+                <div className='popin-settings flex justify-start h-full'>
                     <div
                         ref={accountElement}
-                        className='bg-zinc-200 dark:bg-zinc-900 shadow w-10/12 p-2 flex flex-col justify-between rounded-r-xl border-r border-zinc-400 dark:border-zinc-600'
+                        className='h-full w-full sm:w-10/12 bg-zinc-200 dark:bg-zinc-900 shadow p-2 flex flex-col justify-between rounded-r-xl border-r border-zinc-400 dark:border-zinc-600 overflow-y-auto'
                     >
                         <div className='space-y-2 mx-2'>
                             <div className='flex justify-between items-center pt-2 pb-1 border-b border-zinc-500'>
@@ -64,113 +64,79 @@ const MobileNav = ({ setActivePage, isActivePage }: NavbarProps) => {
                                 </button>
                             </div>
 
-                            <Link
+                            <NavLink
                                 to='/dashboard'
-                                className={`${
-                                    isActivePage('/dashboard')
-                                        ? 'bg-zinc-300 dark:bg-zinc-800 border-l-4 border-sky-400'
-                                        : 'hover:text-sky-400'
-                                } mt-2 w-full md:w-48 h-10 flex items-center rounded-r-xl`}
-                                onClick={() => setActivePage('/dashboard')}
+                                className={({ isActive }) =>
+                                    `mobile-internal-link ${
+                                        isActive ? 'active' : 'inactive'
+                                    }`
+                                }
                             >
-                                <div className='p-2 text-zinc-500'>
-                                    <Home />
-                                </div>
+                                <Home />
 
-                                <p className='overflow-hidden md:ml-2 text-md'>
-                                    Dashboard
-                                </p>
-                            </Link>
+                                <p className='mobile-menu-item'>Dashboard</p>
+                            </NavLink>
 
-                            <Link
+                            <NavLink
                                 to='/'
-                                className={`${
-                                    isActivePage('/')
-                                        ? 'bg-zinc-300 dark:bg-zinc-800 border-l-4 border-sky-400'
-                                        : 'hover:text-sky-400'
-                                } mt-2 w-full md:w-48 h-10 flex items-center rounded-r-xl`}
-                                onClick={() => setActivePage('/')}
+                                className={({ isActive }) =>
+                                    `mobile-internal-link ${
+                                        isActive ? 'active' : 'inactive'
+                                    }`
+                                }
                             >
-                                <div className='p-2 text-zinc-500'>
-                                    <Info />
-                                </div>
+                                <Info />
 
-                                <p className='overflow-hidden md:ml-2 text-md'>
-                                    About
-                                </p>
-                            </Link>
+                                <p className='mobile-menu-item'>About</p>
+                            </NavLink>
 
                             <a
                                 target='_blank'
                                 rel='noreferrer'
                                 href='https://www.npmjs.com/~incendiarybean'
-                                className='w-full md:w-48 h-11 flex items-center hover:text-sky-400'
+                                className='mobile-external-link'
                             >
-                                <div className='p-2 text-zinc-500'>
-                                    <Packages />
-                                </div>
+                                <Packages />
 
-                                <p className='overflow-hidden md:ml-2 text-md font-medium'>
-                                    Packages
-                                </p>
+                                <p className='mobile-menu-item'>Packages</p>
                             </a>
 
                             <a
                                 target='_blank'
                                 rel='noreferrer'
                                 href='https://github.com/incendiarybean'
-                                className='w-full md:w-48 h-11 flex items-center hover:text-sky-400'
+                                className='mobile-external-link'
                             >
-                                <div className='p-2 text-zinc-500'>
-                                    <OpenBox />
-                                </div>
+                                <OpenBox />
 
-                                <p className='overflow-hidden md:ml-2 text-md font-medium'>
-                                    GitHub
-                                </p>
+                                <p className='mobile-menu-item'>GitHub</p>
                             </a>
 
                             <a
                                 target='_blank'
                                 rel='noreferrer'
                                 href='https://hub.docker.com/u/incendiarybean'
-                                className='w-full md:w-48 h-11 flex items-center hover:text-sky-400'
+                                className='mobile-external-link'
                             >
-                                <div className='p-2 text-zinc-500'>
-                                    <Box />
-                                </div>
+                                <Box />
 
-                                <p className='overflow-hidden md:ml-2 text-md font-medium'>
-                                    Docker
-                                </p>
+                                <p className='mobile-menu-item'>Docker</p>
                             </a>
+
                             <a
                                 target='_blank'
                                 rel='noreferrer'
                                 href='/api/docs'
-                                className='w-full md:w-48 h-11 flex items-center hover:text-sky-400'
+                                className='mobile-external-link'
                             >
-                                <div className='p-2 text-zinc-500'>
-                                    <Newspaper />
-                                </div>
+                                <Newspaper />
 
-                                <p className='p-1 overflow-hidden md:ml-2 text-md font-medium'>
+                                <p className='mobile-menu-item'>
                                     Documentation
                                 </p>
                             </a>
                         </div>
-                        <div className='h-16 w-full flex justify-start items-center'>
-                            <span className='ml-3 text-xs leading-5 font-medium text-sky-600 dark:text-sky-400 bg-sky-400/30 dark:bg-sky-400/10 rounded-full py-1 px-3 items-center'>
-                                <strong className='font-semibold'>
-                                    benweare.co.uk
-                                </strong>
-                            </span>
-                            <span className='ml-3 text-xs leading-5 font-medium text-sky-600 dark:text-sky-400 bg-sky-400/30 dark:bg-sky-400/10 rounded-full py-1 px-3 items-center'>
-                                <strong className='font-semibold'>
-                                    v{VITE_APP_VERSION}
-                                </strong>
-                            </span>
-                        </div>
+                        <Footer />
                     </div>
                 </div>
             </div>

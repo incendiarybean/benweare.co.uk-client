@@ -1,10 +1,10 @@
 import type { ErrorComponentProps } from '@common/types';
 
-const ErrorComponent = ({ err }: ErrorComponentProps) => {
+const ErrorComponent = ({ feedName }: ErrorComponentProps) => {
     return (
         <div className='w-full h-12 flex items-center'>
             <div className='w-full px-4 mb-2 p-2 items-center flex justify-around'>
-                <div className='text-white bg-red-500 dark:bg-red-500/60 rounded-full shadow-md flex justify-around p-1 px-2 items-center'>
+                <div className='text-white bg-red-500 dark:bg-red-500/60 rounded-full shadow flex justify-around p-1 px-2 items-center'>
                     <svg
                         strokeWidth='1.3'
                         height='24'
@@ -35,8 +35,8 @@ const ErrorComponent = ({ err }: ErrorComponentProps) => {
                             />
                         </g>
                     </svg>
-                    <p className='mx-1 text-sm md:text-md'>
-                        ERROR: {err.feedName} component has failed to load.
+                    <p className='mx-1 text-sm md:text-base'>
+                        ERROR: {feedName} component has failed to load.
                     </p>
                 </div>
             </div>
