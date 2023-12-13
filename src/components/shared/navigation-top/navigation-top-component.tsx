@@ -3,8 +3,8 @@ import MobileNav from './device/mobile-orientation';
 
 const NavigationBar = () => {
     return (
-        <div className='navigation navigation-top'>
-            <div className='navigation-top-wrapper'>
+        <div className='sticky top-0 z-40 w-full backdrop-blur-xl sm:backdrop-blur flex-none md:border-b md:border-sky-500/20 dark:border-sky-100/10 bg-transparent'>
+            <div className='py-4 border-b border-sky-900/10 px-2 md:px-6 md:border-0 dark:border-sky-300/10 flex justify-between items-center'>
                 <MobileNav />
                 <div className='mx-4 md:mx-0 flex items-center justify-between md:justify-start w-full'>
                     <a

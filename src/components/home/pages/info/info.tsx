@@ -17,14 +17,14 @@ const InfoPage = () => {
     }, []);
 
     return (
-        <div className='info-page'>
+        <div>
             {loaded && (
                 <div className='animate__animated animate__fadeIn animate__faster flex flex-col px-2 md:px-6 my-3'>
-                    <div className='wrapper'>
-                        <div className='content'>
-                            <div className='image-wrapper'>
+                    <div className='flex flex-col w-full bg-white dark:bg-zinc-900/70 rounded shadow p-10 mt-28'>
+                        <div>
+                            <div className='flex justify-center items-center mb-5'>
                                 <img
-                                    className='image'
+                                    className='min-w-fit -mt-32 rounded-full shadow border-8 border-white dark:border-zinc-900/60'
                                     src={profile_image}
                                     width='256px'
                                     height='256px'
@@ -32,11 +32,15 @@ const InfoPage = () => {
                                     loading='eager'
                                 />
                             </div>
-                            <div className='context'>
-                                <h1>Ben Weare</h1>
-                                <h2>Gloucestershire, England</h2>
-                                <hr />
-                                <p>
+                            <div className='text-center'>
+                                <h1 className='text-2xl font-semibold leading-loose'>
+                                    Ben Weare
+                                </h1>
+                                <h2 className='text-sm -mt-2 mb-2 text-sky-600 dark:text-sky-400 font-bold uppercase'>
+                                    Gloucestershire, England
+                                </h2>
+                                <hr className='mb-4 mt-2' />
+                                <p className='font-light leading-relaxed'>
                                     I'm an aspiring Full-Stack Software
                                     Developer. I work mostly with NodeJS and
                                     Python with hosting using AWS
@@ -60,51 +64,48 @@ const InfoPage = () => {
                             </button>
                         </div>
                     </div>
-                    <div
-                        hidden={!showKnowledgeList}
-                        className='info-page-service-list'
-                    >
+                    <div hidden={!showKnowledgeList} className='list-container'>
                         <div className='snap-start'>
                             <h3 className='heading'>Services/Environments</h3>
-                            <div className='service-list-wrapper'>
+                            <div className='list-wrapper'>
                                 <a
                                     href='https://www.docker.com/'
-                                    className='service-list first-item'
+                                    className='list first-item'
                                 >
                                     Docker
                                 </a>
 
                                 <a
                                     href='https://aws.amazon.com/'
-                                    className='service-list item'
+                                    className='list item'
                                 >
                                     AWS CLI
                                 </a>
 
                                 <a
                                     href='https://www.heroku.com/'
-                                    className='service-list item'
+                                    className='list item'
                                 >
                                     HEROKU CLI
                                 </a>
 
                                 <a
                                     href='https://microk8s.io/'
-                                    className='service-list item'
+                                    className='list item'
                                 >
                                     MicroK8s
                                 </a>
 
                                 <a
                                     href='https://kubernetes.io/'
-                                    className='service-list item'
+                                    className='list item'
                                 >
                                     Kubernetes
                                 </a>
 
                                 <a
                                     href='https://nodejs.org/en/'
-                                    className='service-list item'
+                                    className='list item'
                                 >
                                     NodeJS
                                 </a>
@@ -112,24 +113,24 @@ const InfoPage = () => {
                         </div>
                         <div className='snap-start'>
                             <p className='heading'>Proficient Languages</p>
-                            <div className='service-list-wrapper'>
+                            <div className='list-wrapper'>
                                 <a
                                     href='https://www.typescriptlang.org/'
-                                    className='service-list first-item'
+                                    className='list first-item'
                                 >
                                     TYPESCRIPT/JAVASCRIPT
                                 </a>
 
                                 <a
                                     href='https://www.python.org/'
-                                    className='service-list item'
+                                    className='list item'
                                 >
                                     PYTHON
                                 </a>
 
                                 <a
                                     href='https://www.php.net/'
-                                    className='service-list item'
+                                    className='list item'
                                 >
                                     PHP
                                 </a>
@@ -137,24 +138,24 @@ const InfoPage = () => {
                         </div>
                         <div className='snap-start'>
                             <p className='heading'>Minor Language Experience</p>
-                            <div className='service-list-wrapper'>
+                            <div className='list-wrapper'>
                                 <a
                                     href='https://docs.microsoft.com/en-us/cpp/?view=msvc-170'
-                                    className='service-list first-item'
+                                    className='list first-item'
                                 >
                                     C++
                                 </a>
 
                                 <a
                                     href='https://docs.microsoft.com/en-us/dotnet/csharp/'
-                                    className='service-list item'
+                                    className='list item'
                                 >
                                     C#
                                 </a>
 
                                 <a
                                     href='https://www.rust-lang.org/'
-                                    className='service-list item'
+                                    className='list item'
                                 >
                                     Rust
                                 </a>
@@ -162,24 +163,24 @@ const InfoPage = () => {
                         </div>
                         <div className='snap-start'>
                             <p className='heading'>Databases</p>
-                            <div className='service-list-wrapper'>
+                            <div className='list-wrapper'>
                                 <a
                                     href='https://www.mysql.com/'
-                                    className='service-list first-item'
+                                    className='list first-item'
                                 >
                                     MySQL
                                 </a>
 
                                 <a
                                     href='https://aws.amazon.com/dynamodb/'
-                                    className='service-list item'
+                                    className='list item'
                                 >
                                     DynamoDB
                                 </a>
 
                                 <a
                                     href='https://www.mongodb.com/'
-                                    className='service-list item'
+                                    className='list item'
                                 >
                                     MongoDB
                                 </a>
@@ -187,36 +188,36 @@ const InfoPage = () => {
                         </div>
                         <div className='snap-start'>
                             <p className='heading'>JS Frameworks</p>
-                            <div className='service-list-wrapper'>
+                            <div className='list-wrapper'>
                                 <a
                                     href='https://www.npmjs.com/package/express'
-                                    className='service-list first-item'
+                                    className='list first-item'
                                 >
                                     Express
                                 </a>
 
                                 <a
                                     href='https://reactjs.org/'
-                                    className='service-list item'
+                                    className='list item'
                                 >
                                     React (Functional)
                                 </a>
 
                                 <a
                                     href='https://www.npmjs.com/package/tailwindcss'
-                                    className='service-list item'
+                                    className='list item'
                                 >
                                     Tailwind
                                 </a>
 
                                 <a
                                     href='https://www.npmjs.com/package/passport'
-                                    className='service-list item'
+                                    className='list item'
                                 >
                                     Passport
                                 </a>
 
-                                <p className='service-list item'>Plus more!</p>
+                                <p className='list item'>Plus more!</p>
                             </div>
                         </div>
                     </div>

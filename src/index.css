@@ -56,15 +56,7 @@ body {
 
 /* Default Classes */
 .default-bg {
-    @apply bg-white dark:bg-zinc-900/70;
-}
-
-.default-border {
-    @apply border-slate-300 dark:border-zinc-600/30;
-}
-
-.default-border-darker {
-    @apply border-slate-300 dark:border-zinc-600/40;
+    @apply bg-white dark:bg-zinc-900;
 }
 
 .default-link {
@@ -79,296 +71,86 @@ body {
     @apply my-1 text-sm dark:text-slate-400 hover:text-sky-500 dark:hover:text-sky-500;
 }
 
-.highlighted-text {
-    @apply text-blue-600 dark:text-sky-500;
-}
+.list-container {
+    @apply snap-proximity snap-y bg-white dark:bg-zinc-900/70 rounded shadow-xl overflow-y-auto h-120 mt-4;
 
-.hover-highlighted-text {
-    @apply hover:text-sky-600 hover:dark:text-sky-700;
-}
-
-/* Info Page */
-.info-page {
-    @apply select-none pb-10;
-
-    .wrapper {
-        @apply flex flex-col w-full bg-white dark:bg-zinc-900/70 rounded shadow p-10 mt-28;
-
-        .content {
-            .image-wrapper {
-                @apply flex justify-center items-center mb-5;
-
-                .image {
-                    @apply min-w-fit -mt-32 rounded-full shadow border-8 border-white dark:border-zinc-900/60;
-                }
-            }
-
-            .context {
-                @apply text-center;
-
-                h1 {
-                    @apply text-2xl font-semibold leading-loose;
-                }
-
-                h2 {
-                    @apply text-sm -mt-2 mb-2 text-sky-600 dark:text-sky-400 font-bold uppercase;
-                }
-
-                hr {
-                    @apply mb-4 mt-2;
-                }
-
-                p {
-                    @apply font-light leading-relaxed;
-                }
-            }
-        }
+    .heading {
+        @apply uppercase default-bg pl-8 p-3 text-sm text-sky-600 dark:text-sky-400 font-bold border-b dark:border-slate-600 shadow-inner;
     }
 
-    .info-page-service-list {
-        @apply snap-proximity snap-y bg-white dark:bg-zinc-900/70 rounded shadow-xl overflow-y-auto h-120 mt-4;
+    .list-wrapper {
+        @apply w-full flex flex-col items-center overflow-hidden text-sm pb-4;
+    }
 
-        .heading {
-            @apply uppercase default-bg pl-8 p-3 text-sm text-sky-600 dark:text-sky-400 font-bold border-b dark:border-slate-600 shadow-inner;
+    .list {
+        @apply w-full py-2 pl-10 pr-3 transition duration-150;
+
+        &.first-item {
+            @apply hover:bg-slate-100 dark:hover:bg-zinc-900/70;
         }
 
-        .service-list-wrapper {
-            @apply w-full flex flex-col items-center overflow-hidden text-sm pb-4;
-        }
-
-        .service-list {
-            @apply w-full py-2 pl-10 pr-3 transition duration-150;
-
-            &.first-item {
-                @apply hover:bg-slate-100 dark:hover:bg-zinc-900/70;
-            }
-            &.item {
-                @apply border-t border-gray-100 dark:border-gray-600 hover:bg-slate-100 dark:hover:bg-zinc-900/70;
-            }
+        &.item {
+            @apply border-t border-gray-100 dark:border-gray-600 hover:bg-slate-100 dark:hover:bg-zinc-900/70;
         }
     }
 }
 
-/* Card Components */
-.card-carousel {
-    @apply px-1 md:px-6 my-2 w-auto;
+.carousel-button {
+    @apply border-slate-500 shadow dark:border-slate-400 lg:dark:border-slate-100 hover:text-sky-500 dark:hover:text-sky-400 border hover:border-blue-500 dark:hover:border-blue-400 h-8 md:w-6 md:h-6 flex justify-around items-center rounded duration-150 hover:scale-105 active:scale-95;
+}
 
-    .card-container {
-        @apply flex flex-col w-full items-center justify-center md:p-4 md:border border-slate-300 dark:border-zinc-600/20 rounded;
+.carousel-pip {
+    @apply hidden md:flex transition-all self-center duration-150 hover:scale-150 active:scale-125 ease-in-out rounded lg:p-1 shadow;
 
-        .wrapper {
-            @apply w-full border lg:border-none border-slate-300 dark:border-zinc-600/20 rounded shadow lg:shadow-none;
+    &.active {
+        @apply bg-sky-400 w-3 h-3;
+    }
 
-            .carousel-card {
-                @apply flex w-full rounded-t lg:rounded lg:shadow hover:shadow-md flex-col xl:flex-row bg-white dark:bg-zinc-900 lg:border border-slate-300 dark:border-zinc-600/30;
-
-                .carousel-card-image {
-                    @apply w-full min-w-[50%] xl:w-96 h-60 object-cover shadow rounded-t xl:rounded-tr-none xl:rounded-l;
-                }
-
-                .content {
-                    @apply w-full p-4 flex flex-col justify-between text-left h-36 md:h-40 xl:h-60 overflow-hidden;
-
-                    .content-inner {
-                        .content-title {
-                            @apply flex flex-wrap md:w-full items-center justify-between text-xs text-blue-600 dark:text-sky-500;
-
-                            h2 {
-                                @apply min-w-fit -mx-1 flex items-center font-bold uppercase;
-                            }
-                        }
-
-                        p {
-                            @apply text-lg xl:text-xl font-bold leading-normal line-clamp-3 xl:line-clamp-none;
-                        }
-                    }
-                }
-
-                hr {
-                    @apply lg:hidden border-zinc-200 dark:border-zinc-800 w-2/3 self-center;
-                }
-            }
-        }
-
-        .card-navigator {
-            @apply w-full lg:mt-2 flex justify-center;
-
-            .rotator {
-                @apply bg-white dark:bg-zinc-900 rounded-b lg:rounded flex gap-2 md:gap-0 w-full lg:w-2/3 xl:w-1/2 p-2 justify-between h-12 items-center lg:shadow lg:border border-slate-300 dark:border-zinc-600/30;
-
-                .rotator-button-hidden {
-                    @apply border-slate-500 dark:border-slate-400 lg:dark:border-slate-100 hover:text-sky-500 dark:hover:text-sky-400 border hover:border-blue-500 dark:hover:border-blue-400 w-24 h-8 md:w-6 md:h-6 flex md:hidden justify-around items-center rounded duration-150 hover:scale-105 active:scale-95;
-                }
-
-                .rotator-button {
-                    @apply border-slate-500 shadow dark:border-slate-400 lg:dark:border-slate-100 hover:text-sky-500 dark:hover:text-sky-400 border hover:border-blue-500 dark:hover:border-blue-400 w-full h-8 md:w-6 md:h-6 flex justify-around items-center rounded duration-150 hover:scale-105 active:scale-95;
-                }
-
-                .pip {
-                    @apply hidden md:flex transition-all self-center duration-150 hover:scale-150 active:scale-125 ease-in-out rounded lg:p-1 shadow;
-
-                    &.pip-active {
-                        @apply bg-sky-400 w-3 h-3;
-                    }
-
-                    &.pip-inactive {
-                        @apply bg-zinc-400 w-2 h-2;
-                    }
-                }
-            }
-        }
+    &.inactive {
+        @apply bg-zinc-400 w-2 h-2;
     }
 }
 
-.card {
-    @apply px-1 md:px-6 my-2 w-auto;
+.burger-menu-icon {
+    @apply border border-zinc-500 rounded-md w-8 h-8 flex items-center justify-center hover:text-slate-600 dark:text-slate-400 dark:hover:text-slate-300;
+}
 
-    .card-container {
-        @apply text-left flex flex-col w-full items-center justify-center md:p-4 md:border border-slate-300 dark:border-zinc-600/20 rounded;
+.mobile-menu-item {
+    @apply mt-1 overflow-hidden text-base;
+}
 
-        .wrapper {
-            @apply border border-slate-300 dark:border-zinc-600/30 w-full rounded flex-col xl:flex-row bg-white dark:bg-zinc-900 shadow;
+.mobile-internal-link {
+    @apply mt-2 w-full h-10 flex gap-2 items-center rounded-xl px-2;
 
-            .video-card {
-                @apply rounded-t w-full h-96 shadow;
-            }
+    &.active {
+        @apply bg-zinc-300 dark:bg-zinc-800;
+    }
 
-            .image-card {
-                @apply rounded-t w-full h-64 shadow object-cover;
-            }
-
-            .content {
-                @apply w-full p-3 flex flex-col h-auto overflow-auto;
-
-                .content-inner {
-                    .content-title {
-                        @apply flex flex-wrap md:w-full items-center justify-between text-sm text-blue-600 dark:text-sky-500;
-
-                        h2 {
-                            @apply min-w-fit -mx-1 flex items-center font-bold uppercase;
-                        }
-                    }
-
-                    p {
-                        @apply md:text-lg xl:text-xl font-bold leading-normal flex;
-                    }
-                }
-
-                h3 {
-                    @apply text-base md:text-lg xl:text-xl font-bold leading-normal;
-                }
-
-                button {
-                    @apply min-w-fit default-link flex items-center gap-1;
-                }
-            }
-        }
+    &.inactive {
+        @apply hover:text-sky-400;
     }
 }
 
-/* Navigation Components */
-.navigation {
-    &.navigation-top {
-        @apply sticky top-0 z-40 w-full backdrop-blur-xl sm:backdrop-blur flex-none md:border-b md:border-sky-500/20 dark:border-sky-100/10 bg-transparent;
+.mobile-external-link {
+    @apply w-full h-10 flex gap-2 items-center hover:text-sky-400 px-2;
+}
 
-        .navigation-top-wrapper {
-            @apply py-4 border-b border-sky-900/10 px-2 md:px-6 md:border-0 dark:border-sky-300/10 flex justify-between items-center;
+.left-menu-item {
+    @apply overflow-hidden md:ml-2 mt-1 text-sm;
+}
 
-            .desktop-orientation {
-                @apply hidden md:flex items-center;
+.left-internal-link {
+    @apply transition-bg ease-in-out duration-100 w-full h-12 flex items-center md:rounded p-3;
 
-                .desktop-menu-wrapper {
-                    @apply flex gap-4 items-center;
-
-                    a {
-                        @apply icon-link;
-                    }
-                }
-            }
-
-            .mobile-orientation {
-                @apply ml-2 -my-1 md:hidden;
-
-                .burger-menu-icon {
-                    @apply border border-zinc-500 rounded-md w-8 h-8 flex items-center justify-center hover:text-slate-600 dark:text-slate-400 dark:hover:text-slate-300;
-                }
-
-                .close-menu-icon {
-                    @apply hover:bg-zinc-300 hover:dark:bg-zinc-500 rounded-md text-zinc-800 w-8 h-8 flex items-center justify-center hover:text-slate-600 dark:text-slate-400 dark:hover:text-slate-300;
-                }
-
-                .mobile-menu-wrapper {
-                    @apply absolute top-0 left-0 w-full h-screen bg-zinc-500 bg-opacity-30;
-
-                    .mobile-menu-flex {
-                        @apply flex justify-start h-full;
-
-                        .mobile-menu {
-                            @apply h-full w-full sm:w-10/12 bg-zinc-200 dark:bg-zinc-900 shadow p-2 flex flex-col justify-between rounded-r-xl border-r border-zinc-400 dark:border-zinc-600 overflow-y-auto;
-
-                            .menu-item {
-                                @apply mt-1 overflow-hidden text-base;
-                            }
-
-                            .menu-icon {
-                                @apply p-2 text-zinc-500;
-                            }
-
-                            .internal-link {
-                                @apply mt-2 w-full h-10 flex gap-2 items-center rounded-xl px-2;
-
-                                &.active {
-                                    @apply bg-zinc-300 dark:bg-zinc-800;
-                                }
-
-                                &.inactive {
-                                    @apply hover:text-sky-400;
-                                }
-                            }
-
-                            .external-link {
-                                @apply w-full h-10 flex gap-2 items-center hover:text-sky-400 px-2;
-                            }
-                        }
-                    }
-                }
-            }
-        }
+    &.active {
+        @apply text-white bg-sky-600/80 dark:bg-sky-400/10 hover:from-sky-600 hover:to-sky-800 leading-loose shadow;
     }
 
-    &.navigation-right {
-        @apply flex-1 hidden lg:flex justify-start md:mx-4 min-w-[12rem];
+    &.inactive {
+        @apply hover:bg-zinc-100 dark:hover:bg-zinc-900/40 hover:shadow;
     }
+}
 
-    &.navigation-left {
-        @apply flex-1 hidden md:flex justify-end md:mx-4 min-w-[12rem];
-
-        .navigation-left-wrapper {
-            @apply flex flex-col gap-2 w-48 mt-28 fixed top-0;
-
-            .menu-item {
-                @apply overflow-hidden md:ml-2 mt-1 text-sm;
-            }
-
-            .item-icon {
-                @apply p-3;
-            }
-
-            .internal-link {
-                @apply transition-bg ease-in-out duration-100 w-full h-12 flex items-center md:rounded p-3;
-
-                &.active {
-                    @apply text-white bg-sky-600/80 dark:bg-sky-400/10 hover:from-sky-600 hover:to-sky-800 leading-loose shadow;
-                }
-
-                &.inactive {
-                    @apply hover:bg-zinc-100 dark:hover:bg-zinc-900/40 hover:shadow;
-                }
-            }
-
-            .external-link {
-                @apply transition-colors ease-in-out duration-100 hover:bg-zinc-100 dark:hover:bg-zinc-900/40 hover:shadow w-full h-12 flex items-center md:rounded p-3;
-            }
-        }
-    }
+.left-external-link {
+    @apply transition-colors ease-in-out duration-100 hover:bg-zinc-100 dark:hover:bg-zinc-900/40 hover:shadow w-full h-12 flex items-center md:rounded p-3;
 }

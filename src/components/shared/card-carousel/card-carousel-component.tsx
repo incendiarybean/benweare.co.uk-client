@@ -60,11 +60,11 @@ const CardCarousel = ({ Endpoint, SiteName }: CardProps) => {
         <div
             ref={navigationElement}
             id={`${SiteName}-news`}
-            className='card-carousel'
+            className='px-1 md:px-6 my-2 w-auto'
         >
-            <div className='animate__animated animate__fadeIn animate__faster card-container'>
+            <div className='animate__animated animate__fadeIn animate__faster flex flex-col w-full items-center justify-center md:p-4 md:border border-slate-300 dark:border-zinc-600/20 rounded'>
                 {loaded && loaded !== 'Failed' && articles && (
-                    <div className='wrapper'>
+                    <div className='w-full border lg:border-none border-slate-300 dark:border-zinc-600/20 rounded shadow lg:shadow-none'>
                         {articles.map(
                             (article, index) =>
                                 index === currentPage && (
@@ -73,21 +73,22 @@ const CardCarousel = ({ Endpoint, SiteName }: CardProps) => {
                                         href={article.url}
                                         rel='noreferrer'
                                         target='_blank'
-                                        className='carousel-card relative'
+                                        className='relative flex w-full rounded-t lg:rounded lg:shadow lg:hover:shadow-md flex-col xl:flex-row bg-white dark:bg-zinc-900 lg:border border-slate-300 dark:border-zinc-600/30'
                                     >
-                                        <span className='md:hidden m-2 px-3 text-sm absolute top-0 right-0 rounded-full bg-zinc-900/80'>
+                                        <span className='tracking-wider text-blue-600 dark:text-sky-500 md:hidden m-2 px-3 text-sm absolute top-0 right-0 rounded-full bg-zinc-900/80'>
                                             {currentPage + 1}/{articles.length}
                                         </span>
+
                                         <img
                                             alt={`${SiteName} Image: ${article.title}`}
                                             src={article.img}
-                                            className='carousel-card-image'
+                                            className='w-full min-w-[50%] xl:w-96 h-60 object-cover shadow rounded-t xl:rounded-tr-none xl:rounded-l'
                                         />
 
-                                        <div className='content'>
-                                            <div className='content-inner'>
-                                                <div className='content-title'>
-                                                    <h2>
+                                        <div className='w-full p-4 flex flex-col justify-between text-left h-36 md:h-40 xl:h-60 overflow-hidden'>
+                                            <div>
+                                                <div className='flex flex-wrap md:w-full items-center justify-between text-xs text-blue-600 dark:text-sky-500'>
+                                                    <h2 className='min-w-fit -mx-1 flex items-center font-bold uppercase'>
                                                         <RightCornerArrow />
                                                         {SiteName}
                                                     </h2>
@@ -99,19 +100,21 @@ const CardCarousel = ({ Endpoint, SiteName }: CardProps) => {
                                                         )}
                                                     </span>
                                                 </div>
-                                                <p>{article.title}</p>
+                                                <p className='text-lg xl:text-xl font-bold leading-normal line-clamp-3 xl:line-clamp-none'>
+                                                    {article.title}
+                                                </p>
                                             </div>
                                         </div>
-                                        <hr />
+                                        <hr className='lg:hidden border-zinc-200 dark:border-zinc-800 w-2/3 self-center' />
                                     </a>
                                 )
                         )}
 
-                        <div className='card-navigator'>
-                            <div className='rotator'>
+                        <div className='w-full lg:mt-2 flex justify-center'>
+                            <div className='bg-white dark:bg-zinc-900 rounded-b lg:rounded flex gap-3 md:gap-0 w-full lg:w-2/3 xl:w-1/2 p-4 md:p-2 justify-between h-12 items-center lg:shadow lg:border border-slate-300 dark:border-zinc-600/30'>
                                 <button
                                     aria-label='Return to first Article'
-                                    className='rotator-button-hidden'
+                                    className='w-24 carousel-button md:hidden'
                                     onClick={() => handleRotation(0)}
                                 >
                                     <BackArrow />
@@ -121,7 +124,7 @@ const CardCarousel = ({ Endpoint, SiteName }: CardProps) => {
                                     aria-label={`Return to previous Article (Article ${
                                         currentPage - 1
                                     })`}
-                                    className='rotator-button'
+                                    className='w-full carousel-button'
                                     onClick={() =>
                                         handleRotation(currentPage - 1)
                                     }
@@ -131,22 +134,24 @@ const CardCarousel = ({ Endpoint, SiteName }: CardProps) => {
 
                                 {articles.map((data, index) => (
                                     <button
-                                        aria-label={`Move to next Article (Article ${
-                                            currentPage + 1
+                                        aria-label={`Move to a selected Article (Article ${
+                                            index + 1
                                         })`}
                                         key={`${data.url}-${data.id}-navigator`}
                                         onClick={() => handleRotation(index)}
-                                        className={`pip ${
+                                        className={`carousel-pip ${
                                             index === currentPage
-                                                ? 'pip-active'
-                                                : 'pip-inactive'
+                                                ? 'active'
+                                                : 'inactive'
                                         }`}
                                     />
                                 ))}
 
                                 <button
-                                    aria-label='Next Article'
-                                    className='rotator-button'
+                                    aria-label={`Move to next Article (Article ${
+                                        currentPage + 1
+                                    })`}
+                                    className='w-full carousel-button'
                                     onClick={() =>
                                         handleRotation(currentPage + 1)
                                     }
