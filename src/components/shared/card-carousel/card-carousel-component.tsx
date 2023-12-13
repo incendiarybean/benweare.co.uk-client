@@ -73,8 +73,11 @@ const CardCarousel = ({ Endpoint, SiteName }: CardProps) => {
                                         href={article.url}
                                         rel='noreferrer'
                                         target='_blank'
-                                        className='carousel-card'
+                                        className='carousel-card relative'
                                     >
+                                        <span className='md:hidden m-2 px-3 text-sm absolute top-0 right-0 rounded-full bg-zinc-900/80'>
+                                            {currentPage + 1}/{articles.length}
+                                        </span>
                                         <img
                                             alt={`${SiteName} Image: ${article.title}`}
                                             src={article.img}
