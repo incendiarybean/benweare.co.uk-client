@@ -1,6 +1,6 @@
 import './index.css';
 
-import { Dashboard, Documentation, Info } from '@components';
+import { DashboardPage, DocumentationPage, InformationPage } from '@components';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
@@ -17,19 +17,23 @@ const router = createBrowserRouter([
         children: [
             {
                 path: '/dashboard',
-                element: <Dashboard />,
+                element: <DashboardPage />,
             },
             {
                 path: '/documentation',
-                element: <Documentation />,
+                element: <DocumentationPage />,
             },
             {
-                path: '/about',
-                element: <Info />,
+                path: '/information',
+                element: <InformationPage />,
             },
             {
                 index: true,
-                element: <Info />,
+                element: <InformationPage />,
+            },
+            {
+                path: '*',
+                element: <InformationPage />,
             },
         ],
     },

@@ -256,6 +256,27 @@ export const RightCircleArrow = () => (
     </svg>
 );
 
+export const LeftCircleArrow = () => (
+    <svg
+        height='21'
+        viewBox='0 0 21 21'
+        width='21'
+        xmlns='http://www.w3.org/2000/svg'
+    >
+        <g
+            fill='none'
+            fillRule='evenodd'
+            stroke='currentColor'
+            strokeLinecap='round'
+            strokeLinejoin='round'
+            transform='translate(2 2)'
+        >
+            <circle cx='8.5' cy='8.5' r='8' />
+            <path d='m9.55 11.4-3-2.9 3-3' />
+        </g>
+    </svg>
+);
+
 export const RightArrow = () => (
     <svg
         height='22'
@@ -346,28 +367,6 @@ export const DownArrow = () => (
     </svg>
 );
 
-export const BackArrow = () => (
-    <svg
-        height='21'
-        viewBox='0 0 21 21'
-        width='21'
-        xmlns='http://www.w3.org/2000/svg'
-    >
-        <g
-            fill='none'
-            fillRule='evenodd'
-            stroke='currentColor'
-            strokeLinecap='round'
-            strokeLinejoin='round'
-            transform='translate(3.5 6.5)'
-        >
-            <path d='m14 8v-2c0-1.65685425-1.3431458-3-3-3h-8' />
-            <path d='m3 6-3.001-3 3.001-3' />
-            <path d='m6 6-3.001-3 3.001-3' />
-        </g>
-    </svg>
-);
-
 export const Newspaper = () => (
     <svg
         height='21'
@@ -390,28 +389,6 @@ export const Newspaper = () => (
             <path d='m8.5 6.165h4' />
             <path d='m8.5 9.165h4' />
             <path d='m15 12.1654762c1.3807119 0 2.5-1.1192881 2.5-2.49999998v-6.5h-2' />
-        </g>
-    </svg>
-);
-
-export const Home = () => (
-    <svg
-        height='21'
-        viewBox='0 0 21 21'
-        width='21'
-        xmlns='http://www.w3.org/2000/svg'
-    >
-        <g
-            fill='none'
-            fillRule='evenodd'
-            stroke='currentColor'
-            strokeLinecap='round'
-            strokeLinejoin='round'
-            strokeWidth='1.3'
-            transform='translate(1 1)'
-        >
-            <path d='m.5 9.5 9-9 9 9' />
-            <path d='m2.5 7.5v7c0 1.1045695.8954305 2 2 2h10c1.1045695 0 2-.8954305 2-2v-7' />
         </g>
     </svg>
 );
@@ -503,6 +480,7 @@ export const Docs = () => (
         viewBox='0 0 21 21'
         width='21'
         xmlns='http://www.w3.org/2000/svg'
+        strokeWidth='1.3'
     >
         <g
             fill='none'
@@ -510,7 +488,7 @@ export const Docs = () => (
             stroke='currentColor'
             strokeLinecap='round'
             strokeLinejoin='round'
-            transform='translate(1 2)'
+            transform='translate(2 2)'
         >
             <path d='m16.5 12.5v-10c0-1.1045695-.8954305-2-2-2h-8c-1.1045695 0-2 .8954305-2 2v10c0 1.1045695.8954305 2 2 2h8c1.1045695 0 2-.8954305 2-2z' />
             <path d='m4.30542777 2.93478874-2.00419132.72946598c-1.03795581.37778502-1.57312998 1.52546972-1.19534496 2.56342553l3.42020143 9.39692625c.37778502 1.0379558 1.52546972 1.5731299 2.56342553 1.1953449l5.56843115-2.1980811' />
@@ -541,7 +519,7 @@ export const Npm = () => (
         height='24'
         xmlns='http://www.w3.org/2000/svg'
         fill='currentColor'
-        className='w-5 h-5 rounded-full'
+        className='w-5 h-5 rounded-full scale-125'
         viewBox='0 0 576 512'
     >
         <path

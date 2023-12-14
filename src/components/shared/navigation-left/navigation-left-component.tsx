@@ -1,7 +1,7 @@
 import { NavLink } from 'react-router-dom';
 import {
     Box,
-    Home,
+    Docs,
     Info,
     Newspaper,
     OpenBox,
@@ -18,7 +18,7 @@ const LeftNavigationBar = () => {
                         `left-internal-link ${isActive ? 'active' : 'inactive'}`
                     }
                 >
-                    <Home />
+                    <Newspaper />
 
                     <p className='left-menu-item'>Dashboard</p>
                 </NavLink>
@@ -31,7 +31,7 @@ const LeftNavigationBar = () => {
                 >
                     <Info />
 
-                    <p className='left-menu-item'>About</p>
+                    <p className='left-menu-item'>Information</p>
                 </NavLink>
 
                 <NavLink
@@ -40,7 +40,7 @@ const LeftNavigationBar = () => {
                         `left-internal-link ${isActive ? 'active' : 'inactive'}`
                     }
                 >
-                    <Newspaper />
+                    <Docs />
 
                     <p className='left-menu-item'>Documentation</p>
                 </NavLink>

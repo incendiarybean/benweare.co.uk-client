@@ -136,7 +136,7 @@ body {
 }
 
 .left-menu-item {
-    @apply overflow-hidden md:ml-2 mt-1 text-sm;
+    @apply tracking-wide overflow-hidden md:ml-2 mt-1 text-sm;
 }
 
 .left-internal-link {

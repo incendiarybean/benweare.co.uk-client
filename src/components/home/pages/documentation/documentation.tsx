@@ -1,6 +1,6 @@
 import { VITE_APP_DOCS_URL } from '@common/constants';
 
-const Documentation = () => {
+const DocumentationPage = () => {
     return (
         <div className='select-none w-full p-4 px-6 flex flex-col flex-1'>
             <iframe
@@ -12,4 +12,4 @@ const Documentation = () => {
     );
 };
 
-export default Documentation;
+export default DocumentationPage;

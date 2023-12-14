@@ -1,7 +1,7 @@
 // Pages:
-export { default as Dashboard } from './home/pages/dashboard/dashboard';
-export { default as Documentation } from './home/pages/documentation/documentation';
-export { default as Info } from './home/pages/info/info';
+export { default as DashboardPage } from './home/pages/dashboard/dashboard';
+export { default as DocumentationPage } from './home/pages/documentation/documentation';
+export { default as InformationPage } from './home/pages/information/information';
 
 // Components:
 export { default as ArrowComponent } from './shared/arrow/arrow-component';

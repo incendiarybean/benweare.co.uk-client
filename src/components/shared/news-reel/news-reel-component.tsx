@@ -2,8 +2,9 @@ import { SwipeHandler } from '@common/hooks/swipeHandler';
 import type { CardProps, Loading, NewsArticle } from '@common/types';
 import { IO, sleep } from '@common/utils';
 import { ErrorComponent, Loader } from '@components';
-import { BackArrow, LeftArrow, RightArrow, RightCornerArrow } from '@icons';
 import { createRef, useEffect, useState } from 'react';
+import NewsReelCard from './news-reel-card';
+import NewsReelNavigator from './news-reel-navigator';
 
 const NewsCarousel = ({ endpoint, siteName }: CardProps) => {
     const [articles, setArticles] = useState<NewsArticle[]>([]);
@@ -68,98 +69,20 @@ const NewsCarousel = ({ endpoint, siteName }: CardProps) => {
                         {articles.map(
                             (article, index) =>
                                 index === currentPage && (
-                                    <a
-                                        key={`${article.url}-${article.id}`}
-                                        href={article.url}
-                                        rel='noreferrer'
-                                        target='_blank'
-                                        className='relative flex w-full rounded-t lg:rounded lg:shadow lg:hover:shadow-md flex-col xl:flex-row bg-white dark:bg-zinc-900 lg:border border-slate-300 dark:border-zinc-600/30'
-                                    >
-                                        <span className='tracking-wider text-blue-600 dark:text-sky-500 md:hidden m-2 px-3 text-sm absolute top-0 right-0 rounded-full bg-zinc-900/80'>
-                                            {currentPage + 1}/{articles.length}
-                                        </span>
-
-                                        <img
-                                            alt={`${siteName} Image: ${article.title}`}
-                                            src={article.img}
-                                            className='w-full min-w-[50%] xl:w-96 h-60 object-cover shadow rounded-t xl:rounded-tr-none xl:rounded-l'
-                                        />
-
-                                        <div className='w-full p-4 flex flex-col justify-between text-left h-36 md:h-40 xl:h-60 overflow-hidden'>
-                                            <div>
-                                                <div className='flex flex-wrap md:w-full items-center justify-between text-xs text-blue-600 dark:text-sky-500'>
-                                                    <h2 className='min-w-fit -mx-1 flex items-center font-bold uppercase'>
-                                                        <RightCornerArrow />
-                                                        {siteName}
-                                                    </h2>
-                                                    <span>
-                                                        {new Date(
-                                                            article.date
-                                                        ).toLocaleDateString(
-                                                            'en-UK'
-                                                        )}
-                                                    </span>
-                                                </div>
-                                                <p className='text-lg xl:text-xl font-bold leading-normal line-clamp-3 xl:line-clamp-none'>
-                                                    {article.title}
-                                                </p>
-                                            </div>
-                                        </div>
-                                        <hr className='lg:hidden border-zinc-200 dark:border-zinc-800 w-2/3 self-center' />
-                                    </a>
+                                    <NewsReelCard
+                                        key={article.url}
+                                        {...{
+                                            siteName,
+                                            article,
+                                            maxArticles: articles.length,
+                                            currentPage,
+                                        }}
+                                    />
                                 )
                         )}
-
-                        <div className='w-full lg:mt-2 flex justify-center'>
-                            <div className='bg-white dark:bg-zinc-900 rounded-b lg:rounded flex gap-3 md:gap-0 w-full lg:w-2/3 p-4 md:p-3 justify-between h-12 items-center lg:shadow lg:border border-slate-300 dark:border-zinc-600/30'>
-                                <button
-                                    aria-label='Return to first Article'
-                                    className='w-24 carousel-button md:hidden'
-                                    onClick={() => handleRotation(0)}
-                                >
-                                    <BackArrow />
-                                </button>
-
-                                <button
-                                    aria-label={`Return to previous Article (Article ${
-                                        currentPage - 1
-                                    })`}
-                                    className='w-full carousel-button'
-                                    onClick={() =>
-                                        handleRotation(currentPage - 1)
-                                    }
-                                >
-                                    <LeftArrow />
-                                </button>
-
-                                {articles.map((data, index) => (
-                                    <button
-                                        aria-label={`Move to a selected Article (Article ${
-                                            index + 1
-                                        })`}
-                                        key={`${data.url}-${data.id}-navigator`}
-                                        onClick={() => handleRotation(index)}
-                                        className={`carousel-pip ${
-                                            index === currentPage
-                                                ? 'active'
-                                                : 'inactive'
-                                        }`}
-                                    />
-                                ))}
-
-                                <button
-                                    aria-label={`Move to next Article (Article ${
-                                        currentPage + 1
-                                    })`}
-                                    className='w-full carousel-button'
-                                    onClick={() =>
-                                        handleRotation(currentPage + 1)
-                                    }
-                                >
-                                    <RightArrow />
-                                </button>
-                            </div>
-                        </div>
+                        <NewsReelNavigator
+                            {...{ handleRotation, currentPage, articles }}
+                        />
                     </div>
                 )}
                 {loaded === 'Failed' && <ErrorComponent feedName={siteName} />}

@@ -2,7 +2,7 @@ import profile_image from '@common/images/profile-sm.webp';
 import { ArrowComponent } from '@components';
 import { useEffect, useState } from 'react';
 
-const InfoPage = () => {
+const InformationPage = () => {
     const [showKnowledgeList, setShowKnowledgeList] = useState<boolean>(false);
     const [loaded, setLoaded] = useState<boolean>(false);
 
@@ -227,4 +227,4 @@ const InfoPage = () => {
     );
 };
 
-export default InfoPage;
+export default InformationPage;

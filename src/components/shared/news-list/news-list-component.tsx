@@ -33,9 +33,9 @@ const NewsList = ({ endpoint, siteName }: CardProps) => {
                 <h2 className='uppercase absolute top-0 left-0 px-2 ml-2 -mt-2 text-xs bg-zinc-200 dark:bg-zinc-800 rounded z-10'>
                     {siteName}
                 </h2>
-                <div className='border md:border-none border-slate-300 dark:border-zinc-600/30 rounded overflow-auto px-2 shadow-inner'>
+                <div className='border md:border-none border-slate-300 dark:border-zinc-600/30 rounded overflow-auto px-2 md:px-4 shadow-inner'>
                     {loaded && articles && (
-                        <div className='my-3 flex flex-col gap-2'>
+                        <div className='my-3 flex flex-col gap-2 md:gap-1'>
                             {articles.map((data) => (
                                 <a
                                     key={`${data.url}-${data.id}`}
