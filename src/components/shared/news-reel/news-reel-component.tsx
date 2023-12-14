@@ -1,14 +1,14 @@
 import { SwipeHandler } from '@common/hooks/swipeHandler';
-import type { CardProps, NewsArticle } from '@common/types';
+import type { CardProps, Loading, NewsArticle } from '@common/types';
 import { IO, sleep } from '@common/utils';
 import { ErrorComponent, Loader } from '@components';
 import { BackArrow, LeftArrow, RightArrow, RightCornerArrow } from '@icons';
 import { createRef, useEffect, useState } from 'react';
 
-const NewsCarousel = ({ Endpoint, SiteName }: CardProps) => {
+const NewsCarousel = ({ endpoint, siteName }: CardProps) => {
     const [articles, setArticles] = useState<NewsArticle[]>([]);
     const [currentPage, setCurrentPage] = useState<number>(0);
-    const [loaded, setLoaded] = useState<boolean | string>(false);
+    const [loaded, setLoaded] = useState<Loading>(false);
 
     const handleRotation = (index: number) => {
         if (index === articles.length) {
@@ -36,7 +36,7 @@ const NewsCarousel = ({ Endpoint, SiteName }: CardProps) => {
 
     useEffect(() => {
         const getNews = async () => {
-            fetch(Endpoint)
+            fetch(endpoint)
                 .then((data) => data.json())
                 .then(({ response }) => {
                     setArticles(response.items);
@@ -51,7 +51,7 @@ const NewsCarousel = ({ Endpoint, SiteName }: CardProps) => {
         IO.on('RELOAD_NEWS', () => getNews());
 
         getNews();
-    }, [Endpoint, SiteName]);
+    }, [endpoint, siteName]);
 
     const navigationElement = createRef<HTMLDivElement>();
     SwipeHandler(navigationElement, swipeAction);
@@ -59,7 +59,7 @@ const NewsCarousel = ({ Endpoint, SiteName }: CardProps) => {
     return (
         <div
             ref={navigationElement}
-            id={`${SiteName}-news`}
+            id={`${siteName}-news`}
             className='px-1 md:px-6 my-2 w-auto'
         >
             <div className='animate__animated animate__fadeIn animate__faster flex flex-col w-full items-center justify-center md:p-4 md:border border-slate-300 dark:border-zinc-600/20 rounded'>
@@ -80,7 +80,7 @@ const NewsCarousel = ({ Endpoint, SiteName }: CardProps) => {
                                         </span>
 
                                         <img
-                                            alt={`${SiteName} Image: ${article.title}`}
+                                            alt={`${siteName} Image: ${article.title}`}
                                             src={article.img}
                                             className='w-full min-w-[50%] xl:w-96 h-60 object-cover shadow rounded-t xl:rounded-tr-none xl:rounded-l'
                                         />
@@ -90,7 +90,7 @@ const NewsCarousel = ({ Endpoint, SiteName }: CardProps) => {
                                                 <div className='flex flex-wrap md:w-full items-center justify-between text-xs text-blue-600 dark:text-sky-500'>
                                                     <h2 className='min-w-fit -mx-1 flex items-center font-bold uppercase'>
                                                         <RightCornerArrow />
-                                                        {SiteName}
+                                                        {siteName}
                                                     </h2>
                                                     <span>
                                                         {new Date(
@@ -111,7 +111,7 @@ const NewsCarousel = ({ Endpoint, SiteName }: CardProps) => {
                         )}
 
                         <div className='w-full lg:mt-2 flex justify-center'>
-                            <div className='bg-white dark:bg-zinc-900 rounded-b lg:rounded flex gap-3 md:gap-0 w-full lg:w-2/3 xl:w-1/2 p-4 md:p-2 justify-between h-12 items-center lg:shadow lg:border border-slate-300 dark:border-zinc-600/30'>
+                            <div className='bg-white dark:bg-zinc-900 rounded-b lg:rounded flex gap-3 md:gap-0 w-full lg:w-2/3 p-4 md:p-3 justify-between h-12 items-center lg:shadow lg:border border-slate-300 dark:border-zinc-600/30'>
                                 <button
                                     aria-label='Return to first Article'
                                     className='w-24 carousel-button md:hidden'
@@ -162,7 +162,7 @@ const NewsCarousel = ({ Endpoint, SiteName }: CardProps) => {
                         </div>
                     </div>
                 )}
-                {loaded === 'Failed' && <ErrorComponent feedName={SiteName} />}
+                {loaded === 'Failed' && <ErrorComponent feedName={siteName} />}
                 {loaded === false && <Loader />}
             </div>
         </div>
