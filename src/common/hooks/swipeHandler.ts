@@ -11,7 +11,6 @@ export const SwipeHandler = (
 ) => {
     const [touchStart, setTouchStart] = useState<number | null>();
 
-    // TODO -> Check for Y changes so page doesn't scroll while swiping
     useEffect(() => {
         const handleSwipeStart = ({ target, targetTouches }: TouchEvent) => {
             if (ref?.current && ref.current.contains(target as Node)) {

@@ -1,17 +1,17 @@
-import type { CardProps, NewsArticle } from '@common/types';
+import type { CardProps, Loading, NewsArticle } from '@common/types';
 import { sleep } from '@common/utils';
 import { ArrowComponent, ErrorComponent, Loader } from '@components';
+import { RightCornerArrow } from '@icons';
 import { useEffect, useState } from 'react';
-import { RightCornerArrow } from 'src/components/shared/icons';
 
-const Card = ({ Endpoint, SiteName }: CardProps) => {
+const Card = ({ endpoint, siteName }: CardProps) => {
     const [article, setArticle] = useState<NewsArticle>();
-    const [loaded, setLoaded] = useState<boolean | string>(false);
+    const [loaded, setLoaded] = useState<Loading>(false);
     const [show, setShow] = useState<boolean>(false);
 
     useEffect(() => {
         const getDetail = async () => {
-            fetch(Endpoint)
+            fetch(endpoint)
                 .then((data) => data.json())
                 .then(({ response }) => {
                     setArticle(response.items[0]);
@@ -24,11 +24,11 @@ const Card = ({ Endpoint, SiteName }: CardProps) => {
         };
 
         getDetail();
-    }, [Endpoint, SiteName]);
+    }, [endpoint, siteName]);
 
     return (
         <div className='px-1 md:px-6 my-2 w-auto'>
-            <div className='animate__animated animate__fadeIn animate__faster text-left flex flex-col w-full items-center justify-center md:p-4 md:border border-slate-300 dark:border-zinc-600/20 rounded'>
+            <div className='animate__animated animate__fadeIn animate__faster text-left flex flex-col w-full items-center justify-center md:p-4 md:border border-slate-300 dark:border-zinc-600/20 rounded shadow-inner'>
                 {loaded && article && (
                     <div className='border border-slate-300 dark:border-zinc-600/30 w-full rounded flex-col xl:flex-row bg-white dark:bg-zinc-900 shadow'>
                         {article.url.includes('youtube') ? (
@@ -40,17 +40,17 @@ const Card = ({ Endpoint, SiteName }: CardProps) => {
                                 }`}
                                 allow='autoplay; encrypted-media;'
                                 allowFullScreen
-                                title='Embedded YouTube video provided by ${SiteName}'
+                                title={`embedded YouTube video provided by ${siteName}`}
                                 className='rounded-t w-full h-96 shadow'
                             />
                         ) : (
                             <a
                                 className='w-full'
                                 href={article.url}
-                                aria-label={`Open ${SiteName} Image`}
+                                aria-label={`Open ${siteName} Image`}
                             >
                                 <img
-                                    alt={`${SiteName} Image`}
+                                    alt={`${siteName} Image`}
                                     src={article.url}
                                     className='rounded-t w-full h-64 shadow object-cover'
                                 />
@@ -62,7 +62,7 @@ const Card = ({ Endpoint, SiteName }: CardProps) => {
                                 <div className='flex flex-wrap md:w-full items-center justify-between text-sm text-blue-600 dark:text-sky-500'>
                                     <h2 className='min-w-fit -mx-1 flex items-center font-bold uppercase'>
                                         <RightCornerArrow />
-                                        {SiteName}
+                                        {siteName}
                                     </h2>
                                     <span>
                                         {new Date(
@@ -80,7 +80,7 @@ const Card = ({ Endpoint, SiteName }: CardProps) => {
                                     onClick={() => setShow(!show)}
                                 >
                                     <p>Read the Article</p>
-                                    <ArrowComponent display={show} />
+                                    <ArrowComponent upwardFacing={show} />
                                 </button>
                                 {article.url.includes('youtube') && (
                                     <a
@@ -101,7 +101,7 @@ const Card = ({ Endpoint, SiteName }: CardProps) => {
                         </div>
                     </div>
                 )}
-                {loaded === 'Failed' && <ErrorComponent feedName={SiteName} />}
+                {loaded === 'Failed' && <ErrorComponent feedName={siteName} />}
                 {loaded === false && <Loader />}
             </div>
         </div>

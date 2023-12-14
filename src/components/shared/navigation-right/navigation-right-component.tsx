@@ -1,3 +1,5 @@
+import { RightCornerArrow } from '@icons';
+
 const RightNavigationBar = () => {
     return (
         <div className='flex-1 hidden lg:flex justify-start md:mx-4 min-w-[12rem]'>
@@ -10,32 +12,36 @@ const RightNavigationBar = () => {
                         target='_blank'
                         rel='noreferrer'
                         href='https://steamcommunity.com/id/IncendiaryBean/'
-                        className='my-1 px-2 default-link'
+                        className='flex items-center mt-1 default-link'
                     >
+                        <RightCornerArrow />
                         Steam
                     </a>
                     <a
                         target='_blank'
                         rel='noreferrer'
                         href='https://discordapp.com/users/Beanerino#0454'
-                        className='my-1 px-2 default-link'
+                        className='flex items-center mt-1 default-link'
                     >
+                        <RightCornerArrow />
                         Discord
                     </a>
                     <a
                         target='_blank'
                         rel='noreferrer'
                         href='https://www.instagram.com/ben.weare/'
-                        className='my-1 px-2 default-link'
+                        className='flex items-center mt-1 default-link'
                     >
+                        <RightCornerArrow />
                         Instagram
                     </a>
                     <a
                         target='_blank'
                         rel='noreferrer'
                         href='https://open.spotify.com/user/incendiarybean'
-                        className='my-1 px-2 default-link'
+                        className='flex items-center mt-1 default-link'
                     >
+                        <RightCornerArrow />
                         Spotify
                     </a>
                 </div>

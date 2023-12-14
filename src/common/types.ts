@@ -10,16 +10,10 @@ export type NewsArticle = {
 
 export type CardProps = {
     /** The website that the articles are fetched from. */
-    SiteName: string;
+    siteName: string;
 
     /** The endpoint to fetch articles from. */
-    Endpoint: string;
+    endpoint: string;
 };
 
-export type ErrorComponentProps = {
-    feedName: string;
-};
-
-export type ArrowComponentProps = {
-    display: boolean;
-};
+export type Loading = boolean | 'Failed';

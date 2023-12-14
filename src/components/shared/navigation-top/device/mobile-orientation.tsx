@@ -1,18 +1,18 @@
 import { ExternalClickHandler } from '@common/hooks/externalClickHandler';
 import { animateCSS } from '@common/utils';
 import { Footer } from '@components';
-import { createRef, useState } from 'react';
-import { NavLink } from 'react-router-dom';
 import {
     Box,
     Burger,
     Cross,
-    Home,
+    Docs,
     Info,
     Newspaper,
     OpenBox,
     Packages,
-} from 'src/components/shared/icons';
+} from '@icons';
+import { createRef, useState } from 'react';
+import { NavLink } from 'react-router-dom';
 
 const MobileNav = () => {
     const [settingsOpen, setSettingsOpen] = useState(false);
@@ -72,7 +72,7 @@ const MobileNav = () => {
                                     }`
                                 }
                             >
-                                <Home />
+                                <Newspaper />
 
                                 <p className='mobile-menu-item'>Dashboard</p>
                             </NavLink>
@@ -87,8 +87,21 @@ const MobileNav = () => {
                             >
                                 <Info />
 
-                                <p className='mobile-menu-item'>About</p>
+                                <p className='mobile-menu-item'>Information</p>
                             </NavLink>
+
+                            <a
+                                target='_blank'
+                                rel='noreferrer'
+                                href='/api/docs'
+                                className='mobile-external-link'
+                            >
+                                <Docs />
+
+                                <p className='mobile-menu-item'>
+                                    Documentation
+                                </p>
+                            </a>
 
                             <a
                                 target='_blank'
@@ -121,19 +134,6 @@ const MobileNav = () => {
                                 <Box />
 
                                 <p className='mobile-menu-item'>Docker</p>
-                            </a>
-
-                            <a
-                                target='_blank'
-                                rel='noreferrer'
-                                href='/api/docs'
-                                className='mobile-external-link'
-                            >
-                                <Newspaper />
-
-                                <p className='mobile-menu-item'>
-                                    Documentation
-                                </p>
                             </a>
                         </div>
                         <Footer />

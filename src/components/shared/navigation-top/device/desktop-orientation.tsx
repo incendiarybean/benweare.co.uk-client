@@ -1,4 +1,4 @@
-import { GitHub, Newspaper, Npm } from 'src/components/shared/icons';
+import { Docs, GitHub, Npm } from '@icons';
 
 const DesktopNav = () => {
     return (
@@ -10,7 +10,7 @@ const DesktopNav = () => {
                         href='https://benweare.co.uk/api/docs'
                     >
                         <span className='sr-only'>API Documentation</span>
-                        <Newspaper />
+                        <Docs />
                     </a>
                 </li>
                 <li>

@@ -2,7 +2,7 @@ import profile_image from '@common/images/profile-sm.webp';
 import { ArrowComponent } from '@components';
 import { useEffect, useState } from 'react';
 
-const InfoPage = () => {
+const InformationPage = () => {
     const [showKnowledgeList, setShowKnowledgeList] = useState<boolean>(false);
     const [loaded, setLoaded] = useState<boolean>(false);
 
@@ -57,7 +57,7 @@ const InfoPage = () => {
                                 <div className='-mt-3 min-w-fit px-2 uppercase flex gap-1 items-center'>
                                     <p>Languages &amp; Experience</p>
                                     <ArrowComponent
-                                        display={showKnowledgeList}
+                                        upwardFacing={showKnowledgeList}
                                     />
                                 </div>
                                 <hr className='w-full' />
@@ -227,4 +227,4 @@ const InfoPage = () => {
     );
 };
 
-export default InfoPage;
+export default InformationPage;
