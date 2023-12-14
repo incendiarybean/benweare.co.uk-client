@@ -1,8 +1,12 @@
-import type { ArrowComponentProps } from '@common/types';
 import { DownArrow, UpArrow } from '@icons';
 
-const ArrowComponent = ({ display }: ArrowComponentProps) => {
-    if (!display) {
+const ArrowComponent = ({
+    upwardFacing,
+}: {
+    /** A value depicting which direction the arrow is facing */
+    upwardFacing: boolean;
+}) => {
+    if (!upwardFacing) {
         return <UpArrow />;
     }
     return <DownArrow />;

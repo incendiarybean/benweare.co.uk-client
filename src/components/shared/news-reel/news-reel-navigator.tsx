@@ -11,8 +11,11 @@ const NewsReelNavigator = ({
     currentPage,
     articles,
 }: {
+    /** The state function that sets the current article number */
     handleRotation: React.Dispatch<number>;
+    /** The current article number */
     currentPage: number;
+    /** The articles to calculate the number of pips required on the navigator */
     articles: NewsArticle[];
 }) => {
     return (

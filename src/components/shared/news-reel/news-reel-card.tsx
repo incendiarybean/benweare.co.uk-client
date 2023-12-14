@@ -7,9 +7,13 @@ const NewsReelCard = ({
     maxArticles,
     currentPage,
 }: {
+    /** Name of the site */
     siteName: string;
+    /** Article to display */
     article: NewsArticle;
+    /** Maximum articles being rendered */
     maxArticles: number;
+    /** The current article number */
     currentPage: number;
 }) => {
     return (

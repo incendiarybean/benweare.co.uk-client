@@ -16,12 +16,4 @@ export type CardProps = {
     endpoint: string;
 };
 
-export type ErrorComponentProps = {
-    feedName: string;
-};
-
-export type ArrowComponentProps = {
-    display: boolean;
-};
-
 export type Loading = boolean | 'Failed';

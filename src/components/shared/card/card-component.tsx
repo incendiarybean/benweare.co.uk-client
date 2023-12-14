@@ -28,7 +28,7 @@ const Card = ({ endpoint, siteName }: CardProps) => {
 
     return (
         <div className='px-1 md:px-6 my-2 w-auto'>
-            <div className='animate__animated animate__fadeIn animate__faster text-left flex flex-col w-full items-center justify-center md:p-4 md:border border-slate-300 dark:border-zinc-600/20 rounded'>
+            <div className='animate__animated animate__fadeIn animate__faster text-left flex flex-col w-full items-center justify-center md:p-4 md:border border-slate-300 dark:border-zinc-600/20 rounded shadow-inner'>
                 {loaded && article && (
                     <div className='border border-slate-300 dark:border-zinc-600/30 w-full rounded flex-col xl:flex-row bg-white dark:bg-zinc-900 shadow'>
                         {article.url.includes('youtube') ? (
@@ -80,7 +80,7 @@ const Card = ({ endpoint, siteName }: CardProps) => {
                                     onClick={() => setShow(!show)}
                                 >
                                     <p>Read the Article</p>
-                                    <ArrowComponent display={show} />
+                                    <ArrowComponent upwardFacing={show} />
                                 </button>
                                 {article.url.includes('youtube') && (
                                     <a

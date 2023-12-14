@@ -63,7 +63,7 @@ const NewsCarousel = ({ endpoint, siteName }: CardProps) => {
             id={`${siteName}-news`}
             className='px-1 md:px-6 my-2 w-auto'
         >
-            <div className='animate__animated animate__fadeIn animate__faster flex flex-col w-full items-center justify-center md:p-4 md:border border-slate-300 dark:border-zinc-600/20 rounded'>
+            <div className='animate__animated animate__fadeIn animate__faster flex flex-col w-full items-center justify-center md:p-4 md:border border-slate-300 dark:border-zinc-600/20 rounded shadow-inner'>
                 {loaded && loaded !== 'Failed' && articles && (
                     <div className='w-full border lg:border-none border-slate-300 dark:border-zinc-600/20 rounded shadow lg:shadow-none'>
                         {articles.map(

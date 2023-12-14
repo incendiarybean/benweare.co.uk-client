@@ -57,7 +57,7 @@ const InformationPage = () => {
                                 <div className='-mt-3 min-w-fit px-2 uppercase flex gap-1 items-center'>
                                     <p>Languages &amp; Experience</p>
                                     <ArrowComponent
-                                        display={showKnowledgeList}
+                                        upwardFacing={showKnowledgeList}
                                     />
                                 </div>
                                 <hr className='w-full' />
