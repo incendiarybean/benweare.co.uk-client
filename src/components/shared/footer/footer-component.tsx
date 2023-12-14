@@ -9,6 +9,7 @@ const FooterComponent = () => {
                         <a
                             className='icon-link'
                             href='https://benweare.co.uk/api/docs'
+                            aria-label='API Documentation Page'
                         >
                             <span className='sr-only'>API Documentation</span>
                             <Newspaper />
@@ -18,6 +19,7 @@ const FooterComponent = () => {
                         <a
                             className='icon-link'
                             href='https://www.npmjs.com/~incendiarybean'
+                            aria-label="Ben's NPM Page"
                         >
                             <span className='sr-only'>
                                 IncendiaryBean's NPM
@@ -29,6 +31,7 @@ const FooterComponent = () => {
                         <a
                             className='icon-link'
                             href='https://github.com/incendiarybean'
+                            aria-label="Ben's GitHub Page"
                         >
                             <span className='sr-only'>
                                 IncendiaryBean's Github
@@ -45,6 +48,7 @@ const FooterComponent = () => {
                             rel='noreferrer'
                             href='https://steamcommunity.com/id/IncendiaryBean/'
                             className='footer-link'
+                            aria-label="Ben's Steam Page"
                         >
                             Steam
                         </a>
@@ -55,6 +59,7 @@ const FooterComponent = () => {
                             rel='noreferrer'
                             href='https://discordapp.com/users/Beanerino#0454'
                             className='footer-link'
+                            aria-label="Ben's Discord"
                         >
                             Discord
                         </a>
@@ -65,6 +70,7 @@ const FooterComponent = () => {
                             rel='noreferrer'
                             href='https://www.instagram.com/ben.weare/'
                             className='footer-link'
+                            aria-label="Ben's Instagram Page"
                         >
                             Instagram
                         </a>
@@ -75,6 +81,7 @@ const FooterComponent = () => {
                             rel='noreferrer'
                             href='https://open.spotify.com/user/incendiarybean'
                             className='footer-link'
+                            aria-label="Ben's Spotify Page"
                         >
                             Spotify
                         </a>

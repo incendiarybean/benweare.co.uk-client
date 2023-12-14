@@ -13,6 +13,7 @@ const RightNavigationBar = () => {
                         rel='noreferrer'
                         href='https://steamcommunity.com/id/IncendiaryBean/'
                         className='flex items-center mt-1 default-link'
+                        aria-label="Ben's Steam Page"
                     >
                         <RightCornerArrow />
                         Steam
@@ -22,6 +23,7 @@ const RightNavigationBar = () => {
                         rel='noreferrer'
                         href='https://discordapp.com/users/Beanerino#0454'
                         className='flex items-center mt-1 default-link'
+                        aria-label="Ben's Discord"
                     >
                         <RightCornerArrow />
                         Discord
@@ -31,6 +33,7 @@ const RightNavigationBar = () => {
                         rel='noreferrer'
                         href='https://www.instagram.com/ben.weare/'
                         className='flex items-center mt-1 default-link'
+                        aria-label="Ben's Instagram Page"
                     >
                         <RightCornerArrow />
                         Instagram
@@ -40,6 +43,7 @@ const RightNavigationBar = () => {
                         rel='noreferrer'
                         href='https://open.spotify.com/user/incendiarybean'
                         className='flex items-center mt-1 default-link'
+                        aria-label="Ben's Spotify Page"
                     >
                         <RightCornerArrow />
                         Spotify

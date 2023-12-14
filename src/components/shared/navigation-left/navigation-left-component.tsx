@@ -10,6 +10,7 @@ const LeftNavigationBar = () => {
                     className={({ isActive }) =>
                         `left-internal-link ${isActive ? 'active' : 'inactive'}`
                     }
+                    aria-label='News Dashboard Page'
                 >
                     <Newspaper />
 
@@ -21,6 +22,7 @@ const LeftNavigationBar = () => {
                     className={({ isActive }) =>
                         `left-internal-link ${isActive ? 'active' : 'inactive'}`
                     }
+                    aria-label='Information Page'
                 >
                     <Info />
 
@@ -32,6 +34,7 @@ const LeftNavigationBar = () => {
                     className={({ isActive }) =>
                         `left-internal-link ${isActive ? 'active' : 'inactive'}`
                     }
+                    aria-label='API Documentation Page'
                 >
                     <Docs />
 
@@ -43,6 +46,7 @@ const LeftNavigationBar = () => {
                     rel='noreferrer'
                     href='https://www.npmjs.com/~incendiarybean'
                     className='left-external-link'
+                    aria-label="Ben's NPM Page"
                 >
                     <Packages />
 
@@ -54,6 +58,7 @@ const LeftNavigationBar = () => {
                     rel='noreferrer'
                     href='https://github.com/incendiarybean'
                     className='left-external-link'
+                    aria-label="Ben's GitHub Page"
                 >
                     <OpenBox />
 
@@ -65,6 +70,7 @@ const LeftNavigationBar = () => {
                     rel='noreferrer'
                     href='https://hub.docker.com/u/incendiarybean'
                     className='left-external-link'
+                    aria-label="Ben's Docker Page"
                 >
                     <Box />
 
