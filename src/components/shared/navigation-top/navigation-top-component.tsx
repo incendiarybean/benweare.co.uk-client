@@ -10,7 +10,7 @@ const NavigationBar = () => {
                     <a
                         className='mr-3 flex-none w-auto overflow-hidden md:w-auto'
                         href='/'
-                        aria-label="Ben's Information Page (Homepage)"
+                        aria-label="Ben's Information Page (benweare.co.uk)"
                     >
                         <span className='py-1 px-2 border border-sky-500 dark:border-sky-400/20 rounded text-sky-500 dark:text-sky-400 hover:text-blue-600 dark:hover:text-sky-600'>
                             benweare.co.uk

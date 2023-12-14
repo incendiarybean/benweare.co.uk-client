@@ -85,11 +85,11 @@ const MobileNav = () => {
                                         isActive ? 'active' : 'inactive'
                                     }`
                                 }
-                                aria-label='Information Page'
+                                aria-label='About Ben Weare Page'
                             >
                                 <Info />
 
-                                <p className='mobile-menu-item'>Information</p>
+                                <p className='mobile-menu-item'>About</p>
                             </NavLink>
 
                             <a

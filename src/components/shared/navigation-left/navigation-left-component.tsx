@@ -22,11 +22,11 @@ const LeftNavigationBar = () => {
                     className={({ isActive }) =>
                         `left-internal-link ${isActive ? 'active' : 'inactive'}`
                     }
-                    aria-label='Information Page'
+                    aria-label='About Ben Weare Page'
                 >
                     <Info />
 
-                    <p className='left-menu-item'>Information</p>
+                    <p className='left-menu-item'>About</p>
                 </NavLink>
 
                 <NavLink
@@ -46,7 +46,7 @@ const LeftNavigationBar = () => {
                     rel='noreferrer'
                     href='https://www.npmjs.com/~incendiarybean'
                     className='left-external-link'
-                    aria-label="Ben's NPM Page"
+                    aria-label="Ben's NPM Packages"
                 >
                     <Packages />
 
