@@ -1,8 +1,8 @@
 import type { CardProps, Loading, NewsArticle } from '@common/types';
 import { IO, sleep } from '@common/utils';
 import { ErrorComponent, Loader } from '@components';
+import { RightCornerArrow } from '@icons';
 import { useEffect, useState } from 'react';
-import { RightCornerArrow } from 'src/components/shared/icons';
 
 const NewsList = ({ endpoint, siteName }: CardProps) => {
     const [articles, setArticles] = useState<NewsArticle[]>([]);

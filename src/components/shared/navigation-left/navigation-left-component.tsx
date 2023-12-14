@@ -1,12 +1,5 @@
+import { Box, Docs, Info, Newspaper, OpenBox, Packages } from '@icons';
 import { NavLink } from 'react-router-dom';
-import {
-    Box,
-    Docs,
-    Info,
-    Newspaper,
-    OpenBox,
-    Packages,
-} from 'src/components/shared/icons';
 
 const LeftNavigationBar = () => {
     return (

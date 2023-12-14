@@ -1,4 +1,4 @@
-import { Docs, GitHub, Npm } from 'src/components/shared/icons';
+import { Docs, GitHub, Npm } from '@icons';
 
 const DesktopNav = () => {
     return (

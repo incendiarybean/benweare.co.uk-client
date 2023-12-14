@@ -1,5 +1,5 @@
 import type { ArrowComponentProps } from '@common/types';
-import { DownArrow, UpArrow } from 'src/components/shared/icons';
+import { DownArrow, UpArrow } from '@icons';
 
 const ArrowComponent = ({ display }: ArrowComponentProps) => {
     if (!display) {

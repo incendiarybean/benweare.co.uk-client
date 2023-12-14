@@ -1,8 +1,8 @@
 import type { CardProps, Loading, NewsArticle } from '@common/types';
 import { sleep } from '@common/utils';
 import { ArrowComponent, ErrorComponent, Loader } from '@components';
+import { RightCornerArrow } from '@icons';
 import { useEffect, useState } from 'react';
-import { RightCornerArrow } from 'src/components/shared/icons';
 
 const Card = ({ endpoint, siteName }: CardProps) => {
     const [article, setArticle] = useState<NewsArticle>();
