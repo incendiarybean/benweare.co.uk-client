@@ -1,4 +1,4 @@
-import { GitHub, Newspaper, Npm } from '@icons';
+import { Docs, GitHub, Npm } from '@icons';
 
 const FooterComponent = () => {
     return (
@@ -12,7 +12,7 @@ const FooterComponent = () => {
                             aria-label='API Documentation Page'
                         >
                             <span className='sr-only'>API Documentation</span>
-                            <Newspaper />
+                            <Docs />
                         </a>
                     </li>
                     <li>
