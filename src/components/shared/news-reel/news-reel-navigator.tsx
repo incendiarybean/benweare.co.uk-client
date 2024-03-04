@@ -36,8 +36,7 @@ const NewsReelNavigator = ({
                 }
 
                 <button
-                    aria-label={`Return to previous Article (Article ${currentPage - 1
-                        })`}
+                    aria-label={`Return to previous Article (Article ${currentPage - 1})`}
                     className='w-full carousel-button ml-2'
                     onClick={() => handleRotation(currentPage - 1)}
                 >
