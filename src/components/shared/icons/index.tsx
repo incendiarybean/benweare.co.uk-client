@@ -277,6 +277,21 @@ export const LeftCircleArrow = () => (
     </svg>
 );
 
+export const RightDoubleArrow = () => (
+    <svg height="21" viewBox="0 0 21 21" width="21" xmlns="http://www.w3.org/2000/svg">
+        <g
+            fill="none"
+            fillRule="evenodd"
+            stroke="currentColor"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            transform="translate(7 6)">
+            <path d="m.5 8.5 4-4-4-4" />
+            <path d="m4.5 8.5 4-4-4-4" />
+        </g>
+    </svg>
+);
+
 export const RightArrow = () => (
     <svg
         height='22'
@@ -293,6 +308,25 @@ export const RightArrow = () => (
             transform='translate(2 2)'
         >
             <path d='m7.5 11.5 3-3-3.068-3' />
+        </g>
+    </svg>
+);
+
+export const LeftDoubleArrow = () => (
+    <svg
+        height="21"
+        viewBox="0 0 21 21"
+        width="21"
+        xmlns="http://www.w3.org/2000/svg">
+        <g
+            fill="none"
+            fillRule="evenodd"
+            stroke="currentColor"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            transform="translate(5 6)">
+            <path d="m8.5 8.5-4-4 4-4" />
+            <path d="m4.5 8.5-4-4 4-4" />
         </g>
     </svg>
 );
