@@ -1,10 +1,8 @@
 import {
     LeftArrow,
     LeftCircleArrow,
-    LeftDoubleArrow,
     RightArrow,
     RightCircleArrow,
-    RightDoubleArrow,
 } from '@icons';
 
 import type { NewsArticle } from '@common/types';
