@@ -1,10 +1,11 @@
-import { SwipeHandler } from '@common/hooks/swipeHandler';
 import type { CardProps, Loading, NewsArticle } from '@common/types';
-import { IO, sleep } from '@common/utils';
 import { ErrorComponent, Loader } from '@components';
+import { IO, sleep } from '@common/utils';
 import { createRef, useEffect, useState } from 'react';
+
 import NewsReelCard from './news-reel-card';
 import NewsReelNavigator from './news-reel-navigator';
+import { SwipeHandler } from '@common/hooks/swipeHandler';
 
 const NewsCarousel = ({ endpoint, siteName }: CardProps) => {
     const [articles, setArticles] = useState<NewsArticle[]>([]);
@@ -40,7 +41,7 @@ const NewsCarousel = ({ endpoint, siteName }: CardProps) => {
             fetch(endpoint)
                 .then((data) => data.json())
                 .then(({ response }) => {
-                    setArticles(response.items);
+                    setArticles(response.items.slice(0, 30));
                     preloadImages(response.items);
                 })
                 .catch(() => {
