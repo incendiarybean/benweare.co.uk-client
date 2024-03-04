@@ -84,8 +84,7 @@ const NewsReelNavigator = ({
                 </div>
 
                 <button
-                    aria-label={`Move to next Article (Article ${currentPage + 1
-                        })`}
+                    aria-label={`Move to next Article (Article ${currentPage + 1})`}
                     className='w-full carousel-button mr-2'
                     onClick={() => handleRotation(currentPage + 1)}
                 >
@@ -104,8 +103,7 @@ const NewsReelNavigator = ({
             </div>
             <div className='md:hidden bg-white dark:bg-zinc-900 rounded-b flex w-full p-3 justify-between h-12 items-center'>
                 <button
-                    aria-label={`Return to previous Article (Article ${currentPage - 1
-                        })`}
+                    aria-label={`Return to previous Article (Article ${currentPage - 1})`}
                     className='md:hidden default-link w-auto min-w-fit flex justify-start items-center gap-1'
                     onClick={() => handleRotation(currentPage - 1)}
                 >
@@ -113,8 +111,7 @@ const NewsReelNavigator = ({
                 </button>
 
                 <button
-                    aria-label={`Move to next Articl (Article ${currentPage + 1
-                        })`}
+                    aria-label={`Move to next Article (Article ${currentPage + 1})`}
                     className='md:hidden default-link w-auto min-w-fit flex justify-end items-center gap-1'
                     onClick={() => handleRotation(currentPage + 1)}
                 >
