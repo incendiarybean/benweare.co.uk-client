@@ -27,7 +27,6 @@ const NewsReelNavigator = ({
             <div className='hidden bg-white dark:bg-zinc-900 rounded-b lg:rounded md:flex gap-2 md:gap-0 w-full lg:w-2/3 p-3 justify-between h-12 items-center lg:shadow lg:border border-slate-300 dark:border-zinc-600/30'>
                 {articles.length >= 35 &&
                     <button
-                        hidden={articles.length >= 35}
                         aria-label={`Return to the first Article`}
                         className='w-full carousel-button'
                         onClick={() => handleRotation(0)}
@@ -35,6 +34,7 @@ const NewsReelNavigator = ({
                         <LeftDoubleArrow />
                     </button>
                 }
+
                 <button
                     aria-label={`Return to previous Article (Article ${currentPage - 1
                         })`}
@@ -53,7 +53,7 @@ const NewsReelNavigator = ({
                             className={`carousel-pip ${index === currentPage ? 'active' : 'inactive'}`}
                         />
                     ))}
-                    {articles.length > 35 &&
+                    {articles.length >= 35 &&
                         <>
                             {articles.map((data, index) => (
                                 (index < currentPage + 5 && index !== articles.length - 1) &&
@@ -91,6 +91,7 @@ const NewsReelNavigator = ({
                 >
                     <RightArrow />
                 </button>
+
                 {articles.length >= 35 &&
                     <button
                         aria-label={`Move to the last Article`}
@@ -100,7 +101,6 @@ const NewsReelNavigator = ({
                         <RightDoubleArrow />
                     </button>
                 }
-
             </div>
             <div className='md:hidden bg-white dark:bg-zinc-900 rounded-b flex w-full p-3 justify-between h-12 items-center'>
                 <button
