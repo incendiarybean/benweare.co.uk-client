@@ -1,6 +1,3 @@
-import { ExternalClickHandler } from '@common/hooks/externalClickHandler';
-import { animateCSS } from '@common/utils';
-import { Footer } from '@components';
 import {
     Box,
     Burger,
@@ -12,7 +9,11 @@ import {
     Packages,
 } from '@icons';
 import { createRef, useState } from 'react';
+
+import { ExternalClickHandler } from '@common/hooks/externalClickHandler';
+import { Footer } from '@components';
 import { NavLink } from 'react-router-dom';
+import { animateCSS } from '@common/utils';
 
 const MobileNav = () => {
     const [settingsOpen, setSettingsOpen] = useState(false);
@@ -66,9 +67,9 @@ const MobileNav = () => {
 
                             <NavLink
                                 to='/dashboard'
+                                end
                                 className={({ isActive }) =>
-                                    `mobile-internal-link ${
-                                        isActive ? 'active' : 'inactive'
+                                    `mobile-internal-link ${isActive ? 'active' : 'inactive'
                                     }`
                                 }
                                 aria-label='News Dashboard Page'
@@ -79,10 +80,21 @@ const MobileNav = () => {
                             </NavLink>
 
                             <NavLink
+                                to='/dashboard/news-stream'
+                                className={({ isActive }) =>
+                                    `mobile-internal-link ${isActive ? 'active' : 'inactive'}`
+                                }
+                                aria-label='News Stream Page'
+                            >
+                                <Newspaper />
+
+                                <p className='mobile-menu-item'>News Stream</p>
+                            </NavLink>
+
+                            <NavLink
                                 to='/'
                                 className={({ isActive }) =>
-                                    `mobile-internal-link ${
-                                        isActive ? 'active' : 'inactive'
+                                    `mobile-internal-link ${isActive ? 'active' : 'inactive'
                                     }`
                                 }
                                 aria-label='About Ben Weare Page'

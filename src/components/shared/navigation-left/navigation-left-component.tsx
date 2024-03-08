@@ -1,4 +1,5 @@
 import { Box, Docs, Info, Newspaper, OpenBox, Packages } from '@icons';
+
 import { NavLink } from 'react-router-dom';
 
 const LeftNavigationBar = () => {
@@ -44,18 +45,6 @@ const LeftNavigationBar = () => {
                 <a
                     target='_blank'
                     rel='noreferrer'
-                    href='https://www.npmjs.com/~incendiarybean'
-                    className='left-external-link'
-                    aria-label="Ben's NPM Packages"
-                >
-                    <Packages />
-
-                    <p className='left-menu-item'>Packages</p>
-                </a>
-
-                <a
-                    target='_blank'
-                    rel='noreferrer'
                     href='https://github.com/incendiarybean'
                     className='left-external-link'
                     aria-label="Ben's GitHub Page"
@@ -63,6 +52,18 @@ const LeftNavigationBar = () => {
                     <OpenBox />
 
                     <p className='left-menu-item'>GitHub</p>
+                </a>
+
+                <a
+                    target='_blank'
+                    rel='noreferrer'
+                    href='https://www.npmjs.com/~incendiarybean'
+                    className='left-external-link'
+                    aria-label="Ben's NPM Packages"
+                >
+                    <Packages />
+
+                    <p className='left-menu-item'>Packages</p>
                 </a>
 
                 <a
