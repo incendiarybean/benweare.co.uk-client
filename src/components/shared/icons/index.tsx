@@ -351,7 +351,7 @@ export const LeftArrow = () => (
     </svg>
 );
 
-export const UpArrow = () => (
+export const ChevronDownContained = () => (
     <svg
         xmlns='http://www.w3.org/2000/svg'
         width='21'
@@ -376,7 +376,7 @@ export const UpArrow = () => (
     </svg>
 );
 
-export const DownArrow = () => (
+export const ChevronUpContained = () => (
     <svg
         xmlns='http://www.w3.org/2000/svg'
         width='21'
@@ -589,5 +589,36 @@ export const WarningCircle = () => (
             />
             <circle cx='10.5' cy='14.5' fill='currentColor' r='1' />
         </g>
+    </svg>
+);
+
+export const ChevronUp = () => (
+    <svg
+        height="21"
+        viewBox="0 0 21 21"
+        width="21"
+        xmlns="http://www.w3.org/2000/svg">
+        <path d="m.5 4.5 4-4 4 4"
+            fill="none"
+            stroke="currentColor"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            transform="translate(6 8)"
+        />
+    </svg>
+)
+
+export const ChevronDown = () => (
+    <svg
+        height="21"
+        viewBox="0 0 21 21"
+        width="21"
+        xmlns="http://www.w3.org/2000/svg">
+        <path d="m8.5.5-4 4-4-4"
+            fill="none"
+            stroke="currentColor"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            transform="translate(6 8)" />
     </svg>
 );

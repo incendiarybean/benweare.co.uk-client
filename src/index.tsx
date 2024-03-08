@@ -1,10 +1,11 @@
 import './index.css';
 
-import { DashboardPage, DocumentationPage, InformationPage } from '@components';
+import { DashboardPage, DocumentationPage, InformationPage, NewsFeed } from '@components';
+import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+
+import App from './App';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { RouterProvider, createBrowserRouter } from 'react-router-dom';
-import App from './App';
 
 const root = ReactDOM.createRoot(
     document.getElementById('root') as HTMLElement
@@ -18,6 +19,10 @@ const router = createBrowserRouter([
             {
                 path: '/dashboard',
                 element: <DashboardPage />,
+            },
+            {
+                path: '/dashboard/news-stream',
+                element: <NewsFeed endpoint='/api/news/articles' />
             },
             {
                 path: '/documentation',
