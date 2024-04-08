@@ -1,8 +1,9 @@
 import type { CardProps, Loading, NewsArticle } from '@common/types';
-import { IO, sleep } from '@common/utils';
 import { ErrorComponent, Loader } from '@components';
-import { RightCornerArrow } from '@icons';
+import { IO, sleep } from '@common/utils';
 import { useEffect, useState } from 'react';
+
+import { RightCornerArrow } from '@icons';
 
 const NewsList = ({ endpoint, siteName }: CardProps) => {
     const [articles, setArticles] = useState<NewsArticle[]>([]);
@@ -13,7 +14,7 @@ const NewsList = ({ endpoint, siteName }: CardProps) => {
             fetch(endpoint)
                 .then((data) => data.json())
                 .then(({ response }) => {
-                    setArticles(response.items);
+                    setArticles(response.items.slice(0, 30));
                     setLoaded(true);
                 })
                 .catch(() => {
