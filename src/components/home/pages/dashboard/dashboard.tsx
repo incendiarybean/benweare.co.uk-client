@@ -16,6 +16,7 @@ const DashboardPage = () => {
                 endpoint='/api/news/rock_paper_shotgun'
                 siteName='Rock Paper Shotgun'
             />
+            <NewsList endpoint='/api/news/ars_technica' siteName='Ars Technica' />
             <NewsCarousel endpoint='/api/news/bbc' siteName='BBC' />
             <div
                 className='px-1 md:px-6 my-2 w-auto'
