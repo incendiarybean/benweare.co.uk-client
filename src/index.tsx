@@ -1,6 +1,6 @@
 import './index.css';
 
-import { DashboardPage, DocumentationPage, InformationPage, NewsFeed } from '@components';
+import { DashboardPage, DocumentationPage, InformationPage, NewsFeedPage } from '@components';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 
 import App from './App';
@@ -21,8 +21,8 @@ const router = createBrowserRouter([
                 element: <DashboardPage />,
             },
             {
-                path: '/dashboard/news-stream',
-                element: <NewsFeed endpoint='/api/news/articles' />
+                path: '/news-feed',
+                element: <NewsFeedPage />
             },
             {
                 path: '/documentation',

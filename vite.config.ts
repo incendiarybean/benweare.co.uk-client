@@ -8,6 +8,7 @@ export default defineConfig({
         port: 3000,
         proxy: {
             '/api/': 'http://localhost:8080',
+            '/socket.io/': 'http://localhost:8080',
         },
     },
     define: {

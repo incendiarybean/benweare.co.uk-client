@@ -1,5 +1,6 @@
 // Pages:
 export { default as DashboardPage } from './home/pages/dashboard/dashboard';
+export { default as NewsFeedPage } from './home/pages/news-feed/news-feed';
 export { default as DocumentationPage } from './home/pages/documentation/documentation';
 export { default as InformationPage } from './home/pages/information/information';
 
@@ -13,5 +14,4 @@ export { default as LeftNavigationBar } from './shared/navigation-left/navigatio
 export { default as RightNavigationBar } from './shared/navigation-right/navigation-right-component';
 export { default as NavigationBar } from './shared/navigation-top/navigation-top-component';
 export { default as NewsList } from './shared/news-list/news-list-component';
-export { default as NewsFeed } from './shared/news-feed/news-feed-component';
 export { default as NewsCarousel } from './shared/news-reel/news-reel-component';

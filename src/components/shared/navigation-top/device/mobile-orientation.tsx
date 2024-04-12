@@ -80,7 +80,7 @@ const MobileNav = () => {
                             </NavLink>
 
                             <NavLink
-                                to='/dashboard/news-stream'
+                                to='/news-feed'
                                 className={({ isActive }) =>
                                     `mobile-internal-link ${isActive ? 'active' : 'inactive'}`
                                 }
@@ -88,7 +88,7 @@ const MobileNav = () => {
                             >
                                 <Newspaper />
 
-                                <p className='mobile-menu-item'>News Stream</p>
+                                <p className='mobile-menu-item'>News Feed</p>
                             </NavLink>
 
                             <NavLink

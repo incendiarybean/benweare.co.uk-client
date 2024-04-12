@@ -278,16 +278,22 @@ export const LeftCircleArrow = () => (
 );
 
 export const RightDoubleArrow = () => (
-    <svg height="21" viewBox="0 0 21 21" width="21" xmlns="http://www.w3.org/2000/svg">
+    <svg
+        height='21'
+        viewBox='0 0 21 21'
+        width='21'
+        xmlns='http://www.w3.org/2000/svg'
+    >
         <g
-            fill="none"
-            fillRule="evenodd"
-            stroke="currentColor"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            transform="translate(7 6)">
-            <path d="m.5 8.5 4-4-4-4" />
-            <path d="m4.5 8.5 4-4-4-4" />
+            fill='none'
+            fillRule='evenodd'
+            stroke='currentColor'
+            strokeLinecap='round'
+            strokeLinejoin='round'
+            transform='translate(7 6)'
+        >
+            <path d='m.5 8.5 4-4-4-4' />
+            <path d='m4.5 8.5 4-4-4-4' />
         </g>
     </svg>
 );
@@ -314,19 +320,21 @@ export const RightArrow = () => (
 
 export const LeftDoubleArrow = () => (
     <svg
-        height="21"
-        viewBox="0 0 21 21"
-        width="21"
-        xmlns="http://www.w3.org/2000/svg">
+        height='21'
+        viewBox='0 0 21 21'
+        width='21'
+        xmlns='http://www.w3.org/2000/svg'
+    >
         <g
-            fill="none"
-            fillRule="evenodd"
-            stroke="currentColor"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            transform="translate(5 6)">
-            <path d="m8.5 8.5-4-4 4-4" />
-            <path d="m4.5 8.5-4-4 4-4" />
+            fill='none'
+            fillRule='evenodd'
+            stroke='currentColor'
+            strokeLinecap='round'
+            strokeLinejoin='round'
+            transform='translate(5 6)'
+        >
+            <path d='m8.5 8.5-4-4 4-4' />
+            <path d='m4.5 8.5-4-4 4-4' />
         </g>
     </svg>
 );
@@ -533,6 +541,33 @@ export const Docs = () => (
     </svg>
 );
 
+export const DocsList = () => (
+    <svg
+        height='21'
+        viewBox='0 0 21 21'
+        width='21'
+        xmlns='http://www.w3.org/2000/svg'
+    >
+        <g
+            fill='none'
+            fillRule='evenodd'
+            stroke='currentColor'
+            strokeLinecap='round'
+            strokeLinejoin='round'
+            transform='translate(4 3)'
+        >
+            <path d='m12.5 12.5v-10c0-1.1045695-.8954305-2-2-2h-8c-1.1045695 0-2 .8954305-2 2v10c0 1.1045695.8954305 2 2 2h8c1.1045695 0 2-.8954305 2-2z' />
+            <path d='m5.5 4.5h5' />
+            <path d='m2.5 4.5h1' />
+            <path d='m5.5 7.5h5' />
+            <path d='m2.5 7.5h1' />
+            <path d='m5.5 10.5h5' />
+            <path d='m2.5 10.5h1' />
+        </g>
+    </svg>
+);
+
+
 export const Cross = () => (
     <svg
         aria-hidden='true'
@@ -594,31 +629,36 @@ export const WarningCircle = () => (
 
 export const ChevronUp = () => (
     <svg
-        height="21"
-        viewBox="0 0 21 21"
-        width="21"
-        xmlns="http://www.w3.org/2000/svg">
-        <path d="m.5 4.5 4-4 4 4"
-            fill="none"
-            stroke="currentColor"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            transform="translate(6 8)"
+        height='21'
+        viewBox='0 0 21 21'
+        width='21'
+        xmlns='http://www.w3.org/2000/svg'
+    >
+        <path
+            d='m.5 4.5 4-4 4 4'
+            fill='none'
+            stroke='currentColor'
+            strokeLinecap='round'
+            strokeLinejoin='round'
+            transform='translate(6 8)'
         />
     </svg>
-)
+);
 
 export const ChevronDown = () => (
     <svg
-        height="21"
-        viewBox="0 0 21 21"
-        width="21"
-        xmlns="http://www.w3.org/2000/svg">
-        <path d="m8.5.5-4 4-4-4"
-            fill="none"
-            stroke="currentColor"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            transform="translate(6 8)" />
+        height='21'
+        viewBox='0 0 21 21'
+        width='21'
+        xmlns='http://www.w3.org/2000/svg'
+    >
+        <path
+            d='m8.5.5-4 4-4-4'
+            fill='none'
+            stroke='currentColor'
+            strokeLinecap='round'
+            strokeLinejoin='round'
+            transform='translate(6 8)'
+        />
     </svg>
 );

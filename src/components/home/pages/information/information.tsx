@@ -1,6 +1,7 @@
-import profile_image from '@common/images/profile-sm.webp';
-import { ArrowComponent } from '@components';
 import { useEffect, useState } from 'react';
+
+import { ArrowComponent } from '@components';
+import profile_image from '@common/images/profile-sm.webp';
 
 const InformationPage = () => {
     const [showKnowledgeList, setShowKnowledgeList] = useState<boolean>(false);
@@ -14,6 +15,7 @@ const InformationPage = () => {
 
     useEffect(() => {
         preloadImage();
+        window.scroll(0, 0);
     }, []);
 
     return (
