@@ -1,8 +1,9 @@
-import type { CardProps, Loading, NewsArticle } from '@common/types';
-import { sleep } from '@common/utils';
 import { ArrowComponent, ErrorComponent, Loader } from '@components';
-import { RightCornerArrow } from '@icons';
+import type { CardProps, Loading, NewsArticle } from '@common/types';
 import { useEffect, useState } from 'react';
+
+import { RightCornerArrow } from '@icons';
+import { sleep } from '@common/utils';
 
 const Card = ({ endpoint, siteName }: CardProps) => {
     const [article, setArticle] = useState<NewsArticle>();
@@ -29,15 +30,14 @@ const Card = ({ endpoint, siteName }: CardProps) => {
     return (
         <div className='px-1 md:px-6 my-2 w-auto'>
             <div className='animate__animated animate__fadeIn animate__faster text-left flex flex-col w-full items-center justify-center md:p-4 md:border border-slate-300 dark:border-zinc-600/20 rounded shadow-inner'>
-                {loaded && article && (
-                    <div className='border border-slate-300 dark:border-zinc-600/30 w-full rounded flex-col xl:flex-row bg-white dark:bg-zinc-900 shadow'>
+                {loaded === true && article && (
+                    <div className='border border-slate-300 dark:border-zinc-600/30 w-full rounded flex-col xl:flex-row bg-slate-100 dark:bg-zinc-900 shadow'>
                         {article.url.includes('youtube') ? (
                             <iframe
-                                src={`https://www.youtube-nocookie.com/embed/${
-                                    article.url.split('/')[
-                                        article.url.split('/').length - 1
+                                src={`https://www.youtube-nocookie.com/embed/${article.url.split('/')[
+                                    article.url.split('/').length - 1
                                     ]
-                                }`}
+                                    }`}
                                 allow='autoplay; encrypted-media;'
                                 allowFullScreen
                                 title={`embedded YouTube video provided by ${siteName}`}
@@ -80,7 +80,10 @@ const Card = ({ endpoint, siteName }: CardProps) => {
                                     onClick={() => setShow(!show)}
                                 >
                                     <p>Read the Article</p>
-                                    <ArrowComponent upwardFacing={show} />
+                                    <ArrowComponent
+                                        upwardFacing={show}
+                                        container
+                                    />
                                 </button>
                                 {article.url.includes('youtube') && (
                                     <a

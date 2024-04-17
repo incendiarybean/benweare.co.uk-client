@@ -2,7 +2,7 @@ import { ChevronDown, ChevronDownContained, ChevronUp, ChevronUpContained } from
 
 const ArrowComponent = ({
     upwardFacing,
-    container = true
+    container
 }: {
     /** A value depicting which direction the arrow is facing */
     upwardFacing: boolean;

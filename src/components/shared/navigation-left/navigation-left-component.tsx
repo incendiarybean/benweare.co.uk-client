@@ -1,4 +1,4 @@
-import { Box, Docs, Info, Newspaper, OpenBox, Packages } from '@icons';
+import { Docs, DocsList, Info, Newspaper, OpenBox, Packages } from '@icons';
 
 import { NavLink } from 'react-router-dom';
 
@@ -16,6 +16,18 @@ const LeftNavigationBar = () => {
                     <Newspaper />
 
                     <p className='left-menu-item'>Dashboard</p>
+                </NavLink>
+
+                <NavLink
+                    to='/news-feed'
+                    className={({ isActive }) =>
+                        `left-internal-link ${isActive ? 'active' : 'inactive'}`
+                    }
+                    aria-label='All News Page'
+                >
+                    <DocsList />
+
+                    <p className='left-menu-item'>News Feed</p>
                 </NavLink>
 
                 <NavLink
@@ -64,18 +76,6 @@ const LeftNavigationBar = () => {
                     <Packages />
 
                     <p className='left-menu-item'>Packages</p>
-                </a>
-
-                <a
-                    target='_blank'
-                    rel='noreferrer'
-                    href='https://hub.docker.com/u/incendiarybean'
-                    className='left-external-link'
-                    aria-label="Ben's Docker Page"
-                >
-                    <Box />
-
-                    <p className='left-menu-item'>Docker</p>
                 </a>
             </div>
         </div>

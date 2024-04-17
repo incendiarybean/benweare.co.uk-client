@@ -21,7 +21,7 @@ const NewsReelNavigator = ({
 }) => {
     return (
         <div className='w-full lg:mt-2 flex justify-center'>
-            <div className='hidden bg-white dark:bg-zinc-900 rounded-b lg:rounded md:flex gap-2 md:gap-0 w-full lg:w-2/3 p-3 justify-between h-12 items-center lg:shadow lg:border border-slate-300 dark:border-zinc-600/30'>
+            <div className='hidden bg-slate-100 dark:bg-zinc-900 rounded-b lg:rounded md:flex gap-2 md:gap-0 w-full lg:w-2/3 p-3 justify-between h-12 items-center lg:shadow lg:border border-slate-300 dark:border-zinc-600/30'>
                 <button
                     aria-label={`Return to previous Article (Article ${currentPage - 1})`}
                     className='w-full carousel-button'
@@ -47,7 +47,7 @@ const NewsReelNavigator = ({
                     <RightArrow />
                 </button>
             </div>
-            <div className='md:hidden bg-white dark:bg-zinc-900 rounded-b flex w-full p-3 justify-between h-12 items-center'>
+            <div className='md:hidden bg-slate-100 dark:bg-zinc-900 rounded-b flex w-full p-3 justify-between h-12 items-center'>
                 <button
                     aria-label={`Return to previous Article (Article ${currentPage - 1})`}
                     className='md:hidden default-link w-auto min-w-fit flex justify-start items-center gap-1'

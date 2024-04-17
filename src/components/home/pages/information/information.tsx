@@ -1,6 +1,7 @@
-import profile_image from '@common/images/profile-sm.webp';
-import { ArrowComponent } from '@components';
 import { useEffect, useState } from 'react';
+
+import { ArrowComponent } from '@components';
+import profile_image from '@common/images/profile-sm.webp';
 
 const InformationPage = () => {
     const [showKnowledgeList, setShowKnowledgeList] = useState<boolean>(false);
@@ -14,13 +15,14 @@ const InformationPage = () => {
 
     useEffect(() => {
         preloadImage();
+        window.scroll(0, 0);
     }, []);
 
     return (
         <div>
-            {loaded && (
+            {loaded === true && (
                 <div className='animate__animated animate__fadeIn animate__faster flex flex-col px-2 md:px-6 my-3'>
-                    <div className='flex flex-col w-full bg-white dark:bg-zinc-900/70 rounded shadow p-10 mt-28'>
+                    <div className='flex flex-col w-full bg-slate-100 dark:bg-zinc-900/70 rounded shadow p-10 mt-28'>
                         <div>
                             <div className='flex justify-center items-center mb-5'>
                                 <img
