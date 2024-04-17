@@ -8,9 +8,10 @@ import {
     NavigationBar,
     RightNavigationBar,
 } from '@components';
-import { useEffect } from 'react';
-import { Outlet } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
+
+import { Outlet } from 'react-router-dom';
+import { useEffect } from 'react';
 
 const App = () => {
     useEffect(() => {

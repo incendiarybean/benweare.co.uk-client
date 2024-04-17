@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 html {
-    @apply bg-zinc-200 dark:bg-zinc-800 text-slate-800 dark:text-white min-w-[16rem];
+    @apply bg-slate-200 dark:bg-zinc-800 text-slate-800 dark:text-white min-w-[16rem];
     overflow: overlay;
 }
 
@@ -60,7 +60,7 @@ body {
 }
 
 .default-link {
-    @apply text-sm md:text-xs text-blue-500 dark:text-sky-300 hover:text-blue-700 hover:dark:text-sky-600 uppercase;
+    @apply text-sm md:text-xs text-blue-500 dark:text-sky-300 hover:text-blue-900 hover:dark:text-sky-600 uppercase;
 }
 
 .icon-link {
@@ -96,7 +96,7 @@ body {
 }
 
 .carousel-button {
-    @apply border-slate-500 shadow dark:border-slate-400 lg:dark:border-slate-100 hover:text-sky-500 dark:hover:text-sky-400 border hover:border-blue-500 dark:hover:border-blue-400 h-8 md:w-6 md:h-6 flex justify-around items-center rounded duration-150 hover:scale-105 active:scale-95;
+    @apply border-slate-600 shadow dark:border-slate-400 lg:dark:border-slate-100 hover:text-sky-700 dark:hover:text-sky-400 border hover:border-sky-700 dark:hover:border-blue-400 h-8 md:w-6 md:h-6 flex justify-around items-center rounded duration-150 hover:scale-105 active:scale-95;
 }
 
 .carousel-pip {

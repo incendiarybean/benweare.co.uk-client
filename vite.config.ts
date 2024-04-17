@@ -7,8 +7,8 @@ export default defineConfig({
     server: {
         port: 3000,
         proxy: {
-            '/api/': 'http://localhost:8080',
-            '/socket.io/': 'http://localhost:8080',
+            '/api/': 'https://dev.benweare.co.uk',
+            '/socket.io/': 'https://dev.benweare.co.uk',
         },
     },
     define: {

@@ -22,9 +22,9 @@ const NewsReelCard = ({
             href={article.url}
             rel='noreferrer'
             target='_blank'
-            className='relative flex w-full rounded-t lg:rounded lg:shadow lg:hover:shadow-md flex-col xl:flex-row bg-white dark:bg-zinc-900 lg:border border-slate-300 dark:border-zinc-600/30'
+            className='relative flex w-full rounded-t lg:rounded lg:shadow lg:hover:shadow-md flex-col xl:flex-row bg-slate-100 dark:bg-zinc-900 lg:border border-slate-300 dark:border-zinc-600/30'
         >
-            <span className='tracking-wider md:hidden m-2 p-1 px-3 text-sm absolute top-0 right-0 rounded-full bg-white dark:bg-zinc-900'>
+            <span className='tracking-wider md:hidden m-2 p-1 px-3 text-sm absolute top-0 right-0 rounded-full bg-slate-100 dark:bg-zinc-900'>
                 {currentPage + 1}/{maxArticles}
             </span>
 

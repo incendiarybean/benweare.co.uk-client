@@ -20,9 +20,9 @@ const InformationPage = () => {
 
     return (
         <div>
-            {loaded && (
+            {loaded === true && (
                 <div className='animate__animated animate__fadeIn animate__faster flex flex-col px-2 md:px-6 my-3'>
-                    <div className='flex flex-col w-full bg-white dark:bg-zinc-900/70 rounded shadow p-10 mt-28'>
+                    <div className='flex flex-col w-full bg-slate-100 dark:bg-zinc-900/70 rounded shadow p-10 mt-28'>
                         <div>
                             <div className='flex justify-center items-center mb-5'>
                                 <img
