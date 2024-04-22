@@ -35,4 +35,5 @@ const DesktopNav = () => {
         </div>
     );
 };
+
 export default DesktopNav;

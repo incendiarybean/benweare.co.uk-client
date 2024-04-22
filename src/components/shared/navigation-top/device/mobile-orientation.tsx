@@ -64,12 +64,12 @@ const MobileNav = () => {
                                     <Cross />
                                 </button>
                             </div>
-
                             <NavLink
                                 to='/dashboard'
                                 end
                                 className={({ isActive }) =>
-                                    `mobile-internal-link ${isActive ? 'active' : 'inactive'
+                                    `mobile-internal-link ${
+                                        isActive ? 'active' : 'inactive'
                                     }`
                                 }
                                 aria-label='News Dashboard Page'
@@ -78,7 +78,6 @@ const MobileNav = () => {
 
                                 <p className='mobile-menu-item'>Dashboard</p>
                             </NavLink>
-
                             <NavLink
                                 to='/news-feed'
                                 className={({ isActive }) =>
@@ -90,11 +89,11 @@ const MobileNav = () => {
 
                                 <p className='mobile-menu-item'>News Feed</p>
                             </NavLink>
-
                             <NavLink
                                 to='/'
                                 className={({ isActive }) =>
-                                    `mobile-internal-link ${isActive ? 'active' : 'inactive'
+                                    `mobile-internal-link ${
+                                        isActive ? 'active' : 'inactive'
                                     }`
                                 }
                                 aria-label='About Ben Weare Page'
@@ -103,7 +102,6 @@ const MobileNav = () => {
 
                                 <p className='mobile-menu-item'>About</p>
                             </NavLink>
-
                             <a
                                 target='_blank'
                                 rel='noreferrer'
@@ -117,7 +115,6 @@ const MobileNav = () => {
                                     Documentation
                                 </p>
                             </a>
-
                             <a
                                 target='_blank'
                                 rel='noreferrer'
@@ -129,7 +126,6 @@ const MobileNav = () => {
 
                                 <p className='mobile-menu-item'>Packages</p>
                             </a>
-
                             <a
                                 target='_blank'
                                 rel='noreferrer'
@@ -141,7 +137,6 @@ const MobileNav = () => {
 
                                 <p className='mobile-menu-item'>GitHub</p>
                             </a>
-
                             <a
                                 target='_blank'
                                 rel='noreferrer'

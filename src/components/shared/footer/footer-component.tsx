@@ -40,7 +40,6 @@ const FooterComponent = () => {
                         </a>
                     </li>
                 </ul>
-
                 <ul className='flex gap-2 justify-around my-2'>
                     <li>
                         <a
@@ -87,7 +86,6 @@ const FooterComponent = () => {
                         </a>
                     </li>
                 </ul>
-
                 <div className='w-full flex justify-center items-center'>
                     <span className='text-xs leading-5 font-medium text-sky-600 dark:text-sky-400 bg-sky-400/30 dark:bg-sky-400/10 rounded-full py-1 px-3 items-center'>
                         <strong className='font-semibold'>

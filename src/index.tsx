@@ -1,6 +1,11 @@
 import './index.css';
 
-import { DashboardPage, DocumentationPage, InformationPage, NewsFeedPage } from '@components';
+import {
+    DashboardPage,
+    DocumentationPage,
+    InformationPage,
+    NewsFeedPage,
+} from '@components';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 
 import App from './App';
@@ -22,7 +27,7 @@ const router = createBrowserRouter([
             },
             {
                 path: '/news-feed',
-                element: <NewsFeedPage />
+                element: <NewsFeedPage />,
             },
             {
                 path: '/documentation',
