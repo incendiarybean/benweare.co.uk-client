@@ -17,7 +17,6 @@ const LeftNavigationBar = () => {
 
                     <p className='left-menu-item'>Dashboard</p>
                 </NavLink>
-
                 <NavLink
                     to='/news-feed'
                     className={({ isActive }) =>
@@ -29,7 +28,6 @@ const LeftNavigationBar = () => {
 
                     <p className='left-menu-item'>News Feed</p>
                 </NavLink>
-
                 <NavLink
                     to='/'
                     className={({ isActive }) =>
@@ -41,7 +39,6 @@ const LeftNavigationBar = () => {
 
                     <p className='left-menu-item'>About</p>
                 </NavLink>
-
                 <NavLink
                     to='/documentation'
                     className={({ isActive }) =>
@@ -53,7 +50,6 @@ const LeftNavigationBar = () => {
 
                     <p className='left-menu-item'>Documentation</p>
                 </NavLink>
-
                 <a
                     target='_blank'
                     rel='noreferrer'
@@ -65,7 +61,6 @@ const LeftNavigationBar = () => {
 
                     <p className='left-menu-item'>GitHub</p>
                 </a>
-
                 <a
                     target='_blank'
                     rel='noreferrer'

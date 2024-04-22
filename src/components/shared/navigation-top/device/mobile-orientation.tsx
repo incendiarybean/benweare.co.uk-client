@@ -64,7 +64,6 @@ const MobileNav = () => {
                                     <Cross />
                                 </button>
                             </div>
-
                             <NavLink
                                 to='/dashboard'
                                 end
@@ -79,7 +78,6 @@ const MobileNav = () => {
 
                                 <p className='mobile-menu-item'>Dashboard</p>
                             </NavLink>
-
                             <NavLink
                                 to='/news-feed'
                                 className={({ isActive }) =>
@@ -91,7 +89,6 @@ const MobileNav = () => {
 
                                 <p className='mobile-menu-item'>News Feed</p>
                             </NavLink>
-
                             <NavLink
                                 to='/'
                                 className={({ isActive }) =>
@@ -105,7 +102,6 @@ const MobileNav = () => {
 
                                 <p className='mobile-menu-item'>About</p>
                             </NavLink>
-
                             <a
                                 target='_blank'
                                 rel='noreferrer'
@@ -119,7 +115,6 @@ const MobileNav = () => {
                                     Documentation
                                 </p>
                             </a>
-
                             <a
                                 target='_blank'
                                 rel='noreferrer'
@@ -131,7 +126,6 @@ const MobileNav = () => {
 
                                 <p className='mobile-menu-item'>Packages</p>
                             </a>
-
                             <a
                                 target='_blank'
                                 rel='noreferrer'
@@ -143,7 +137,6 @@ const MobileNav = () => {
 
                                 <p className='mobile-menu-item'>GitHub</p>
                             </a>
-
                             <a
                                 target='_blank'
                                 rel='noreferrer'

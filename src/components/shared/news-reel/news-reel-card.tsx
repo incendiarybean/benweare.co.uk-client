@@ -27,13 +27,11 @@ const NewsReelCard = ({
             <span className='tracking-wider md:hidden m-2 p-1 px-3 text-sm absolute top-0 right-0 rounded-full bg-slate-100 dark:bg-zinc-900'>
                 {currentPage + 1}/{maxArticles}
             </span>
-
             <img
                 alt={`${siteName} Image: ${article.title}`}
                 src={article.img}
                 className='w-full min-w-[50%] xl:w-96 h-60 object-cover shadow rounded-t xl:rounded-tr-none xl:rounded-l'
             />
-
             <div className='w-full p-4 flex flex-col justify-between text-left h-36 md:h-40 xl:h-60 overflow-hidden'>
                 <div>
                     <div className='flex flex-wrap md:w-full items-center justify-between text-xs text-blue-600 dark:text-sky-500'>
