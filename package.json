@@ -6,8 +6,8 @@
         "start": "vite",
         "build": "vite build",
         "test": "jest --watchAll=false --silent",
-        "lint": "prettier ./src -c",
-        "lint-fix": "prettier ./src -w"
+        "lint": "prettier . -c",
+        "lint-fix": "prettier . -w"
     },
     "eslintConfig": {
         "extends": [

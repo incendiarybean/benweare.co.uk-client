@@ -44,7 +44,7 @@ jobs:
 
             - name: 🔨 Install dependencies and build
               run: npm install && npm run build
-            
+
             - name: 🧼 Run Linter
               run: npm run lint
 
