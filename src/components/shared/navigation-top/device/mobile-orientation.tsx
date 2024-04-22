@@ -69,7 +69,8 @@ const MobileNav = () => {
                                 to='/dashboard'
                                 end
                                 className={({ isActive }) =>
-                                    `mobile-internal-link ${isActive ? 'active' : 'inactive'
+                                    `mobile-internal-link ${
+                                        isActive ? 'active' : 'inactive'
                                     }`
                                 }
                                 aria-label='News Dashboard Page'
@@ -94,7 +95,8 @@ const MobileNav = () => {
                             <NavLink
                                 to='/'
                                 className={({ isActive }) =>
-                                    `mobile-internal-link ${isActive ? 'active' : 'inactive'
+                                    `mobile-internal-link ${
+                                        isActive ? 'active' : 'inactive'
                                     }`
                                 }
                                 aria-label='About Ben Weare Page'

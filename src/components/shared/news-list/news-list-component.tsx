@@ -92,8 +92,9 @@ const NewsList = ({
                                 <ArrowComponent upwardFacing={filtersOpen} />
                             </button>
                             <button
-                                aria-label={`Change the sorting of news to ${sort === 'ASC' ? 'descending' : 'ascending'
-                                    } in date order (newest first)`}
+                                aria-label={`Change the sorting of news to ${
+                                    sort === 'ASC' ? 'descending' : 'ascending'
+                                } in date order (newest first)`}
                                 onClick={() =>
                                     setSort(sort === 'ASC' ? 'DESC' : 'ASC')
                                 }
@@ -119,15 +120,17 @@ const NewsList = ({
                                                 },
                                             })
                                         }
-                                        className={`ml-1 flex gap-1 text-sm ${outlets[value].enabled
-                                            ? 'text-green-500 hover:text-red-600'
-                                            : 'text-red-500 hover:text-green-700'
-                                            }  items-center`}
+                                        className={`ml-1 flex gap-1 text-sm ${
+                                            outlets[value].enabled
+                                                ? 'text-green-500 hover:text-red-600'
+                                                : 'text-red-500 hover:text-green-700'
+                                        }  items-center`}
                                         key={value}
-                                        aria-label={`${outlets[value].enabled
-                                            ? 'Exclude'
-                                            : 'Include'
-                                            } News outlet: ${value} in the list.`}
+                                        aria-label={`${
+                                            outlets[value].enabled
+                                                ? 'Exclude'
+                                                : 'Include'
+                                        } News outlet: ${value} in the list.`}
                                     >
                                         <span>
                                             {outlets[value].enabled ? (
@@ -147,16 +150,18 @@ const NewsList = ({
             )}
             {loaded === true && (
                 <div
-                    className={`animate__animated animate__fadeIn animate__faster text-left flex flex-col w-full justify-center md:border border-slate-300 dark:border-zinc-600/20 rounded h-auto ${!expanded && 'md:h-64'
-                        } relative`}
+                    className={`animate__animated animate__fadeIn animate__faster text-left flex flex-col w-full justify-center md:border border-slate-300 dark:border-zinc-600/20 rounded h-auto ${
+                        !expanded && 'md:h-64'
+                    } relative`}
                 >
                     <h2 className='uppercase absolute top-0 left-0 px-2 ml-2 -mt-2 text-xs bg-zinc-200 dark:bg-zinc-800 rounded z-10'>
                         {siteName}
                     </h2>
                     <div className='border md:border-none border-slate-300 dark:border-zinc-600/30 rounded overflow-auto px-2 md:px-4 shadow-inner'>
                         <div
-                            className={`my-3 flex flex-col ${!expanded ? 'gap-2 md:gap-1' : 'gap-2'
-                                }`}
+                            className={`my-3 flex flex-col ${
+                                !expanded ? 'gap-2 md:gap-1' : 'gap-2'
+                            }`}
                         >
                             {filteredArticles.map((data) =>
                                 !expanded ? (

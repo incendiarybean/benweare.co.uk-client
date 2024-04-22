@@ -34,10 +34,11 @@ const Card = ({ endpoint, siteName }: CardProps) => {
                     <div className='border border-slate-300 dark:border-zinc-600/30 w-full rounded flex-col xl:flex-row bg-slate-100 dark:bg-zinc-900 shadow'>
                         {article.url.includes('youtube') ? (
                             <iframe
-                                src={`https://www.youtube-nocookie.com/embed/${article.url.split('/')[
-                                    article.url.split('/').length - 1
+                                src={`https://www.youtube-nocookie.com/embed/${
+                                    article.url.split('/')[
+                                        article.url.split('/').length - 1
                                     ]
-                                    }`}
+                                }`}
                                 allow='autoplay; encrypted-media;'
                                 allowFullScreen
                                 title={`embedded YouTube video provided by ${siteName}`}
