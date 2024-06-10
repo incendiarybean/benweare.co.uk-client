@@ -76,13 +76,13 @@ const NewsList = ({
         >
             {filterable && (
                 <div className='mb-4'>
-                    <div className='mb-4 animate__animated animate__fadeIn animate__faster flex flex-col w-full p-2 border border-slate-300 dark:border-zinc-600/20 rounded shadow-inner'>
+                    <div className='mb-4 animate-fadeIn flex flex-col w-full p-2 border border-slate-300 dark:border-zinc-600/20 rounded shadow-inner'>
                         <span className='text-xs text-sky-500 dark:text-sky-500 rounded text-center'>
                             Last Updated:{' '}
                             {lastUpdated?.toLocaleTimeString('EN-UK')}
                         </span>
                     </div>
-                    <div className='animate__animated animate__fadeIn animate__faster flex flex-col w-full p-2 border border-slate-300 dark:border-zinc-600/20 rounded shadow-inner'>
+                    <div className='animate-fadeIn flex flex-col w-full p-2 border border-slate-300 dark:border-zinc-600/20 rounded shadow-inner'>
                         <div className='px-2 flex flex-col-reverse sm:flex-row sm:items-center sm:justify-between'>
                             <button
                                 onClick={() => setFiltersOpen(!filtersOpen)}
@@ -150,7 +150,7 @@ const NewsList = ({
             )}
             {loaded === true && (
                 <div
-                    className={`animate__animated animate__fadeIn animate__faster text-left flex flex-col w-full justify-center md:border border-slate-300 dark:border-zinc-600/20 rounded h-auto ${
+                    className={`animate-fadeIn text-left flex flex-col w-full justify-center md:border border-slate-300 dark:border-zinc-600/20 rounded h-auto ${
                         !expanded && 'md:h-64'
                     } relative`}
                 >

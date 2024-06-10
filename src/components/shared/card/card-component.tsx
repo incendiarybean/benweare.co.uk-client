@@ -29,7 +29,7 @@ const Card = ({ endpoint, siteName }: CardProps) => {
 
     return (
         <div className='px-1 md:px-6 my-2 w-auto'>
-            <div className='animate__animated animate__fadeIn animate__faster text-left flex flex-col w-full items-center justify-center md:p-4 md:border border-slate-300 dark:border-zinc-600/20 rounded shadow-inner'>
+            <div className='animate-fadeIn text-left flex flex-col w-full items-center justify-center md:p-4 md:border border-slate-300 dark:border-zinc-600/20 rounded shadow-inner'>
                 {loaded === true && article && (
                     <div className='border border-slate-300 dark:border-zinc-600/30 w-full rounded flex-col xl:flex-row bg-slate-100 dark:bg-zinc-900 shadow'>
                         {article.url.includes('youtube') ? (
@@ -52,8 +52,8 @@ const Card = ({ endpoint, siteName }: CardProps) => {
                             >
                                 <img
                                     alt={`${siteName} Image`}
-                                    src={article.url}
-                                    className='rounded-t w-full h-64 shadow object-cover'
+                                    src={article.img}
+                                    className='animate-fadeIn rounded-t w-full h-64 shadow object-cover'
                                 />
                             </a>
                         )}

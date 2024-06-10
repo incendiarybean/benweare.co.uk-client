@@ -5,6 +5,7 @@ import { createRef, useEffect, useState } from 'react';
 
 import NewsReelCard from './news-reel-card';
 import NewsReelNavigator from './news-reel-navigator';
+import NewsReelSkeleton from './news-reel-skeleton';
 import { SwipeHandler } from '@common/hooks/swipeHandler';
 
 const NewsCarousel = ({ endpoint, siteName }: CardProps) => {
@@ -33,7 +34,9 @@ const NewsCarousel = ({ endpoint, siteName }: CardProps) => {
         data.forEach((article) => {
             const img = new Image();
             img.src = article.img;
-            setLoaded(true);
+            // img.onload = () => setLoaded(true);
+
+            article.imgElement = img;
         });
 
     useEffect(() => {
@@ -64,7 +67,7 @@ const NewsCarousel = ({ endpoint, siteName }: CardProps) => {
             id={`${siteName}-news`}
             className='px-1 md:px-6 my-2 w-auto'
         >
-            <div className='animate__animated animate__fadeIn animate__faster flex flex-col w-full items-center justify-center md:p-4 md:border border-slate-300 dark:border-zinc-600/20 rounded shadow-inner'>
+            <div className='animate-fadeIn flex flex-col w-full items-center justify-center md:p-4 md:border border-slate-300 dark:border-zinc-600/20 rounded shadow-inner'>
                 {loaded === true && articles && (
                     <div className='w-full border lg:border-none border-slate-300 dark:border-zinc-600/20 rounded shadow lg:shadow-none'>
                         {articles.map(
@@ -87,7 +90,7 @@ const NewsCarousel = ({ endpoint, siteName }: CardProps) => {
                     </div>
                 )}
                 {loaded === 'Failed' && <ErrorComponent feedName={siteName} />}
-                {loaded === false && <Loader />}
+                {loaded === false && <NewsReelSkeleton />}
             </div>
         </div>
     );

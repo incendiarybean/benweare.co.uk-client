@@ -11,6 +11,15 @@ export default {
                 88: '22rem',
                 120: '30rem',
             },
+            keyframes: {
+                fadeIn: {
+                    '0%': { opacity: 0 },
+                    '100%': { opacity: 100 },
+                },
+            },
+            animation: {
+                fadeIn: 'fadeIn 1s ease-in-out',
+            },
         },
     },
     plugins: [],
