@@ -53,7 +53,7 @@ const Card = ({ endpoint, siteName }: CardProps) => {
                                 <img
                                     alt={`${siteName} Image`}
                                     src={article.url}
-                                    className='rounded-t w-full h-64 shadow object-cover'
+                                    className='animate__animated animate__fadeIn rounded-t w-full h-64 shadow object-cover'
                                 />
                             </a>
                         )}

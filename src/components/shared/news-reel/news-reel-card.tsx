@@ -29,8 +29,8 @@ const NewsReelCard = ({
             </span>
             <img
                 alt={`${siteName} Image: ${article.title}`}
-                src={article.img}
-                className='w-full min-w-[50%] xl:w-96 h-60 object-cover shadow rounded-t xl:rounded-tr-none xl:rounded-l'
+                src={article.imgElement?.src}
+                className='animate__animated animate__fadeIn w-full min-w-[50%] xl:w-96 h-60 object-cover shadow rounded-t xl:rounded-tr-none xl:rounded-l'
             />
             <div className='w-full p-4 flex flex-col justify-between text-left h-36 md:h-40 xl:h-60 overflow-hidden'>
                 <div>
