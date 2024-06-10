@@ -1,4 +1,4 @@
-import { ArrowComponent, ErrorComponent, Loader } from '@components';
+import { ArrowComponent, ErrorComponent } from '@components';
 import type { CardProps, Loading, NewsArticle } from '@common/types';
 import { useEffect, useState } from 'react';
 
@@ -13,11 +13,6 @@ const Card = ({ endpoint, siteName }: CardProps) => {
     const [show, setShow] = useState<boolean>(false);
 
     const preloadImage = (article: NewsArticle) => {
-        if (article.img.includes('youtube')) {
-            setIsVideo(true);
-            return setLoaded(true);
-        }
-
         const img = new Image();
         img.src = article.img;
         img.onload = () => setLoaded(true);
@@ -32,7 +27,12 @@ const Card = ({ endpoint, siteName }: CardProps) => {
                 .then(({ response }) => {
                     const article = response.items[0];
                     setArticle(article);
-                    preloadImage(article);
+                    if (!article.img.includes('youtube')) {
+                        preloadImage(article);
+                    } else {
+                        setIsVideo(true);
+                        setLoaded(true);
+                    }
                 })
                 .catch(() => {
                     setLoaded('Failed');

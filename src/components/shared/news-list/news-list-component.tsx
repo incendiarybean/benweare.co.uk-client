@@ -1,4 +1,4 @@
-import { ArrowComponent, ErrorComponent, Loader } from '@components';
+import { ArrowComponent, ErrorComponent } from '@components';
 import { CircleCheck, CircleCross, RightCornerArrow } from '@icons';
 import { IO, sleep } from '@common/utils';
 import type { ListProps, Loading, NewsArticle } from '@common/types';

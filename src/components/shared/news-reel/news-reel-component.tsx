@@ -1,8 +1,8 @@
 import type { CardProps, Loading, NewsArticle } from '@common/types';
-import { ErrorComponent, Loader } from '@components';
 import { IO, sleep } from '@common/utils';
 import { createRef, useEffect, useState } from 'react';
 
+import { ErrorComponent } from '@components';
 import NewsReelCard from './news-reel-card';
 import NewsReelNavigator from './news-reel-navigator';
 import NewsReelSkeleton from './news-reel-skeleton';
