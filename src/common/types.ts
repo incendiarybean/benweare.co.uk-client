@@ -5,6 +5,7 @@ export type NewsArticle = {
     url: string;
     description?: string;
     img: string;
+    imgElement?: HTMLImageElement;
     date: string;
     name: string;
 };
