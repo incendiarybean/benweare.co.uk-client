@@ -2,6 +2,7 @@ import { ArrowComponent, ErrorComponent, Loader } from '@components';
 import type { CardProps, Loading, NewsArticle } from '@common/types';
 import { useEffect, useState } from 'react';
 
+import CardSkeleton from './card-skeleton';
 import { RightCornerArrow } from '@icons';
 import { sleep } from '@common/utils';
 
@@ -62,12 +63,12 @@ const Card = ({ endpoint, siteName }: CardProps) => {
                         ) : (
                             <a
                                 className='w-full'
-                                href={article.imgElement?.src ?? article.img}
+                                href={article.img}
                                 aria-label={`Open ${siteName} Image`}
                             >
                                 <img
                                     alt={`${siteName} Image`}
-                                    src={article.img}
+                                    src={article.imgElement?.src ?? article.img}
                                     className='animate-fadeIn rounded-t w-full h-64 shadow object-cover'
                                 />
                             </a>
@@ -121,7 +122,7 @@ const Card = ({ endpoint, siteName }: CardProps) => {
                     </div>
                 )}
                 {loaded === 'Failed' && <ErrorComponent feedName={siteName} />}
-                {loaded === false && <Loader />}
+                {loaded === false && <CardSkeleton />}
             </div>
         </div>
     );

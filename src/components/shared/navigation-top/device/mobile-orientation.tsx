@@ -13,7 +13,6 @@ import { createRef, useState } from 'react';
 import { ExternalClickHandler } from '@common/hooks/externalClickHandler';
 import { Footer } from '@components';
 import { NavLink } from 'react-router-dom';
-import { animateCSS } from '@common/utils';
 
 const MobileNav = () => {
     const [settingsOpen, setSettingsOpen] = useState(false);
@@ -23,7 +22,6 @@ const MobileNav = () => {
 
     const openNavigation = (open = !settingsOpen) => {
         if (open) {
-            animateCSS('.popin-settings', 'slideInLeft');
             setSettingsOpen(open);
         } else {
             setSettingsOpen(false);
@@ -42,7 +40,7 @@ const MobileNav = () => {
             </button>
             <div
                 hidden={!settingsOpen}
-                className='absolute top-0 left-0 w-full h-screen bg-zinc-500 bg-opacity-30'
+                className='animate-slideInLeft absolute top-0 left-0 w-full h-screen bg-zinc-500 bg-opacity-30'
             >
                 <div className='popin-settings flex justify-start h-full'>
                     <div

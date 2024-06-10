@@ -34,7 +34,7 @@ const NewsCarousel = ({ endpoint, siteName }: CardProps) => {
         data.forEach((article) => {
             const img = new Image();
             img.src = article.img;
-            // img.onload = () => setLoaded(true);
+            img.onload = () => setLoaded(true);
 
             article.imgElement = img;
         });

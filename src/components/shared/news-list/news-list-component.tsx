@@ -4,6 +4,8 @@ import { IO, sleep } from '@common/utils';
 import type { ListProps, Loading, NewsArticle } from '@common/types';
 import { useEffect, useState } from 'react';
 
+import NewsListSkeleton from './news-list-skeleton';
+
 const NewsList = ({
     endpoint,
     siteName,
@@ -209,7 +211,7 @@ const NewsList = ({
             {loaded === 'Failed' && (
                 <ErrorComponent feedName={siteName ?? 'News-List'} />
             )}
-            {loaded === false && <Loader />}
+            {loaded === false && <NewsListSkeleton />}
         </div>
     );
 };
