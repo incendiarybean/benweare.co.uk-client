@@ -1,7 +1,8 @@
-import { ArrowComponent, ErrorComponent, Loader } from '@components';
+import { ArrowComponent, ErrorComponent } from '@components';
 import type { CardProps, Loading, NewsArticle } from '@common/types';
 import { useEffect, useState } from 'react';
 
+import CardSkeleton from './card-skeleton';
 import { RightCornerArrow } from '@icons';
 import { sleep } from '@common/utils';
 
@@ -12,11 +13,6 @@ const Card = ({ endpoint, siteName }: CardProps) => {
     const [show, setShow] = useState<boolean>(false);
 
     const preloadImage = (article: NewsArticle) => {
-        if (article.img.includes('youtube')) {
-            setIsVideo(true);
-            return setLoaded(true);
-        }
-
         const img = new Image();
         img.src = article.img;
         img.onload = () => setLoaded(true);
@@ -31,7 +27,12 @@ const Card = ({ endpoint, siteName }: CardProps) => {
                 .then(({ response }) => {
                     const article = response.items[0];
                     setArticle(article);
-                    preloadImage(article);
+                    if (!article.img.includes('youtube')) {
+                        preloadImage(article);
+                    } else {
+                        setIsVideo(true);
+                        setLoaded(true);
+                    }
                 })
                 .catch(() => {
                     setLoaded('Failed');
@@ -42,9 +43,13 @@ const Card = ({ endpoint, siteName }: CardProps) => {
         getDetail();
     }, [endpoint, siteName]);
 
+    if (loaded === 'Failed') {
+        return <ErrorComponent feedName={siteName} />;
+    }
+
     return (
         <div className='px-1 md:px-6 my-2 w-auto'>
-            <div className='animate__animated animate__fadeIn animate__faster text-left flex flex-col w-full items-center justify-center md:p-4 md:border border-slate-300 dark:border-zinc-600/20 rounded shadow-inner'>
+            <div className='animate-fadeIn text-left flex flex-col w-full items-center justify-center md:p-4 md:border border-slate-300 dark:border-zinc-600/20 rounded shadow-inner'>
                 {loaded === true && article && (
                     <div className='border border-slate-300 dark:border-zinc-600/30 w-full rounded flex-col xl:flex-row bg-slate-100 dark:bg-zinc-900 shadow'>
                         {isVideo ? (
@@ -62,13 +67,13 @@ const Card = ({ endpoint, siteName }: CardProps) => {
                         ) : (
                             <a
                                 className='w-full'
-                                href={article.imgElement?.src ?? article.img}
+                                href={article.img}
                                 aria-label={`Open ${siteName} Image`}
                             >
                                 <img
                                     alt={`${siteName} Image`}
-                                    src={article.img}
-                                    className='animate__animated animate__fadeIn rounded-t w-full h-64 shadow object-cover'
+                                    src={article.imgElement?.src ?? article.img}
+                                    className='animate-fadeIn rounded-t w-full h-64 shadow object-cover'
                                 />
                             </a>
                         )}
@@ -120,8 +125,7 @@ const Card = ({ endpoint, siteName }: CardProps) => {
                         </div>
                     </div>
                 )}
-                {loaded === 'Failed' && <ErrorComponent feedName={siteName} />}
-                {loaded === false && <Loader />}
+                {loaded === false && <CardSkeleton />}
             </div>
         </div>
     );

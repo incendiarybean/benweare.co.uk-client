@@ -4,17 +4,11 @@ import { RightCornerArrow } from '@icons';
 const NewsReelCard = ({
     siteName,
     article,
-    maxArticles,
-    currentPage,
 }: {
     /** Name of the site */
     siteName: string;
     /** Article to display */
     article: NewsArticle;
-    /** Maximum articles being rendered */
-    maxArticles: number;
-    /** The current article number */
-    currentPage: number;
 }) => {
     return (
         <a
@@ -24,13 +18,10 @@ const NewsReelCard = ({
             target='_blank'
             className='relative flex w-full rounded-t lg:rounded lg:shadow lg:hover:shadow-md flex-col xl:flex-row bg-slate-100 dark:bg-zinc-900 lg:border border-slate-300 dark:border-zinc-600/30'
         >
-            <span className='tracking-wider md:hidden m-2 p-1 px-3 text-sm absolute top-0 right-0 rounded-full bg-slate-100 dark:bg-zinc-900'>
-                {currentPage + 1}/{maxArticles}
-            </span>
             <img
                 alt={`${siteName} Image: ${article.title}`}
                 src={article.imgElement?.src ?? article.img}
-                className='animate__animated animate__fadeIn w-full min-w-[50%] xl:w-96 h-60 object-cover shadow rounded-t xl:rounded-tr-none xl:rounded-l'
+                className='animate-fadeIn w-full min-w-[50%] xl:w-96 h-60 object-cover shadow rounded-t xl:rounded-tr-none xl:rounded-l'
             />
             <div className='w-full p-4 flex flex-col justify-between text-left h-36 md:h-40 xl:h-60 overflow-hidden'>
                 <div>

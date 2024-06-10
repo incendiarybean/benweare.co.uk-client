@@ -1,5 +1,4 @@
 import '@common/utils/socket';
-import 'animate.css';
 import 'react-toastify/dist/ReactToastify.css';
 
 import {

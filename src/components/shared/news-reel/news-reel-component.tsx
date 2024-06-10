@@ -1,10 +1,11 @@
 import type { CardProps, Loading, NewsArticle } from '@common/types';
-import { ErrorComponent, Loader } from '@components';
 import { IO, sleep } from '@common/utils';
 import { createRef, useEffect, useState } from 'react';
 
+import { ErrorComponent } from '@components';
 import NewsReelCard from './news-reel-card';
 import NewsReelNavigator from './news-reel-navigator';
+import NewsReelSkeleton from './news-reel-skeleton';
 import { SwipeHandler } from '@common/hooks/swipeHandler';
 
 const NewsCarousel = ({ endpoint, siteName }: CardProps) => {
@@ -60,27 +61,36 @@ const NewsCarousel = ({ endpoint, siteName }: CardProps) => {
     const navigationElement = createRef<HTMLDivElement>();
     SwipeHandler(navigationElement, swipeAction);
 
+    if (loaded === 'Failed') {
+        return <ErrorComponent feedName={siteName} />;
+    }
+
     return (
         <div
             ref={navigationElement}
             id={`${siteName}-news`}
             className='px-1 md:px-6 my-2 w-auto'
         >
-            <div className='animate__animated animate__fadeIn animate__faster flex flex-col w-full items-center justify-center md:p-4 md:border border-slate-300 dark:border-zinc-600/20 rounded shadow-inner'>
+            <div className='animate-fadeIn flex flex-col w-full items-center justify-center md:p-4 md:border border-slate-300 dark:border-zinc-600/20 rounded shadow-inner'>
                 {loaded === true && articles && (
-                    <div className='w-full border lg:border-none border-slate-300 dark:border-zinc-600/20 rounded shadow lg:shadow-none'>
+                    <div className='relative w-full border lg:border-none border-slate-300 dark:border-zinc-600/20 rounded shadow lg:shadow-none'>
                         {articles.map(
                             (article, index) =>
                                 index === currentPage && (
-                                    <NewsReelCard
-                                        key={article.url}
-                                        {...{
-                                            siteName,
-                                            article,
-                                            maxArticles: articles.length,
-                                            currentPage,
-                                        }}
-                                    />
+                                    <>
+                                        <div className='tracking-wider md:hidden m-2 p-1 px-3 text-sm absolute top-0 right-0 rounded-full bg-slate-100 dark:bg-zinc-900 z-20'>
+                                            {currentPage + 1}/{articles.length}
+                                        </div>
+                                        <NewsReelCard
+                                            key={article.url}
+                                            {...{
+                                                siteName,
+                                                article,
+                                                maxArticles: articles.length,
+                                                currentPage,
+                                            }}
+                                        />
+                                    </>
                                 )
                         )}
                         <NewsReelNavigator
@@ -88,8 +98,7 @@ const NewsCarousel = ({ endpoint, siteName }: CardProps) => {
                         />
                     </div>
                 )}
-                {loaded === 'Failed' && <ErrorComponent feedName={siteName} />}
-                {loaded === false && <Loader />}
+                {loaded === false && <NewsReelSkeleton />}
             </div>
         </div>
     );
