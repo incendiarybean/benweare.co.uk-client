@@ -7,16 +7,31 @@ import { sleep } from '@common/utils';
 
 const Card = ({ endpoint, siteName }: CardProps) => {
     const [article, setArticle] = useState<NewsArticle>();
+    const [isVideo, setIsVideo] = useState<boolean>(false);
     const [loaded, setLoaded] = useState<Loading>(false);
     const [show, setShow] = useState<boolean>(false);
+
+    const preloadImage = (article: NewsArticle) => {
+        if (article.img.includes('youtube')) {
+            setIsVideo(true);
+            return setLoaded(true);
+        }
+
+        const img = new Image();
+        img.src = article.img;
+        img.onload = () => setLoaded(true);
+
+        article.imgElement = img;
+    };
 
     useEffect(() => {
         const getDetail = async () => {
             fetch(endpoint)
                 .then((data) => data.json())
                 .then(({ response }) => {
-                    setArticle(response.items[0]);
-                    setLoaded(true);
+                    const article = response.items[0];
+                    setArticle(article);
+                    preloadImage(article);
                 })
                 .catch(() => {
                     setLoaded('Failed');
@@ -32,11 +47,11 @@ const Card = ({ endpoint, siteName }: CardProps) => {
             <div className='animate__animated animate__fadeIn animate__faster text-left flex flex-col w-full items-center justify-center md:p-4 md:border border-slate-300 dark:border-zinc-600/20 rounded shadow-inner'>
                 {loaded === true && article && (
                     <div className='border border-slate-300 dark:border-zinc-600/30 w-full rounded flex-col xl:flex-row bg-slate-100 dark:bg-zinc-900 shadow'>
-                        {article.url.includes('youtube') ? (
+                        {isVideo ? (
                             <iframe
                                 src={`https://www.youtube-nocookie.com/embed/${
-                                    article.url.split('/')[
-                                        article.url.split('/').length - 1
+                                    article.img.split('/')[
+                                        article.img.split('/').length - 1
                                     ]
                                 }`}
                                 allow='autoplay; encrypted-media;'
@@ -47,12 +62,12 @@ const Card = ({ endpoint, siteName }: CardProps) => {
                         ) : (
                             <a
                                 className='w-full'
-                                href={article.url}
+                                href={article.imgElement?.src ?? article.img}
                                 aria-label={`Open ${siteName} Image`}
                             >
                                 <img
                                     alt={`${siteName} Image`}
-                                    src={article.url}
+                                    src={article.img}
                                     className='animate__animated animate__fadeIn rounded-t w-full h-64 shadow object-cover'
                                 />
                             </a>
