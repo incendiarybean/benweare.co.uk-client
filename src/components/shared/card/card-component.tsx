@@ -43,6 +43,10 @@ const Card = ({ endpoint, siteName }: CardProps) => {
         getDetail();
     }, [endpoint, siteName]);
 
+    if (loaded === 'Failed') {
+        return <ErrorComponent feedName={siteName} />;
+    }
+
     return (
         <div className='px-1 md:px-6 my-2 w-auto'>
             <div className='animate-fadeIn text-left flex flex-col w-full items-center justify-center md:p-4 md:border border-slate-300 dark:border-zinc-600/20 rounded shadow-inner'>
@@ -121,7 +125,6 @@ const Card = ({ endpoint, siteName }: CardProps) => {
                         </div>
                     </div>
                 )}
-                {loaded === 'Failed' && <ErrorComponent feedName={siteName} />}
                 {loaded === false && <CardSkeleton />}
             </div>
         </div>

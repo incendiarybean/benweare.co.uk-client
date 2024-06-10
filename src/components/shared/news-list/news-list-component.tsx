@@ -71,6 +71,10 @@ const NewsList = ({
         configureFilters(articles);
     }, [outlets]);
 
+    if (loaded === 'Failed') {
+        return <ErrorComponent feedName={siteName ?? 'News-List'} />;
+    }
+
     return (
         <div
             id={`${siteName ?? 'all'}-news`}
@@ -207,9 +211,6 @@ const NewsList = ({
                         </div>
                     </div>
                 </div>
-            )}
-            {loaded === 'Failed' && (
-                <ErrorComponent feedName={siteName ?? 'News-List'} />
             )}
             {loaded === false && <NewsListSkeleton />}
         </div>

@@ -61,6 +61,10 @@ const NewsCarousel = ({ endpoint, siteName }: CardProps) => {
     const navigationElement = createRef<HTMLDivElement>();
     SwipeHandler(navigationElement, swipeAction);
 
+    if (loaded === 'Failed') {
+        return <ErrorComponent feedName={siteName} />;
+    }
+
     return (
         <div
             ref={navigationElement}
@@ -89,7 +93,6 @@ const NewsCarousel = ({ endpoint, siteName }: CardProps) => {
                         />
                     </div>
                 )}
-                {loaded === 'Failed' && <ErrorComponent feedName={siteName} />}
                 {loaded === false && <NewsReelSkeleton />}
             </div>
         </div>
