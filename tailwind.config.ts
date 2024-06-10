@@ -16,9 +16,17 @@ export default {
                     '0%': { opacity: 0 },
                     '100%': { opacity: 100 },
                 },
+                slideInLeft: {
+                    '0%': {
+                        transform: 'translate3d(-100%, 0, 0)',
+                        visibility: 'visible',
+                    },
+                    '100%': { transform: 'translate3d(0, 0, 0)' },
+                },
             },
             animation: {
-                fadeIn: 'fadeIn 1s ease-in-out',
+                fadeIn: 'fadeIn 0.2s ease-in-out',
+                slideInLeft: 'slideInLeft 0.2s ease-in-out',
             },
         },
     },
