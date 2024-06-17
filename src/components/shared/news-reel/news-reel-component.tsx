@@ -3,9 +3,10 @@ import { IO, sleep } from '@common/utils';
 import { createRef, useEffect, useState } from 'react';
 
 import { ErrorComponent } from '@components';
-import NewsReelCard from './news-reel-card';
+import NewsReelImageLoader from './news-reel-image-loader';
 import NewsReelNavigator from './news-reel-navigator';
 import NewsReelSkeleton from './news-reel-skeleton';
+import { RightCornerArrow } from '@icons';
 import { SwipeHandler } from '@common/hooks/swipeHandler';
 
 const NewsCarousel = ({ endpoint, siteName }: CardProps) => {
@@ -30,13 +31,12 @@ const NewsCarousel = ({ endpoint, siteName }: CardProps) => {
         return handleRotation(currentPage - 1);
     };
 
-    const preloadImages = (data: NewsArticle[]) =>
-        data.forEach((article) => {
+    const preloadImages = (data: NewsArticle[]): NewsArticle[] =>
+        data.map((article) => {
             const img = new Image();
             img.src = article.img;
-            img.onload = () => setLoaded(true);
-
             article.imgElement = img;
+            return article;
         });
 
     useEffect(() => {
@@ -44,8 +44,10 @@ const NewsCarousel = ({ endpoint, siteName }: CardProps) => {
             fetch(endpoint)
                 .then((data) => data.json())
                 .then(({ response }) => {
-                    setArticles(response.items.slice(0, 30));
-                    preloadImages(response.items);
+                    const slicedArticles = response.items.slice(0, 30);
+                    const preloadedArticles = preloadImages(slicedArticles);
+                    setArticles(preloadedArticles);
+                    setLoaded(true);
                 })
                 .catch(() => {
                     setLoaded('Failed');
@@ -74,25 +76,36 @@ const NewsCarousel = ({ endpoint, siteName }: CardProps) => {
             <div className='animate-fadeIn flex flex-col w-full items-center justify-center md:p-4 md:border border-slate-300 dark:border-zinc-600/20 rounded shadow-inner'>
                 {loaded === true && articles && (
                     <div className='relative w-full border lg:border-none border-slate-300 dark:border-zinc-600/20 rounded shadow lg:shadow-none'>
-                        {articles.map(
-                            (article, index) =>
-                                index === currentPage && (
-                                    <>
-                                        <div className='tracking-wider md:hidden m-2 p-1 px-3 text-sm absolute top-0 right-0 rounded-full bg-slate-100 dark:bg-zinc-900 z-20'>
-                                            {currentPage + 1}/{articles.length}
-                                        </div>
-                                        <NewsReelCard
-                                            key={article.url}
-                                            {...{
-                                                siteName,
-                                                article,
-                                                maxArticles: articles.length,
-                                                currentPage,
-                                            }}
-                                        />
-                                    </>
-                                )
-                        )}
+                        <a
+                            href={articles[currentPage].url}
+                            rel='noreferrer'
+                            target='_blank'
+                            className='relative flex w-full rounded-t lg:rounded lg:shadow lg:hover:shadow-md flex-col xl:flex-row bg-slate-100 dark:bg-zinc-900 lg:border border-slate-300 dark:border-zinc-600/30'
+                        >
+                            <NewsReelImageLoader
+                                article={articles[currentPage]}
+                                siteName={siteName}
+                            />
+                            <div className='w-full p-4 flex flex-col justify-between text-left h-36 md:h-40 xl:h-60 overflow-hidden'>
+                                <div>
+                                    <div className='flex flex-wrap md:w-full items-center justify-between text-xs text-blue-600 dark:text-sky-500'>
+                                        <h2 className='min-w-fit -mx-1 flex items-center font-bold uppercase'>
+                                            <RightCornerArrow />
+                                            {siteName}
+                                        </h2>
+                                        <span>
+                                            {new Date(
+                                                articles[currentPage].date
+                                            ).toLocaleDateString('en-UK')}
+                                        </span>
+                                    </div>
+                                    <p className='text-lg xl:text-xl font-bold leading-normal line-clamp-3 xl:line-clamp-none'>
+                                        {articles[currentPage].title}
+                                    </p>
+                                </div>
+                            </div>
+                            <hr className='lg:hidden border-zinc-200 dark:border-zinc-800 w-2/3 self-center' />
+                        </a>
                         <NewsReelNavigator
                             {...{ handleRotation, currentPage, articles }}
                         />

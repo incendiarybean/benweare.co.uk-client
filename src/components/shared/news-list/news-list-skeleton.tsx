@@ -10,7 +10,7 @@ const NewsListSkeleton = () => {
                         {[...Array(9)].map((_item, index) => (
                             <div
                                 className='flex gap-2'
-                                key='news-list-skeleton-item'
+                                key={`news-list-skeleton-item-${index}`}
                             >
                                 <span className='animate-pulse bg-slate-300 dark:bg-zinc-700 rounded-full h-4 w-4'></span>
                                 <span
