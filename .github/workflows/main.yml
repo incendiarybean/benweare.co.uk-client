@@ -22,9 +22,9 @@ jobs:
         steps:
             - uses: actions/checkout@v4
 
-            # - name: 🔎 Get Package version
-            #   run: |
-            #       echo "REACT_APP_VERSION=$(grep '"version"' package.json | cut -d '"' -f 4 | head -n 1 )" >> $GITHUB_ENV
+            - name: 🔎 Get Package version
+              run: |
+                  echo "REACT_APP_VERSION=$(grep '"version"' package.json | cut -d '"' -f 4 | head -n 1 )" >> $GITHUB_ENV
 
             # - name: 🌍 Check Environment Variables
             #   if: github.ref == 'refs/heads/feature'
@@ -60,9 +60,17 @@ jobs:
 
             - name: 💬 Submit Pull Request on benweare-ts-server
               run: |
+                  BRANCH_NAME="CHORE-client-$REACT_APP_VERSION"
+
                   git clone https://github.com/incendiarybean/benweare-ts-server.git --branch=development
 
                   cd benweare-ts-server
 
                   npm install 
                   npm install benweare.co.uk-client
+
+                  git checkout -b $BRANCH_NAME
+
+                  # Commit the changes and push the feature branch to origin
+                  git commit -am "CHORE: Bump client to $REACT_APP_VERSION"
+                  git push origin $BRANCH_NAME
