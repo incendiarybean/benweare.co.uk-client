@@ -20,9 +20,7 @@ jobs:
             REACT_APP_NAME: ${{ secrets.APP_NAME }}
 
         steps:
-            - uses: actions/checkout@v3
-              with:
-                  token: ${{ secrets.ACCESS_TOKEN }}
+            - uses: actions/checkout@v4
 
             - name: 🔎 Get Package version
               run: |
@@ -70,7 +68,7 @@ jobs:
                   git config --global user.name "${GITHUB_ACTOR}"
                   git config --global user.email "${GITHUB_ACTOR}@users.noreply.github.com"
 
-                  git clone https://github.com/incendiarybean/benweare-ts-server.git --branch=development
+                  git clone https://incendiarybean:${{ secrets.ACCESS_TOKEN }}@github.com/incendiarybean/benweare-ts-server --branch=development
 
                   cd benweare-ts-server
 
