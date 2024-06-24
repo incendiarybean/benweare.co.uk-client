@@ -8,18 +8,11 @@ const InformationPage = () => {
     const [showKnowledgeList, setShowKnowledgeList] = useState<boolean>(false);
     const [imageLoaded, setImageLoaded] = useState<boolean>(false);
 
-    /**
-     * A function to pre-load an image from the provided source.
-     * @returns {void} - Simply preloads and tells the page to load the image.
-     */
-    const preloadImage = () => {
+    useEffect(() => {
         const img = new Image();
         img.onload = () => setImageLoaded(true);
         img.src = profile_image;
-    };
 
-    useEffect(() => {
-        preloadImage();
         window.scroll(0, 0);
     }, []);
 

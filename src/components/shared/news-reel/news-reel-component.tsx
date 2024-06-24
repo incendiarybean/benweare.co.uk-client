@@ -1,9 +1,8 @@
 import type { CardProps, Loading, NewsArticle } from '@common/types';
-import { IO, sleep } from '@common/utils';
+import { ErrorComponent, ImageLoader } from '@components';
+import { IO, prefetchArticleImages, sleep } from '@common/utils';
 import { createRef, useEffect, useState } from 'react';
 
-import { ErrorComponent } from '@components';
-import NewsReelImageLoader from './news-reel-image-loader';
 import NewsReelNavigator from './news-reel-navigator';
 import NewsReelSkeleton from './news-reel-skeleton';
 import { RightCornerArrow } from '@icons';
@@ -41,27 +40,19 @@ const NewsCarousel = ({ endpoint, siteName }: CardProps) => {
         return handleRotation(currentPage - 1);
     };
 
-    /**
-     * A function to pre-load images from provided articles.
-     * @param articles - The news articles to get the images from.
-     * @returns {NewsArticle[]} - The articles with the pre-loaded images attached.
-     */
-    const preloadImages = (articles: NewsArticle[]): NewsArticle[] =>
-        articles.map((article) => {
-            const img = new Image();
-            img.src = article.img;
-            article.imgElement = img;
-            return article;
-        });
-
     useEffect(() => {
         const getNews = async () => {
             fetch(endpoint)
                 .then((data) => data.json())
-                .then(({ response }) => {
-                    const slicedArticles = response.items.slice(0, 30);
-                    const preloadedArticles = preloadImages(slicedArticles);
-                    setArticles(preloadedArticles);
+                .then(({ response }): NewsArticle[] =>
+                    response.items.slice(0, 30)
+                )
+                .then(
+                    async (slicedArticles) =>
+                        await prefetchArticleImages(slicedArticles)
+                )
+                .then((prefetchedArticles) => {
+                    setArticles(prefetchedArticles);
                     setLoaded(true);
                 })
                 .catch(() => {
@@ -97,9 +88,11 @@ const NewsCarousel = ({ endpoint, siteName }: CardProps) => {
                             target='_blank'
                             className='relative flex w-full rounded-t lg:rounded lg:shadow lg:hover:shadow-md flex-col xl:flex-row bg-slate-100 dark:bg-zinc-900 lg:border border-slate-300 dark:border-zinc-600/30'
                         >
-                            <NewsReelImageLoader
-                                article={articles[currentPage]}
-                                siteName={siteName}
+                            <ImageLoader
+                                img={articles[currentPage].imgElement}
+                                alt={`${siteName} Image: ${articles[currentPage].title}`}
+                                className='animate-fadeIn w-full min-w-[50%] xl:w-96 h-60 object-cover shadow rounded-t xl:rounded-tr-none xl:rounded-l'
+                                loaderClassName='flex p-2 w-full min-w-[50%] xl:w-96 h-60 shadow rounded-t xl:rounded-tr-none xl:rounded-l'
                             />
                             <div className='w-full p-4 flex flex-col justify-between text-left h-36 md:h-40 xl:h-60 overflow-hidden'>
                                 <div>

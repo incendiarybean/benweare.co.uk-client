@@ -1,44 +1,32 @@
-import { ArrowComponent, ErrorComponent } from '@components';
+import { ArrowComponent, ErrorComponent, ImageLoader } from '@components';
 import type { CardProps, Loading, NewsArticle } from '@common/types';
-import { ImageIcon, RightCornerArrow } from '@icons';
+import { prefetchArticleImages, sleep } from '@common/utils';
 import { useEffect, useState } from 'react';
 
 import CardSkeleton from './card-skeleton';
-import { sleep } from '@common/utils';
+import { RightCornerArrow } from '@icons';
 
 const Card = ({ endpoint, siteName }: CardProps) => {
     const [article, setArticle] = useState<NewsArticle>();
     const [isVideo, setIsVideo] = useState<boolean>(false);
     const [loaded, setLoaded] = useState<Loading>(false);
-    const [imageLoaded, setImageLoaded] = useState<boolean>(false);
     const [show, setShow] = useState<boolean>(false);
-
-    /**
-     * A function to pre-load an image from the provided article.
-     * @param article - The news articles to get the image from.
-     * @returns {void} - Simply preloads and tells the page to load the image.
-     */
-    const preloadImage = (article: NewsArticle) => {
-        const img = new Image();
-        img.onload = () => setImageLoaded(true);
-        img.src = article.img;
-        article.imgElement = img;
-    };
 
     useEffect(() => {
         const getDetail = async () => {
             fetch(endpoint)
                 .then((data) => data.json())
-                .then(({ response }) => {
-                    const article = response.items[0];
-                    setArticle(article);
-                    if (!article.img.includes('youtube')) {
-                        preloadImage(article);
-                    } else {
+                .then(({ response }): NewsArticle => response.items[0])
+                .then(async (article) => {
+                    // Check if the article is a youtube link
+                    if (article.img.includes('youtube')) {
                         setIsVideo(true);
+                    } else {
+                        await prefetchArticleImages(article);
                     }
-                    setLoaded(true);
+                    setArticle(article);
                 })
+                .then(() => setLoaded(true))
                 .catch(() => {
                     setLoaded('Failed');
                     sleep(5000).then(getDetail);
@@ -70,30 +58,18 @@ const Card = ({ endpoint, siteName }: CardProps) => {
                                 className='rounded-t w-full h-96 shadow'
                             />
                         ) : (
-                            <>
-                                {imageLoaded ? (
-                                    <a
-                                        className='w-full'
-                                        href={article.img}
-                                        aria-label={`Open ${siteName} Image`}
-                                    >
-                                        <img
-                                            alt={`${siteName} Image`}
-                                            src={
-                                                article.imgElement?.src ??
-                                                article.img
-                                            }
-                                            className='animate-fadeIn rounded-t w-full h-64 shadow object-cover'
-                                        />
-                                    </a>
-                                ) : (
-                                    <div className='w-full p-2'>
-                                        <div className='animate-pulse bg-slate-300 dark:bg-zinc-800 rounded-t w-full h-60 shadow rounded flex items-center justify-center text-slate-100 dark:text-zinc-900'>
-                                            <ImageIcon />
-                                        </div>
-                                    </div>
-                                )}
-                            </>
+                            <a
+                                className='w-full'
+                                href={article.img}
+                                aria-label={`Open ${siteName} Image`}
+                            >
+                                <ImageLoader
+                                    img={article.imgElement}
+                                    alt={`${siteName} Image`}
+                                    className='animate-fadeIn rounded-t w-full h-64 shadow object-cover'
+                                    loaderClassName='w-full h-64 p-2'
+                                />
+                            </a>
                         )}
                         <div className='w-full p-3 flex flex-col h-auto overflow-auto'>
                             <div>
