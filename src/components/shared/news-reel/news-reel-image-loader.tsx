@@ -15,6 +15,7 @@ const NewsReelImageLoader = ({
     const [imageLoaded, setImageLoaded] = useState<boolean>(false);
 
     useEffect(() => {
+        // The image onLoad is being handled here as non-interactive elements should not have event handlers.
         const { imgElement } = article;
         if (!imgElement?.complete) {
             setImageLoaded(false);

@@ -14,6 +14,11 @@ const NewsCarousel = ({ endpoint, siteName }: CardProps) => {
     const [currentPage, setCurrentPage] = useState<number>(0);
     const [loaded, setLoaded] = useState<Loading>(false);
 
+    /**
+     * A function to move to the previous/next article in the articles list.
+     * @param index - The current article index, used to find the previous/next article in the queue.
+     * @returns {void} - Updates which article is currently showing.
+     */
     const handleRotation = (index: number) => {
         if (index === articles.length) {
             return setCurrentPage(0);
@@ -24,6 +29,11 @@ const NewsCarousel = ({ endpoint, siteName }: CardProps) => {
         setCurrentPage(index);
     };
 
+    /**
+     * The function that handles swipe gestures on the reel.
+     * @param direction - The direction of the swipe gesture.
+     * @returns {void} - Moves the reel forward/back depending on gesture.
+     */
     const swipeAction = (direction: boolean) => {
         if (direction) {
             return handleRotation(currentPage + 1);
@@ -31,8 +41,13 @@ const NewsCarousel = ({ endpoint, siteName }: CardProps) => {
         return handleRotation(currentPage - 1);
     };
 
-    const preloadImages = (data: NewsArticle[]): NewsArticle[] =>
-        data.map((article) => {
+    /**
+     * A function to pre-load images from provided articles.
+     * @param articles - The news articles to get the images from.
+     * @returns {NewsArticle[]} - The articles with the pre-loaded images attached.
+     */
+    const preloadImages = (articles: NewsArticle[]): NewsArticle[] =>
+        articles.map((article) => {
             const img = new Image();
             img.src = article.img;
             article.imgElement = img;

@@ -1,22 +1,27 @@
 import { ArrowComponent, ErrorComponent } from '@components';
 import type { CardProps, Loading, NewsArticle } from '@common/types';
+import { ImageIcon, RightCornerArrow } from '@icons';
 import { useEffect, useState } from 'react';
 
 import CardSkeleton from './card-skeleton';
-import { RightCornerArrow } from '@icons';
 import { sleep } from '@common/utils';
 
 const Card = ({ endpoint, siteName }: CardProps) => {
     const [article, setArticle] = useState<NewsArticle>();
     const [isVideo, setIsVideo] = useState<boolean>(false);
     const [loaded, setLoaded] = useState<Loading>(false);
+    const [imageLoaded, setImageLoaded] = useState<boolean>(false);
     const [show, setShow] = useState<boolean>(false);
 
+    /**
+     * A function to pre-load an image from the provided article.
+     * @param article - The news articles to get the image from.
+     * @returns {void} - Simply preloads and tells the page to load the image.
+     */
     const preloadImage = (article: NewsArticle) => {
         const img = new Image();
+        img.onload = () => setImageLoaded(true);
         img.src = article.img;
-        img.onload = () => setLoaded(true);
-
         article.imgElement = img;
     };
 
@@ -31,8 +36,8 @@ const Card = ({ endpoint, siteName }: CardProps) => {
                         preloadImage(article);
                     } else {
                         setIsVideo(true);
-                        setLoaded(true);
                     }
+                    setLoaded(true);
                 })
                 .catch(() => {
                     setLoaded('Failed');
@@ -65,19 +70,31 @@ const Card = ({ endpoint, siteName }: CardProps) => {
                                 className='rounded-t w-full h-96 shadow'
                             />
                         ) : (
-                            <a
-                                className='w-full'
-                                href={article.img}
-                                aria-label={`Open ${siteName} Image`}
-                            >
-                                <img
-                                    alt={`${siteName} Image`}
-                                    src={article.imgElement?.src ?? article.img}
-                                    className='animate-fadeIn rounded-t w-full h-64 shadow object-cover'
-                                />
-                            </a>
+                            <>
+                                {imageLoaded ? (
+                                    <a
+                                        className='w-full'
+                                        href={article.img}
+                                        aria-label={`Open ${siteName} Image`}
+                                    >
+                                        <img
+                                            alt={`${siteName} Image`}
+                                            src={
+                                                article.imgElement?.src ??
+                                                article.img
+                                            }
+                                            className='animate-fadeIn rounded-t w-full h-64 shadow object-cover'
+                                        />
+                                    </a>
+                                ) : (
+                                    <div className='w-full p-2'>
+                                        <div className='animate-pulse bg-slate-300 dark:bg-zinc-800 rounded-t w-full h-60 shadow rounded flex items-center justify-center text-slate-100 dark:text-zinc-900'>
+                                            <ImageIcon />
+                                        </div>
+                                    </div>
+                                )}
+                            </>
                         )}
-
                         <div className='w-full p-3 flex flex-col h-auto overflow-auto'>
                             <div>
                                 <div className='flex flex-wrap md:w-full items-center justify-between text-sm text-blue-600 dark:text-sky-500'>
