@@ -80,3 +80,10 @@ jobs:
                   # Commit the changes and push the feature branch to origin
                   git commit -am "CHORE: Bump client to $REACT_APP_VERSION"
                   git push origin $BRANCH_NAME
+
+                  gh auth login --with-token ${{ secrets.ACCESS_TOKEN }}
+                  gh pr create \
+                    --body "AUTOMATED: Bump to $REACT_APP_VERSION" \
+                    --title "CHORE: Bump client to $REACT_APP_VERSION" \
+                    --head "$BRANCH_NAME" \
+                    --base "development"
