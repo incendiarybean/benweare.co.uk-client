@@ -60,25 +60,27 @@ jobs:
 
             - name: 💬 Submit Pull Request on benweare-ts-server
               run: |
-                  BRANCH_NAME="CHORE-client-$REACT_APP_VERSION"
-
+                  # Configure and clone 
                   git config --global user.name "${GITHUB_ACTOR}"
                   git config --global user.email "${GITHUB_ACTOR}@users.noreply.github.com"
 
-                  git clone https://incendiarybean:${{ secrets.ACCESS_TOKEN }}@github.com/incendiarybean/benweare-ts-server --branch=development
+                  BRANCH_NAME="CHORE-client-$REACT_APP_VERSION"
 
+                  git clone https://incendiarybean:${{ secrets.ACCESS_TOKEN }}@github.com/incendiarybean/benweare-ts-server --branch=development
                   cd benweare-ts-server
 
+                  # Install latest dependencies and update the client
                   npm install --quiet
                   npm install benweare.co.uk-client --quiet
 
-                  git checkout -b $BRANCH_NAME
-
                   # Commit the changes and push the feature branch to origin
+                  git checkout -b $BRANCH_NAME
                   git commit -am "CHORE: Bump client to $REACT_APP_VERSION"
                   git push origin $BRANCH_NAME
 
-                  gh auth login --with-token < ${{ secrets.ACCESS_TOKEN }}
+                  # Create a PR on the branch of benweare-ts-server
+                  echo "${{ secrets.ACCESS_TOKEN }}" > token.txt
+                  gh auth login --with-token < token.txt
                   gh pr create \
                     --body "AUTOMATED: Bump to $REACT_APP_VERSION" \
                     --title "CHORE: Bump client to $REACT_APP_VERSION" \
