@@ -1,10 +1,10 @@
-import { ArrowComponent, ErrorComponent } from '@components';
+import { ArrowComponent, ErrorComponent, ImageLoader } from '@components';
 import type { CardProps, Loading, NewsArticle } from '@common/types';
+import { prefetchArticleImages, sleep } from '@common/utils';
 import { useEffect, useState } from 'react';
 
 import CardSkeleton from './card-skeleton';
 import { RightCornerArrow } from '@icons';
-import { sleep } from '@common/utils';
 
 const Card = ({ endpoint, siteName }: CardProps) => {
     const [article, setArticle] = useState<NewsArticle>();
@@ -12,28 +12,21 @@ const Card = ({ endpoint, siteName }: CardProps) => {
     const [loaded, setLoaded] = useState<Loading>(false);
     const [show, setShow] = useState<boolean>(false);
 
-    const preloadImage = (article: NewsArticle) => {
-        const img = new Image();
-        img.src = article.img;
-        img.onload = () => setLoaded(true);
-
-        article.imgElement = img;
-    };
-
     useEffect(() => {
         const getDetail = async () => {
             fetch(endpoint)
                 .then((data) => data.json())
-                .then(({ response }) => {
-                    const article = response.items[0];
-                    setArticle(article);
-                    if (!article.img.includes('youtube')) {
-                        preloadImage(article);
-                    } else {
+                .then(({ response }): NewsArticle => response.items[0])
+                .then(async (article) => {
+                    // Check if the article is a youtube link
+                    if (article.img.includes('youtube')) {
                         setIsVideo(true);
-                        setLoaded(true);
+                    } else {
+                        await prefetchArticleImages(article);
                     }
+                    setArticle(article);
                 })
+                .then(() => setLoaded(true))
                 .catch(() => {
                     setLoaded('Failed');
                     sleep(5000).then(getDetail);
@@ -70,14 +63,14 @@ const Card = ({ endpoint, siteName }: CardProps) => {
                                 href={article.img}
                                 aria-label={`Open ${siteName} Image`}
                             >
-                                <img
+                                <ImageLoader
+                                    img={article.imgElement}
                                     alt={`${siteName} Image`}
-                                    src={article.imgElement?.src ?? article.img}
                                     className='animate-fadeIn rounded-t w-full h-64 shadow object-cover'
+                                    loaderClassName='w-full h-64 p-2'
                                 />
                             </a>
                         )}
-
                         <div className='w-full p-3 flex flex-col h-auto overflow-auto'>
                             <div>
                                 <div className='flex flex-wrap md:w-full items-center justify-between text-sm text-blue-600 dark:text-sky-500'>

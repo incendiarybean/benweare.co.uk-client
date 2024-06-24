@@ -5,6 +5,7 @@ export { default as DocumentationPage } from './home/pages/documentation/documen
 export { default as InformationPage } from './home/pages/information/information';
 
 // Components:
+export { default as ImageLoader } from './shared/image-loader/image-loader';
 export { default as ArrowComponent } from './shared/arrow/arrow-component';
 export { default as Card } from './shared/card/card-component';
 export { default as ErrorComponent } from './shared/error/error-component';
