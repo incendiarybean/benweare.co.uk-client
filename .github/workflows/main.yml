@@ -8,7 +8,6 @@ on:
     push:
         branches:
             - main
-            - '*'
     pull_request:
         branches:
             - main
@@ -26,37 +25,37 @@ jobs:
               run: |
                   echo "REACT_APP_VERSION=$(grep '"version"' package.json | cut -d '"' -f 4 | head -n 1 )" >> $GITHUB_ENV
 
-            # - name: 🌍 Check Environment Variables
-            #   if: github.ref == 'refs/heads/feature'
-            #   run: |
-            #       echo "REACT APP VERSION: $REACT_APP_VERSION"
+            - name: 🌍 Check Environment Variables
+              if: github.ref == 'refs/heads/feature'
+              run: |
+                  echo "REACT APP VERSION: $REACT_APP_VERSION"
 
-            # - name: ⚙️ Configure Node.js environment
-            #   uses: actions/setup-node@v3
-            #   with:
-            #       node-version: '18'
-            #       registry-url: 'https://registry.npmjs.org'
+            - name: ⚙️ Configure Node.js environment
+              uses: actions/setup-node@v3
+              with:
+                  node-version: '18'
+                  registry-url: 'https://registry.npmjs.org'
 
-            # - name: ⚙️ Configure NPM
-            #   run: |
-            #       npm i -g npm@9
-            #       echo Node Version: `node --version`
-            #       echo NPM Version: `npm --version`
+            - name: ⚙️ Configure NPM
+              run: |
+                  npm i -g npm@9
+                  echo Node Version: `node --version`
+                  echo NPM Version: `npm --version`
 
-            # - name: 🔨 Install dependencies and build
-            #   run: npm install && npm run build
+            - name: 🔨 Install dependencies and build
+              run: npm install && npm run build
 
-            # - name: 🧼 Run Linter
-            #   run: npm run lint
+            - name: 🧼 Run Linter
+              run: npm run lint
 
-            # - name: 🧪 Run Tests
-            #   run: npm test
+            - name: 🧪 Run Tests
+              run: npm test
 
-            # - name: 📦 Publish package on NPM
-            #   if: github.ref == 'refs/heads/main'
-            #   run: npm publish --access public
-            #   env:
-            #       NODE_AUTH_TOKEN: ${{ secrets.NPM_KEY }}
+            - name: 📦 Publish package on NPM
+              if: github.ref == 'refs/heads/main'
+              run: npm publish --access public
+              env:
+                  NODE_AUTH_TOKEN: ${{ secrets.NPM_KEY }}
 
             - name: 💬 Submit Pull Request on benweare-ts-server
               run: |
