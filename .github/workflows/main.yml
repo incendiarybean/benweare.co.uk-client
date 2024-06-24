@@ -8,7 +8,7 @@ on:
     push:
         branches:
             - main
-            - "*"
+            - '*'
     pull_request:
         branches:
             - main
@@ -60,9 +60,9 @@ jobs:
 
             - name: 💬 Submit Pull Request on benweare-ts-server
               run: |
-                git clone https://github.com/incendiarybean/benweare-ts-server.git --branch=development
+                  git clone https://github.com/incendiarybean/benweare-ts-server.git --branch=development
 
-                cd benweare-ts-server
+                  cd benweare-ts-server
 
-                npm install 
-                npm install benweare.co.uk-client
+                  npm install 
+                  npm install benweare.co.uk-client
