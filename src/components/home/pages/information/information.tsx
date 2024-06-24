@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 
 import { ArrowComponent } from '@components';
 import { ImageIcon } from '@icons';
-import profile_image from '@common/images/profile-sm.webp';
+import profile_image from '@common/images/profile-256.webp';
 
 const InformationPage = () => {
     const [showKnowledgeList, setShowKnowledgeList] = useState<boolean>(false);
@@ -31,7 +31,7 @@ const InformationPage = () => {
                         <div className='flex justify-center items-center mb-5'>
                             {imageLoaded ? (
                                 <img
-                                    className='min-w-fit w-64 h-64 -mt-32 rounded-full shadow border-8 border-white dark:border-zinc-900/60'
+                                    className='animate-fadeIn min-w-fit w-64 h-64 -mt-32 rounded-full shadow border-8 border-white dark:border-zinc-900/60'
                                     src={profile_image}
                                     alt="Ben Weare, Benjamin Weare's mugshot"
                                     loading='eager'
