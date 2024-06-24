@@ -20,7 +20,7 @@ jobs:
             REACT_APP_NAME: ${{ secrets.APP_NAME }}
 
         steps:
-            - uses: actions/checkout@v4
+            - uses: actions/checkout@v3
 
             - name: 🔎 Get Package version
               run: |
