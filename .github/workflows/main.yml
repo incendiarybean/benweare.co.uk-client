@@ -62,8 +62,8 @@ jobs:
               run: |
                   BRANCH_NAME="CHORE-client-$REACT_APP_VERSION"
 
-                  git config --global user.email ${{ secrets.EMAIL }}
-                  git config --global user.name ${{ secrets.USER }}
+                  git config user.name "$(git log -n 1 --pretty=format:%an)"
+                  git config user.email "$(git log -n 1 --pretty=format:%ae)"
 
                   git clone https://github.com/incendiarybean/benweare-ts-server.git --branch=development
 
