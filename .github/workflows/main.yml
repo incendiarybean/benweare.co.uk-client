@@ -58,6 +58,7 @@ jobs:
                   NODE_AUTH_TOKEN: ${{ secrets.NPM_KEY }}
 
             - name: 💬 Submit Pull Request on benweare-ts-server
+              if: github.ref == 'refs/heads/main'
               run: |
                   # Configure and clone 
                   git config --global user.name "${GITHUB_ACTOR}"
