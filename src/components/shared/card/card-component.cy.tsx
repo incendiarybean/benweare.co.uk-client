@@ -1,6 +1,7 @@
 import '../../../index.css';
 
 import Card from './card-component';
+import { sleep } from '@common/utils';
 
 describe('<Card />', () => {
     beforeEach(() => {
@@ -89,7 +90,8 @@ describe('<Card />', () => {
             </div>
         );
 
-        cy.wait('@getCardData').then(() => {
+        cy.wait('@getCardData').then(async () => {
+            await sleep(5000);
             cy.get("[data-cy='card-component']").should('exist');
             cy.get('h2', { timeout: 10000 }).should('have.text', 'outlet_1');
             cy.get('h1').should('have.text', 'ARTICLE_TITLE');
