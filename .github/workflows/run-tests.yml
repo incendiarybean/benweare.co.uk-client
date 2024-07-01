@@ -54,9 +54,15 @@ jobs:
                   name: build
                   path: build
 
-            - name: 🧪 Cypress Test
+            - name: 🧪 Cypress E2E Test
               uses: cypress-io/github-action@v6
               with:
                   start: npm start
                   browser: chrome
-                  project: ./
+
+            - name: 🧪 Cypress Component Tests
+              uses: cypress-io/github-action@v6
+              with:
+                  start: npm start
+                  browser: chrome
+                  component: true
