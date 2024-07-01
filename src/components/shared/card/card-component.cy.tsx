@@ -87,7 +87,7 @@ describe('<Card />', () => {
         cy.intercept('GET', '/api/news/outlet_1', {
             statusCode: 200,
             fixture: 'Card.json',
-        }).as('getNewsArticle');
+        });
 
         cy.mount(
             <div className='h-auto p-4'>
