@@ -5,7 +5,10 @@ const DocumentationPage = () => {
     useEffect(() => window.scroll(0, 0));
 
     return (
-        <div className='select-none w-full p-4 px-6 flex flex-col flex-1'>
+        <div
+            id='documentation'
+            className='select-none w-full p-4 px-6 flex flex-col flex-1'
+        >
             <iframe
                 className='flex-1 w-full rounded'
                 title='API Documentation'

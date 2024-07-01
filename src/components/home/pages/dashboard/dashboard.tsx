@@ -8,7 +8,7 @@ const DashboardPage = () => {
     useEffect(() => window.scroll(0, 0));
 
     return (
-        <div className='select-none flex flex-col py-2'>
+        <div id='dashboard' className='select-none flex flex-col py-2'>
             <Card siteName='NASA' endpoint='/api/news/nasa' />
             <NewsList
                 endpoint='/api/news/the_register'
