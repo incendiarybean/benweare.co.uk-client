@@ -23,7 +23,9 @@ jobs:
               uses: actions/checkout@v4
 
             - name: 🧼 Run Linter
-              run: npm run lint
+              run: |
+                  npm install --quiet
+                  npm run lint
 
     cypress-test:
         runs-on: ubuntu-latest
