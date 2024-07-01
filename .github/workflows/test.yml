@@ -5,12 +5,15 @@ name: Build and Deploy
 # Controls when the action will run. Workflow runs when manually triggered using the UI
 # or API.
 on:
+    workflow_call:
     push:
         branches:
             - '*'
+            - '!main'
     pull_request:
         branches:
             - '*'
+            - '!main'
 
 jobs:
     lint-code:
