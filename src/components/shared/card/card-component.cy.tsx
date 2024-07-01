@@ -95,15 +95,13 @@ describe('<Card />', () => {
             </div>
         );
 
-        cy.wait('@getNewsArticle').then(() => {
-            cy.get('h2').should('have.text', 'outlet_1');
-            cy.get('h1').should('have.text', 'ARTICLE_TITLE');
+        cy.get('h2').should('have.text', 'outlet_1');
+        cy.get('h1').should('have.text', 'ARTICLE_TITLE');
 
-            cy.get('p').should('not.exist');
-            cy.get('button').contains('Read the Article').click();
-            cy.get('p').should('have.text', 'ARTICLE_DESCRIPTION');
-            cy.get('button').contains('Read the Article').click();
-            cy.get('p').should('not.exist');
-        });
+        cy.get('p').should('not.exist');
+        cy.get('button').contains('Read the Article').click();
+        cy.get('p').should('have.text', 'ARTICLE_DESCRIPTION');
+        cy.get('button').contains('Read the Article').click();
+        cy.get('p').should('not.exist');
     });
 });
