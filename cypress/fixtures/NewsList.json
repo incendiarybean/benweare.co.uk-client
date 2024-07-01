@@ -5,7 +5,7 @@
                 "title": "ARTICLE_TITLE_1",
                 "url": "ARTICLE_URL_1",
                 "description": "ARTICLE_DESCRIPTION_1",
-                "img": "https://apod.nasa.gov/apod/image/2407/TimeSpiral_Budassi_960.jpg",
+                "img": "https://localhost:3000/image.jpg",
                 "name": "OUTLET_1",
                 "date": "2024-07-01T00:00:00.000Z",
                 "id": "ARTICLE_ID_1"
@@ -14,7 +14,7 @@
                 "title": "ARTICLE_TITLE_2",
                 "url": "ARTICLE_URL_2",
                 "description": "ARTICLE_DESCRIPTION_2",
-                "img": "https://apod.nasa.gov/apod/image/2407/TimeSpiral_Budassi_960.jpg",
+                "img": "https://localhost:3000/image.jpg",
                 "name": "OUTLET_2",
                 "date": "2024-07-01T00:00:00.000Z",
                 "id": "ARTICLE_ID_2"

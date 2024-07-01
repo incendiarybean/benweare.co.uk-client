@@ -1,12 +1,14 @@
 import '../../../index.css';
 
 import NewsReel from './news-reel-component';
-import { sleep } from '@common/utils';
 
 describe('<NewsReel />', () => {
     beforeEach(() => {
         cy.intercept({ resourceType: /xhr|fetch/ }, { log: false });
         cy.intercept('GET', '/*', {});
+        cy.intercept('/image.jpg', {
+            fixture: 'TestImage.jpg',
+        });
     });
 
     it('should fail to render when not supplied the endpoint and sitename', () => {
@@ -69,10 +71,6 @@ describe('<NewsReel />', () => {
     });
 
     it('should render a skeleton loader if the request is not yet fulfilled', () => {
-        cy.intercept('GET', '/api/news/outlet', async (_req) => {
-            await sleep(10000);
-        });
-
         cy.mount(
             <div className='h-auto p-4'>
                 <NewsReel endpoint='/api/news/outlet' siteName='outlet' />

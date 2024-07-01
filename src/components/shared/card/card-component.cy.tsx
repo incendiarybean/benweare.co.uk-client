@@ -1,12 +1,14 @@
 import '../../../index.css';
 
 import Card from './card-component';
-import { sleep } from '@common/utils';
 
 describe('<Card />', () => {
     beforeEach(() => {
         cy.intercept({ resourceType: /xhr|fetch/ }, { log: false });
         cy.intercept('GET', '/*', {});
+        cy.intercept('/image.jpg', {
+            fixture: 'TestImage.jpg',
+        });
     });
 
     it('should fail to render when not supplied the endpoint and sitename', () => {
@@ -78,7 +80,7 @@ describe('<Card />', () => {
         cy.get("[data-cy='card-skeleton']").should('exist');
     });
 
-    it('should render with the correct values obtained from the API', async () => {
+    it('should render with the correct values obtained from the API', () => {
         cy.intercept('GET', '/api/news/outlet_1', {
             statusCode: 200,
             fixture: 'Card.json',
@@ -89,8 +91,6 @@ describe('<Card />', () => {
                 <Card endpoint='/api/news/outlet_1' siteName='outlet_1' />
             </div>
         );
-
-        await sleep(3000);
 
         cy.get("[data-cy='card-component']").should('exist');
         cy.get('h2', { timeout: 10000 }).should('have.text', 'outlet_1');
