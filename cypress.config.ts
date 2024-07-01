@@ -4,7 +4,7 @@ export default {
             // implement node event listeners here
         },
     },
-
+    video: true,
     component: {
         devServer: {
             framework: 'react',
