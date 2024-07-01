@@ -13,6 +13,12 @@ on:
             - '*'
 
 jobs:
+    lint-code:
+        runs-on: ubuntu-latest
+        steps:
+            - name: 🧼 Run Linter
+              run: npm run lint
+
     cypress-test:
         runs-on: ubuntu-latest
         steps:
