@@ -91,7 +91,7 @@ describe('<Card />', () => {
         );
 
         cy.wait('@getCardData').then(async () => {
-            await sleep(5000);
+            await sleep(3000);
             cy.get("[data-cy='card-component']").should('exist');
             cy.get('h2', { timeout: 10000 }).should('have.text', 'outlet_1');
             cy.get('h1').should('have.text', 'ARTICLE_TITLE');
