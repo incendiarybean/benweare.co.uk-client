@@ -15,7 +15,7 @@ export default defineConfig({
         VITE_APP_VERSION: JSON.stringify(process.env.npm_package_version),
     },
     optimizeDeps: {
-        entries: ['react-dom/client', 'react-toastify'],
+        include: ['react-dom/client', 'react-toastify'],
     },
     build: {
         outDir: './build',
