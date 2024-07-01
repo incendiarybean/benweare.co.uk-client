@@ -58,11 +58,9 @@ jobs:
               uses: cypress-io/github-action@v6
               with:
                   start: npm start
-                  browser: chrome
 
             - name: 🧪 Cypress Component Tests
               uses: cypress-io/github-action@v6
               with:
                   start: npm start
-                  browser: chrome
                   component: true
