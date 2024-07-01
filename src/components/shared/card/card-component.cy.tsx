@@ -78,11 +78,11 @@ describe('<Card />', () => {
         cy.get("[data-cy='card-skeleton']").should('exist');
     });
 
-    it('should render with the correct values obtained from the API', () => {
+    it('should render with the correct values obtained from the API', async () => {
         cy.intercept('GET', '/api/news/outlet_1', {
             statusCode: 200,
             fixture: 'Card.json',
-        }).as('getCardData');
+        });
 
         cy.mount(
             <div className='h-auto p-4'>
@@ -90,17 +90,16 @@ describe('<Card />', () => {
             </div>
         );
 
-        cy.wait('@getCardData').then(async () => {
-            await sleep(3000);
-            cy.get("[data-cy='card-component']").should('exist');
-            cy.get('h2', { timeout: 10000 }).should('have.text', 'outlet_1');
-            cy.get('h1').should('have.text', 'ARTICLE_TITLE');
+        await sleep(3000);
 
-            cy.get('p').should('not.exist');
-            cy.get('button').contains('Read the Article').click();
-            cy.get('p').should('have.text', 'ARTICLE_DESCRIPTION');
-            cy.get('button').contains('Read the Article').click();
-            cy.get('p').should('not.exist');
-        });
+        cy.get("[data-cy='card-component']").should('exist');
+        cy.get('h2', { timeout: 10000 }).should('have.text', 'outlet_1');
+        cy.get('h1').should('have.text', 'ARTICLE_TITLE');
+
+        cy.get('p').should('not.exist');
+        cy.get('button').contains('Read the Article').click();
+        cy.get('p').should('have.text', 'ARTICLE_DESCRIPTION');
+        cy.get('button').contains('Read the Article').click();
+        cy.get('p').should('not.exist');
     });
 });
