@@ -29,7 +29,7 @@ describe('<NewsReel />', () => {
         );
     });
 
-    it('should fail to render when not supplied and endpoint', () => {
+    it('should fail to render when not supplied an endpoint', () => {
         cy.intercept('GET', '/api/news/outlet', {
             statusCode: 404,
             body: {},

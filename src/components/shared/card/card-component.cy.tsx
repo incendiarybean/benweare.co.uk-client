@@ -29,7 +29,7 @@ describe('<Card />', () => {
         );
     });
 
-    it('should fail to render when not supplied and endpoint', () => {
+    it('should fail to render when not supplied an endpoint', () => {
         cy.intercept('GET', '/api/news/outlet_1', {
             statusCode: 404,
             body: {},
@@ -95,6 +95,7 @@ describe('<Card />', () => {
             </div>
         );
 
+        cy.get("[data-cy='card-component']").should('exist');
         cy.get('h2').should('have.text', 'outlet_1');
         cy.get('h1').should('have.text', 'ARTICLE_TITLE');
 

@@ -64,7 +64,7 @@ jobs:
               with:
                   component: true
 
-            - name: Upload screenshots
+            - name: ⬆️ Upload Test Failure Screenshots
               uses: actions/upload-artifact@v4
               if: failure()
               with:
