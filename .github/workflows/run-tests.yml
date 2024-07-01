@@ -64,15 +64,15 @@ jobs:
               with:
                   component: true
 
+            - name: ⬆️ Upload Test Recordings
+              uses: actions/upload-artifact@v4
+              with:
+                  name: cypress-videos
+                  path: cypress/videos
+
             - name: ⬆️ Upload Test Failure Screenshots
               uses: actions/upload-artifact@v4
               if: failure()
               with:
                   name: cypress-screenshots
                   path: cypress/screenshots
-
-            - name: ⬆️ Upload Test Failure Screenshots
-              uses: actions/upload-artifact@v4
-              with:
-                  name: cypress-videos
-                  path: cypress/videos
