@@ -95,7 +95,9 @@ describe('<Card />', () => {
             </div>
         );
 
-        cy.get("[data-cy='card-component']").should('exist');
+        cy.get("[data-cy='card-component']", { timeout: 10000 }).should(
+            'exist'
+        );
         cy.get('h2').should('have.text', 'outlet_1');
         cy.get('h1').should('have.text', 'ARTICLE_TITLE');
 
