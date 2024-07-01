@@ -57,32 +57,32 @@ jobs:
               env:
                   NODE_AUTH_TOKEN: ${{ secrets.NPM_KEY }}
 
-            - name: 💬 Submit Pull Request on benweare-ts-server
-              if: github.ref == 'refs/heads/main'
-              run: |
-                  # Configure and clone 
-                  git config --global user.name "${GITHUB_ACTOR}"
-                  git config --global user.email "${GITHUB_ACTOR}@users.noreply.github.com"
+            # - name: 💬 Submit Pull Request on benweare-ts-server
+            #   if: github.ref == 'refs/heads/main'
+            #   run: |
+            #       # Configure and clone
+            #       git config --global user.name "${GITHUB_ACTOR}"
+            #       git config --global user.email "${GITHUB_ACTOR}@users.noreply.github.com"
 
-                  BRANCH_NAME="CHORE-client-$REACT_APP_VERSION"
+            #       BRANCH_NAME="CHORE-client-$REACT_APP_VERSION"
 
-                  git clone https://incendiarybean:${{ secrets.ACCESS_TOKEN }}@github.com/incendiarybean/benweare-ts-server --branch=development
-                  cd benweare-ts-server
+            #       git clone https://incendiarybean:${{ secrets.ACCESS_TOKEN }}@github.com/incendiarybean/benweare-ts-server --branch=development
+            #       cd benweare-ts-server
 
-                  # Install latest dependencies and update the client
-                  npm install --quiet
-                  npm install benweare.co.uk-client --quiet
+            #       # Install latest dependencies and update the client
+            #       npm install --quiet
+            #       npm install benweare.co.uk-client --quiet
 
-                  # Commit the changes and push the feature branch to origin
-                  git checkout -b $BRANCH_NAME
-                  git commit -am "CHORE: Bump client to $REACT_APP_VERSION"
-                  git push origin $BRANCH_NAME
+            #       # Commit the changes and push the feature branch to origin
+            #       git checkout -b $BRANCH_NAME
+            #       git commit -am "CHORE: Bump client to $REACT_APP_VERSION"
+            #       git push origin $BRANCH_NAME
 
-                  # Create a PR on the branch of benweare-ts-server
-                  echo "${{ secrets.ACCESS_TOKEN }}" > token.txt
-                  gh auth login --with-token < token.txt
-                  gh pr create \
-                    --body "AUTOMATED: Bump to $REACT_APP_VERSION" \
-                    --title "CHORE: Bump client to $REACT_APP_VERSION" \
-                    --head "$BRANCH_NAME" \
-                    --base "development"
+            #       # Create a PR on the branch of benweare-ts-server
+            #       echo "${{ secrets.ACCESS_TOKEN }}" > token.txt
+            #       gh auth login --with-token < token.txt
+            #       gh pr create \
+            #         --body "AUTOMATED: Bump to $REACT_APP_VERSION" \
+            #         --title "CHORE: Bump client to $REACT_APP_VERSION" \
+            #         --head "$BRANCH_NAME" \
+            #         --base "development"
