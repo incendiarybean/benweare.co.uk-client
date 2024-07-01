@@ -84,16 +84,16 @@ const Card = ({ endpoint, siteName }: CardProps) => {
                                         ).toLocaleDateString('en-UK')}
                                     </span>
                                 </div>
-                                <p className='md:text-lg xl:text-xl font-bold leading-normal flex'>
+                                <h1 className='md:text-lg xl:text-xl font-bold leading-normal flex'>
                                     {article.title}
-                                </p>
+                                </h1>
                             </div>
                             <div className='flex flex-wrap justify-between items-center mb-2'>
                                 <button
                                     className='min-w-fit default-link flex items-center gap-1'
                                     onClick={() => setShow(!show)}
                                 >
-                                    <p>Read the Article</p>
+                                    <span>Read the Article</span>
                                     <ArrowComponent
                                         upwardFacing={show}
                                         container

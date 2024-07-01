@@ -29,31 +29,26 @@ describe('Dashboard Navigation', () => {
 
     it('Should display the news-feed and all collected articles', () => {
         cy.intercept('GET', '/api/news/articles?sort=DESC', {
-            fixture: 'articles-desc.json',
+            fixture: 'ArticlesDesc.json',
         });
 
         cy.intercept('GET', '/api/news/articles?sort=ASC', {
-            fixture: 'articles-asc.json',
+            fixture: 'ArticlesAsc.json',
         });
 
         // Navigate to the news feed by button click
         cy.get('#navigation-left').find('a').contains('News Feed').click();
-
         cy.get('#news-feed').children().should('have.length', 2);
-
         cy.get('#news-feed').should('contain.text', 'Last Updated:');
 
         // Check the filter function lists outlets
         cy.get('#news-feed').should('contain.text', 'Included Outlets');
         cy.get('#news-feed').contains('Included Outlets').click();
-
-        // #news-list-items > a:nth-child(1)
         cy.get(
             '#news-feed > #all-news > div > div:nth-child(2) > div:nth-child(2)'
         )
             .children()
             .should('have.length', 5);
-
         cy.get('#news-feed > #all-news > div > div > div > a').should(
             'have.length',
             5
@@ -64,15 +59,15 @@ describe('Dashboard Navigation', () => {
         cy.get('#news-feed > #all-news > div > div > div > a:nth-child(1)')
             .first()
             .contains('ARTICLE_TITLE_1');
-
         cy.get('#news-feed').contains('Sort DESC').click();
-
         cy.get('#news-feed').should('contain.text', 'Sort ASC');
         cy.get('#news-feed > #all-news > div > div > div > a:nth-child(1)')
             .first()
             .contains('ARTICLE_TITLE_5');
 
+        // Return back to the dashboard
         cy.get('#news-feed').contains('Back to Dashboard').click();
+        cy.url().should('include', '/dashboard');
     });
 
     it('Should display the API docs', () => {

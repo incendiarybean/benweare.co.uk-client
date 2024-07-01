@@ -33,8 +33,9 @@
             "@components": ["./src/components"],
             "@icons": ["./src/components/shared/icons"],
             "@common/*": ["./src/common/*"]
-        }
+        },
+        "types": ["cypress"]
     },
-    "include": ["vite.config.ts", "jest.config.ts", "src"],
+    "include": ["vite.config.ts", "jest.config.ts", "src", "cypress"],
     "exclude": ["node_modules"]
 }

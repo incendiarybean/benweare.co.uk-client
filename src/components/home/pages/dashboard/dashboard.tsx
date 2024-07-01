@@ -1,4 +1,4 @@
-import { Card, NewsCarousel, NewsList } from '@components';
+import { Card, NewsList, NewsReel } from '@components';
 
 import { NavLink } from 'react-router-dom';
 import { RightCornerArrow } from '@icons';
@@ -15,8 +15,8 @@ const DashboardPage = () => {
                 siteName='The Register'
                 limit={30}
             />
-            <NewsCarousel endpoint='/api/news/pcgamer' siteName='PCGamer' />
-            <NewsCarousel
+            <NewsReel endpoint='/api/news/pcgamer' siteName='PCGamer' />
+            <NewsReel
                 endpoint='/api/news/rock_paper_shotgun'
                 siteName='Rock Paper Shotgun'
             />
@@ -24,7 +24,7 @@ const DashboardPage = () => {
                 endpoint='/api/news/ars_technica'
                 siteName='Ars Technica'
             />
-            <NewsCarousel endpoint='/api/news/bbc' siteName='BBC' />
+            <NewsReel endpoint='/api/news/bbc' siteName='BBC' />
             <div className='px-1 md:px-6 my-2 w-auto'>
                 <div className='animate-fadeIn flex flex-col w-full items-center justify-center p-4 border border-slate-300 dark:border-zinc-600/20 rounded shadow-inner'>
                     <NavLink

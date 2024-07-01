@@ -14,7 +14,7 @@ on:
 
 jobs:
     check-publish-ready:
-        uses: ./.github/workflows/test.yml
+        uses: ./.github/workflows/run-tests.yml
 
     publish:
         runs-on: ubuntu-latest

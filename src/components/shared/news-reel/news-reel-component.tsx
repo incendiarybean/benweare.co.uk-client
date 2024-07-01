@@ -8,7 +8,7 @@ import NewsReelSkeleton from './news-reel-skeleton';
 import { RightCornerArrow } from '@icons';
 import { SwipeHandler } from '@common/hooks/swipeHandler';
 
-const NewsCarousel = ({ endpoint, siteName }: CardProps) => {
+const NewsReel = ({ endpoint, siteName }: CardProps) => {
     const [articles, setArticles] = useState<NewsArticle[]>([]);
     const [currentPage, setCurrentPage] = useState<number>(0);
     const [loaded, setLoaded] = useState<Loading>(false);
@@ -107,9 +107,9 @@ const NewsCarousel = ({ endpoint, siteName }: CardProps) => {
                                             ).toLocaleDateString('en-UK')}
                                         </span>
                                     </div>
-                                    <p className='text-lg xl:text-xl font-bold leading-normal line-clamp-3 xl:line-clamp-none'>
+                                    <h1 className='text-lg xl:text-xl font-bold leading-normal line-clamp-3 xl:line-clamp-none'>
                                         {articles[currentPage].title}
-                                    </p>
+                                    </h1>
                                 </div>
                             </div>
                             <hr className='lg:hidden border-zinc-200 dark:border-zinc-800 w-2/3 self-center' />
@@ -125,4 +125,4 @@ const NewsCarousel = ({ endpoint, siteName }: CardProps) => {
     );
 };
 
-export default NewsCarousel;
+export default NewsReel;
