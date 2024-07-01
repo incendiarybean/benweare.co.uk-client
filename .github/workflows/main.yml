@@ -84,7 +84,7 @@ jobs:
                   npm install benweare.co.uk-client --quiet
 
                   # Commit the changes and push the feature branch to origin
-                  git checkout -b $BRANCH_NAME
+                  git checkout -b $BRANCH_NAME development
                   git commit -am "CHORE: Bump client to $REACT_APP_VERSION"
                   git push origin $BRANCH_NAME
 
