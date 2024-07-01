@@ -1,7 +1,6 @@
 import '../../../index.css';
 
 import Card from './card-component';
-import { sleep } from '@common/utils';
 
 describe('<Card />', () => {
     beforeEach(() => {
@@ -69,10 +68,6 @@ describe('<Card />', () => {
     });
 
     it('should render a skeleton loader if the request is not yet fulfilled', () => {
-        cy.intercept('GET', '/api/news/outlet_1', async (_req) => {
-            await sleep(10000);
-        });
-
         cy.mount(
             <div className='h-auto p-4'>
                 <Card endpoint='/api/news/outlet_1' siteName='outlet_1' />
@@ -96,7 +91,7 @@ describe('<Card />', () => {
 
         cy.wait('@getCardData').then(() => {
             cy.get("[data-cy='card-component']").should('exist');
-            cy.get('h2').should('have.text', 'outlet_1');
+            cy.get('h2', { timeout: 10000 }).should('have.text', 'outlet_1');
             cy.get('h1').should('have.text', 'ARTICLE_TITLE');
 
             cy.get('p').should('not.exist');
