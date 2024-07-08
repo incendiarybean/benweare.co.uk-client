@@ -67,6 +67,8 @@ jobs:
               uses: cypress-io/github-action@v6
               with:
                   component: true
+              env:
+                  VITE_APP_VERSION: '$VITE_APP_VERSION'
 
             - name: ⬆️ Upload Test Recordings
               uses: actions/upload-artifact@v4
