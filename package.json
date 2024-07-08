@@ -5,7 +5,9 @@
     "scripts": {
         "start": "vite",
         "build": "vite build",
-        "test": "jest --watchAll=false --silent",
+        "test:component": "npx cypress run --component",
+        "test:e2e": "npx cypress run",
+        "test": "concurrently --kill-others \"npm start\" \"npm run test:e2e && npm run test:component\"",
         "lint": "prettier . -c",
         "lint-fix": "prettier . -w"
     },
@@ -41,6 +43,7 @@
         "@typescript-eslint/eslint-plugin": "^5.33.1",
         "@vitejs/plugin-react": "^4.1.0",
         "autoprefixer": "^10.4.8",
+        "concurrently": "^8.2.2",
         "eslint": "^8.22.0",
         "eslint-config-standard-with-typescript": "^22.0.0",
         "eslint-plugin-cypress": "^3.3.0",
