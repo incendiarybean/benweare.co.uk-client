@@ -29,7 +29,7 @@ jobs:
             - name: 🌍 Check Environment Variables
               if: github.ref == 'refs/heads/feature'
               run: |
-                  echo "REACT APP VERSION: $VITE_APP_VERSION"
+                  echo "VITE APP VERSION: $VITE_APP_VERSION"
 
             # - name: ⚙️ Configure Node.js environment
             #   uses: actions/setup-node@v3
@@ -71,7 +71,7 @@ jobs:
                   path: benweare-ts-server
 
             - name: 💬 Submit Pull Request on benweare-ts-server
-              if: github.ref == 'refs/heads/main'
+              # if: github.ref == 'refs/heads/main'
               run: |
                   # Configure and clone
                   git config --global user.name "${GITHUB_ACTOR}"
