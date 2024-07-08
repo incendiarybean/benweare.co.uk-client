@@ -12,7 +12,7 @@ export default defineConfig({
         },
     },
     define: {
-        VITE_APP_VERSION: JSON.stringify(process.env.npm_package_version),
+        VITE_APP_VERSION: process.env.npm_package_version,
     },
     optimizeDeps: {
         include: ['react-dom/client', 'react-toastify'],
