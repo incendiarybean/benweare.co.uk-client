@@ -4,7 +4,7 @@ const ErrorComponent = ({
     feedName,
 }: {
     /** The name of the failing feed */
-    feedName: string;
+    feedName?: string;
 }) => {
     return (
         <div
