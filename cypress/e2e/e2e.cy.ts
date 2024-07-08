@@ -1,5 +1,3 @@
-import * as pkg from '../../package.json';
-
 describe('Dashboard Navigation', () => {
     // Start from the index page everytime
     beforeEach(() => {
