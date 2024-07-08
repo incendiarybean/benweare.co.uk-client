@@ -1,4 +1,3 @@
-import customViteConfig from './vite.config.ts';
 import { version } from './package.json';
 
 export default {
@@ -12,7 +11,6 @@ export default {
         devServer: {
             framework: 'react',
             bundler: 'vite',
-            viteConfig: customViteConfig,
         },
     },
     env: {
