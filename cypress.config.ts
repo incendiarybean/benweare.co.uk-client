@@ -1,3 +1,5 @@
+import { version } from './package.json';
+
 export default {
     e2e: {
         setupNodeEvents(on, config) {
@@ -10,5 +12,8 @@ export default {
             framework: 'react',
             bundler: 'vite',
         },
+    },
+    env: {
+        VITE_APP_VERSION: version,
     },
 };
