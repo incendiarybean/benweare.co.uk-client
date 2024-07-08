@@ -1,7 +1,5 @@
 import '../../../index.css';
 
-import * as pkg from '../../../../package.json';
-
 import FooterComponent from './footer-component';
 
 describe('<FooterComponent />', () => {
@@ -13,7 +11,7 @@ describe('<FooterComponent />', () => {
 
         cy.get('[data-cy="version-number"]').should(
             'contain.text',
-            `v${pkg.version}`
+            `v${Cypress.env('VITE_APP_VERSION')}`
         );
     });
 });
