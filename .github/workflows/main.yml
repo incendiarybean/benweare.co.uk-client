@@ -101,6 +101,7 @@ jobs:
             - name: Retry on Failure
               if: failure()
               run: |
+                  cd benweare-ts-server
                   echo "Attempting to retry in 1m..."
-                  sleep 1m
+                  sleep 5s
                   gh run rerun ${{ github.run_id }} --failed
