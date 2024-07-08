@@ -1,0 +1,23 @@
+{
+    "response": {
+        "items": [
+            {
+                "title": "ARTICLE_TITLE",
+                "url": "ARTICLE_URL",
+                "description": "ARTICLE_DESCRIPTION",
+                "img": "/image.jpg",
+                "name": "OUTLET_1",
+                "date": "2024-07-01T00:00:00.000Z",
+                "id": "ARTICLE_ID"
+            }
+        ],
+        "updated": "2024-07-01T00:00:00.000Z",
+        "description": "OUTLET_DESCRIPTION"
+    },
+    "description": "Retrieve a specific news outlet.",
+    "timestamp": "2024-07-01T11:55:42.258Z",
+    "link": {
+        "action": "GET",
+        "href": "/api/news/outlet_1"
+    }
+}

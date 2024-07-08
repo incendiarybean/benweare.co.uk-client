@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { ImageIcon } from '@icons';
 import type { Loading } from '@common/types';
 
-const Image = ({
+const ImageLoader = ({
     img,
     alt,
     className,
@@ -12,11 +12,11 @@ const Image = ({
     /** Image element, does not require to be defined on-load. */
     img?: HTMLImageElement;
     /** Alt text for the image. */
-    alt: string;
+    alt?: string;
     /** ClassName to supply the image wrapper. */
-    className: string;
+    className?: string;
     /** ClassName to supply to the loading wrapper. */
-    loaderClassName: string;
+    loaderClassName?: string;
 }) => {
     const [loaded, setLoaded] = useState<Loading>(false);
 
@@ -39,7 +39,10 @@ const Image = ({
     if (loaded === 'Failed') {
         return (
             <div className={loaderClassName}>
-                <div className='rounded w-full bg-slate-300 dark:bg-zinc-800 h-full flex flex-col items-center justify-center text-red-600 dark:text-red-500'>
+                <div
+                    data-cy='image-loader-failed'
+                    className='rounded w-full bg-slate-300 dark:bg-zinc-800 h-full flex flex-col items-center justify-center text-red-600 dark:text-red-500'
+                >
                     <ImageIcon />
                     <span className='text-xs uppercase mt-2'>
                         Image failed to load
@@ -52,9 +55,14 @@ const Image = ({
     return (
         <>
             {loaded ? (
-                <img alt={alt} src={img?.src} className={className} />
+                <img
+                    data-cy='image-loader-loaded'
+                    alt={alt}
+                    src={img?.src}
+                    className={className}
+                />
             ) : (
-                <div className={loaderClassName}>
+                <div data-cy='image-loader-loading' className={loaderClassName}>
                     <div className='animate-pulse rounded w-full bg-slate-300 dark:bg-zinc-800 h-full flex items-center justify-center text-slate-100 dark:text-zinc-900'>
                         <ImageIcon />
                     </div>
@@ -64,4 +72,4 @@ const Image = ({
     );
 };
 
-export default Image;
+export default ImageLoader;
