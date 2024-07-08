@@ -35,10 +35,6 @@ jobs:
             - name: Checkout
               uses: actions/checkout@v4
 
-            - name: 🔎 Get Package version
-              run: |
-                  echo "VITE_APP_VERSION=$(grep '"version"' package.json | cut -d '"' -f 4 | head -n 1 )" >> $GITHUB_ENV
-
             - name: 🔨 Cypress install
               uses: cypress-io/github-action@v6
               with:
@@ -67,8 +63,6 @@ jobs:
               uses: cypress-io/github-action@v6
               with:
                   component: true
-              env:
-                  VITE_APP_VERSION: "${{ env.VITE_APP_VERSION }}"
 
             - name: ⬆️ Upload Test Recordings
               uses: actions/upload-artifact@v4
