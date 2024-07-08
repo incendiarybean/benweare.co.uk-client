@@ -97,9 +97,7 @@ const FooterComponent = () => {
                             data-cy='version-number'
                             className='font-semibold'
                         >
-                            v
-                            {VITE_APP_VERSION ??
-                                import.meta.env.VITE_APP_VERSION}
+                            v{VITE_APP_VERSION}
                         </strong>
                     </span>
                 </div>
