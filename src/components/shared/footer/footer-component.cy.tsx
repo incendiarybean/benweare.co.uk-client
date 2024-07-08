@@ -11,7 +11,7 @@ describe('<FooterComponent />', () => {
         cy.mount(<FooterComponent />);
 
         const package_version =
-            Cypress.env('VITE_APP_VERSION') ?? VITE_APP_VERSION;
+            VITE_APP_VERSION ?? process.env.VITE_APP_VERSION;
 
         cy.get('[data-cy="version-number"]').should(
             'contain.text',
