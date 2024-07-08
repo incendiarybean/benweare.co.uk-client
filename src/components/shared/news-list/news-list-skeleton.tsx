@@ -1,6 +1,9 @@
 const NewsListSkeleton = () => {
     return (
-        <div className='animate-fadeIn flex flex-col w-full justify-center md:border border-slate-300 dark:border-zinc-600/20 rounded h-auto md:h-64 relative'>
+        <div
+            data-cy='news-list-skeleton'
+            className='animate-fadeIn flex flex-col w-full justify-center md:border border-slate-300 dark:border-zinc-600/20 rounded h-auto md:h-64 relative'
+        >
             <div className='absolute top-0 left-0 px-2 ml-2 -mt-2 bg-zinc-200 dark:bg-zinc-800 rounded z-10'>
                 <div className='animate-pulse bg-slate-300 dark:bg-zinc-700 rounded-full w-24 h-5' />
             </div>

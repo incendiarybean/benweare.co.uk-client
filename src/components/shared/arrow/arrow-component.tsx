@@ -10,7 +10,7 @@ const ArrowComponent = ({
     container,
 }: {
     /** A value depicting which direction the arrow is facing */
-    upwardFacing: boolean;
+    upwardFacing?: boolean;
     /** A value depecting whether the chevron has a container or not */
     container?: boolean;
 }) => {

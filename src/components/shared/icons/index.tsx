@@ -323,6 +323,7 @@ export const ChevronDownContained = () => (
         width='21'
         height='21'
         viewBox='0 0 21 21'
+        data-cy='chevron-down-contained'
     >
         <g
             className='stroke-current '
@@ -348,6 +349,7 @@ export const ChevronUpContained = () => (
         width='21'
         height='21'
         viewBox='0 0 21 21'
+        data-cy='chevron-up-contained'
     >
         <g
             className='stroke-current'
@@ -635,6 +637,7 @@ export const ChevronUp = () => (
         viewBox='0 0 21 21'
         width='21'
         xmlns='http://www.w3.org/2000/svg'
+        data-cy='chevron-up'
     >
         <path
             d='m.5 4.5 4-4 4 4'
@@ -653,6 +656,7 @@ export const ChevronDown = () => (
         viewBox='0 0 21 21'
         width='21'
         xmlns='http://www.w3.org/2000/svg'
+        data-cy='chevron-down'
     >
         <path
             d='m8.5.5-4 4-4-4'
@@ -667,6 +671,7 @@ export const ChevronDown = () => (
 
 export const ImageIcon = () => (
     <svg
+        data-cy='image-icon'
         className='w-10 h-10'
         xmlns='http://www.w3.org/2000/svg'
         fill='currentColor'

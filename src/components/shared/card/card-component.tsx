@@ -41,7 +41,7 @@ const Card = ({ endpoint, siteName }: CardProps) => {
     }
 
     return (
-        <div className='px-1 md:px-6 my-2 w-auto'>
+        <div data-cy='card-component' className='px-1 md:px-6 my-2 w-auto'>
             <div className='animate-fadeIn text-left flex flex-col w-full items-center justify-center md:p-4 md:border border-slate-300 dark:border-zinc-600/20 rounded shadow-inner'>
                 {loaded === true && article && (
                     <div className='border border-slate-300 dark:border-zinc-600/30 w-full rounded flex-col xl:flex-row bg-slate-100 dark:bg-zinc-900 shadow'>
@@ -84,16 +84,16 @@ const Card = ({ endpoint, siteName }: CardProps) => {
                                         ).toLocaleDateString('en-UK')}
                                     </span>
                                 </div>
-                                <p className='md:text-lg xl:text-xl font-bold leading-normal flex'>
+                                <h1 className='md:text-lg xl:text-xl font-bold leading-normal flex'>
                                     {article.title}
-                                </p>
+                                </h1>
                             </div>
                             <div className='flex flex-wrap justify-between items-center mb-2'>
                                 <button
                                     className='min-w-fit default-link flex items-center gap-1'
                                     onClick={() => setShow(!show)}
                                 >
-                                    <p>Read the Article</p>
+                                    <span>Read the Article</span>
                                     <ArrowComponent
                                         upwardFacing={show}
                                         container
