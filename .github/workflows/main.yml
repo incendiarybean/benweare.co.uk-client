@@ -27,12 +27,12 @@ jobs:
 
             - name: 🔎 Get Package version
               run: |
-                  echo "REACT_APP_VERSION=$(grep '"version"' package.json | cut -d '"' -f 4 | head -n 1 )" >> $GITHUB_ENV
+                  echo "VITE_APP_VERSION=$(grep '"version"' package.json | cut -d '"' -f 4 | head -n 1 )" >> $GITHUB_ENV
 
             - name: 🌍 Check Environment Variables
               if: github.ref == 'refs/heads/feature'
               run: |
-                  echo "REACT APP VERSION: $REACT_APP_VERSION"
+                  echo "REACT APP VERSION: $VITE_APP_VERSION"
 
             - name: ⚙️ Configure Node.js environment
               uses: actions/setup-node@v3
@@ -70,7 +70,7 @@ jobs:
             #       git config --global user.name "${GITHUB_ACTOR}"
             #       git config --global user.email "${GITHUB_ACTOR}@users.noreply.github.com"
 
-            #       BRANCH_NAME="CHORE-client-$REACT_APP_VERSION"
+            #       BRANCH_NAME="CHORE-client-$VITE_APP_VERSION"
 
             #       git clone https://incendiarybean:${{ secrets.ACCESS_TOKEN }}@github.com/incendiarybean/benweare-ts-server --branch=development
             #       cd benweare-ts-server
@@ -81,14 +81,14 @@ jobs:
 
             #       # Commit the changes and push the feature branch to origin
             #       git checkout -b $BRANCH_NAME
-            #       git commit -am "CHORE: Bump client to $REACT_APP_VERSION"
+            #       git commit -am "CHORE: Bump client to $VITE_APP_VERSION"
             #       git push origin $BRANCH_NAME
 
             #       # Create a PR on the branch of benweare-ts-server
             #       echo "${{ secrets.ACCESS_TOKEN }}" > token.txt
             #       gh auth login --with-token < token.txt
             #       gh pr create \
-            #         --body "AUTOMATED: Bump to $REACT_APP_VERSION" \
-            #         --title "CHORE: Bump client to $REACT_APP_VERSION" \
+            #         --body "AUTOMATED: Bump to $VITE_APP_VERSION" \
+            #         --title "CHORE: Bump client to $VITE_APP_VERSION" \
             #         --head "$BRANCH_NAME" \
             #         --base "development"

@@ -11,7 +11,7 @@ describe('<FooterComponent />', () => {
 
         cy.get('[data-cy="version-number"]').should(
             'contain.text',
-            `v${Cypress.env('VITE_APP_VERSION')}`
+            `v${process.env.VITE_APP_VERSION}`
         );
     });
 });
