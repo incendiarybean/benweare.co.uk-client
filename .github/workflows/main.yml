@@ -67,6 +67,11 @@ jobs:
         steps:
             - uses: actions/checkout@v4
               with:
+                  repository: incendiarybean/benweare-ts-client
+                  path: benweare-ts-client
+
+            - uses: actions/checkout@v4
+              with:
                   repository: incendiarybean/benweare-ts-server
                   path: benweare-ts-server
 
