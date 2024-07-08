@@ -13,10 +13,7 @@ describe('<FooterComponent />', () => {
         cy.mount(<FooterComponent />);
 
         const package_version =
-            VITE_APP_VERSION ??
-            JSON.stringify(process.env.npm_package_version) ??
-            process.env.VITE_APP_VERSION ??
-            pkg.version;
+            VITE_APP_VERSION ?? process.env.VITE_APP_VERSION ?? pkg.version;
 
         cy.get('[data-cy="version-number"]').should(
             'contain.text',
