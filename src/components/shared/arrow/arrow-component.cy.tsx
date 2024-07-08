@@ -1,4 +1,5 @@
 import ArrowComponent from './arrow-component';
+
 describe('<ArrowComponent />', () => {
     it('should render with default values', () => {
         cy.mount(<ArrowComponent />);
