@@ -5,7 +5,7 @@ import { NavLink } from 'react-router-dom';
 const LeftNavigationBar = () => {
     return (
         <div
-            id='navigation-left'
+            data-cy='navigation-left'
             className='flex-1 hidden md:flex justify-end md:mx-4 min-w-[12rem]'
         >
             <div className='flex flex-col gap-2 w-48 mt-28 fixed top-0'>

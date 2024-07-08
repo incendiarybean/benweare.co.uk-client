@@ -77,7 +77,7 @@ const NewsList = ({
 
     return (
         <div
-            id={`${siteName ?? 'all'}-news`}
+            data-cy={`${siteName ?? 'all'}-news`}
             className='px-1 md:px-6 mt-3 my-2 w-auto'
         >
             {filterable && (
@@ -88,9 +88,13 @@ const NewsList = ({
                             {lastUpdated?.toLocaleTimeString('EN-UK')}
                         </span>
                     </div>
-                    <div className='animate-fadeIn flex flex-col w-full p-2 border border-slate-300 dark:border-zinc-600/20 rounded shadow-inner'>
+                    <div
+                        data-cy={`${siteName ?? 'all'}-news-filters`}
+                        className='animate-fadeIn flex flex-col w-full p-2 border border-slate-300 dark:border-zinc-600/20 rounded shadow-inner'
+                    >
                         <div className='px-2 flex flex-col-reverse sm:flex-row sm:items-center sm:justify-between'>
                             <button
+                                type='button'
                                 onClick={() => setFiltersOpen(!filtersOpen)}
                                 className='default-link flex items-center'
                             >
@@ -98,6 +102,7 @@ const NewsList = ({
                                 <ArrowComponent upwardFacing={filtersOpen} />
                             </button>
                             <button
+                                type='button'
                                 aria-label={`Change the sorting of news to ${
                                     sort === 'ASC' ? 'descending' : 'ascending'
                                 } in date order (newest first)`}
@@ -111,12 +116,14 @@ const NewsList = ({
                             </button>
                         </div>
                         <div
+                            data-cy={`${siteName ?? 'all'}-news-outlet-filters`}
                             className='mt-2 w-full sm:w-auto border border-slate-300 dark:border-zinc-600/20 rounded shadow-inner p-2'
                             hidden={!filtersOpen}
                         >
                             {outlets &&
                                 Object.keys(outlets).map((value: string) => (
                                     <button
+                                        type='button'
                                         onClick={() =>
                                             setOutlets({
                                                 ...outlets,
@@ -165,6 +172,7 @@ const NewsList = ({
                     </h2>
                     <div className='border md:border-none border-slate-300 dark:border-zinc-600/30 rounded overflow-auto px-2 md:px-4 shadow-inner'>
                         <div
+                            data-cy={`${siteName ?? 'all'}-news-items`}
                             className={`my-3 flex flex-col ${
                                 !expanded ? 'gap-2 md:gap-1' : 'gap-2'
                             }`}

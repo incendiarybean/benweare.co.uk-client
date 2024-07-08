@@ -6,7 +6,7 @@ const DocumentationPage = () => {
 
     return (
         <div
-            id='documentation'
+            data-cy='documentation-page'
             className='select-none w-full p-4 px-6 flex flex-col flex-1'
         >
             <iframe

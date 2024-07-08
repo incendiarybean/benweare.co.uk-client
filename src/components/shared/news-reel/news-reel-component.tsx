@@ -76,7 +76,7 @@ const NewsReel = ({ endpoint, siteName }: CardProps) => {
     return (
         <div
             ref={navigationElement}
-            id={`${siteName}-news`}
+            data-cy={`${siteName}-news`}
             className='px-1 md:px-6 my-2 w-auto'
         >
             <div className='animate-fadeIn flex flex-col w-full items-center justify-center md:p-4 md:border border-slate-300 dark:border-zinc-600/20 rounded shadow-inner'>

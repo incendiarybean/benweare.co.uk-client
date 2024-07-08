@@ -18,7 +18,7 @@ const InformationPage = () => {
 
     return (
         <div
-            id='information'
+            data-cy='information-page'
             className='animate-fadeIn flex flex-col px-2 md:px-6 my-3'
         >
             <div className='flex flex-col w-full bg-slate-100 dark:bg-zinc-900/70 rounded shadow p-10 mt-28'>
@@ -52,6 +52,7 @@ const InformationPage = () => {
                         </p>
                     </div>
                     <button
+                        type='button'
                         className='group default-link text-sm mt-10 flex w-full'
                         onClick={() => setShowKnowledgeList(!showKnowledgeList)}
                     >
