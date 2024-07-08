@@ -1,7 +1,6 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import tsconfigpaths from 'vite-tsconfig-paths';
-import { version } from './package.json';
 
 export default defineConfig({
     plugins: [react(), tsconfigpaths()],
@@ -13,7 +12,7 @@ export default defineConfig({
         },
     },
     define: {
-        VITE_APP_VERSION: version,
+        VITE_APP_VERSION: JSON.stringify(process.env.npm_package_version),
     },
     optimizeDeps: {
         include: ['react-dom/client', 'react-toastify'],
