@@ -1,8 +1,6 @@
 name: Rerun on failure
 
 on:
-    push:
-        branches: "*"
     workflow_dispatch:
         inputs:
             run_id:
@@ -12,7 +10,6 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - name: Retry on failed attempt
-              if: failure()
               env:
                   GH_REPO: ${{ github.repository }}
                   GH_TOKEN: ${{ github.token }}
