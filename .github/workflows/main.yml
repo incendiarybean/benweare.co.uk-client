@@ -20,7 +20,10 @@ jobs:
             REACT_APP_NAME: ${{ secrets.APP_NAME }}
 
         steps:
-            - uses: actions/checkout@v4
+            - name: Checkout
+              uses: actions/checkout@v4
+              with:
+                  ref: ${{ github.ref }}
 
             - name: 🔎 Get Package version
               run: |
@@ -102,6 +105,6 @@ jobs:
               if: failure()
               env:
                   GH_TOKEN: ${{ github.token }}
-                  GH_REPO: ${{ github.repository }}
               run: |
+                  cd benweare-ts-client
                   gh workflow run retry.yml -F run_id=${{ github.run_id }}
