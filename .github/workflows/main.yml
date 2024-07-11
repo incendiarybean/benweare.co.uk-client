@@ -67,11 +67,6 @@ jobs:
         steps:
             - uses: actions/checkout@v4
               with:
-                  repository: incendiarybean/benweare-ts-client
-                  path: benweare-ts-client
-
-            - uses: actions/checkout@v4
-              with:
                   repository: incendiarybean/benweare-ts-server
                   path: benweare-ts-server
 
@@ -103,14 +98,12 @@ jobs:
                     --head "$BRANCH_NAME" \
                     --base "development"
 
+    handle-failure:
+        runs-on: ubuntu-latest
+        needs: [create-pull-request]
+        steps:
             - name: Retry on failed attempt
               if: failure()
               env:
                   GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-              run: |
-                  cd benweare-ts-client
-
-                  JOBS=$(gh api repos/${{ github.repository }}/actions/runs/${{ github.run_id}}/attempts/${{ github.run_attempt }}/jobs)
-                  JOB_ID=$(echo $JOBS | jq -r '.jobs[] | select(.runner_name=="${{ runner.name }}") | .id')
-
-                  gh run rerun --job "$JOB_ID"
+              run: gh workflow run retry.yml -F run_id=${{ github.run_id }}
