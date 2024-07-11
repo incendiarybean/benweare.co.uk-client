@@ -105,9 +105,11 @@ jobs:
 
             - name: Retry on Failure
               if: failure()
+              env:
+                  GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
               run: |
                   ls
                   cd benweare-ts-client
                   echo "Attempting to retry in 1m..."
                   sleep 5s
-                  gh run rerun --job create-pull-request
+                  gh run rerun ${{ github.run_id }} --failed
