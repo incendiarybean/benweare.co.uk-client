@@ -105,10 +105,9 @@ jobs:
                     --base "development"
 
             - name: Retry on failed attempt
-              if: failure()
+              if: failure() && github.run_attempt < 3
               env:
                   GH_TOKEN: ${{ github.token }}
               run: |
                   cd benweare-ts-client
-
                   gh workflow run retry.yml --ref ${{github.ref}} -F run_id=${{ github.run_id }}
