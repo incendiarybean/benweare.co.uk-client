@@ -112,3 +112,13 @@ jobs:
                   echo "Attempting to retry in 30s..."
                   sleep 30s
                   gh run rerun ${{ github.run_id }}
+
+            - name: Rerun specific job
+              if: failure()
+              env:
+                  GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+              run: |
+                  JOBS=$(gh api repos/${{ github.repository }}/actions/runs/${{ github.run_id}}/attempts/${{ github.run_attempt }}/jobs)
+                  JOB_ID=$(echo $jobs | jq -r '.jobs[] | select(.runner_name=="${{ runner.name }}") | .id')
+
+                  gh run rerun --job $JOB_ID
