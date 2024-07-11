@@ -89,7 +89,7 @@ jobs:
 
                   # Install latest dependencies and update the client
                   npm install --quiet
-                  npm install benweare.co.uk-client@1.7.2 --quiet
+                  npm install benweare.co.uk-client@$VITE_APP_VERSION --quiet
 
                   # Commit the changes and push the feature branch to origin
                   git checkout -b $BRANCH_NAME
