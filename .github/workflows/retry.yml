@@ -1,6 +1,6 @@
 # This is a retry handler that will re-run the create-pull-request function on failure
 
-name: Lint and run Cypress Tests
+name: Retry Failed Workflow
 
 # Run on workflow dispatch, requiring the run_id of the workflow to restart
 on:
@@ -16,4 +16,7 @@ jobs:
               env:
                   GH_REPO: ${{ github.repository }}
                   GH_TOKEN: ${{ github.token }}
-              run: gh run rerun ${{ inputs.run_id }} --failed
+              run: |
+                  echo "Waiting 30 seconds before retrying..."
+                  sleep 30s
+                  gh run rerun ${{ inputs.run_id }} --failed
