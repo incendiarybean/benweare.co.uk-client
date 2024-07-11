@@ -108,6 +108,8 @@ jobs:
               env:
                   GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
               run: |
+                  cd benweare-ts-client
+
                   JOBS=$(gh api repos/${{ github.repository }}/actions/runs/${{ github.run_id}}/attempts/${{ github.run_attempt }}/jobs)
                   JOB_ID=$(echo $JOBS | jq -r '.jobs[] | select(.runner_name=="${{ runner.name }}") | .id')
 
