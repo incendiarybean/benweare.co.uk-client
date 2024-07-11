@@ -80,16 +80,16 @@ jobs:
                   path: benweare-ts-server
                   token: ${{ secrets.ACCESS_TOKEN }}
 
-            - name: 💬 Submit Pull Request on benweare-ts-server
+            - name: ⬆️ Upgrade NPM client package version
               # if: github.ref == 'refs/heads/main'
               run: |
+                  cd benweare-ts-server
+
                   # Configure and clone
                   git config --global user.name "${{ github.actor }}"
                   git config --global user.email "${{ github.actor }}@users.noreply.github.com"
 
                   BRANCH_NAME="CHORE-client-${{ env.VITE_APP_VERSION }}"
-
-                  cd benweare-ts-server
 
                   # Install latest dependencies and update the client
                   npm install --quiet
@@ -100,7 +100,10 @@ jobs:
                   git commit -am "CHORE: Bump client to ${{ env.VITE_APP_VERSION }}"
                   git push origin $BRANCH_NAME
 
-                  # Create a PR on the branch of benweare-ts-server
+            - name: 💬 Submit Pull Request on benweare-ts-server
+              run: |
+                  cd benweare-ts-server
+
                   gh auth login
                   gh pr create \
                     --body "AUTOMATED: Bump to ${{ env.VITE_APP_VERSION }}" \
