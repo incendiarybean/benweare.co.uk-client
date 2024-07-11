@@ -17,6 +17,6 @@ jobs:
                   GH_REPO: ${{ github.repository }}
                   GH_TOKEN: ${{ github.token }}
               run: |
-                  echo "Waiting 30 seconds before retrying..."
-                  sleep 30s
+                  echo "Waiting 60 seconds before retrying..."
+                  sleep 1m
                   gh run rerun ${{ inputs.run_id }} --failed
