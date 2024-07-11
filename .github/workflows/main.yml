@@ -22,8 +22,6 @@ jobs:
         steps:
             - name: Checkout
               uses: actions/checkout@v4
-              with:
-                  ref: ${{ github.ref }}
 
             - name: 🔎 Get Package version
               run: |
@@ -68,6 +66,11 @@ jobs:
             GH_TOKEN: ${{ secrets.ACCESS_TOKEN }}
 
         steps:
+            - uses: actions/checkout@v4
+              with:
+                  ref: ${{ github.ref }}
+                  path: benweare-ts-client
+
             - uses: actions/checkout@v4
               with:
                   repository: incendiarybean/benweare-ts-server

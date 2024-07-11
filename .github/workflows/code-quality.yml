@@ -19,8 +19,7 @@ jobs:
     lint-code:
         runs-on: ubuntu-latest
         steps:
-            - name: Checkout
-              uses: actions/checkout@v4
+            - uses: actions/checkout@v4
               with:
                   ref: ${{ github.ref }}
 
@@ -34,8 +33,9 @@ jobs:
         needs: [lint-code]
 
         steps:
-            - name: Checkout
-              uses: actions/checkout@v4
+            - uses: actions/checkout@v4
+              with:
+                  ref: ${{ github.ref }}
 
             - name: 🔨 Cypress install
               uses: cypress-io/github-action@v6
