@@ -9,6 +9,8 @@ jobs:
     rerun:
         runs-on: ubuntu-latest
         steps:
+            - uses: actions/checkout@v4
+
             - name: Retry on failed attempt
               if: failure()
               env:
