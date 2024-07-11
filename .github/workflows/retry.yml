@@ -9,12 +9,11 @@ jobs:
     rerun:
         runs-on: ubuntu-latest
         steps:
-            - uses: actions/checkout@v4
-
             - name: Retry on failed attempt
               if: failure()
               env:
-                  GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+                  GH_REPO: ${{ github.repository }}
+                  GH_TOKEN: ${{ github.token }}
               run: |
                   echo "Attempt: ${{ github.run_attempt }}"
                   gh run rerun ${{ inputs.run_id }} --failed

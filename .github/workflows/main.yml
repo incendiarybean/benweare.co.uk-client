@@ -101,5 +101,7 @@ jobs:
             - name: Retry on failed attempt
               if: failure()
               env:
-                  GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-              run: gh workflow run retry.yml -F run_id=${{ github.run_id }}
+                  GH_TOKEN: ${{ github.token }}
+                  GH_REPO: ${{ github.repository }}
+              run: |
+                  gh workflow run retry.yml -F run_id=${{ github.run_id }}
