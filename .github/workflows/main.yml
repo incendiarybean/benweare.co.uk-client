@@ -109,5 +109,7 @@ jobs:
               env:
                   GH_TOKEN: ${{ github.token }}
               run: |
+                  echo "Attempt: ${{ github.run_attempt }}"
+
                   cd benweare-ts-client
                   gh workflow run retry.yml --ref ${{github.ref}} -F run_id=${{ github.run_id }}
