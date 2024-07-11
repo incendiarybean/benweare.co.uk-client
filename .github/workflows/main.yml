@@ -103,22 +103,12 @@ jobs:
                     --head "$BRANCH_NAME" \
                     --base "development"
 
-            - name: Retry on Failure
-              if: failure()
-              env:
-                  GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-              run: |
-                  cd benweare-ts-client
-                  echo "Attempting to retry in 30s..."
-                  sleep 30s
-                  gh run rerun ${{ github.run_id }}
-
-            - name: Rerun specific job
-              if: failure()
+            - name: Retry on failed attempt
+              if: failure() && ${{ github.run_attempt }} < 3
               env:
                   GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
               run: |
                   JOBS=$(gh api repos/${{ github.repository }}/actions/runs/${{ github.run_id}}/attempts/${{ github.run_attempt }}/jobs)
-                  JOB_ID=$(echo $jobs | jq -r '.jobs[] | select(.runner_name=="${{ runner.name }}") | .id')
+                  JOB_ID=$(echo $JOBS | jq -r '.jobs[] | select(.runner_name=="${{ runner.name }}") | .id')
 
-                  gh run rerun --job $JOB_ID
+                  gh run rerun --job "$JOB_ID"
