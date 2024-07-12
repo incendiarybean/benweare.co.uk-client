@@ -67,7 +67,7 @@ jobs:
             VITE_APP_VERSION: ${{ needs.get_version.outputs.VITE_APP_VERSION }}
 
         steps:
-            # - uses: actions/checkout@v4
+            - uses: actions/checkout@v4
 
             - uses: actions/checkout@v4
               with:
@@ -90,7 +90,7 @@ jobs:
 
                   # Install latest dependencies and update the client
                   npm install --quiet
-                  npm install benweare.co.uk-client@${{ env.VITE_APP_VERSION }} --quiet
+                  npm install benweare.co.uk-client@1.7.2 --quiet
 
                   # Commit the changes and push the feature branch to origin
                   git checkout -b $BRANCH_NAME
@@ -104,14 +104,6 @@ jobs:
                     --head "$BRANCH_NAME" \
                     --base "development"
 
-            # - uses: actions/checkout@v4
-            #   if: failure()
-            #   with:
-            #       ref: ${{ github.ref }}
-            #       path: benweare-ts-client
-
-            # - name: ⚠️ Retry on failed attempt
-            #   if: failure() && github.run_attempt < 3
-            #   env:
-            #       GH_TOKEN: ${{ github.token }}
-            #   run: gh workflow run retry.yml --ref ${{github.ref}} -F run_id=${{ github.run_id }}
+            - name: ⚠️ Retry on failed attempt
+              if: failure() && github.run_attempt < 3
+              run: gh workflow run retry.yml --ref ${{github.ref}} -F run_id=${{ github.run_id }}
