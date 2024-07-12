@@ -74,6 +74,8 @@ jobs:
 
         steps:
             - uses: actions/checkout@v4
+
+            - uses: actions/checkout@v4
               with:
                   repository: incendiarybean/benweare-ts-server
                   path: benweare-ts-server
@@ -122,6 +124,4 @@ jobs:
               if: failure() && github.run_attempt < 3
               env:
                   GH_TOKEN: ${{ github.token }}
-              run: |
-                  cd benweare-ts-client
-                  gh workflow run retry.yml --ref ${{github.ref}} -F run_id=${{ github.run_id }}
+              run: gh workflow run retry.yml --ref ${{github.ref}} -F run_id=${{ github.run_id }}
