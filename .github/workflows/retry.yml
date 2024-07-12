@@ -1,0 +1,22 @@
+# This is a retry handler that will re-run the create-pull-request function on failure
+
+name: Retry Failed Workflow
+
+# Run on workflow dispatch, requiring the run_id of the workflow to restart
+on:
+    workflow_dispatch:
+        inputs:
+            run_id:
+                required: true
+jobs:
+    rerun:
+        runs-on: ubuntu-latest
+        steps:
+            - name: 🔧 Re-run failed workflow
+              env:
+                  GH_REPO: ${{ github.repository }}
+                  GH_TOKEN: ${{ github.token }}
+              run: |
+                  echo "Waiting 5 minutes before retrying..."
+                  sleep 5m
+                  gh run rerun ${{ inputs.run_id }} --failed
