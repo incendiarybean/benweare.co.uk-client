@@ -73,7 +73,7 @@ jobs:
             VITE_APP_VERSION: ${{ needs.get_version.outputs.VITE_APP_VERSION }}
 
         steps:
-            - uses: actions/checkout@v4
+            # - uses: actions/checkout@v4
 
             - uses: actions/checkout@v4
               with:
@@ -81,7 +81,7 @@ jobs:
                   path: benweare-ts-server
                   token: ${{ secrets.ACCESS_TOKEN }}
 
-            - name: ⬆️ Upgrade NPM client package version
+            - name: 💬 Submit Pull Request on benweare-ts-server
               # if: github.ref == 'refs/heads/main'
               run: |
                   cd benweare-ts-server
@@ -101,12 +101,7 @@ jobs:
                   git commit -am "CHORE: Bump client to ${{ env.VITE_APP_VERSION }}"
                   git push origin $BRANCH_NAME
 
-            - name: 💬 Submit Pull Request on benweare-ts-server
-              env:
-                  GH_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-              run: |
-                  cd benweare-ts-server
-
+                  # Create PR on server repo
                   gh auth login
                   gh pr create \
                     --body "AUTOMATED: Bump to ${{ env.VITE_APP_VERSION }}" \
@@ -114,14 +109,14 @@ jobs:
                     --head "$BRANCH_NAME" \
                     --base "development"
 
-            - uses: actions/checkout@v4
-              if: failure()
-              with:
-                  ref: ${{ github.ref }}
-                  path: benweare-ts-client
+            # - uses: actions/checkout@v4
+            #   if: failure()
+            #   with:
+            #       ref: ${{ github.ref }}
+            #       path: benweare-ts-client
 
-            - name: ⚠️ Retry on failed attempt
-              if: failure() && github.run_attempt < 3
-              env:
-                  GH_TOKEN: ${{ github.token }}
-              run: gh workflow run retry.yml --ref ${{github.ref}} -F run_id=${{ github.run_id }}
+            # - name: ⚠️ Retry on failed attempt
+            #   if: failure() && github.run_attempt < 3
+            #   env:
+            #       GH_TOKEN: ${{ github.token }}
+            #   run: gh workflow run retry.yml --ref ${{github.ref}} -F run_id=${{ github.run_id }}
