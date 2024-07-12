@@ -7,28 +7,27 @@ name: Build and Deploy
 on:
     push:
         branches:
-            - "*"
+            - "main"
 
 jobs:
-    # check-publish-ready:
-    #     uses: ./.github/workflows/code-quality.yml
+    check-publish-ready:
+        uses: ./.github/workflows/code-quality.yml
 
     get-version:
         runs-on: ubuntu-latest
         outputs:
-            VITE_APP_VERSION: ${{ steps.package_version.outputs.VITE_APP_VERSION }}
+            VITE_APP_VERSION: ${{ steps.package-version.outputs.VITE_APP_VERSION }}
 
         steps:
             - name: Checkout
               uses: actions/checkout@v4
 
-            - id: package_version
+            - id: package-version
               run: echo "VITE_APP_VERSION=$(jq -r .version package.json )" >> "$GITHUB_OUTPUT"
 
     publish:
         runs-on: ubuntu-latest
-        # needs: [check-publish-ready]
-        needs: [get-version]
+        needs: [check-publish-ready, get-version]
         env:
             VITE_APP_VERSION: ${{ needs.get-version.outputs.VITE_APP_VERSION }}
 
@@ -40,25 +39,25 @@ jobs:
               run: |
                   echo "VITE APP VERSION: ${{ env.VITE_APP_VERSION }}"
 
-            # - name: ⚙️ Configure Node.js environment
-            #   uses: actions/setup-node@v4
-            #   with:
-            #       node-version: '20'
-            #       registry-url: 'https://registry.npmjs.org'
+            - name: ⚙️ Configure Node.js environment
+              uses: actions/setup-node@v4
+              with:
+                  node-version: "20"
+                  registry-url: "https://registry.npmjs.org"
 
-            # - name: ⚙️ Inspect NPM & Node Version
-            #   run: |
-            #       echo Node Version: `node --version`
-            #       echo NPM Version: `npm --version`
+            - name: ⚙️ Inspect NPM & Node Version
+              run: |
+                  echo Node Version: `node --version`
+                  echo NPM Version: `npm --version`
 
-            # - name: 🔨 Install dependencies and build
-            #   run: npm install && npm run build
+            - name: 🔨 Install Dependencies and Build
+              run: npm install && npm run build
 
-            # - name: 📦 Publish package on NPM
-            #   if: github.ref == 'refs/heads/main'
-            #   run: npm publish --access public
-            #   env:
-            #       NODE_AUTH_TOKEN: ${{ secrets.NPM_KEY }}
+            - name: 📦 Publish package on NPM
+              if: github.ref == 'refs/heads/main'
+              run: npm publish --access public
+              env:
+                  NODE_AUTH_TOKEN: ${{ secrets.NPM_KEY }}
 
     create-pull-request:
         runs-on: ubuntu-latest
@@ -76,7 +75,7 @@ jobs:
                   token: ${{ secrets.ACCESS_TOKEN }}
 
             - name: 💬 Submit Pull Request on benweare-ts-server
-              # if: github.ref == 'refs/heads/main'
+              if: github.ref == 'refs/heads/main'
               env:
                   GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
               run: |
@@ -105,7 +104,9 @@ jobs:
                     --base "development"
 
             - name: ⚠️ Retry on failed attempt
-              if: failure() && github.run_attempt < 3
+              if: failure() && github.run_attempt < 4
               env:
                   GH_TOKEN: ${{ github.token }}
-              run: gh workflow run retry.yml --ref ${{github.ref}} -F run_id=${{ github.run_id }}
+              run: |
+                  echo "Workflow Run: ${{ github.run_id }} failed, attempting to retry... (Attempt ${{ github.run_attempt }} out of 4)"
+                  gh workflow run retry.yml --ref ${{github.ref}} -F run_id=${{ github.run_id }}
