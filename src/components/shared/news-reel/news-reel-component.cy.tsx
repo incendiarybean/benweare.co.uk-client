@@ -114,6 +114,23 @@ describe('<NewsReel />', () => {
         cy.get('h1').should('have.text', 'ARTICLE_TITLE_2');
     });
 
+    it('should render with the page number pip, small view', () => {
+        cy.intercept('GET', '/api/news/outlet', {
+            statusCode: 200,
+            fixture: 'NewsList.json',
+        });
+
+        cy.mount(
+            <div className='h-auto p-4'>
+                <NewsReel endpoint='/api/news/outlet' siteName='outlet' />
+            </div>
+        );
+
+        cy.get('[data-cy="article-page-pip"]')
+            .first()
+            .should('have.text', '1/2');
+    });
+
     it('should render with the correct values obtained from the API, medium view', () => {
         cy.viewport(800, 500);
 
