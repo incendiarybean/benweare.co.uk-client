@@ -130,7 +130,7 @@ describe('<NewsReel />', () => {
             .first()
             .should('have.text', '1/2');
 
-        cy.get('button.carousel-button').last().click();
+        cy.get('button').contains('Next').click();
 
         cy.get('[data-cy="article-page-pip"]')
             .first()
