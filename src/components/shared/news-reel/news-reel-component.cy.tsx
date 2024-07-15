@@ -129,6 +129,12 @@ describe('<NewsReel />', () => {
         cy.get('[data-cy="article-page-pip"]')
             .first()
             .should('have.text', '1/2');
+
+        cy.get('button.carousel-button').last().click();
+
+        cy.get('[data-cy="article-page-pip"]')
+            .first()
+            .should('have.text', '2/2');
     });
 
     it('should render with the correct values obtained from the API, medium view', () => {
