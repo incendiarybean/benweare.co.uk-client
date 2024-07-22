@@ -1,6 +1,6 @@
 {
     "name": "benweare.co.uk-client",
-    "version": "1.5.13",
+    "version": "1.5.14",
     "main": "./build/path.js",
     "scripts": {
         "start": "vite",
@@ -65,6 +65,7 @@
         "ts-node": "^10.9.1",
         "typescript": "^5.2.2",
         "vite": "^4.4.11",
+        "vite-plugin-pwa": "^0.20.0",
         "vite-tsconfig-paths": "^4.2.1"
     },
     "files": [
