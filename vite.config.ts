@@ -10,6 +10,7 @@ export default defineConfig({
         tsconfigpaths(),
         VitePWA({
             injectRegister: 'auto',
+            registerType: 'autoUpdate',
             workbox: {
                 navigateFallbackDenylist: [/.*\/api\/docs/],
                 globPatterns: ['**/*.{js,css,html,ico,png,svg,jpg,webp}'],
