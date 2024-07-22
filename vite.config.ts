@@ -11,17 +11,31 @@ export default defineConfig({
         VitePWA({
             injectRegister: 'auto',
             workbox: {
+                navigateFallbackDenylist: [/.*\/api\/docs/],
                 globPatterns: ['**/*.{js,css,html,ico,png,svg,jpg,webp}'],
                 runtimeCaching: [
                     {
                         urlPattern: ({ url: { pathname } }) =>
                             pathname.includes('/api/news'),
-                        handler: 'CacheFirst',
+                        handler: 'NetworkFirst',
                         options: {
                             cacheName: 'api-cache',
                             expiration: {
-                                maxEntries: 10,
-                                maxAgeSeconds: 60 * 60 * 24 * 365,
+                                maxEntries: 100,
+                            },
+                            cacheableResponse: {
+                                statuses: [0, 200],
+                            },
+                        },
+                    },
+                    {
+                        urlPattern: ({ request }) =>
+                            request.destination === 'image',
+                        handler: 'StaleWhileRevalidate',
+                        options: {
+                            cacheName: 'image-cache',
+                            expiration: {
+                                maxEntries: 100,
                             },
                             cacheableResponse: {
                                 statuses: [0, 200],
