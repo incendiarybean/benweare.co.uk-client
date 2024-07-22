@@ -12,6 +12,7 @@ export default defineConfig({
             injectRegister: 'auto',
             registerType: 'autoUpdate',
             workbox: {
+                skipWaiting: true,
                 navigateFallbackDenylist: [/.*\/api\/docs/],
                 globPatterns: ['**/*.{js,css,html,ico,png,svg,jpg,webp}'],
                 runtimeCaching: [
