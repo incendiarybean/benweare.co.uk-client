@@ -1,4 +1,4 @@
-### Benweare-TS-Client
+### benweare.co.uk-client
 
 ## Description
 
