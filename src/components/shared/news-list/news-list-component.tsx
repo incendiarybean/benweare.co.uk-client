@@ -163,8 +163,8 @@ const NewsList = ({
             )}
             {loaded === true && (
                 <div
-                    className={`animate-fadeIn text-left flex flex-col w-full justify-center md:border border-slate-300 dark:border-zinc-600/20 rounded h-auto ${
-                        !expanded && 'md:h-64'
+                    className={`animate-fadeIn text-left flex flex-col w-full justify-center md:border border-slate-300 dark:border-zinc-600/20 rounded h-64 ${
+                        expanded && 'h-auto'
                     } relative`}
                 >
                     <h2 className='uppercase absolute top-0 left-0 px-2 ml-2 -mt-2 text-xs bg-zinc-200 dark:bg-zinc-800 rounded z-10'>
