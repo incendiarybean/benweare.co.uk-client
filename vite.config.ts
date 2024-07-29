@@ -56,14 +56,28 @@ export default defineConfig({
                 background_color: '#ffffff',
                 icons: [
                     {
-                        src: 'favicon.png',
-                        sizes: '32x32',
-                        type: 'png',
+                        src: 'icons/favicon.ico',
+                        sizes: '48x48',
+                        type: 'image/x-icon',
                     },
                     {
-                        src: 'favicon.ico',
-                        sizes: '32x32',
-                        type: 'image/x-icon',
+                        src: 'icons/favicon.png',
+                        sizes: '256x256',
+                        purpose: 'any',
+                        type: 'image/png',
+                    },
+                ],
+                screenshots: [
+                    {
+                        src: 'screenshots/screen-mobile.png',
+                        sizes: '390x844',
+                        type: 'image/png',
+                    },
+                    {
+                        src: 'screenshots/screen-desktop.png',
+                        sizes: '1280x720',
+                        form_factor: 'wide',
+                        type: 'image/png',
                     },
                 ],
             },
