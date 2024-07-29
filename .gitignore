@@ -7,7 +7,7 @@
 
 # testing
 /coverage
-*screenshots*
+cypress/*screenshots*
 *videos*
 
 # production
