@@ -13,13 +13,13 @@ export const SwipeHandler = (
 
     useEffect(() => {
         const handleSwipeStart = ({ target, targetTouches }: TouchEvent) => {
-            if (ref?.current && ref.current.contains(target as Node)) {
+            if (ref?.current?.contains(target as Node)) {
                 setTouchStart(targetTouches[0].clientX);
             }
         };
 
         const handleSwipeMove = ({ target, targetTouches }: TouchEvent) => {
-            if (ref?.current && ref.current.contains(target as Node)) {
+            if (ref?.current?.contains(target as Node)) {
                 if (touchStart && touchStart - 150 > targetTouches[0].clientX) {
                     setTouchStart(null);
                     return action(true);
