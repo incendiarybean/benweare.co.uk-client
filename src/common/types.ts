@@ -1,12 +1,26 @@
-/* TYPES FOR CLIENT */
 export type NewsArticle = {
+    /* Article ID - https://benweare.co.uk/api/news/articles/{id} */
     id: number;
+
+    /* Article title */
     title: string;
+
+    /* Link to Article */
     url: string;
+
+    /* Article description */
     description?: string;
+
+    /* Article image source */
     img: string;
+
+    /* Article image as an element */
     imgElement?: HTMLImageElement;
+
+    /* Article published date */
     date: string;
+
+    /* Article's site name  */
     name: string;
 };
 

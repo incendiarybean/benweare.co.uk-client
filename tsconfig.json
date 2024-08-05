@@ -36,6 +36,6 @@
         },
         "types": ["cypress"]
     },
-    "include": ["vite.config.ts", "jest.config.ts", "src", "cypress"],
+    "include": ["vite.config.ts", "src", "cypress"],
     "exclude": ["node_modules"]
 }

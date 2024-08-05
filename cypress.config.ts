@@ -1,11 +1,7 @@
 import { version } from './package.json';
 
 export default {
-    e2e: {
-        setupNodeEvents(on, config) {
-            // implement node event listeners here
-        },
-    },
+    e2e: {},
     video: true,
     component: {
         devServer: {

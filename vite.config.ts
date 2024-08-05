@@ -13,7 +13,7 @@ export default defineConfig({
             registerType: 'autoUpdate',
             workbox: {
                 skipWaiting: true,
-                navigateFallbackDenylist: [/.*\/api\/docs/],
+                navigateFallbackDenylist: [/.*\/api/],
                 globPatterns: ['**/*.{js,css,html,ico,png,svg,jpg,webp}'],
                 runtimeCaching: [
                     {
