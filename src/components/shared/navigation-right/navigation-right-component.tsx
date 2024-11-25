@@ -31,16 +31,6 @@ const RightNavigationBar = () => {
                     <a
                         target='_blank'
                         rel='noreferrer'
-                        href='https://www.instagram.com/ben.weare/'
-                        className='flex items-center mt-1 default-link'
-                        aria-label="Ben's Instagram Page"
-                    >
-                        <RightCornerArrow />
-                        Instagram
-                    </a>
-                    <a
-                        target='_blank'
-                        rel='noreferrer'
                         href='https://open.spotify.com/user/incendiarybean'
                         className='flex items-center mt-1 default-link'
                         aria-label="Ben's Spotify Page"
