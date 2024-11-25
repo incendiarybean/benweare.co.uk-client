@@ -67,17 +67,6 @@ const FooterComponent = () => {
                         <a
                             target='_blank'
                             rel='noreferrer'
-                            href='https://www.instagram.com/ben.weare/'
-                            className='footer-link'
-                            aria-label="Ben's Instagram Page"
-                        >
-                            Instagram
-                        </a>
-                    </li>
-                    <li>
-                        <a
-                            target='_blank'
-                            rel='noreferrer'
                             href='https://open.spotify.com/user/incendiarybean'
                             className='footer-link'
                             aria-label="Ben's Spotify Page"
