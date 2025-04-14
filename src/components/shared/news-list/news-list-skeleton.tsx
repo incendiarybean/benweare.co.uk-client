@@ -2,12 +2,12 @@ const NewsListSkeleton = () => {
     return (
         <div
             data-cy='news-list-skeleton'
-            className='animate-fadeIn flex flex-col w-full justify-center md:border border-slate-300 dark:border-zinc-600/20 rounded h-auto md:h-64 relative'
+            className='animate-fadeIn flex flex-col w-full justify-center md:border border-slate-300 dark:border-zinc-600/20 rounded-sm h-auto md:h-64 relative'
         >
-            <div className='absolute top-0 left-0 px-2 ml-2 -mt-2 bg-zinc-200 dark:bg-zinc-800 rounded z-10'>
+            <div className='absolute top-0 left-0 px-2 ml-2 -mt-2 bg-zinc-200 dark:bg-zinc-800 rounded-sm z-10'>
                 <div className='animate-pulse bg-slate-300 dark:bg-zinc-700 rounded-full w-24 h-5' />
             </div>
-            <div className='border md:border-none border-slate-300 dark:border-zinc-600/30 rounded overflow-auto px-2 md:px-4 shadow-inner h-full'>
+            <div className='border md:border-none border-slate-300 dark:border-zinc-600/30 rounded-sm overflow-auto px-2 md:px-4 shadow-inner h-full'>
                 <div className='mt-5 flex flex-col'>
                     <div className='flex flex-col gap-2'>
                         {[...Array(9)].map((_item, index) => (

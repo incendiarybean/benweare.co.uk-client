@@ -4,10 +4,10 @@ const CardSkeleton = () => {
     return (
         <div
             data-cy='card-skeleton'
-            className='animate-fadeIn border border-slate-300 dark:border-zinc-600/30 w-full rounded flex-col xl:flex-row bg-slate-100 dark:bg-zinc-900 shadow'
+            className='animate-fadeIn border border-slate-300 dark:border-zinc-600/30 w-full rounded-sm flex-col xl:flex-row bg-slate-100 dark:bg-zinc-900 shadow-sm'
         >
             <div className='w-full p-2'>
-                <div className='animate-pulse bg-slate-300 dark:bg-zinc-800 rounded-t w-full h-60 shadow rounded flex items-center justify-center text-slate-100 dark:text-zinc-900'>
+                <div className='animate-pulse bg-slate-300 dark:bg-zinc-800 rounded-t w-full h-60 shadow-sm rounded-sm flex items-center justify-center text-slate-100 dark:text-zinc-900'>
                     <ImageIcon />
                 </div>
             </div>

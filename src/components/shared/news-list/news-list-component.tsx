@@ -82,15 +82,15 @@ const NewsList = ({
         >
             {filterable && (
                 <div className='mb-4'>
-                    <div className='mb-4 animate-fadeIn flex flex-col w-full p-2 border border-slate-300 dark:border-zinc-600/20 rounded shadow-inner'>
-                        <span className='text-xs text-sky-500 dark:text-sky-500 rounded text-center'>
+                    <div className='mb-4 animate-fadeIn flex flex-col w-full p-2 border border-slate-300 dark:border-zinc-600/20 rounded-sm shadow-inner'>
+                        <span className='text-xs text-sky-500 dark:text-sky-500 rounded-sm text-center'>
                             Last Updated:{' '}
                             {lastUpdated?.toLocaleTimeString('EN-UK')}
                         </span>
                     </div>
                     <div
                         data-cy={`${siteName ?? 'all'}-news-filters`}
-                        className='animate-fadeIn flex flex-col w-full p-2 border border-slate-300 dark:border-zinc-600/20 rounded shadow-inner'
+                        className='animate-fadeIn flex flex-col w-full p-2 border border-slate-300 dark:border-zinc-600/20 rounded-sm shadow-inner'
                     >
                         <div className='px-2 flex flex-col-reverse sm:flex-row sm:items-center sm:justify-between'>
                             <button
@@ -117,7 +117,7 @@ const NewsList = ({
                         </div>
                         <div
                             data-cy={`${siteName ?? 'all'}-news-outlet-filters`}
-                            className='mt-2 w-full sm:w-auto border border-slate-300 dark:border-zinc-600/20 rounded shadow-inner p-2'
+                            className='mt-2 w-full sm:w-auto border border-slate-300 dark:border-zinc-600/20 rounded-sm shadow-inner p-2'
                             hidden={!filtersOpen}
                         >
                             {outlets &&
@@ -167,10 +167,10 @@ const NewsList = ({
                         expanded && 'h-auto'
                     } relative`}
                 >
-                    <h2 className='uppercase absolute top-0 left-0 px-2 ml-2 -mt-2 text-xs bg-zinc-200 dark:bg-zinc-800 rounded z-10'>
+                    <h2 className='uppercase absolute top-0 left-0 px-2 ml-2 -mt-2 text-xs bg-zinc-200 dark:bg-zinc-800 rounded-sm z-10'>
                         {siteName}
                     </h2>
-                    <div className='border md:border-none border-slate-300 dark:border-zinc-600/30 rounded overflow-auto px-2 md:px-4 shadow-inner'>
+                    <div className='border md:border-none border-slate-300 dark:border-zinc-600/30 rounded-sm overflow-auto px-2 md:px-4 shadow-inner'>
                         <div
                             data-cy={`${siteName ?? 'all'}-news-items`}
                             className={`my-3 flex flex-col ${
@@ -197,7 +197,7 @@ const NewsList = ({
                                         href={data.url}
                                         rel='noreferrer'
                                         target='_blank'
-                                        className='text-base default-link flex flex-col items-start border border-slate-300 dark:border-zinc-600/20 rounded p-2 shadow-inner'
+                                        className='text-base default-link flex flex-col items-start border border-slate-300 dark:border-zinc-600/20 rounded-sm p-2 shadow-inner'
                                     >
                                         <div className='flex flex-wrap w-full items-center justify-between text-xs text-blue-600 dark:text-sky-500'>
                                             <h2 className='min-w-fit flex items-center font-bold uppercase'>

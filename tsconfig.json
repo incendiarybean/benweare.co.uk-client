@@ -35,6 +35,6 @@
             "@common/*": ["./src/common/*"]
         }
     },
-    "include": ["vite.config.ts", "src"],
+    "include": ["vite.config.mts", "src"],
     "exclude": ["cypress.config.ts", "cypress", "node_modules"]
 }

@@ -42,9 +42,9 @@ const Card = ({ endpoint, siteName }: CardProps) => {
 
     return (
         <div data-cy='card-component' className='px-1 md:px-6 my-2 w-auto'>
-            <div className='animate-fadeIn text-left flex flex-col w-full items-center justify-center md:p-4 md:border border-slate-300 dark:border-zinc-600/20 rounded shadow-inner'>
+            <div className='animate-fadeIn text-left flex flex-col w-full items-center justify-center md:p-4 md:border border-slate-300 dark:border-zinc-600/20 rounded-sm shadow-inner'>
                 {loaded === true && article && (
-                    <div className='border border-slate-300 dark:border-zinc-600/30 w-full rounded flex-col xl:flex-row bg-slate-100 dark:bg-zinc-900 shadow'>
+                    <div className='border border-slate-300 dark:border-zinc-600/30 w-full rounded-sm flex-col xl:flex-row bg-slate-100 dark:bg-zinc-900 shadow-sm'>
                         {isVideo ? (
                             <iframe
                                 src={`https://www.youtube-nocookie.com/embed/${
@@ -55,7 +55,7 @@ const Card = ({ endpoint, siteName }: CardProps) => {
                                 allow='autoplay; encrypted-media;'
                                 allowFullScreen
                                 title={`embedded YouTube video provided by ${siteName}`}
-                                className='rounded-t w-full h-96 shadow'
+                                className='rounded-t w-full h-96 shadow-sm'
                             />
                         ) : (
                             <a
@@ -66,7 +66,7 @@ const Card = ({ endpoint, siteName }: CardProps) => {
                                 <ImageLoader
                                     img={article.imgElement}
                                     alt={`${siteName} Image`}
-                                    className='animate-fadeIn rounded-t w-full h-64 shadow object-cover'
+                                    className='animate-fadeIn rounded-t w-full h-64 shadow-sm object-cover'
                                     loaderClassName='w-full h-64 p-2'
                                 />
                             </a>

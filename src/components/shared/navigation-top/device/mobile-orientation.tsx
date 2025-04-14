@@ -45,7 +45,7 @@ const MobileNav = () => {
                 <div className='popin-settings flex justify-start h-full'>
                     <div
                         ref={accountElement}
-                        className='h-full w-full sm:w-10/12 bg-zinc-200 dark:bg-zinc-900 shadow p-2 flex flex-col justify-between rounded-r-xl border-r border-zinc-400 dark:border-zinc-600 overflow-y-auto'
+                        className='h-full w-full sm:w-10/12 bg-zinc-200 dark:bg-zinc-900 shadow-sm p-2 flex flex-col justify-between rounded-r-xl border-r border-zinc-400 dark:border-zinc-600 overflow-y-auto'
                     >
                         <div className='space-y-2 mx-2'>
                             <div className='flex justify-between items-center pt-2 pb-1 border-b border-zinc-500'>
@@ -54,7 +54,7 @@ const MobileNav = () => {
                                 </h1>
                                 <button
                                     onClick={() => openNavigation(false)}
-                                    className='hover:bg-zinc-300 hover:dark:bg-zinc-500 rounded-md text-zinc-800 w-8 h-8 flex items-center justify-center hover:text-slate-600 dark:text-slate-400 dark:hover:text-slate-300'
+                                    className='hover:bg-zinc-300 dark:hover:bg-zinc-500 rounded-md text-zinc-800 w-8 h-8 flex items-center justify-center hover:text-slate-600 dark:text-slate-400 dark:hover:text-slate-300'
                                 >
                                     <span className='sr-only'>
                                         Close Navigation

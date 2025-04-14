@@ -21,18 +21,18 @@ const InformationPage = () => {
             data-cy='information-page'
             className='animate-fadeIn flex flex-col px-2 md:px-6 my-3'
         >
-            <div className='flex flex-col w-full bg-slate-100 dark:bg-zinc-900/70 rounded shadow p-10 mt-28'>
+            <div className='flex flex-col w-full bg-slate-100 dark:bg-zinc-900/70 rounded-sm shadow-sm p-10 mt-28'>
                 <div>
                     <div className='flex justify-center items-center mb-5'>
                         {imageLoaded ? (
                             <img
-                                className='animate-fadeIn min-w-fit w-64 h-64 -mt-32 rounded-full shadow border-8 border-white dark:border-zinc-900/60'
+                                className='animate-fadeIn min-w-fit w-64 h-64 -mt-32 rounded-full shadow-sm border-8 border-white dark:border-zinc-900/60'
                                 src={profile_image}
                                 alt="Ben Weare, Benjamin Weare's mugshot"
                                 loading='eager'
                             />
                         ) : (
-                            <div className='animate-pulse min-w-fit w-64 h-64 -mt-32 rounded-full shadow border-8 border-white dark:border-zinc-900/60 bg-slate-300 dark:bg-zinc-800 flex items-center justify-center text-slate-100 dark:text-zinc-900'>
+                            <div className='animate-pulse min-w-fit w-64 h-64 -mt-32 rounded-full shadow-sm border-8 border-white dark:border-zinc-900/60 bg-slate-300 dark:bg-zinc-800 flex items-center justify-center text-slate-100 dark:text-zinc-900'>
                                 <ImageIcon />
                             </div>
                         )}

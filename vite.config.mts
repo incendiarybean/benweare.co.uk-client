@@ -3,9 +3,11 @@ import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import tsconfigpaths from 'vite-tsconfig-paths';
 import { version } from './package.json';
+import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
     plugins: [
+        tailwindcss(),
         react(),
         tsconfigpaths(),
         VitePWA({

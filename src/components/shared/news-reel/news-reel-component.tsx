@@ -79,9 +79,9 @@ const NewsReel = ({ endpoint, siteName }: CardProps) => {
             data-cy={`${siteName}-news`}
             className='px-1 md:px-6 my-2 w-auto'
         >
-            <div className='animate-fadeIn flex flex-col w-full items-center justify-center md:p-4 md:border border-slate-300 dark:border-zinc-600/20 rounded shadow-inner'>
+            <div className='animate-fadeIn flex flex-col w-full items-center justify-center md:p-4 md:border border-slate-300 dark:border-zinc-600/20 rounded-sm shadow-inner'>
                 {loaded === true && articles && (
-                    <div className='relative w-full border lg:border-none border-slate-300 dark:border-zinc-600/20 rounded shadow lg:shadow-none'>
+                    <div className='relative w-full border lg:border-none border-slate-300 dark:border-zinc-600/20 rounded-sm shadow-sm lg:shadow-none'>
                         <div
                             data-cy='article-page-pip'
                             className='tracking-wider md:hidden m-2 p-1 px-3 text-sm absolute top-0 right-0 rounded-full bg-slate-100 dark:bg-zinc-900 z-20'
@@ -92,13 +92,13 @@ const NewsReel = ({ endpoint, siteName }: CardProps) => {
                             href={articles[currentPage].url}
                             rel='noreferrer'
                             target='_blank'
-                            className='relative flex w-full rounded-t lg:rounded lg:shadow lg:hover:shadow-md flex-col xl:flex-row bg-slate-100 dark:bg-zinc-900 lg:border border-slate-300 dark:border-zinc-600/30'
+                            className='relative flex w-full rounded-t lg:rounded-sm lg:shadow-sm lg:hover:shadow-md flex-col xl:flex-row bg-slate-100 dark:bg-zinc-900 lg:border border-slate-300 dark:border-zinc-600/30'
                         >
                             <ImageLoader
                                 img={articles[currentPage].imgElement}
                                 alt={`${siteName} Image: ${articles[currentPage].title}`}
-                                className='animate-fadeIn w-full min-w-[50%] xl:w-96 h-60 object-cover shadow rounded-t xl:rounded-tr-none xl:rounded-l'
-                                loaderClassName='flex p-2 w-full min-w-[50%] xl:w-96 h-60 shadow rounded-t xl:rounded-tr-none xl:rounded-l'
+                                className='animate-fadeIn w-full min-w-[50%] xl:w-96 h-60 object-cover shadow-sm rounded-t xl:rounded-tr-none xl:rounded-l'
+                                loaderClassName='flex p-2 w-full min-w-[50%] xl:w-96 h-60 shadow-sm rounded-t xl:rounded-tr-none xl:rounded-l'
                             />
                             <div className='w-full p-4 flex flex-col justify-between text-left h-36 md:h-40 xl:h-60 overflow-hidden'>
                                 <div>
