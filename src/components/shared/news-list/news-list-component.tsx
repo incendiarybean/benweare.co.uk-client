@@ -83,7 +83,7 @@ const NewsList = ({
             {filterable && (
                 <div className='mb-4'>
                     <div className='mb-4 animate-fadeIn flex flex-col w-full p-2 border border-slate-300 dark:border-zinc-600/20 rounded-sm shadow-inner'>
-                        <span className='text-xs text-sky-500 dark:text-sky-500 rounded-sm text-center'>
+                        <span className='text-sm text-sky-500 dark:text-sky-500 rounded-sm text-center'>
                             Last Updated:{' '}
                             {lastUpdated?.toLocaleTimeString('EN-UK')}
                         </span>
@@ -103,9 +103,8 @@ const NewsList = ({
                             </button>
                             <button
                                 type='button'
-                                aria-label={`Change the sorting of news to ${
-                                    sort === 'ASC' ? 'descending' : 'ascending'
-                                } in date order (newest first)`}
+                                aria-label={`Change the sorting of news to ${sort === 'ASC' ? 'descending' : 'ascending'
+                                    } in date order (newest first)`}
                                 onClick={() =>
                                     setSort(sort === 'ASC' ? 'DESC' : 'ASC')
                                 }
@@ -133,17 +132,15 @@ const NewsList = ({
                                                 },
                                             })
                                         }
-                                        className={`ml-1 flex gap-1 text-sm ${
-                                            outlets[value].enabled
-                                                ? 'text-green-500 hover:text-red-600'
-                                                : 'text-red-500 hover:text-green-700'
-                                        }  items-center`}
+                                        className={`ml-1 flex gap-1 text-base ${outlets[value].enabled
+                                            ? 'text-green-500 hover:text-red-600'
+                                            : 'text-red-500 hover:text-green-700'
+                                            }  items-center`}
                                         key={value}
-                                        aria-label={`${
-                                            outlets[value].enabled
-                                                ? 'Exclude'
-                                                : 'Include'
-                                        } News outlet: ${value} in the list.`}
+                                        aria-label={`${outlets[value].enabled
+                                            ? 'Exclude'
+                                            : 'Include'
+                                            } News outlet: ${value} in the list.`}
                                     >
                                         <span>
                                             {outlets[value].enabled ? (
@@ -163,19 +160,17 @@ const NewsList = ({
             )}
             {loaded === true && (
                 <div
-                    className={`animate-fadeIn text-left flex flex-col w-full justify-center md:border border-slate-300 dark:border-zinc-600/20 rounded h-64 ${
-                        expanded && 'h-auto'
-                    } relative`}
+                    className={`animate-fadeIn text-left flex flex-col w-full justify-center md:border border-slate-300 dark:border-zinc-600/20 rounded h-64 ${expanded && 'h-auto'
+                        } relative`}
                 >
-                    <h2 className='uppercase absolute top-0 left-0 px-2 ml-2 -mt-2 text-xs bg-zinc-200 dark:bg-zinc-800 rounded-sm z-10'>
+                    <h2 className='uppercase absolute top-0 left-0 px-2 ml-2 -mt-2 text-sm bg-zinc-200 dark:bg-zinc-800 rounded-sm z-10'>
                         {siteName}
                     </h2>
                     <div className='border md:border-none border-slate-300 dark:border-zinc-600/30 rounded-sm overflow-auto px-2 md:px-4 shadow-inner'>
                         <div
                             data-cy={`${siteName ?? 'all'}-news-items`}
-                            className={`my-3 flex flex-col ${
-                                !expanded ? 'gap-2 md:gap-1' : 'gap-2'
-                            }`}
+                            className={`my-3 flex flex-col ${!expanded ? 'gap-2 md:gap-1' : 'gap-2'
+                                }`}
                         >
                             {filteredArticles.map((data) =>
                                 !expanded ? (
@@ -199,8 +194,8 @@ const NewsList = ({
                                         target='_blank'
                                         className='text-base default-link flex flex-col items-start border border-slate-300 dark:border-zinc-600/20 rounded-sm p-2 shadow-inner'
                                     >
-                                        <div className='flex flex-wrap w-full items-center justify-between text-xs text-blue-600 dark:text-sky-500'>
-                                            <h2 className='min-w-fit flex items-center font-bold uppercase'>
+                                        <div className='flex flex-wrap w-full items-center justify-between text-sm text-blue-600 dark:text-sky-500'>
+                                            <h2 className='min-w-fit flex items-center  uppercase'>
                                                 <RightCornerArrow />
                                                 {data.name.replaceAll('_', ' ')}
                                             </h2>
@@ -210,7 +205,7 @@ const NewsList = ({
                                                 ).toLocaleString('EN-UK')}
                                             </span>
                                         </div>
-                                        <h1 className='text-sm mx-1'>
+                                        <h1 className='text-base mx-1'>
                                             {data.title}
                                         </h1>
                                     </a>

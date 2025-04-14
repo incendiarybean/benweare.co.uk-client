@@ -18,7 +18,9 @@ const DesktopNav = () => {
                         className='icon-link'
                         href='https://www.npmjs.com/~incendiarybean'
                     >
-                        <span className='sr-only'>IncendiaryBean&apos;s NPM</span>
+                        <span className='sr-only'>
+                            IncendiaryBean&apos;s NPM
+                        </span>
                         <Npm />
                     </a>
                 </li>
@@ -27,7 +29,9 @@ const DesktopNav = () => {
                         className='icon-link'
                         href='https://github.com/incendiarybean'
                     >
-                        <span className='sr-only'>IncendiaryBean&apos;s Github</span>
+                        <span className='sr-only'>
+                            IncendiaryBean&apos;s Github
+                        </span>
                         <GitHub />
                     </a>
                 </li>

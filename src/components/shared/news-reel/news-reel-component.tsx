@@ -84,7 +84,7 @@ const NewsReel = ({ endpoint, siteName }: CardProps) => {
                     <div className='relative w-full border lg:border-none border-slate-300 dark:border-zinc-600/20 rounded-sm shadow-sm lg:shadow-none'>
                         <div
                             data-cy='article-page-pip'
-                            className='tracking-wider md:hidden m-2 p-1 px-3 text-sm absolute top-0 right-0 rounded-full bg-slate-100 dark:bg-zinc-900 z-20'
+                            className='tracking-wider md:hidden m-2 p-1 px-3 text-base absolute top-0 right-0 rounded-full bg-slate-100 dark:bg-zinc-900 z-20'
                         >
                             {currentPage + 1}/{articles.length}
                         </div>
@@ -92,7 +92,7 @@ const NewsReel = ({ endpoint, siteName }: CardProps) => {
                             href={articles[currentPage].url}
                             rel='noreferrer'
                             target='_blank'
-                            className='relative flex w-full rounded-t lg:rounded-sm lg:shadow-sm lg:hover:shadow-md flex-col xl:flex-row bg-slate-100 dark:bg-zinc-900 lg:border border-slate-300 dark:border-zinc-600/30'
+                            className='article relative flex w-full rounded-t lg:rounded-sm lg:shadow-sm lg:hover:shadow-md flex-col xl:flex-row bg-slate-100 dark:bg-zinc-900 lg:border border-slate-300 dark:border-zinc-600/30'
                         >
                             <ImageLoader
                                 img={articles[currentPage].imgElement}
@@ -102,8 +102,8 @@ const NewsReel = ({ endpoint, siteName }: CardProps) => {
                             />
                             <div className='w-full p-4 flex flex-col justify-between text-left h-36 md:h-40 xl:h-60 overflow-hidden'>
                                 <div>
-                                    <div className='flex flex-wrap md:w-full items-center justify-between text-xs text-blue-600 dark:text-sky-500'>
-                                        <h2 className='min-w-fit -mx-1 flex items-center font-bold uppercase'>
+                                    <div className='flex flex-wrap md:w-full items-center justify-between text-sm text-blue-600 dark:text-sky-500'>
+                                        <h2 className='sitename'>
                                             <RightCornerArrow />
                                             {siteName}
                                         </h2>
@@ -113,7 +113,7 @@ const NewsReel = ({ endpoint, siteName }: CardProps) => {
                                             ).toLocaleDateString('en-UK')}
                                         </span>
                                     </div>
-                                    <h1 className='text-lg xl:text-xl font-bold leading-normal line-clamp-3 xl:line-clamp-none'>
+                                    <h1 className='title'>
                                         {articles[currentPage].title}
                                     </h1>
                                 </div>

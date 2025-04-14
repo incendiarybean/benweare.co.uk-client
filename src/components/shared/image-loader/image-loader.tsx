@@ -44,7 +44,7 @@ const ImageLoader = ({
                     className='rounded-sm w-full bg-slate-300 dark:bg-zinc-800 h-full flex flex-col items-center justify-center text-red-600 dark:text-red-500'
                 >
                     <ImageIcon />
-                    <span className='text-xs uppercase mt-2'>
+                    <span className='text-sm uppercase mt-2'>
                         Image failed to load
                     </span>
                 </div>

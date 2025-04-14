@@ -1,12 +1,7 @@
 import '@common/utils/socket';
 import 'react-toastify/dist/ReactToastify.css';
 
-import {
-    Footer,
-    LeftNavigationBar,
-    NavigationBar,
-    RightNavigationBar,
-} from '@components';
+import { Footer, LeftNavigationBar, NavigationBar } from '@components';
 import { ToastContainer, toast } from 'react-toastify';
 
 import { Outlet } from 'react-router-dom';
@@ -25,16 +20,13 @@ const App = () => {
     }, []);
 
     return (
-        <div>
+        <div className='min-h-screen flex flex-col'>
             <ToastContainer />
-            <div className='min-h-screen flex flex-col select-none'>
-                <NavigationBar />
-                <div className='flex-1 flex flex-row min-w-[16rem]'>
-                    <LeftNavigationBar />
-                    <div className='flex flex-col w-full md:max-w-4xl px-2 md:px-0 md:border-l lg:border-r border-slate-300 dark:border-zinc-600/20'>
-                        <Outlet />
-                    </div>
-                    <RightNavigationBar />
+            <NavigationBar />
+            <div className='min-h-screen flex flex-row min-w-[16rem] divide-sky-300/20 divide-x'>
+                <LeftNavigationBar />
+                <div className='flex flex-col w-full border-slate-300 dark:border-stone-900'>
+                    <Outlet />
                 </div>
             </div>
             <Footer />

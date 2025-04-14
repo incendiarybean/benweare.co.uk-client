@@ -11,6 +11,8 @@
     --animate-fade-in: fadeIn 0.5s ease-in-out;
     --animate-slide-in-left: slideInLeft 0.2s ease-in-out;
 
+    --font-roboto: Roboto;
+
     @keyframes fadeIn {
         0% {
             opacity: 0;
@@ -47,10 +49,23 @@
     ::file-selector-button {
         border-color: var(--color-gray-200, currentcolor);
     }
+
+    * {
+        font-family: var(
+            --default-font-family,
+            ui-sans-serif,
+            system-ui,
+            sans-serif,
+            'Apple Color Emoji',
+            'Segoe UI Emoji',
+            'Segoe UI Symbol',
+            'Noto Color Emoji'
+        );
+    }
 }
 
 html {
-    @apply bg-slate-200 dark:bg-zinc-800 text-slate-800 dark:text-white min-w-[16rem];
+    @apply bg-white dark:bg-zinc-900 text-zinc-800 dark:text-white min-w-[16rem];
     overflow: overlay;
 }
 
@@ -60,7 +75,6 @@ html {
 
 body {
     margin: 0;
-    font-family: 'Roboto', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
@@ -105,31 +119,40 @@ body {
     background: var(--color-white);
 
     @variant dark {
-        background: var(--color-zinc-900);
+        background: var(--color-black);
+    }
+}
+
+.article {
+    .sitename {
+        @apply min-w-fit -mx-1 flex items-center uppercase font-semibold tracking-normal;
+    }
+    .title {
+        @apply font-roboto font-semibold text-lg xl:text-xl  leading-normal line-clamp-3 xl:line-clamp-none;
     }
 }
 
 .default-link {
-    @apply text-sm md:text-xs text-blue-500 dark:text-sky-300 hover:text-blue-900 dark:hover:text-sky-600 uppercase;
+    @apply text-base md:text-sm text-blue-500 dark:text-sky-300 hover:text-blue-900 dark:hover:text-sky-600 uppercase;
 }
 
 .icon-link {
-    @apply px-2 block dark:text-slate-400 hover:text-sky-500 dark:hover:text-sky-500;
+    @apply text-slate-500 px-2 block dark:text-slate-400 hover:text-sky-500 dark:hover:text-sky-500;
 }
 
 .footer-link {
-    @apply my-1 uppercase text-xs dark:text-slate-400 hover:text-sky-500 dark:hover:text-sky-500;
+    @apply my-1 uppercase text-sm dark:text-slate-400 hover:text-sky-500 dark:hover:text-sky-500;
 }
 
 .list-container {
     @apply snap-proximity snap-y bg-white dark:bg-zinc-900/70 rounded-sm shadow-xl overflow-y-auto h-120 mt-4;
 
     .heading {
-        @apply uppercase default-bg pl-8 p-3 text-sm text-sky-600 dark:text-sky-400 font-bold border-b dark:border-slate-600 shadow-inner;
+        @apply uppercase default-bg pl-8 p-3 text-base text-sky-600 dark:text-sky-400  border-b dark:border-slate-600 shadow-inner;
     }
 
     .list-wrapper {
-        @apply w-full flex flex-col items-center overflow-hidden text-sm pb-4;
+        @apply w-full flex flex-col items-center overflow-hidden text-base pb-4;
     }
 
     .list {
@@ -186,7 +209,7 @@ body {
 }
 
 .left-menu-item {
-    @apply tracking-wide overflow-hidden md:ml-2 mt-1 text-sm;
+    @apply tracking-wide overflow-hidden md:ml-2 mt-1 text-base;
 }
 
 .left-internal-link {

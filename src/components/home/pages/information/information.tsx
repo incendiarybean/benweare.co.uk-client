@@ -38,10 +38,10 @@ const InformationPage = () => {
                         )}
                     </div>
                     <div className='text-center'>
-                        <h1 className='text-2xl font-semibold leading-loose'>
+                        <h1 className='text-2xl leading-loose'>
                             Ben Weare
                         </h1>
-                        <h2 className='text-sm -mt-2 mb-2 text-sky-600 dark:text-sky-400 font-bold uppercase'>
+                        <h2 className='text-base -mt-2 mb-2 text-sky-600 dark:text-sky-400  uppercase'>
                             Gloucestershire, England
                         </h2>
                         <hr className='mb-4 mt-2' />
@@ -53,7 +53,7 @@ const InformationPage = () => {
                     </div>
                     <button
                         type='button'
-                        className='group default-link text-sm mt-10 flex w-full'
+                        className='group default-link text-base mt-10 flex w-full'
                         onClick={() => setShowKnowledgeList(!showKnowledgeList)}
                     >
                         <hr className='w-full' />
