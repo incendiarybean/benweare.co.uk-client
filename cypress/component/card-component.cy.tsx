@@ -1,6 +1,7 @@
-import '../../../index.css';
+import '../../src/index.css';
 
-import Card from './card-component';
+import Card from '../../src/components/shared/card/card-component';
+import React from 'react';
 
 describe('<Card />', () => {
     beforeEach(() => {
@@ -19,7 +20,6 @@ describe('<Card />', () => {
 
         cy.mount(
             <div className='h-auto p-4'>
-                {/* @ts-ignore */}
                 <Card siteName={undefined} endpoint={undefined} />
             </div>
         );
@@ -39,7 +39,6 @@ describe('<Card />', () => {
 
         cy.mount(
             <div className='h-auto p-4'>
-                {/* @ts-ignore */}
                 <Card siteName='outlet_1' endpoint={undefined} />
             </div>
         );

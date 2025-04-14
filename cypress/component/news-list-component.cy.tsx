@@ -1,6 +1,7 @@
-import '../../../index.css';
+import '../../src/index.css';
 
-import NewsList from './news-list-component';
+import NewsList from '../../src/components/shared/news-list/news-list-component';
+import React from 'react';
 
 describe('<NewsList />', () => {
     beforeEach(() => {
@@ -19,7 +20,6 @@ describe('<NewsList />', () => {
 
         cy.mount(
             <div className='h-auto p-4'>
-                {/* @ts-ignore */}
                 <NewsList siteName={undefined} endpoint={undefined} />
             </div>
         );
@@ -39,7 +39,6 @@ describe('<NewsList />', () => {
 
         cy.mount(
             <div className='h-auto p-4'>
-                {/* @ts-ignore */}
                 <NewsList siteName='all_outlets' endpoint={undefined} />
             </div>
         );

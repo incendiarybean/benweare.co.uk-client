@@ -22,7 +22,7 @@ const FooterComponent = () => {
                             aria-label="Ben's NPM Page"
                         >
                             <span className='sr-only'>
-                                IncendiaryBean's NPM
+                                IncendiaryBean&apos;s NPM
                             </span>
                             <Npm />
                         </a>
@@ -34,7 +34,7 @@ const FooterComponent = () => {
                             aria-label="Ben's GitHub Page"
                         >
                             <span className='sr-only'>
-                                IncendiaryBean's Github
+                                IncendiaryBean&apos;s Github
                             </span>
                             <GitHub />
                         </a>

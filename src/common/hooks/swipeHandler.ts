@@ -7,7 +7,7 @@ import { useEffect, useState } from 'react';
  */
 export const SwipeHandler = (
     ref: React.RefObject<HTMLDivElement>,
-    action: Function
+    action: (value: boolean) => void
 ) => {
     const [touchStart, setTouchStart] = useState<number | null>();
 

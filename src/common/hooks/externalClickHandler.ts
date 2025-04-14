@@ -9,7 +9,7 @@ import { useEffect } from 'react';
  */
 export const ExternalClickHandler = (
     ref: React.RefObject<HTMLDivElement>,
-    action: Function
+    action: (value: boolean) => void
 ) => {
     useEffect(() => {
         const handleClickOutside = ({ target }: MouseEvent) => {

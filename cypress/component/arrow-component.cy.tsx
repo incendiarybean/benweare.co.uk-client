@@ -1,4 +1,5 @@
-import ArrowComponent from './arrow-component';
+import ArrowComponent from '../../src/components/shared/arrow/arrow-component';
+import React from 'react';
 
 describe('<ArrowComponent />', () => {
     it('should render with default values', () => {

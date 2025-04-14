@@ -1,6 +1,7 @@
-import '../../../index.css';
+import '../../src/index.css';
 
-import ImageLoader from './image-loader';
+import ImageLoader from '../../src/components/shared/image-loader/image-loader';
+import React from 'react';
 
 describe('<ImageLoader />', () => {
     beforeEach(() => {

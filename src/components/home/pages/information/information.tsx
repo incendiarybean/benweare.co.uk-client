@@ -46,7 +46,7 @@ const InformationPage = () => {
                         </h2>
                         <hr className='mb-4 mt-2' />
                         <p className='font-light leading-relaxed'>
-                            I'm an aspiring Full-Stack Software Developer. I
+                            I&apos;m an aspiring Full-Stack Software Developer. I
                             work mostly with NodeJS and Python with hosting
                             using AWS infrastructure/Heroku.
                         </p>

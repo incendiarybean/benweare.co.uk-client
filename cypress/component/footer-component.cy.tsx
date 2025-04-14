@@ -1,6 +1,7 @@
-import '../../../index.css';
+import '../../src/index.css';
 
-import FooterComponent from './footer-component';
+import FooterComponent from '../../src/components/shared/footer/footer-component';
+import React from 'react';
 
 describe('<FooterComponent />', () => {
     it('should render without any props', () => {

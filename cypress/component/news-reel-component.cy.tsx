@@ -1,6 +1,7 @@
-import '../../../index.css';
+import '../../src/index.css';
 
-import NewsReel from './news-reel-component';
+import NewsReel from '../../src/components/shared/news-reel/news-reel-component';
+import React from 'react';
 
 describe('<NewsReel />', () => {
     beforeEach(() => {
@@ -19,7 +20,6 @@ describe('<NewsReel />', () => {
 
         cy.mount(
             <div className='h-auto p-4'>
-                {/* @ts-ignore */}
                 <NewsReel siteName={undefined} endpoint={undefined} />
             </div>
         );
@@ -39,7 +39,6 @@ describe('<NewsReel />', () => {
 
         cy.mount(
             <div className='h-auto p-4'>
-                {/* @ts-ignore */}
                 <NewsReel siteName='outlet' endpoint={undefined} />
             </div>
         );
