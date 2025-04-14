@@ -77,17 +77,13 @@ const FooterComponent = () => {
                 </ul>
                 <div className='w-full flex justify-center items-center'>
                     <span className='text-sm leading-5 text-sky-600 dark:text-sky-400 bg-sky-300/30 dark:bg-sky-400/20 rounded-full py-1 px-3 items-center'>
-                        <strong className='font-semibold'>
-                            benweare.co.uk
-                        </strong>
+                        benweare.co.uk
                     </span>
-                    <span className='ml-3 text-sm leading-5 text-sky-600 dark:text-sky-400 bg-sky-300/30 dark:bg-sky-400/20 rounded-full py-1 px-3 items-center'>
-                        <strong
-                            data-cy='version-number'
-                            className='font-semibold'
-                        >
-                            v{VITE_APP_VERSION}
-                        </strong>
+                    <span
+                        data-cy='version-number'
+                        className='ml-3 text-sm leading-5 text-sky-600 dark:text-sky-300 bg-sky-300/30 dark:bg-sky-400/20 rounded-full py-1 px-3 items-center'
+                    >
+                        v{VITE_APP_VERSION}
                     </span>
                 </div>
             </div>

@@ -25,8 +25,10 @@ const App = () => {
             <NavigationBar />
             <div className='min-h-screen flex flex-row min-w-[16rem] divide-sky-300/20 divide-x'>
                 <LeftNavigationBar />
-                <div className='flex flex-col w-full border-slate-300 dark:border-stone-900'>
-                    <Outlet />
+                <div className='flex flex-col w-full border-slate-300 dark:border-stone-900 justify-between items-center'>
+                    <div className='w-11/12 lg:w-5/12 flex justify-center'>
+                        <Outlet />
+                    </div>
                 </div>
             </div>
             <Footer />

@@ -15,17 +15,15 @@ const NavigationBar = () => {
                         href='/'
                         aria-label="Ben's Information Page (benweare.co.uk)"
                     >
-                        <span className='py-1 px-2 border border-sky-500 dark:border-sky-400/20 rounded-sm text-sky-600 dark:text-sky-400 hover:text-blue-600 dark:hover:text-sky-600'>
+                        <span className='py-1 px-2 border border-sky-500 dark:border-sky-400/20 rounded-sm text-sky-600 dark:text-sky-300 hover:text-blue-600 dark:hover:text-sky-600'>
                             benweare.co.uk
                         </span>
                     </a>
-                    <span className='ml-3 text-sm leading-5 text-sky-600 dark:text-sky-400 bg-sky-300/30 dark:bg-sky-400/20 rounded-full py-1 px-3 items-center'>
-                        <strong
-                            data-cy='version-number'
-                            className='font-semibold'
-                        >
-                            v{VITE_APP_VERSION}
-                        </strong>
+                    <span
+                        data-cy='version-number'
+                        className='ml-3 text-sm leading-5 text-sky-600 dark:text-sky-300 bg-sky-300/30 dark:bg-sky-400/20 rounded-full py-1 px-3 items-center'
+                    >
+                        v{VITE_APP_VERSION}
                     </span>
                 </div>
                 <DesktopNav />

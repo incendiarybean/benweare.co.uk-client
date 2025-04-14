@@ -47,10 +47,11 @@ const Card = ({ endpoint, siteName }: CardProps) => {
                     <div className='border border-slate-300 dark:border-zinc-600/30 w-full rounded-sm flex-col xl:flex-row bg-slate-100 dark:bg-zinc-900 shadow-sm'>
                         {isVideo ? (
                             <iframe
-                                src={`https://www.youtube-nocookie.com/embed/${article.img.split('/')[
-                                    article.img.split('/').length - 1
-                                ]
-                                    }`}
+                                src={`https://www.youtube-nocookie.com/embed/${
+                                    article.img.split('/')[
+                                        article.img.split('/').length - 1
+                                    ]
+                                }`}
                                 allow='autoplay; encrypted-media;'
                                 allowFullScreen
                                 title={`embedded YouTube video provided by ${siteName}`}
@@ -83,9 +84,7 @@ const Card = ({ endpoint, siteName }: CardProps) => {
                                         ).toLocaleDateString('en-UK')}
                                     </span>
                                 </div>
-                                <h1 className='title'>
-                                    {article.title}
-                                </h1>
+                                <h1 className='title'>{article.title}</h1>
                             </div>
                             <div className='flex flex-wrap justify-between items-center mb-2'>
                                 <button

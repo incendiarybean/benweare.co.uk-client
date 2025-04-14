@@ -1,29 +1,10 @@
 import { Dashboard, Info, Packages, Share } from '@icons';
+import { DestinationChild, Destinations } from '@common/types';
 
-import { HTMLAttributeAnchorTarget } from 'react';
 import { NavLink } from 'react-router-dom';
-
-type DestinationChild = {
-    label: string;
-    destination: string;
-    target?: HTMLAttributeAnchorTarget;
-    rel?: string;
-};
-
-type Destinations = {
-    [key: string]: {
-        Icon: () => JSX.Element;
-        destination?: string;
-        children?: DestinationChild[];
-    };
-};
 
 const external = { target: '__blank', rel: 'noreferrer' };
 const destinations: Destinations = {
-    'Who Am I?': {
-        destination: '/',
-        Icon: Info,
-    },
     Dashboard: {
         destination: '/dashboard',
         Icon: Dashboard,
@@ -68,6 +49,10 @@ const destinations: Destinations = {
             },
         ],
     },
+    'Who Am I?': {
+        destination: '/',
+        Icon: Info,
+    },
 };
 
 const activeChildDestination = (children?: DestinationChild[]) =>
@@ -83,7 +68,7 @@ export const GenerateDestinations = () =>
                     <NavLink
                         to={destination}
                         className={({ isActive }) =>
-                            `${isActive || activeChildDestination(children) ? 'text-sky-600 dark:text-sky-300' : 'text-slate-500 dark:text-gray-400 hover:text-black  dark:hover:text-white'} hover:text-black  dark:hover:text-white flex gap-2 items-center `
+                            `${isActive || activeChildDestination(children) ? 'text-sky-600 dark:text-sky-300' : 'text-slate-500 dark:text-gray-400 hover:text-black  dark:hover:text-white'} focus:text-black hover:text-black  focus:dark:text-white dark:hover:text-white flex gap-2 items-center `
                         }
                     >
                         <Icon /> {label}
@@ -99,7 +84,7 @@ export const GenerateDestinations = () =>
                         <NavLink
                             key={label}
                             className={({ isActive }) =>
-                                `${isActive ? 'text-sky-600 dark:text-sky-300 border-l-2' : 'text-slate-500 dark:text-gray-400 hover:text-black  dark:hover:text-white'}  flex gap-2 items-center ml-3 pl-5 border-l border-current hover:border-l-2`
+                                `${isActive ? 'text-sky-600 dark:text-sky-300 border-l-2' : 'text-slate-500 dark:text-gray-400 focus:text-black hover:text-black  focus:dark:text-white  dark:hover:text-white'}  flex gap-2 items-center ml-3 pl-5 border-l border-current hover:border-l-2`
                             }
                             to={destination}
                             target={target}

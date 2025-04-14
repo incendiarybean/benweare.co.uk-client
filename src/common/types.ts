@@ -1,3 +1,5 @@
+import { HTMLAttributeAnchorTarget } from 'react';
+
 export type NewsArticle = {
     /* Article ID - https://benweare.co.uk/api/news/articles/{id} */
     id: number;
@@ -55,3 +57,26 @@ export type FeedProps = {
 };
 
 export type Loading = boolean | 'Failed';
+
+export type DestinationChild = {
+    /** The name of the link - e.g Dashboard */
+    label: string;
+    /** The destination path - e.g. /dashboard */
+    destination: string;
+    /** The HTMLAttributeAnchorTarget - e.g. __blank */
+    target?: HTMLAttributeAnchorTarget;
+    /** Required by target __blank */
+    rel?: string;
+};
+
+export type Destinations = {
+    /** An object with a key indicating the label of the collection of links - e.g. Dashboard */
+    [key: string]: {
+        /** The JSX icon element to annotate the label. */
+        Icon: () => JSX.Element;
+        /** The destination path - e.g. /dashboard */
+        destination?: string;
+        /** Child links. */
+        children?: DestinationChild[];
+    };
+};

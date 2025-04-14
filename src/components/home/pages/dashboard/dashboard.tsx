@@ -10,7 +10,7 @@ const DashboardPage = () => {
     return (
         <div
             data-cy='dashboard-page'
-            className='select-none flex flex-col p-10'
+            className='select-none flex flex-col py-2'
         >
             <Card siteName='NASA' endpoint='/api/news/nasa' />
             <NewsList

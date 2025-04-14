@@ -19,14 +19,14 @@ const InformationPage = () => {
     return (
         <div
             data-cy='information-page'
-            className='animate-fadeIn flex flex-col px-2 md:px-6 my-3'
+            className='animate-fade-in flex flex-col items-center p-10'
         >
-            <div className='flex flex-col w-full bg-slate-100 dark:bg-zinc-900/70 rounded-sm shadow-sm p-10 mt-28'>
-                <div>
+            <div className='flex flex-col w-full bg-gradient-to-b dark:from-zinc-800/60 dark:to-zinc-800 rounded-sm shadow-sm p-10 mt-28 max-w-3xl'>
+                <div className=''>
                     <div className='flex justify-center items-center mb-5'>
                         {imageLoaded ? (
                             <img
-                                className='animate-fadeIn min-w-fit w-64 h-64 -mt-32 rounded-full shadow-sm border-8 border-white dark:border-zinc-900/60'
+                                className='animate-fadeIn min-w-fit w-64 h-64 -mt-32 rounded-full shadow-sm border-8 border-white dark:border-sky-500/60'
                                 src={profile_image}
                                 alt="Ben Weare, Benjamin Weare's mugshot"
                                 loading='eager'
@@ -38,16 +38,14 @@ const InformationPage = () => {
                         )}
                     </div>
                     <div className='text-center'>
-                        <h1 className='text-2xl leading-loose'>
-                            Ben Weare
-                        </h1>
+                        <h1 className='text-2xl leading-loose'>Ben Weare</h1>
                         <h2 className='text-base -mt-2 mb-2 text-sky-600 dark:text-sky-400  uppercase'>
                             Gloucestershire, England
                         </h2>
                         <hr className='mb-4 mt-2' />
                         <p className='font-light leading-relaxed'>
-                            I&apos;m an aspiring Full-Stack Software Developer. I
-                            work mostly with NodeJS and Python with hosting
+                            I&apos;m an aspiring Full-Stack Software Developer.
+                            I work mostly with NodeJS and Python with hosting
                             using AWS infrastructure/Heroku.
                         </p>
                     </div>
