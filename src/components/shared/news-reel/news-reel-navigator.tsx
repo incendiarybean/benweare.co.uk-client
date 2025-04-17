@@ -21,7 +21,7 @@ const NewsReelNavigator = ({
 }) => {
     return (
         <div className='w-full lg:mt-2 flex justify-center'>
-            <div className='animate-fadeIn hidden bg-slate-100 dark:bg-zinc-900 rounded-b lg:rounded-sm md:flex gap-2 md:gap-0 w-full lg:w-2/3 p-3 justify-between h-12 items-center lg:shadow-sm lg:border border-slate-300 dark:border-zinc-600/30'>
+            <div className='animate-fade-in hidden bg-slate-100 dark:bg-zinc-900 rounded-b lg:rounded-sm md:flex gap-2 md:gap-0 w-full lg:w-2/3 p-3 justify-between h-12 items-center lg:shadow-sm lg:border border-slate-300 dark:border-zinc-600/30'>
                 <button
                     type='button'
                     aria-label={`Return to previous Article (Article ${currentPage - 1})`}

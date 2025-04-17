@@ -3,10 +3,10 @@ import { Docs, GitHub, Npm } from '@icons';
 const DesktopNav = () => {
     return (
         <div className='hidden md:flex items-center'>
-            <ul className='flex gap-4 items-center'>
+            <ul className='flex gap-6 items-center'>
                 <li>
                     <a
-                        className='icon-link'
+                        className='link icon'
                         href='https://benweare.co.uk/api/docs'
                     >
                         <span className='sr-only'>API Documentation</span>
@@ -15,7 +15,7 @@ const DesktopNav = () => {
                 </li>
                 <li>
                     <a
-                        className='icon-link'
+                        className='link icon'
                         href='https://www.npmjs.com/~incendiarybean'
                     >
                         <span className='sr-only'>
@@ -26,7 +26,7 @@ const DesktopNav = () => {
                 </li>
                 <li>
                     <a
-                        className='icon-link'
+                        className='link icon'
                         href='https://github.com/incendiarybean'
                     >
                         <span className='sr-only'>

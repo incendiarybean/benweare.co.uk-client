@@ -27,10 +27,14 @@ const ImageLoader = ({
         }
 
         if (img) {
-            img.onload = () => setLoaded(true);
-            img.onerror = () => setLoaded('Failed');
+            img.onerror = () => {
+                console.log('failed');
+                setLoaded('Failed');
+            };
 
             if (img.complete) {
+                img.onload = () => setLoaded(true);
+
                 setLoaded(true);
             }
         }

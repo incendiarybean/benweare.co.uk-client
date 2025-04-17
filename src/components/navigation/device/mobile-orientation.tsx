@@ -3,7 +3,7 @@ import { createRef, useState } from 'react';
 
 import { ExternalClickHandler } from '@common/hooks/externalClickHandler';
 import { Footer } from '@components';
-import { GenerateDestinations } from '../destinations';
+import { GenerateDestinations } from '../navigation-links';
 
 const MobileNav = () => {
     const [settingsOpen, setSettingsOpen] = useState(false);
@@ -24,7 +24,7 @@ const MobileNav = () => {
             <button
                 onClick={() => openNavigation()}
                 type='button'
-                className='border border-zinc-500 rounded-md w-8 h-8 flex items-center justify-center hover:text-slate-600 dark:text-slate-400 dark:hover:text-slate-300'
+                className='transparent-none text-sky-600 border border-sky-600 rounded-md w-8 h-8 flex items-center justify-center hover:text-sky-600 dark:text-slate-400 dark:hover:text-slate-300'
             >
                 <span className='sr-only'>Navigation</span>
                 <Burger />
@@ -37,7 +37,7 @@ const MobileNav = () => {
                     <div className='popin-settings flex justify-start h-full'>
                         <div
                             ref={accountElement}
-                            className='h-full w-10/12 bg-zinc-200 dark:bg-zinc-900 shadow p-2 flex flex-col justify-between rounded-r-xl border-r border-zinc-400 dark:border-zinc-600 overflow-y-auto'
+                            className='h-full w-10/12 bg-zinc-100 dark:bg-zinc-900 shadow p-2 flex flex-col justify-between rounded-r-xl border-r border-zinc-400 dark:border-zinc-600 overflow-y-auto'
                         >
                             <div className='flex flex-col gap-2 p-4'>
                                 <div className='flex justify-between items-center pt-2 pb-1 mb-2 border-b border-zinc-500'>

@@ -1,4 +1,4 @@
-import { GenerateDestinations } from './destinations';
+import { GenerateDestinations } from './navigation-links';
 
 const LeftNavigationBar = () => {
     return (

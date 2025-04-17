@@ -2,12 +2,12 @@ import { Docs, GitHub, Npm } from '@icons';
 
 const FooterComponent = () => {
     return (
-        <footer className='p-4 py-8 flex justify-around border-t border-slate-300 dark:border-sky-100/10'>
+        <footer className='p-4 py-8 flex justify-around border-t border-dashed border-slate-300 dark:border-sky-100/10'>
             <div className='flex flex-col'>
                 <ul className='flex justify-around'>
                     <li>
                         <a
-                            className='icon-link'
+                            className='link icon'
                             href='https://benweare.co.uk/api/docs'
                             aria-label='API Documentation Page'
                         >
@@ -17,7 +17,7 @@ const FooterComponent = () => {
                     </li>
                     <li>
                         <a
-                            className='icon-link'
+                            className='link icon'
                             href='https://www.npmjs.com/~incendiarybean'
                             aria-label="Ben's NPM Page"
                         >
@@ -29,7 +29,7 @@ const FooterComponent = () => {
                     </li>
                     <li>
                         <a
-                            className='icon-link'
+                            className='link icon'
                             href='https://github.com/incendiarybean'
                             aria-label="Ben's GitHub Page"
                         >
@@ -46,7 +46,7 @@ const FooterComponent = () => {
                             target='_blank'
                             rel='noreferrer'
                             href='https://steamcommunity.com/id/IncendiaryBean/'
-                            className='footer-link'
+                            className='link footer'
                             aria-label="Ben's Steam Page"
                         >
                             Steam
@@ -57,7 +57,7 @@ const FooterComponent = () => {
                             target='_blank'
                             rel='noreferrer'
                             href='https://discordapp.com/users/Beanerino#0454'
-                            className='footer-link'
+                            className='link footer'
                             aria-label="Ben's Discord"
                         >
                             Discord
@@ -68,14 +68,14 @@ const FooterComponent = () => {
                             target='_blank'
                             rel='noreferrer'
                             href='https://open.spotify.com/user/incendiarybean'
-                            className='footer-link'
+                            className='link footer'
                             aria-label="Ben's Spotify Page"
                         >
                             Spotify
                         </a>
                     </li>
                 </ul>
-                <div className='w-full flex justify-center items-center'>
+                <div className='mt-1 w-full flex justify-center items-center'>
                     <span className='text-sm leading-5 text-sky-600 dark:text-sky-400 bg-sky-300/30 dark:bg-sky-400/20 rounded-full py-1 px-3 items-center'>
                         benweare.co.uk
                     </span>

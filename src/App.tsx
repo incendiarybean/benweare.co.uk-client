@@ -20,18 +20,16 @@ const App = () => {
     }, []);
 
     return (
-        <div className='min-h-screen flex flex-col'>
+        <div className='min-h-screen max-w-screen'>
             <ToastContainer />
             <NavigationBar />
-            <div className='min-h-screen flex flex-row min-w-[16rem] divide-sky-300/20 divide-x'>
+            <div className='min-h-screen flex divide-x divide-zinc-700/70'>
                 <LeftNavigationBar />
-                <div className='flex flex-col w-full border-slate-300 dark:border-stone-900 justify-between items-center'>
-                    <div className='w-11/12 lg:w-5/12 flex justify-center'>
-                        <Outlet />
-                    </div>
+                <div className='min-h-screen w-full overflow-auto'>
+                    <Outlet />
+                    <Footer />
                 </div>
             </div>
-            <Footer />
         </div>
     );
 };
