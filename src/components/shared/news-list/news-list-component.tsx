@@ -75,6 +75,7 @@ const NewsList = ({
         };
         configureFilters(articles);
     }, [outlets]);
+
     if (loaded === 'Failed') {
         return <ErrorComponent feedName={siteName ?? 'News-List'} />;
     }
@@ -82,7 +83,7 @@ const NewsList = ({
     return (
         <div data-cy={`${siteName ?? 'all'}-news`}>
             {filterable && (
-                <div className='p-4 flex flex-col max-w-screen sticky top-0 z-40 w-full backdrop-blur-xl  flex-none bg-white/60 dark:bg-zinc-900/60 border-b border-sky-500/20 dark:border-sky-400/20'>
+                <div className='p-4 flex flex-col max-w-screen sticky top-0 z-40 w-full backdrop-blur-xl bg-white/60 dark:bg-zinc-900/60 border-b border-sky-500/20 dark:border-sky-400/20'>
                     <div className='mb-4 animate-fade-in flex flex-col w-full p-2 default-border rounded-lg shadow-inner'>
                         <span className='text-sm text-sky-600 dark:text-sky-500 rounded-lg text-center'>
                             Last Updated:{' '}

@@ -20,12 +20,12 @@ const App = () => {
     }, []);
 
     return (
-        <div className='min-h-screen max-w-screen'>
+        <div className='max-w-screen'>
             <ToastContainer />
             <NavigationBar />
-            <div className='min-h-screen flex divide-x divide-zinc-700/70'>
+            <div className='flex divide-x divide-zinc-700/70'>
                 <LeftNavigationBar />
-                <div className='min-h-screen w-full overflow-auto'>
+                <div className='w-full'>
                     <Outlet />
                     <Footer />
                 </div>
