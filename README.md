@@ -7,8 +7,8 @@ It uses the React JS framework to create an easy to build web page.
 Please view the [backend](https://github.com/incendiarybean/benweare.co.uk-api) for the API details.
 This site is hosted on Heroku under these applications:
 
--   [benweare.co.uk](https://benweare.co.uk)
--   [dev.benweare.co.uk](https://dev.benweare.co.uk)
+- [benweare.co.uk](https://benweare.co.uk)
+- [dev.benweare.co.uk](https://dev.benweare.co.uk)
 
 ## Usage
 
