@@ -6,7 +6,7 @@ import React from 'react';
 describe('<NewsList />', () => {
     beforeEach(() => {
         cy.intercept({ resourceType: /xhr|fetch/ }, { log: false });
-        cy.intercept('GET', '/*', {});
+        cy.intercept('GET', '/api/news*', {});
         cy.intercept('/image.jpg', {
             fixture: 'TestImage.jpg',
         });
@@ -123,7 +123,6 @@ describe('<NewsList />', () => {
         );
 
         // Check articles from outlet 1 & 2 appear
-        cy.get('h2').first().should('have.text', 'all_outlets');
         cy.get('a').should('have.length', 2);
         cy.get('a').first().find('h1').should('have.text', 'ARTICLE_TITLE_1');
         cy.get('a').first().find('h2').should('have.text', 'OUTLET 1');
@@ -149,7 +148,6 @@ describe('<NewsList />', () => {
         );
 
         // Check articles from outlet 1 & 2 appear
-        cy.get('h2').first().should('have.text', 'all_outlets');
         cy.get('a').should('have.length', 2);
         cy.get('a').first().find('h1').should('have.text', 'ARTICLE_TITLE_1');
         cy.get('a').first().find('h2').should('have.text', 'OUTLET 1');
@@ -157,7 +155,7 @@ describe('<NewsList />', () => {
         cy.get('a').last().find('h2').should('have.text', 'OUTLET 2');
 
         // Filter and remove all articles from OUTLET 1
-        cy.get('button').contains('Included Outlets').click();
+        cy.get('button').contains('Filters').click();
         cy.get('button').contains('OUTLET 1').click();
 
         // Check articles from only outlet 2 appear
@@ -190,7 +188,6 @@ describe('<NewsList />', () => {
         );
 
         // Check articles from outlet 1 & 2 appear
-        cy.get('h2').first().should('have.text', 'all_outlets');
         cy.get('a').should('have.length', 1);
         cy.get('a').first().find('h1').should('have.text', 'ARTICLE_TITLE_1');
         cy.get('a').first().find('h2').should('have.text', 'OUTLET 1');

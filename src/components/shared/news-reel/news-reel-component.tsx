@@ -13,10 +13,6 @@ const NewsReel = ({ endpoint, siteName }: CardProps) => {
 
     const navigationElement = createRef<HTMLDivElement>();
 
-    if (!endpoint) {
-        throw new Error('Endpoint is required for the News Reel component.');
-    }
-
     /**
      * A function to move to the previous/next article in the articles list.
      * @param {number} index - The current article index, used to find the previous/next article in the queue.

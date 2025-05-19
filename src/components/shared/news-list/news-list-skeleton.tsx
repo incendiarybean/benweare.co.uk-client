@@ -31,7 +31,10 @@ const NewsListSkeleton = ({ expanded }: { expanded: boolean | undefined }) => {
     }
 
     return (
-        <div className='animate-fade-in text-left flex flex-col w-full justify-center px-10 h-auto relative'>
+        <div
+            data-cy='news-list-skeleton'
+            className='animate-fade-in text-left flex flex-col w-full justify-center px-10 h-auto relative'
+        >
             <div className='overflow-clip'>
                 <div className={`my-4 flex flex-col gap-4`}>
                     {[...Array(9)].map((_item, index) => (

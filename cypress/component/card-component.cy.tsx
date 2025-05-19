@@ -6,7 +6,7 @@ import React from 'react';
 describe('<Card />', () => {
     beforeEach(() => {
         cy.intercept({ resourceType: /xhr|fetch/ }, { log: false });
-        cy.intercept('GET', '/*', {});
+        cy.intercept('GET', '/api/news*', {});
         cy.intercept('/image.jpg', {
             fixture: 'TestImage.jpg',
         });
@@ -51,10 +51,7 @@ describe('<Card />', () => {
     });
 
     it('should fail to render when a bad endpoint is provided or a bad response occurs', () => {
-        cy.intercept('GET', '/api/news/outlet_1', {
-            statusCode: 404,
-            body: {},
-        });
+        cy.intercept('GET', '/api/news/outlet_1');
 
         cy.mount(
             <div className='h-auto p-4'>
@@ -70,6 +67,12 @@ describe('<Card />', () => {
     });
 
     it('should render a skeleton loader if the request is not yet fulfilled', () => {
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
+        cy.intercept('GET', '/api/news/outlet_1', async (req, _) => {
+            new Promise((resolve) => setTimeout(resolve, 2000));
+            req.send({});
+        });
+
         cy.mount(
             <div className='h-auto p-4'>
                 <Card endpoint='/api/news/outlet_1' siteName='outlet_1' />

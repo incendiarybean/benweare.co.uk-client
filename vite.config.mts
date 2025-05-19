@@ -1,9 +1,9 @@
 import { VitePWA } from 'vite-plugin-pwa';
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
+import tailwindcss from '@tailwindcss/vite';
 import tsconfigpaths from 'vite-tsconfig-paths';
 import { version } from './package.json';
-import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
     plugins: [

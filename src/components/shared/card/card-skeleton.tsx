@@ -2,7 +2,10 @@ import { ImageIcon } from '@icons';
 
 const CardSkeleton = () => {
     return (
-        <div className='animate-fade-in rounded-lg w-full flex flex-col xl:flex-row default-border default-bg shadow overflow-hidden'>
+        <div
+            data-cy='card-skeleton'
+            className='animate-fade-in rounded-lg w-full flex flex-col xl:flex-row default-border default-bg shadow overflow-hidden'
+        >
             <div className='animate-pulse bg-slate-300 dark:bg-zinc-800 rounded-t-lg xl:rounded-r-none xl:rounded-l-lg shadow-sm flex items-center justify-center text-slate-100 dark:text-zinc-900 h-120 w-full max-w-full xl:min-w-sm xl:max-w-1/3 max-h-120'>
                 <ImageIcon />
             </div>
