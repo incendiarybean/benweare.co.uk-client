@@ -69,10 +69,6 @@ html {
     /* @apply bg-white dark:bg-zinc-900; */
 }
 
-/* .overlay {
-    overflow: overlay;
-} */
-
 body {
     margin: 0;
     -webkit-font-smoothing: antialiased;
@@ -116,7 +112,7 @@ body {
 }
 
 @utility default-bg {
-    background-color: --alpha(var(--color-blue-100) / 10%);
+    @apply bg-blue-100/30;
 
     @variant dark {
         background-color: --alpha(var(--color-sky-900) / 10%);
@@ -139,7 +135,7 @@ body {
     border-color: var(--color-blue-400);
 
     @variant dark {
-        border-color: var(--color-sky-900);
+        border-color: --alpha(var(--color-sky-900) / 70%);
     }
 }
 

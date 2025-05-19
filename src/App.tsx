@@ -23,12 +23,13 @@ const App = () => {
         <div className='max-w-screen'>
             <ToastContainer />
             <NavigationBar />
-            <div className='flex divide-x divide-zinc-700/70'>
+            <div className='min-h-screen flex'>
                 <LeftNavigationBar />
-                <div className='w-full'>
+                <div className='w-full overflow-auto md:max-w-7xl border-l border-r border-zinc-300 dark:border-zinc-700/70 mt-12'>
                     <Outlet />
                     <Footer />
                 </div>
+                <div className='flex-1 hidden xl:flex justify-start md:mx-4 min-w-[12rem]'></div>
             </div>
         </div>
     );

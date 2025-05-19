@@ -3,7 +3,7 @@
         /* COMPILER */
         "target": "ES2022",
         "useDefineForClassFields": true,
-        "lib": ["dom", "ES2022"],
+        "lib": ["DOM", "DOM.Iterable", "ES2022"],
         "module": "es2022",
         "skipLibCheck": true,
 

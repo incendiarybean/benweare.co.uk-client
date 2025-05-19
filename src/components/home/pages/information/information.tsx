@@ -21,7 +21,7 @@ const InformationPage = () => {
             data-cy='information-page'
             className='animate-fade-in flex flex-col p-10 w-full min-h-screen'
         >
-            <div className='flex items-center justify-start gap-10 w-full p-10 rounded-lg default-border default-bg flex-wrap min-w-content'>
+            <div className='flex items-center justify-start gap-10 w-full p-10 rounded-lg default-border default-bg flex-col lg:flex-row min-w-content'>
                 <div className='flex justify-center items-center'>
                     {imageLoaded ? (
                         <img
@@ -54,7 +54,7 @@ const InformationPage = () => {
                         className='group link cursor-pointer text-base mt-10 flex w-full'
                         onClick={() => setShowKnowledgeList(!showKnowledgeList)}
                     >
-                        <hr className='w-5' />
+                        <hr className='w-full lg:w-5' />
                         <div className='-mt-3 min-w-fit px-2 uppercase flex gap-1 items-center'>
                             <p>Languages &amp; Experience</p>
                             <ArrowComponent upwardFacing={showKnowledgeList} />
@@ -65,7 +65,7 @@ const InformationPage = () => {
             </div>
             <div
                 hidden={!showKnowledgeList}
-                className='snap-proximity snap-y default-border default-bg rounded-sm shadow-xl overflow-y-auto h-120 mt-4 animate-fade-in'
+                className='list-container snap-proximity snap-y default-border default-bg rounded-sm shadow-xl overflow-y-auto max-h-full mt-4 animate-fade-in'
             >
                 <div className='snap-start'>
                     <h3 className='uppercase default-bg pl-8 p-3 text-base text-black dark:text-white border-b dark:border-slate-600 shadow-inner'>

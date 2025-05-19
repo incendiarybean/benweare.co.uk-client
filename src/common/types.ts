@@ -2,7 +2,7 @@ import { HTMLAttributeAnchorTarget } from 'react';
 
 export type NewsArticle = {
     /* Article ID - https://benweare.co.uk/api/news/articles/{id} */
-    id: number;
+    id: string;
 
     /* Article title */
     title: string;

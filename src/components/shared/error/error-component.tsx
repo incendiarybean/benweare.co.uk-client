@@ -9,7 +9,7 @@ const ErrorComponent = ({
     return (
         <div
             data-cy='error-component'
-            className='w-full h-12 flex items-center'
+            className='w-full h-12 flex items-center default-border rounded-lg'
         >
             <div className='w-full px-1 md:px-6 my-2 p-2'>
                 <div className='w-full bg-slate-100 dark:bg-zinc-900 rounded-sm shadow-sm flex justify-start gap-1 p-1 pl-2 pr-4 items-center text-sm md:text-base'>

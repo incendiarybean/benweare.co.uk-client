@@ -9,16 +9,16 @@ const NewsListSkeleton = ({ expanded }: { expanded: boolean | undefined }) => {
                         Loading
                     </h2>
                     <div className='border md:border-none border-slate-300 dark:border-zinc-600/30 rounded-sm overflow-auto px-2 md:px-4 shadow-inner h-full'>
-                        <div className='mt-5 flex flex-col'>
+                        <div className='mt-6 flex flex-col'>
                             <div className='flex flex-col gap-4 pb-4'>
                                 {[...Array(9)].map((_item, index) => (
                                     <div
                                         className='flex gap-2'
                                         key={`news-list-skeleton-item-${index}`}
                                     >
-                                        <span className='animate-pulse bg-slate-300 dark:bg-zinc-800 rounded-full h-4 w-4'></span>
+                                        <span className='animate-pulse bg-blue-100 dark:bg-sky-600/20 rounded-full h-4 w-4'></span>
                                         <span
-                                            className={`animate-pulse bg-slate-300 dark:bg-zinc-800 ${index % 2 ? 'w-3/5' : 'w-4/5'} h-4 rounded-full`}
+                                            className={`animate-pulse bg-blue-100 dark:bg-sky-600/20 ${index % 2 ? 'w-3/5' : 'w-4/5'} h-4 rounded-full`}
                                         />
                                     </div>
                                 ))}
@@ -32,8 +32,8 @@ const NewsListSkeleton = ({ expanded }: { expanded: boolean | undefined }) => {
 
     return (
         <div className='animate-fade-in text-left flex flex-col w-full justify-center px-10 h-auto relative'>
-            <div className='overflow-auto'>
-                <div className={`my-3 flex flex-col gap-4`}>
+            <div className='overflow-clip'>
+                <div className={`my-4 flex flex-col gap-4`}>
                     {[...Array(9)].map((_item, index) => (
                         <span
                             key={`news-list-skeleton-item-${index}`}
@@ -47,11 +47,11 @@ const NewsListSkeleton = ({ expanded }: { expanded: boolean | undefined }) => {
                                 />
                                 <div className='flex flex-1 flex-col gap-2'>
                                     <div className='flex flex-wrap w-full items-center justify-between text-sm text-blue-600 dark:text-sky-500'>
-                                        <span className='animate-pulse bg-slate-300 dark:bg-zinc-800 rounded-full h-4 w-24'></span>
-                                        <span className='animate-pulse bg-slate-300 dark:bg-zinc-800 rounded-full h-4 w-24'></span>
+                                        <span className='animate-pulse bg-blue-100 dark:bg-sky-600/20 rounded-full h-4 w-24' />
+                                        <span className='animate-pulse bg-blue-100 dark:bg-sky-600/20 rounded-full h-4 w-24' />
                                     </div>
                                     <span
-                                        className={`animate-pulse bg-slate-300 dark:bg-zinc-800 ${index % 2 ? 'w-3/5' : 'w-4/5'} h-4 rounded-full`}
+                                        className={`animate-pulse bg-blue-100 dark:bg-sky-600/20 ${index % 2 ? 'w-3/5' : 'w-4/5'} h-4 rounded-full`}
                                     />
                                 </div>
                             </div>

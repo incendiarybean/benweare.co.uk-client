@@ -5,7 +5,7 @@ const NavigationBar = () => {
     return (
         <div
             data-cy='navigation-top'
-            className='max-w-screen sticky top-0 z-40 w-full backdrop-blur-xl sm:backdrop-blur-sm flex-none border-b border-sky-500/20 dark:border-sky-400/20 bg-transparent flex justify-between py-4 px-2 md:px-6 items-center'
+            className='max-w-screen fixed top-0 z-40 w-full backdrop-blur-xl sm:backdrop-blur-sm flex-none border-b border-sky-500/20 dark:border-sky-400/20 bg-transparent flex justify-between py-4 px-2 md:px-6 items-center'
         >
             <MobileNav />
             <div className='mx-4 md:mx-0 flex items-center justify-between md:justify-start w-full'>
