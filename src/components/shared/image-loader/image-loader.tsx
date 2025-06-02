@@ -30,7 +30,7 @@ const ImageLoader = ({
             img.onload = () => setLoaded(true);
             img.onerror = () => setLoaded('Failed');
 
-            if (img.complete) {
+            if (img.complete && loaded !== 'Failed') {
                 setLoaded(true);
             }
         }
@@ -41,10 +41,10 @@ const ImageLoader = ({
             <div className={loaderClassName}>
                 <div
                     data-cy='image-loader-failed'
-                    className='rounded w-full bg-slate-300 dark:bg-zinc-800 h-full flex flex-col items-center justify-center text-red-600 dark:text-red-500'
+                    className='rounded-sm w-full bg-slate-300 dark:bg-zinc-800 h-full flex flex-col items-center justify-center text-red-600 dark:text-red-500'
                 >
                     <ImageIcon />
-                    <span className='text-xs uppercase mt-2'>
+                    <span className='text-xs uppercase mt-2 text-center'>
                         Image failed to load
                     </span>
                 </div>
@@ -63,7 +63,7 @@ const ImageLoader = ({
                 />
             ) : (
                 <div data-cy='image-loader-loading' className={loaderClassName}>
-                    <div className='animate-pulse rounded w-full bg-slate-300 dark:bg-zinc-800 h-full flex items-center justify-center text-slate-100 dark:text-zinc-900'>
+                    <div className='animate-pulse rounded-sm w-full bg-slate-300 dark:bg-zinc-800 h-full flex items-center justify-center text-slate-100 dark:text-zinc-900'>
                         <ImageIcon />
                     </div>
                 </div>

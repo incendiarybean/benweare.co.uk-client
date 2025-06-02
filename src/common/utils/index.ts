@@ -5,7 +5,7 @@ import type { NewsArticle } from '@common/types';
  * @param ms - Milliseconds to delay for.
  * @returns {Promise<any>} - A resolved promise when the timer ends.
  */
-export const sleep = (ms: number): Promise<any> =>
+export const sleep = (ms: number): Promise<void> =>
     new Promise((resolve) => setTimeout(resolve, ms));
 
 /**

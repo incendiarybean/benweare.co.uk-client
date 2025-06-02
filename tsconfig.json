@@ -3,7 +3,7 @@
         /* COMPILER */
         "target": "ES2022",
         "useDefineForClassFields": true,
-        "lib": ["dom", "ES2022"],
+        "lib": ["DOM", "DOM.Iterable", "ES2022"],
         "module": "es2022",
         "skipLibCheck": true,
 
@@ -33,9 +33,8 @@
             "@components": ["./src/components"],
             "@icons": ["./src/components/shared/icons"],
             "@common/*": ["./src/common/*"]
-        },
-        "types": ["cypress"]
+        }
     },
-    "include": ["vite.config.ts", "src", "cypress"],
-    "exclude": ["node_modules"]
+    "include": ["vite.config.mts", "src"],
+    "exclude": ["cypress.config.ts", "cypress", "node_modules"]
 }

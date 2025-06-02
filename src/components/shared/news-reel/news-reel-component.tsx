@@ -1,43 +1,64 @@
 import type { CardProps, Loading, NewsArticle } from '@common/types';
 import { ErrorComponent, ImageLoader } from '@components';
 import { IO, prefetchArticleImages, sleep } from '@common/utils';
+import { LeftArrow, OpenLink, RightArrow, RightCornerArrow } from '@icons';
 import { createRef, useEffect, useState } from 'react';
 
-import NewsReelNavigator from './news-reel-navigator';
 import NewsReelSkeleton from './news-reel-skeleton';
-import { RightCornerArrow } from '@icons';
-import { SwipeHandler } from '@common/hooks/swipeHandler';
 
 const NewsReel = ({ endpoint, siteName }: CardProps) => {
     const [articles, setArticles] = useState<NewsArticle[]>([]);
-    const [currentPage, setCurrentPage] = useState<number>(0);
+    const [currentIndex, setCurrentIndex] = useState<number>(0);
     const [loaded, setLoaded] = useState<Loading>(false);
+
+    const navigationElement = createRef<HTMLDivElement>();
 
     /**
      * A function to move to the previous/next article in the articles list.
-     * @param index - The current article index, used to find the previous/next article in the queue.
+     * @param {number} index - The current article index, used to find the previous/next article in the queue.
      * @returns {void} - Updates which article is currently showing.
      */
-    const handleRotation = (index: number) => {
-        if (index === articles.length) {
-            return setCurrentPage(0);
-        }
-        if (index < 0) {
-            return setCurrentPage(articles.length - 1);
-        }
-        setCurrentPage(index);
-    };
+    const handleRotation = async (
+        direction: '-' | '+' = '+'
+    ): Promise<void> => {
+        if (navigationElement.current) {
+            let index = currentIndex;
 
-    /**
-     * The function that handles swipe gestures on the reel.
-     * @param direction - The direction of the swipe gesture.
-     * @returns {void} - Moves the reel forward/back depending on gesture.
-     */
-    const swipeAction = (direction: boolean) => {
-        if (direction) {
-            return handleRotation(currentPage + 1);
+            // Recursively find either next non-visible or previous non-visible element
+            const nextElement = (elements: HTMLCollection) =>
+                new Promise((resolve) =>
+                    new IntersectionObserver((entries, observer) => {
+                        entries.forEach((entry) => {
+                            observer.disconnect();
+                            return resolve(entry.intersectionRatio === 1);
+                        });
+                    }).observe(elements[index])
+                ).then((visible) => {
+                    if (!visible) {
+                        elements[index].scrollIntoView({
+                            block: 'nearest',
+                            inline: 'center',
+                            behavior: 'smooth',
+                        });
+
+                        setCurrentIndex(index);
+                    } else {
+                        index = direction === '+' ? index + 1 : index - 1;
+
+                        if (index < 0) {
+                            index = articles.length - 1;
+                        }
+
+                        if (index === articles.length) {
+                            index = 0;
+                        }
+
+                        nextElement(elements);
+                    }
+                });
+
+            nextElement(navigationElement.current.children);
         }
-        return handleRotation(currentPage - 1);
     };
 
     useEffect(() => {
@@ -66,65 +87,80 @@ const NewsReel = ({ endpoint, siteName }: CardProps) => {
         getNews();
     }, [endpoint, siteName]);
 
-    const navigationElement = createRef<HTMLDivElement>();
-    SwipeHandler(navigationElement, swipeAction);
-
     if (loaded === 'Failed') {
         return <ErrorComponent feedName={siteName} />;
     }
 
     return (
-        <div
-            ref={navigationElement}
-            data-cy={`${siteName}-news`}
-            className='px-1 md:px-6 my-2 w-auto'
-        >
-            <div className='animate-fadeIn flex flex-col w-full items-center justify-center md:p-4 md:border border-slate-300 dark:border-zinc-600/20 rounded shadow-inner'>
-                {loaded === true && articles && (
-                    <div className='relative w-full border lg:border-none border-slate-300 dark:border-zinc-600/20 rounded shadow lg:shadow-none'>
-                        <div
-                            data-cy='article-page-pip'
-                            className='tracking-wider md:hidden m-2 p-1 px-3 text-sm absolute top-0 right-0 rounded-full bg-slate-100 dark:bg-zinc-900 z-20'
+        <div data-cy={`${siteName}-news`} className='relative'>
+            {loaded === true && (
+                <div className='hidden md:flex w-full z-10 absolute justify-between h-full pointer-events-none'>
+                    <div className='-ml-3 h-full flex flex-col justify-center pointer-events-auto'>
+                        <button
+                            type='button'
+                            className='cursor-pointer scale-125 border default-border bg-white/40 dark:bg-zinc-900/10 hover:dark:border-sky-400 backdrop-blur-md rounded-lg h-24 flex items-center active:scale-120 hover:scale-130 transition-all'
+                            onClick={() => handleRotation('-')}
                         >
-                            {currentPage + 1}/{articles.length}
-                        </div>
+                            <LeftArrow />
+                        </button>
+                    </div>
+                    <div className='-mr-3 h-full flex flex-col justify-center pointer-events-auto'>
+                        <button
+                            type='button'
+                            className='cursor-pointer scale-125 border default-border bg-white/40 dark:bg-zinc-900/10 hover:dark:border-sky-400 backdrop-blur-md rounded-lg h-24 flex items-center active:scale-120 hover:scale-130 transition-all'
+                            onClick={() => handleRotation()}
+                        >
+                            <RightArrow />
+                        </button>
+                    </div>
+                </div>
+            )}
+            <div
+                ref={navigationElement}
+                className='animate-fade-in max-w-full overflow-x-scroll default-border p-6 rounded-lg flex gap-4 snap-x relative max-h-130 shadow-inner'
+            >
+                {loaded === true &&
+                    articles &&
+                    articles.map((article) => (
                         <a
-                            href={articles[currentPage].url}
+                            key={`${article.id}`}
+                            href={article.url}
+                            target='__blank'
                             rel='noreferrer'
-                            target='_blank'
-                            className='relative flex w-full rounded-t lg:rounded lg:shadow lg:hover:shadow-md flex-col xl:flex-row bg-slate-100 dark:bg-zinc-900 lg:border border-slate-300 dark:border-zinc-600/30'
+                            data-article-id={`${article.id}`}
+                            className='group article snap-center snap-proximity rounded-lg flex flex-col default-border default-bg shadow min-w-70 md:min-w-80 lg:min-w-90 w-full hover:cursor-pointer hover:scale-99 transition-all overflow-hidden'
                         >
                             <ImageLoader
-                                img={articles[currentPage].imgElement}
-                                alt={`${siteName} Image: ${articles[currentPage].title}`}
-                                className='animate-fadeIn w-full min-w-[50%] xl:w-96 h-60 object-cover shadow rounded-t xl:rounded-tr-none xl:rounded-l'
-                                loaderClassName='flex p-2 w-full min-w-[50%] xl:w-96 h-60 shadow rounded-t xl:rounded-tr-none xl:rounded-l'
+                                img={article.imgElement}
+                                alt={`${siteName} Image`}
+                                className='group-hover:brightness-110 animate-fade-in object-cover w-full h-60 rounded-t-md'
+                                loaderClassName='h-60'
                             />
-                            <div className='w-full p-4 flex flex-col justify-between text-left h-36 md:h-40 xl:h-60 overflow-hidden'>
-                                <div>
-                                    <div className='flex flex-wrap md:w-full items-center justify-between text-xs text-blue-600 dark:text-sky-500'>
-                                        <h2 className='min-w-fit -mx-1 flex items-center font-bold uppercase'>
+
+                            <div className='shadow-inner p-4 flex flex-col justify-between w-full h-50'>
+                                <div className='overflow-ellipsis w-full'>
+                                    <div className='flex flex-wrap md:w-full justify-between text-sm md:text-base text-blue-600 dark:text-sky-500'>
+                                        <h2 className='sitename'>
                                             <RightCornerArrow />
                                             {siteName}
                                         </h2>
-                                        <span>
+                                        <span className='ml-4'>
                                             {new Date(
-                                                articles[currentPage].date
+                                                article.date
                                             ).toLocaleDateString('en-UK')}
                                         </span>
                                     </div>
-                                    <h1 className='text-lg xl:text-xl font-bold leading-normal line-clamp-3 xl:line-clamp-none'>
-                                        {articles[currentPage].title}
+                                    <h1 className='overflow-ellipsis line-clamp-5 md:line-clamp-4 text-sm md:text-base'>
+                                        {article.title}
                                     </h1>
                                 </div>
+
+                                <span className='link group-hover:text-blue-700 dark:group-hover:text-sky-300 mt-4 flex items-center gap-1 text-normal'>
+                                    Read the article <OpenLink />
+                                </span>
                             </div>
-                            <hr className='lg:hidden border-zinc-200 dark:border-zinc-800 w-2/3 self-center' />
                         </a>
-                        <NewsReelNavigator
-                            {...{ handleRotation, currentPage, articles }}
-                        />
-                    </div>
-                )}
+                    ))}
                 {loaded === false && <NewsReelSkeleton />}
             </div>
         </div>

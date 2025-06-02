@@ -7,10 +7,10 @@ const DocumentationPage = () => {
     return (
         <div
             data-cy='documentation-page'
-            className='select-none w-full p-4 px-6 flex flex-col flex-1'
+            className='select-none w-full p-10 flex flex-col flex-1 min-h-screen'
         >
             <iframe
-                className='flex-1 w-full rounded'
+                className='flex-1 w-full rounded-s overscroll-auto'
                 title='API Documentation'
                 src={VITE_APP_DOCS_URL ?? '/api/docs'}
             />

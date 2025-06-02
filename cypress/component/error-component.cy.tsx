@@ -1,6 +1,7 @@
-import '../../../index.css';
+import '../../src/index.css';
 
-import ErrorComponent from './error-component';
+import ErrorComponent from '../../src/components/shared/error/error-component';
+import React from 'react';
 
 describe('<ErrorComponent />', () => {
     it('should render with no provided feed name', () => {

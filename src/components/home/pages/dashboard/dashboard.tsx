@@ -1,7 +1,5 @@
 import { Card, NewsList, NewsReel } from '@components';
 
-import { NavLink } from 'react-router-dom';
-import { RightCornerArrow } from '@icons';
 import { useEffect } from 'react';
 
 const DashboardPage = () => {
@@ -10,37 +8,24 @@ const DashboardPage = () => {
     return (
         <div
             data-cy='dashboard-page'
-            className='select-none flex flex-col py-2'
+            className='w-full overflow-auto md:max-w-7xl p-4 lg:p-10 flex flex-col gap-4 md:gap-10 max-w-full py-8 min-h-screen'
         >
             <Card siteName='NASA' endpoint='/api/news/nasa' />
+            <NewsReel siteName='PCGamer' endpoint='/api/news/pcgamer' />
             <NewsList
                 endpoint='/api/news/the_register'
                 siteName='The Register'
                 limit={30}
             />
-            <NewsReel endpoint='/api/news/pcgamer' siteName='PCGamer' />
             <NewsReel
-                endpoint='/api/news/rock_paper_shotgun'
                 siteName='Rock Paper Shotgun'
+                endpoint='/api/news/rock_paper_shotgun'
             />
             <NewsList
                 endpoint='/api/news/ars_technica'
                 siteName='Ars Technica'
             />
-            <NewsReel endpoint='/api/news/bbc' siteName='BBC' />
-            <div className='px-1 md:px-6 my-2 w-auto'>
-                <div className='animate-fadeIn flex flex-col w-full items-center justify-center p-4 border border-slate-300 dark:border-zinc-600/20 rounded shadow-inner'>
-                    <NavLink
-                        to='/news-feed'
-                        className='flex items-center mt-1 default-link'
-                        aria-label='News Stream Page'
-                    >
-                        <RightCornerArrow />
-
-                        <p>View All News</p>
-                    </NavLink>
-                </div>
-            </div>
+            <NewsReel siteName='BBC News' endpoint='/api/news/bbc' />
         </div>
     );
 };
