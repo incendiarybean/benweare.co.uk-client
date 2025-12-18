@@ -4,7 +4,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { Footer, LeftNavigationBar, NavigationBar } from '@components';
 import { ToastContainer, toast } from 'react-toastify';
 
-import { Outlet } from 'react-router-dom';
+import { Outlet } from 'react-router';
 import { useEffect } from 'react';
 
 const App = () => {

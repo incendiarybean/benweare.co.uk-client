@@ -28,7 +28,6 @@
         "noUnusedLocals": true,
 
         /* EXTRA CONFIGURATION */
-        "baseUrl": "./",
         "paths": {
             "@components": ["./src/components"],
             "@icons": ["./src/components/shared/icons"],

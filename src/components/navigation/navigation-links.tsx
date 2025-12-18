@@ -1,7 +1,7 @@
 import { Dashboard, Info, Packages, Share } from '@icons';
 import { DestinationChild, Destinations } from '@common/types';
 
-import { NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router';
 
 export const GenerateDestinations = () => {
     const external = { target: '__blank', rel: 'noreferrer' };
