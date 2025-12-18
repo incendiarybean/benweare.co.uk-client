@@ -42,8 +42,8 @@ jobs:
             - name: ⚙️ Configure Node.js environment
               uses: actions/setup-node@v4
               with:
-                node-version: '24'
-                registry-url: 'https://registry.npmjs.org'
+                  node-version: "24"
+                  registry-url: "https://registry.npmjs.org"
 
             - name: ⚙️ Inspect NPM & Node Version
               run: |
