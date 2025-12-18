@@ -1,6 +1,6 @@
 {
     "name": "benweare.co.uk-client",
-    "version": "1.6.2-beta",
+    "version": "1.6.2",
     "main": "./build/index.js",
     "scripts": {
         "start": "vite",
