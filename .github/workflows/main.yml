@@ -42,8 +42,8 @@ jobs:
             - name: ⚙️ Configure Node.js environment
               uses: actions/setup-node@v4
               with:
-                  node-version: "20"
-                  registry-url: "https://registry.npmjs.org"
+                node-version: '24'
+                registry-url: 'https://registry.npmjs.org'
 
             - name: ⚙️ Inspect NPM & Node Version
               run: |
@@ -55,9 +55,7 @@ jobs:
 
             - name: 📦 Publish package on NPM
               if: github.ref == 'refs/heads/main'
-              run: npm publish --access public
-              env:
-                  NODE_AUTH_TOKEN: ${{ secrets.NPM_KEY }}
+              run: npm publish
 
     create-pull-request:
         runs-on: ubuntu-latest

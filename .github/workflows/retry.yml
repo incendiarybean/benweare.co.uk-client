@@ -7,6 +7,7 @@ on:
     workflow_dispatch:
         inputs:
             run_id:
+                description: Required Run ID
                 required: true
 jobs:
     rerun:
