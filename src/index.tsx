@@ -6,7 +6,7 @@ import {
     InformationPage,
     NewsFeedPage,
 } from '@components';
-import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import { RouterProvider, createBrowserRouter } from 'react-router';
 
 import App from './App';
 import React from 'react';

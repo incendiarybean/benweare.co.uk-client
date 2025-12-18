@@ -69,8 +69,12 @@ describe('<Card />', () => {
     it('should render a skeleton loader if the request is not yet fulfilled', () => {
         // eslint-disable-next-line @typescript-eslint/no-unused-vars
         cy.intercept('GET', '/api/news/outlet_1', async (req, _) => {
-            new Promise((resolve) => setTimeout(resolve, 2000));
-            req.send({});
+            new Promise((resolve) =>
+                setTimeout(() => {
+                    req.reply({});
+                    return resolve;
+                }, 5000)
+            );
         });
 
         cy.mount(
