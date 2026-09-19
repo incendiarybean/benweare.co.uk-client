@@ -2,7 +2,9 @@ import { VITE_APP_DOCS_URL } from '@common/constants';
 import { useEffect } from 'react';
 
 const DocumentationPage = () => {
-    useEffect(() => window.scroll(0, 0));
+    useEffect(() => {
+        window.scroll(0, 0);
+    });
 
     return (
         <div
