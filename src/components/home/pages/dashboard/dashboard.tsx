@@ -3,7 +3,9 @@ import { Card, NewsList, NewsReel } from '@components';
 import { useEffect } from 'react';
 
 const DashboardPage = () => {
-    useEffect(() => { window.scroll(0, 0) });
+    useEffect(() => {
+        window.scroll(0, 0);
+    });
 
     return (
         <div
